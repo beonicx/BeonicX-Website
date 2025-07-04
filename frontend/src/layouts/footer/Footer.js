@@ -65,7 +65,7 @@ const Footer = ({ darkMode }) => {
             <div>
               <div className="mb-6 w-full">
                 <Image
-                  src={darkMode ? "/images/darklogo.png" : "/images/lightlogo.png"}
+                  src={darkMode ? "/images/darklogo.png" : "/images/lightlogo2.png"}
                   alt="BeonicX Logo"
                   width={150}
                   height={75}
