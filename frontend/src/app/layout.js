@@ -8,8 +8,8 @@ const raleway = Raleway({
 });
 
 export const metadata = {
-  title: "My Next.js App",
-  description: "Next.js 13+ optimized fonts example",
+  title: "BeonicX App",
+  description: "BeonicX fonts example",
 };
 
 export default function RootLayout({ children }) {
