@@ -66,7 +66,7 @@ const Footer = ({ darkMode }) => {
               <div className="mb-6 w-full">
                 <Image
                   src={darkMode ? "/images/darklogo.png" : "/images/lightlogo.png"}
-                  alt="Visionity Logo"
+                  alt="BeonicX Logo"
                   width={150}
                   height={75}
                   className="max-w-full h-auto"
@@ -145,11 +145,11 @@ const Footer = ({ darkMode }) => {
                 </p>
                 <p className="flex items-center">
                   <i className={`fas fa-phone mr-3 ${darkMode ? 'text-blue-500' : 'text-blue-800'}`}></i>
-                  <span>+1 (555) 123-4567</span>
+                  <span>+91-9129842706</span>
                 </p>
                 <p className="flex items-center">
                   <i className={`fas fa-envelope mr-3 ${darkMode ? 'text-blue-500' : 'text-blue-800'}`}></i>
-                  <span>info@visionity.com</span>
+                  <span>info@beonicx.com</span>
                 </p>
               </div>
             </div>
@@ -169,7 +169,7 @@ const Footer = ({ darkMode }) => {
 
           {/* Bottom Bar */}
           <div className={`mt-6 border-t py-6 text-sm flex flex-col md:flex-row justify-between items-center ${darkMode ? 'border-gray-700' : 'border-gray-300'}`}>
-            <p>© {new Date().getFullYear()} All rights reserved - VISIONITY</p>
+            <p>© {new Date().getFullYear()} All rights reserved - BeonicX</p>
             <div className="flex flex-wrap gap-4 mt-4 md:mt-0 justify-center">
               <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
                 Privacy Policy

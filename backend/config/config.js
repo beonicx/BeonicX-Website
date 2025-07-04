@@ -27,8 +27,8 @@ module.exports = {
     port: process.env.EMAIL_PORT,
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
-    from: process.env.EMAIL_FROM || 'noreply@visionity.com',
-    adminEmail: process.env.ADMIN_EMAIL || 'admin@visionity.com'
+    from: process.env.EMAIL_FROM || 'noreply@beonicx.com',
+    adminEmail: process.env.ADMIN_EMAIL || 'admin@beonicx.com'
   },
   
   // Upload configuration

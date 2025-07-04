@@ -19,7 +19,7 @@ const sendEmail = async (options) => {
   
   // Define email options
   const mailOptions = {
-    from: `Visionity <${process.env.EMAIL_FROM || 'noreply@visionity.com'}>`,
+    from: `BeonicX<${process.env.EMAIL_FROM || 'noreply@beonicx.com'}>`,
     to: options.email,
     subject: options.subject,
     html: options.html,
@@ -44,7 +44,7 @@ exports.sendContactNotification = async (data) => {
   `;
   
   await sendEmail({
-    email: process.env.ADMIN_EMAIL || 'admin@visionity.com',
+    email: process.env.ADMIN_EMAIL || 'admin@beonicx.com',
     subject: `New Contact Form: ${data.subject}`,
     html,
     text: `New Contact Form Submission\nName: ${data.name}\nEmail: ${data.email}${data.phone ? `\nPhone: ${data.phone}` : ''}\nSubject: ${data.subject}\n\nMessage:\n${data.message}`
@@ -54,20 +54,20 @@ exports.sendContactNotification = async (data) => {
 // Send confirmation email to contact form submitter
 exports.sendContactConfirmation = async (data) => {
   const html = `
-    <h2>Thank you for contacting Visionity!</h2>
+    <h2>Thank you for contacting BeonicX!</h2>
     <p>Dear ${data.name},</p>
     <p>We have received your message regarding "${data.subject}".</p>
     <p>Our team will review your inquiry and get back to you as soon as possible.</p>
     <p>Thank you for your interest in our services.</p>
     <br>
     <p>Best regards,</p>
-    <p>The Visionity Team</p>
+    <p>The BeonicX Team</p>
   `;
   
   await sendEmail({
     email: data.email,
-    subject: 'Thank you for contacting Visionity',
+    subject: 'Thank you for contacting BeonicX',
     html,
-    text: `Thank you for contacting T`
+    text: `Thank you for contacting BeonicX`
   });
   };

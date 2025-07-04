@@ -25,14 +25,14 @@ className="absolute inset-0 w-full h-full object-contain opacity-100"
               darkMode ? "text-white" : "text-gray-900"
             }`}
           >
-            About Visionity
+            About Beonicx
           </h2>
           <p
             className={`mb-6 ${
               darkMode ? "text-gray-300" : "text-gray-700"
             }`}
           >
-            Founded in 2023, Visionity is at the forefront of AI
+            Founded in 2023, BeonicX is at the forefront of AI
             innovation, dedicated to creating solutions that empower
             businesses to achieve their goals through intelligent
             automation and data-driven insights.

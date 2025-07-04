@@ -171,7 +171,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 {/* Logo with animated gradient */}
                 <div className="text-2xl md:text-3xl font-bold mb-4 md:mb-0 relative overflow-hidden group cursor-pointer" onClick={() => router.push('/')}>
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
-                    VisionityAI
+                    BeonicX
                   </span>
                   <div className={`h-1 w-full mt-1 ${darkMode ? 'bg-purple-500' : 'bg-purple-600'} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}></div>
                 </div>
@@ -259,25 +259,25 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                   <div className="h-10 w-10 relative mr-3 flex-shrink-0">
                     <Image
                       src="https://i.postimg.cc/GpFph6Qt/Whats-App-Image-2025-04-09-at-00-22-42-removebg-preview.png" 
-                      alt="Visionity Dark Logo"
+                      alt="BeonicX Dark Logo"
                       layout="fill"
                       objectFit="contain"
                       className="transition-all duration-300 hover:scale-105"
                     />
                   </div>
                 ) : (
-                  <div className="h-10 w-10 relative mr-3 flex-shrink-0">
+                  <div className="h-14 w-14 relative  flex-shrink-0">
                     <Image 
                       src="https://i.postimg.cc/Pxd5LK34/Whats-App-Image-2025-04-09-at-00-27-19-removebg-preview.png" 
-                      alt="Visionity Light Logo"
+                      alt="BeonicX Light Logo"
                       layout="fill"
                       objectFit="contain"
                       className="transition-all duration-300 hover:scale-105"
                     />
                   </div>
                 )}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 font-extrabold">
-                  Visionity
+                <span className={`bg-clip-text text-transparent ${darkMode? 'bg-white' : 'bg-gray-700'} font-extrabold`}>
+                  BeonicX
                 </span>
               </div>
             </motion.div>

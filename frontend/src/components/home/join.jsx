@@ -9,14 +9,14 @@ const FreelamceBanner = ({ darkMode }) => {
         
         <div className="max-w-screen-xl w-full text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-8 leading-snug">
-            Visionity services at your <span className="text-[#FF6B35]">fingertips</span>
+            BeonicX services at your <span className="text-[#FF6B35]">fingertips</span>
           </h1>
 
           <button className={`px-6 py-3 rounded-md font-medium text-sm sm:text-base transition-colors
             ${darkMode 
               ? 'bg-[#FF6B35] text-white hover:bg-[#ff844f]' 
               : 'bg-white text-gray-800 hover:bg-gray-200'}`}>
-            Join Visionity
+            Join BeonicX
           </button>
         </div>
       </div>

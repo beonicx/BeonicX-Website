@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 const EnhancedWhatsAppButton = ({ 
-  phoneNumber = '9783057734', 
+  phoneNumber = '9129842706', 
   message = 'Hello, I have a question about your services', 
   showTooltip = true 
 }) => {

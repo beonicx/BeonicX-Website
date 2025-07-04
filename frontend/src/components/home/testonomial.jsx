@@ -29,7 +29,7 @@ function Testonomial({ darkMode }) {
           {[
             {
               quote:
-                "Visionity' computer vision solution has revolutionized our quality control process, reducing defects by 78% and increasing productivity.",
+                "BeonicX' computer vision solution has revolutionized our quality control process, reducing defects by 78% and increasing productivity.",
               name: 'Rahul Sharma',
               position: 'CTO, TechInnovate',
             },
@@ -41,7 +41,7 @@ function Testonomial({ darkMode }) {
             },
             {
               quote:
-                "The predictive analytics platform provided by Visionity has transformed how we forecast demand, resulting in 42% less inventory waste.",
+                "The predictive analytics platform provided by BeonicX has transformed how we forecast demand, resulting in 42% less inventory waste.",
               name: 'Amit Singh',
               position: 'upply Chain Director, GlobalFoods',
             },

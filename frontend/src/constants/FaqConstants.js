@@ -11,19 +11,19 @@ const FAQ = ({ darkMode }) => {
 
   const faqItems = [
     {
-      question: "What services does Visionity offer?",
-      answer: "Visionity specializes in custom software development, web and mobile app development, cloud solutions, AI & machine learning, and IT consulting."
+      question: "What services does BeonicX offer?",
+      answer: "BeonicX specializes in custom software development, web and mobile app development, cloud solutions, AI & machine learning, and IT consulting."
     },
     {
-      question: "How does Visionity ensure project success?",
+      question: "How does BeonicX ensure project success?",
       answer: "We follow agile development methodologies, maintain transparent communication, and prioritize client requirements to deliver high-quality, scalable solutions."
     },
     {
-      question: "Why should I choose Visionity over other software development companies?",
+      question: "Why should I choose BeonicX over other software development companies?",
       answer: "We focus on long-term partnerships, providing innovative and tailored solutions that align with your business goals and drive growth."
     },
     {
-      question: "What industries does Visionity serve?",
+      question: "What industries does BeonicX serve?",
       answer: "We work with diverse industries, including healthcare, fintech, e-commerce, real estate, and more, offering industry-specific software solutions."
     },
     {
@@ -31,7 +31,7 @@ const FAQ = ({ darkMode }) => {
       answer: "Yes, we provide ongoing maintenance and support services to ensure your software remains updated, secure, and efficient."
     },
     {
-      question: "Can I hire dedicated developers from Visionity?",
+      question: "Can I hire dedicated developers from BeonicX?",
       answer: "Absolutely! We offer dedicated developer teams that work exclusively on your project, ensuring maximum productivity and efficiency."
     },
     {
@@ -39,7 +39,7 @@ const FAQ = ({ darkMode }) => {
       answer: "Timelines vary based on complexity, features, and client requirements. However, we ensure timely delivery by following structured development processes."
     },
     {
-      question: "Is Visionity’s software development process secure?",
+      question: "Is BeonicX’s software development process secure?",
       answer: "Security is our priority. We implement best practices, including encryption, secure coding, and compliance with industry standards."
     }
   ];
