@@ -1,0 +1,97 @@
+.faq-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .faq-container h1 {
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .faq-list {
+    margin-bottom: 40px;
+  }
+  
+  .faq-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+    cursor: pointer;
+  }
+  
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .faq-question h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+  }
+  
+  .faq-question h3 strong {
+    font-weight: bold;
+  }
+  
+  .faq-toggle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .faq-answer {
+    padding: 15px 0 5px 0;
+    color: #555;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  
+  .testimonials-section {
+    margin-top: 50px;
+    text-align: left;
+    
+  }
+  
+  .testimonials-section h2 {
+    color: #ff810f;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  
+  .testimonials-section h3 {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 25px;
+    font-weight: bold;
+  }
+  
+  .company-description {
+    padding: 0;
+    line-height: 1.6;
+    color: #555;
+    font-size: 16px;
+  }
+  
+  /* Style for alternating question formatting */
+  .faq-item:nth-child(odd) h3 {
+    font-weight: bold;
+  }
+  
+  .faq-item:nth-child(even) h3 {
+    font-weight: bold;
+  }
+  
+  /* Remove border from last item */
+  .faq-item:last-child {
+    border-bottom: none;
+  }

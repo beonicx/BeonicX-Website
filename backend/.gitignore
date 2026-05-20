@@ -1,0 +1,18 @@
+# Node modules (always ignore)
+node_modules/
+
+# Environment variables
+.env
+
+# Uploads directory (ignore everything except .gitkeep)
+uploads/*
+!uploads/.gitkeep
+
+# Log files
+npm-debug.log
+
+# macOS system file
+.DS_Store
+
+# Code coverage reports
+coverage/
