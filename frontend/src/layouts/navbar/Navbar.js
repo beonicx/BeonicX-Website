@@ -258,21 +258,23 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 {darkMode ? (
                   <div className="h-10 w-10 relative mr-3 flex-shrink-0">
                     <Image
-                      src="https://i.postimg.cc/GpFph6Qt/Whats-App-Image-2025-04-09-at-00-22-42-removebg-preview.png" 
-                      alt="BeonicX Dark Logo"
+                      src="https://i.postimg.cc/GpFph6Qt/Whats-App-Image-2025-04-09-at-00-22-42-removebg-preview.png"
+                      alt="BeonicX - AI Agents & Intelligent Automation Solutions Logo"
                       layout="fill"
                       objectFit="contain"
                       className="transition-all duration-300 hover:scale-105"
+                      priority
                     />
                   </div>
                 ) : (
                   <div className="h-14 w-14 relative  flex-shrink-0">
-                    <Image 
-                      src="https://i.postimg.cc/Pxd5LK34/Whats-App-Image-2025-04-09-at-00-27-19-removebg-preview.png" 
-                      alt="BeonicX Light Logo"
+                    <Image
+                      src="https://i.postimg.cc/Pxd5LK34/Whats-App-Image-2025-04-09-at-00-27-19-removebg-preview.png"
+                      alt="BeonicX - AI Agents & Intelligent Automation Solutions Logo"
                       layout="fill"
                       objectFit="contain"
                       className="transition-all duration-300 hover:scale-105"
+                      priority
                     />
                   </div>
                 )}

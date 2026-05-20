@@ -1,0 +1,13 @@
+# BeonicX Robots.txt
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+
+# Sitemaps
+Sitemap: https://beonicx.com/sitemap.xml
