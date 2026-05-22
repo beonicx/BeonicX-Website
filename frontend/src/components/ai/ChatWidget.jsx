@@ -42,7 +42,7 @@ export default function ChatWidget({ darkMode = false }) {
         content: msg.content
       }));
 
-      const response = await fetch('http://localhost:5001/api/ai/chat', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/ai/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

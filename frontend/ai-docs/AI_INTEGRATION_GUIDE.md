@@ -49,7 +49,7 @@ npm install
 npm run dev
 ```
 
-The backend should now be running on `http://localhost:5001`
+The backend should now be running on `${process.env.NEXT_PUBLIC_BASE_URL}`
 
 ### 4. Start the Frontend
 
