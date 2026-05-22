@@ -7,16 +7,13 @@ module.exports = {
   
   // MongoDB configuration
   mongo: {
-    uri: process.env.MONGO_URI ,
-    options: {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    }
+    uri: process.env.MONGODB_URI,
+    options: {}
   },
   
   // JWT configuration
   jwt: {
-    secret: process.env.JWT_SECRET ,
+    secret: process.env.JWT_SECRET,
     expiresIn: process.env.JWT_EXPIRES_IN || '90d',
     cookieExpiresIn: process.env.JWT_COOKIE_EXPIRES_IN || 90
   },

@@ -36,13 +36,22 @@ export default function ChatWidget({ darkMode = false }) {
     setIsLoading(true);
 
     try {
+      // ✅ FIX: Check if BASE_URL is defined
+      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
+      const apiUrl = `${baseUrl}/api/ai/chat`;
+
+      console.log('[ChatWidget] Sending request to:', apiUrl);
+      console.log('[ChatWidget] NEXT_PUBLIC_BASE_URL:', process.env.NEXT_PUBLIC_BASE_URL);
+
       // Prepare messages for API (exclude first welcome message)
       const apiMessages = newMessages.slice(1).map(msg => ({
         role: msg.role,
         content: msg.content
       }));
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/ai/chat`, {
+      console.log('[ChatWidget] API messages count:', apiMessages.length);
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,8 +62,37 @@ export default function ChatWidget({ darkMode = false }) {
         }),
       });
 
+      console.log('[ChatWidget] Response status:', response.status, response.statusText);
+
+      // ✅ FIX: Read the actual error body before throwing
       if (!response.ok) {
-        throw new Error('Failed to get response from AI');
+        let errorDetails = '';
+        try {
+          const contentType = response.headers.get('content-type');
+          if (contentType && contentType.includes('application/json')) {
+            const errorJson = await response.json();
+            errorDetails = JSON.stringify(errorJson);
+            console.error('[ChatWidget] API error (JSON):', response.status, errorJson);
+          } else {
+            errorDetails = await response.text();
+            console.error('[ChatWidget] API error (text):', response.status, errorDetails);
+          }
+        } catch (parseErr) {
+          console.error('[ChatWidget] Could not parse error response:', parseErr);
+        }
+
+        // Show specific error messages based on status code
+        if (response.status === 401) {
+          throw new Error('API key is missing or invalid (401). Check your GEMINI_API_KEY in .env.local');
+        } else if (response.status === 403) {
+          throw new Error('Access forbidden (403). Gemini API may not be enabled for this key.');
+        } else if (response.status === 429) {
+          throw new Error('Rate limit exceeded (429). Too many requests to Gemini API.');
+        } else if (response.status === 500) {
+          throw new Error(`Server error (500): ${errorDetails || 'Check your API route handler.'}`);
+        } else {
+          throw new Error(`API request failed (${response.status}): ${errorDetails || response.statusText}`);
+        }
       }
 
       // Handle streaming response
@@ -75,7 +113,12 @@ export default function ChatWidget({ darkMode = false }) {
         for (const line of lines) {
           if (line.startsWith('data: ')) {
             try {
-              const data = JSON.parse(line.slice(6));
+              const rawData = line.slice(6).trim();
+
+              // ✅ FIX: Skip empty data lines
+              if (!rawData || rawData === '[DONE]') continue;
+
+              const data = JSON.parse(rawData);
 
               if (data.type === 'text') {
                 assistantMessage += data.content;
@@ -89,21 +132,36 @@ export default function ChatWidget({ darkMode = false }) {
                   return updated;
                 });
               } else if (data.type === 'done') {
+                console.log('[ChatWidget] Stream complete. Total chars:', assistantMessage.length);
                 break;
+              } else if (data.type === 'error') {
+                console.error('[ChatWidget] Stream error from server:', data.content);
+                throw new Error(`Stream error: ${data.content}`);
               }
             } catch (e) {
-              console.error('Error parsing SSE data:', e);
+              // Only log if it's a real parse error, not empty lines
+              if (e.message !== 'Unexpected end of JSON input') {
+                console.error('[ChatWidget] Error parsing SSE data:', e, '| Raw line:', line);
+              }
             }
           }
         }
       }
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('[ChatWidget] Full error details:', {
+        message: error.message,
+        stack: error.stack,
+        name: error.name
+      });
+
+      // ✅ Show the specific error message in chat for easier debugging
       setMessages(prev => [
         ...prev,
         {
           role: 'assistant',
-          content: "I'm sorry, I'm having trouble connecting right now. Please try again in a moment or contact our team directly."
+          content: process.env.NODE_ENV === 'development'
+            ? `⚠️ Debug Error: ${error.message}\n\nCheck browser console for full details.`
+            : "I'm sorry, I'm having trouble connecting right now. Please try again in a moment or contact our team directly."
         }
       ]);
     } finally {

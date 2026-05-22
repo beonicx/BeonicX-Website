@@ -176,7 +176,7 @@ const model = genAI.getGenerativeModel({
 
 ```javascript
 const model = genAI.getGenerativeModel({
-  model: 'gemini-1.5-flash',  // 2x faster, 70% cheaper
+  model: 'gemini-2.0-flash',  // 2x faster, 70% cheaper
   systemInstruction: SYSTEM_PROMPT
 });
 ```
