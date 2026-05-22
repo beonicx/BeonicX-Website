@@ -165,7 +165,7 @@ export default function ChatWidget({ darkMode = false }) {
               </div>
               <div>
                 <h3 className="font-bold">BeonicX AI Assistant</h3>
-                <p className="text-xs opacity-90">Online • Typically replies instantly</p>
+                <p className="text-xs opacity-90">Online</p>
               </div>
             </div>
             <button

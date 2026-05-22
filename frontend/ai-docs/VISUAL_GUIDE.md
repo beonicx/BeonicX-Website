@@ -26,7 +26,7 @@
 ```
 ┌─────────────────────────────────────────────────────┐
 │ 🤖 BeonicX AI Assistant                        ✕   │ ← Header (gradient)
-│ Online • Typically replies instantly                 │
+│ Online •                                           |
 ├─────────────────────────────────────────────────────┤
 │                                                      │
 │  🤖  Hi! I'm BeonicX's AI assistant.               │ ← Welcome message

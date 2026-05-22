@@ -174,11 +174,11 @@ export default function Toppage({ darkMode = false }) {
           {/* Stats counter section */}
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className={`p-4 rounded-lg text-center ${darkMode ? 'bg-gray-800' : 'bg-white/80'} shadow-md`}>
-              <div className="text-3xl font-bold mb-1">100+</div>
+              <div className="text-3xl font-bold mb-1">50+</div>
               <div className="text-sm">AI Agents Deployed</div>
             </div>
             <div className={`p-4 rounded-lg text-center ${darkMode ? 'bg-gray-800' : 'bg-white/80'} shadow-md`}>
-              <div className="text-3xl font-bold mb-1">50+</div>
+              <div className="text-3xl font-bold mb-1">30+</div>
               <div className="text-sm">Enterprise Clients</div>
             </div>
             <div className={`p-4 rounded-lg text-center ${darkMode ? 'bg-gray-800' : 'bg-white/80'} shadow-md`}>
