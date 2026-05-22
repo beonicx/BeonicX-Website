@@ -45,22 +45,45 @@ export default function Toppage({ darkMode = false }) {
   
   return (
     <div className={`min-h-screen bg-cover bg-center bg-no-repeat relative overflow-hidden ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-      {/* High-quality background image */}
-      <div 
-        className="absolute inset-0 w-full h-full z-0 transition-all duration-700"
-        style={{
-          backgroundImage: "url('/api/placeholder/1920/1080')",
-          filter: darkMode ? 'brightness(0.4) saturate(1.2)' : 'brightness(0.7) saturate(1.1)'
-        }}
-      />
-      
+      {/* Modern background */}
+      <div className="absolute inset-0 w-full h-full z-0 transition-all duration-700">
+        {darkMode ? (
+          <div
+            className="absolute inset-0 w-full h-full"
+            style={{
+              backgroundImage: "url('/api/placeholder/1920/1080')",
+              filter: 'brightness(0.4) saturate(1.2)'
+            }}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+            {/* Gradient orbs */}
+            <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-200/40 to-purple-200/40 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-br from-purple-200/40 to-pink-200/40 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-gradient-to-br from-indigo-200/30 to-blue-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+
+            {/* Grid pattern */}
+            <div className="absolute inset-0 opacity-[0.03]" style={{
+              backgroundImage: 'linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)',
+              backgroundSize: '60px 60px'
+            }}></div>
+
+            {/* Dots pattern */}
+            <div className="absolute inset-0 opacity-[0.04]" style={{
+              backgroundImage: 'radial-gradient(circle, rgba(99, 102, 241, 0.4) 1px, transparent 1px)',
+              backgroundSize: '40px 40px'
+            }}></div>
+          </div>
+        )}
+      </div>
+
       {/* Animated particles */}
       {particles.map((particle, index) => (
-        <div 
+        <div
           key={index}
           className={`absolute rounded-full ${darkMode ? 'bg-blue-400' : 'bg-blue-300'} opacity-20 z-1`}
           style={{
-            left: `${particle.x}%`, 
+            left: `${particle.x}%`,
             top: `${particle.y}%`,
             width: `${particle.size}px`,
             height: `${particle.size}px`,
@@ -159,26 +182,26 @@ export default function Toppage({ darkMode = false }) {
               <div className="text-sm">Enterprise Clients</div>
             </div>
             <div className={`p-4 rounded-lg text-center ${darkMode ? 'bg-gray-800' : 'bg-white/80'} shadow-md`}>
-              <div className="text-3xl font-bold mb-1">10M+</div>
+              <div className="text-3xl font-bold mb-1">5M+</div>
               <div className="text-sm">Tasks Automated</div>
             </div>
           </div>
           
           {/* Partners section with improved logos */}
           <div className="mt-12 md:mt-16">
-            <p className="font-bold text-lg mb-4">Official Partner Of :</p>
+            <p className="font-bold text-lg mb-4">Trusted by Global Brands :</p>
             <div className="flex flex-wrap gap-5 mt-3 justify-center sm:justify-start">
               <div className={`h-12 w-28 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} flex items-center justify-center shadow-md transition-transform hover:scale-105`}>
                 <span className={`${darkMode ? 'text-purple-400' : 'text-purple-600'} font-bold text-lg`}>Google</span>
               </div>
               <div className={`h-12 w-28 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} flex items-center justify-center shadow-md transition-transform hover:scale-105`}>
-                <span className={`${darkMode ? 'text-red-400' : 'text-red-600'} font-bold text-lg`}>Oracle</span>
+                <span className={`${darkMode ? 'text-red-400' : 'text-red-600'} font-bold text-lg`}>Hostinger</span>
               </div>
               <div className={`h-12 w-28 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} flex items-center justify-center shadow-md transition-transform hover:scale-105`}>
                 <span className={`${darkMode ? 'text-orange-400' : 'text-orange-600'} font-bold text-lg`}>AWS</span>
               </div>
               <div className={`h-12 w-28 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white'} flex items-center justify-center shadow-md transition-transform hover:scale-105`}>
-                <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} font-bold text-lg`}>Salesforce</span>
+                <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} font-bold text-lg`}>Shopify</span>
               </div>
             </div>
           </div>

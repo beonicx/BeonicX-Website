@@ -66,7 +66,7 @@ const Footer = ({ darkMode }) => {
               <div className="mb-6 w-full">
                 <Image
                   src={darkMode ? "/images/darklogo.png" : "/images/lightlogo2.png"}
-                  alt="BeonicX Logo"
+                  alt="BeonicX - Leading AI & SaaS Platform for Intelligent Automation"
                   width={150}
                   height={75}
                   className="max-w-full h-auto"
@@ -149,7 +149,7 @@ const Footer = ({ darkMode }) => {
                 </p>
                 <p className="flex items-center">
                   <i className={`fas fa-envelope mr-3 ${darkMode ? 'text-blue-500' : 'text-blue-800'}`}></i>
-                  <span>info@beonicx.com</span>
+                  <span>contact@beonicx.com</span>
                 </p>
               </div>
             </div>

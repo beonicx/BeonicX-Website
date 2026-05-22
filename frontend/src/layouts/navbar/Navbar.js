@@ -176,30 +176,6 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                   <div className={`h-1 w-full mt-1 ${darkMode ? 'bg-purple-500' : 'bg-purple-600'} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}></div>
                 </div>
                 
-                {/* Social media icons */}
-                <div className="hidden md:flex space-x-4 mb-4 md:mb-0">
-                  <motion.div 
-                    className={`w-8 h-8 flex items-center justify-center rounded-full ${darkMode ? 'bg-gray-800 hover:bg-purple-700' : 'bg-gray-200 hover:bg-purple-200'} cursor-pointer transition-colors`}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <span className="text-lg">📱</span>
-                  </motion.div>
-                  <motion.div 
-                    className={`w-8 h-8 flex items-center justify-center rounded-full ${darkMode ? 'bg-gray-800 hover:bg-purple-700' : 'bg-gray-200 hover:bg-purple-200'} cursor-pointer transition-colors`}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <span className="text-lg">📧</span>
-                  </motion.div>
-                  <motion.div 
-                    className={`w-8 h-8 flex items-center justify-center rounded-full ${darkMode ? 'bg-gray-800 hover:bg-purple-700' : 'bg-gray-200 hover:bg-purple-200'} cursor-pointer transition-colors`}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <span className="text-lg">💬</span>
-                  </motion.div>
-                </div>
                 
                 {/* Call to action buttons with improved styling */}
                 <div className="flex flex-wrap justify-center gap-2">

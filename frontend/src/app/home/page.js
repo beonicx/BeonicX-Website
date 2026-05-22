@@ -15,6 +15,7 @@ import IndustrySlider from "../../components/home/industrySlider";
 import Header from "../../components/header/Header";
 import Technologiessection from "../../components/service/technologiessection";
 import Toppage from "../../components/home/top";
+import ChatWidget from "../../components/ai/ChatWidget";
 
 // Create a context to share dark mode state across components
 export const ThemeContext = createContext({
@@ -79,6 +80,7 @@ export default function Home() {
               <FreelamceBanner darkMode={darkMode} />
             </div>
           </div>
+          <ChatWidget darkMode={darkMode} />
           <Footer darkMode={darkMode} />
         </div>
       </main>

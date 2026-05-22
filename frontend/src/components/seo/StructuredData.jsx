@@ -15,7 +15,7 @@ export default function StructuredData() {
       "@type": "ContactPoint",
       "telephone": "+91-9129842706",
       "contactType": "Customer Service",
-      "email": "info@beonicx.com",
+      "email": "contact@beonicx.com",
       "areaServed": "Worldwide",
       "availableLanguage": ["English"]
     }

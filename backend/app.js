@@ -12,6 +12,7 @@ const contactRoutes = require('./routes/contactRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
 const projectRoutes = require('./routes/projectRoutes');
+const aiRoutes = require('./routes/ai');
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.use('/api/contact', contactRoutes);
 app.use('/api/blog', blogRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/projects', projectRoutes);
+app.use('/api/ai', aiRoutes);
 
 // 404 route
 app.all('*', (req, res, next) => {

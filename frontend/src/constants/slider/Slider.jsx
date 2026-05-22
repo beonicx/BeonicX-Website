@@ -117,7 +117,7 @@ export default function Slider({ darkMode }) {
     {
       title: "E-Commerce Solutions",
       description: "End-to-end e-commerce platforms with secure payment gateways and user-friendly UI.",
-      image: "https://images.pexels.com/photos/5436053/pexels-photo-5436053.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
+      image: "https://images.pexels.com/photos/4050388/pexels-photo-4050388.jpeg"
     },
     {
       title: "SEO & Digital Marketing",

@@ -11,9 +11,9 @@ function Aboutus() {
       <div className="flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0">
         <div className="relative h-60 md:h-96 w-full rounded-lg bg-gradient-to-br  flex items-center justify-center overflow-hidden">
-<img 
-src={darkMode ? "/images/darklogo.png" : "/images/lightlogo.png"} 
-alt="Background" 
+<img
+src={darkMode ? "/images/darklogo.png" : "/images/lightlogo1.png"}
+alt="BeonicX AI Agents Platform - Intelligent Automation Solutions Logo"
 className="absolute inset-0 w-full h-full object-contain opacity-100"
 />
 {/* <p className="relative text-white text-2xl font-semibold">Your Text Here</p> */}
