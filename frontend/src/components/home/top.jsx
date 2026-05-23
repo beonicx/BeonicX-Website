@@ -112,7 +112,7 @@ export default function Toppage({ darkMode = false }) {
   
   return (
     <div className={`min-h-screen bg-cover bg-center bg-no-repeat relative overflow-hidden ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-      {/* Modern background */}
+      {/* Modern background - sits below navbar */}
       <div className="absolute inset-0 w-full h-full z-0 transition-all duration-700">
         {darkMode ? (
           <div
@@ -180,13 +180,10 @@ export default function Toppage({ darkMode = false }) {
       {/* Content overlay with enhanced glassmorphism effect */}
       <div className={`relative z-10 min-h-screen
         ${darkMode ? 'bg-gradient-to-br from-black/60 via-blue-900/30 to-purple-900/40' : 'bg-gradient-to-br from-white/70 via-blue-50/50 to-purple-50/60'}
-        backdrop-blur-[2px] px-4 sm:px-6 md:px-12 lg:px-20 py-8 md:py-12`}>
-        
-        {/* Header with navigation */}
-      
-        
+        backdrop-blur-[2px] px-4 sm:px-6 md:px-12 lg:px-20 pt-28 md:pt-36 pb-12 md:pb-16`}>
+
         {/* Main content with enhanced typography */}
-        <main className="mt-14 md:mt-22 max-w-4xl ">
+        <main className="max-w-4xl">
           {/* Animated headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
             <span className="block mb-2">Empowering Businesses with</span>
