@@ -152,7 +152,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
   return (
     <>
       {/* Header Section */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {showHeader && (
           <motion.header 
             className={`
@@ -168,7 +168,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
           >
             <div className="max-w-7xl mx-auto">
               <div className="flex flex-col md:flex-row justify-between items-center">
-                {/* Logo with animated gradient */}
+               
                 <div className="text-2xl md:text-3xl font-bold mb-4 md:mb-0 relative overflow-hidden group cursor-pointer" onClick={() => router.push('/')}>
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
                     BeonicX
@@ -177,7 +177,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 </div>
                 
                 
-                {/* Call to action buttons with improved styling */}
+               
                 <div className="flex flex-wrap justify-center gap-2">
                   <motion.button
                     className={`relative overflow-hidden ${darkMode ? 'bg-purple-700 hover:bg-blue-600' : 'bg-blue-600 hover:bg-blue-600'} px-4 py-2 rounded-full text-white font-medium transition-all duration-300 text-sm md:text-base`}
@@ -208,18 +208,18 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
             </div>
           </motion.header>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
       {/* Main Navbar */}
       <nav className={`
         fixed w-full z-40 transition-all duration-500
         ${scrolled ? (darkMode ? 'bg-gray-900/90 backdrop-blur-md shadow-lg shadow-blue-500/10' : 'bg-white/90 backdrop-blur-md shadow-lg shadow-blue-500/10') : (darkMode ? 'bg-gray-900' : 'bg-white')}
         ${darkMode ? 'text-white' : 'text-black'}
-        ${showHeader ? 'top-16' : 'top-0'}
+        ${showHeader ? 'top-0' : 'top-0'}
       `}>
         <div className="max-w-7xl mx-auto">
           {/* Main navbar */}
-          <div className="flex items-center justify-between py-3 px-4 md:px-6">
+          <div className="flex items-center justify-between py-4 px-4 md:px-6">
             {/* Logo */}
             <motion.div 
               className="flex items-center"
@@ -232,7 +232,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 onClick={() => router.push('/')}
               >
                 {darkMode ? (
-                  <div className="h-10 w-10 relative mr-3 flex-shrink-0">
+                  <div className="h-16 w-16 relative mr-3 flex-shrink-0">
                     <Image
                       src="https://i.postimg.cc/GpFph6Qt/Whats-App-Image-2025-04-09-at-00-22-42-removebg-preview.png"
                       alt="BeonicX - AI Agents & Intelligent Automation Solutions Logo"
@@ -243,7 +243,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                     />
                   </div>
                 ) : (
-                  <div className="h-14 w-14 relative  flex-shrink-0">
+                  <div className="h-16 w-16 relative flex-shrink-0">
                     <Image
                       src="https://i.postimg.cc/Pxd5LK34/Whats-App-Image-2025-04-09-at-00-27-19-removebg-preview.png"
                       alt="BeonicX - AI Agents & Intelligent Automation Solutions Logo"

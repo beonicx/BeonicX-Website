@@ -16,15 +16,24 @@ const contactSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
+  skype: {
+    type: String,
+    trim: true
+  },
   subject: {
     type: String,
-    required: [true, 'Subject is required'],
-    trim: true
+    trim: true,
+    default: 'General Inquiry'
   },
   message: {
     type: String,
     required: [true, 'Message is required'],
     trim: true
+  },
+  formType: {
+    type: String,
+    enum: ['contact', 'query'],
+    default: 'contact'
   },
   createdAt: {
     type: Date,

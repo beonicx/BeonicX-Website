@@ -49,16 +49,16 @@ export default function HomePage({ darkMode }) {
             <a href="#" className="text-blue-500 hover:text-blue-600 transition-colors">
               <FaFacebookF size={24} />
             </a>
-            <a href="https://www.linkedin.com/company/visionityai/posts/?feedView=all" className="text-blue-500 hover:text-blue-600 transition-colors">
+            <a href="https://www.linkedin.com/company/beonicx/posts/?feedView=all" className="text-blue-500 hover:text-blue-600 transition-colors">
               <FaLinkedinIn size={24} />
             </a>
-            <a href="https://www.instagram.com/visionity.ai/" className="text-pink-400 hover:text-pink-500 transition-colors">
+            <a href="https://www.instagram.com/beonicx/" className="text-pink-400 hover:text-pink-500 transition-colors">
               <FaInstagram size={24} />
             </a>
             <a href="#" className="text-blue-500 hover:text-blue-600 transition-colors">
               <FaTwitter size={24} />
             </a>
-            <a href="https://www.youtube.com/@Visionity-ai" className="text-red-500 hover:text-red-600 transition-colors">
+            <a href="https://www.youtube.com/@beonicx" className="text-red-500 hover:text-red-600 transition-colors">
               <FaYoutube size={24} />
             </a>
             <a href="#" className="text-red-400 hover:text-red-500 transition-colors">

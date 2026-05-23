@@ -27,13 +27,22 @@ exports.validateContactForm = [
     .notEmpty().withMessage('Email is required')
     .isEmail().withMessage('Please provide a valid email'),
   body('subject')
+    .optional()
     .trim()
-    .notEmpty().withMessage('Subject is required')
-    .isLength({ min: 5 }).withMessage('Subject must be at least 5 characters'),
+    .isLength({ min: 3 }).withMessage('Subject must be at least 3 characters'),
   body('message')
     .trim()
     .notEmpty().withMessage('Message is required')
-    .isLength({ min: 20 }).withMessage('Message must be at least 20 characters'),
+    .isLength({ min: 10 }).withMessage('Message must be at least 10 characters'),
+  body('phone')
+    .optional()
+    .trim(),
+  body('skype')
+    .optional()
+    .trim(),
+  body('formType')
+    .optional()
+    .isIn(['contact', 'query']).withMessage('Invalid form type'),
   exports.validate
 ];
 

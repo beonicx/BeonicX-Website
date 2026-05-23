@@ -3,7 +3,14 @@ import React, { useState, useEffect } from 'react';
 export default function Toppage({ darkMode = false }) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
   // Particle animation for background
   const [particles, setParticles] = useState([]);
   
@@ -41,6 +48,66 @@ export default function Toppage({ darkMode = false }) {
   
   const handleQueryClick = () => {
     setShowModal(true);
+    setSubmitMessage('');
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmitQuery = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      setSubmitMessage('Please fill in all required fields.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5002/api';
+      const response = await fetch(`${apiUrl}/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: 'Home Page Query',
+          message: formData.message,
+          formType: 'query'
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.status === 'success') {
+        setSubmitMessage('Thank you! Your query has been submitted successfully.');
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+        setTimeout(() => {
+          setShowModal(false);
+          setSubmitMessage('');
+        }, 2000);
+      } else {
+        setSubmitMessage('Failed to submit query. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting query:', error);
+      setSubmitMessage('Failed to submit query. Please check your connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
@@ -101,7 +168,7 @@ export default function Toppage({ darkMode = false }) {
       
         
         {/* Main content with enhanced typography */}
-        <main className="mt-16 md:mt-24 max-w-4xl ">
+        <main className="mt-14 md:mt-22 max-w-4xl ">
           {/* Animated headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
             <span className="block mb-2">Empowering Businesses with</span>
@@ -214,37 +281,60 @@ export default function Toppage({ darkMode = false }) {
           <div className="absolute inset-0 bg-black/70" onClick={() => setShowModal(false)}></div>
           <div className={`relative ${darkMode ? 'bg-blue-900' : 'bg-white'} rounded-xl shadow-2xl p-6 w-full max-w-md mx-auto`}>
             <h3 className="text-xl font-bold mb-4">Drop Your Queries</h3>
-            <div className="space-y-4">
+
+            {submitMessage && (
+              <div className={`mb-4 p-3 rounded-lg ${submitMessage.includes('success') || submitMessage.includes('Thank you') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                {submitMessage}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmitQuery} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-1">Your Name</label>
-                <input 
-                  type="text" 
+                <label className="block text-sm font-medium mb-1">Your Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className={`w-full px-3 py-2 rounded-lg ${darkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} focus:outline-none focus:ring-2 focus:ring-purple-500`}
-                  placeholder="John Doe" 
+                  placeholder="John Doe"
+                  required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">Email Address</label>
-                <input 
-                  type="email" 
+                <label className="block text-sm font-medium mb-1">Email Address *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className={`w-full px-3 py-2 rounded-lg ${darkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} focus:outline-none focus:ring-2 focus:ring-purple-500`}
-                  placeholder="john@example.com" 
+                  placeholder="john@example.com"
+                  required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">Your Query</label>
-                <textarea 
+                <label className="block text-sm font-medium mb-1">Your Query *</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   className={`w-full px-3 py-2 rounded-lg ${darkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900'} focus:outline-none focus:ring-2 focus:ring-purple-500`}
-                  placeholder="Tell us what you need..." 
+                  placeholder="Tell us what you need..."
                   rows={4}
+                  required
                 ></textarea>
               </div>
-              <button className={`w-full py-2 rounded-lg font-medium text-white ${darkMode ? 'bg-purple-600 hover:bg-purple-500' : 'bg-purple-500 hover:bg-purple-400'} transition-colors`}>
-                Submit Query
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full py-2 rounded-lg font-medium text-white ${darkMode ? 'bg-purple-600 hover:bg-purple-500' : 'bg-purple-500 hover:bg-purple-400'} transition-colors disabled:opacity-50 disabled:cursor-not-allowed`}
+              >
+                {isSubmitting ? 'Submitting...' : 'Submit Query'}
               </button>
-            </div>
-            <button 
-              className="absolute top-3 right-3 text-2xl" 
+            </form>
+            <button
+              className="absolute top-3 right-3 text-2xl hover:text-red-500 transition-colors"
               onClick={() => setShowModal(false)}
             >
               ×

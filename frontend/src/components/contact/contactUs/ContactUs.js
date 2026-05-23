@@ -38,24 +38,51 @@ export default function ContactUs() {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (validateForm()) {
       setIsSubmitting(true);
-      
-      // Simulate API call
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setSubmitMessage('Thanks for your message! We will get back to you soon.');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          skype: '',
-          message: '',
+      setSubmitMessage('');
+
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5002/api';
+        const response = await fetch(`${apiUrl}/contact`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            skype: formData.skype,
+            subject: 'Contact Form Submission',
+            message: formData.message,
+            formType: 'contact'
+          }),
         });
-      }, 1500);
+
+        const data = await response.json();
+
+        if (response.ok && data.status === 'success') {
+          setSubmitMessage('Thanks for your message! We will get back to you soon.');
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            skype: '',
+            message: '',
+          });
+        } else {
+          setSubmitMessage('Failed to send message. Please try again later.');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        setSubmitMessage('Failed to send message. Please check your connection and try again.');
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -101,7 +128,7 @@ export default function ContactUs() {
                   <div>
                     <h3 className="text-lg font-medium text-blue-600">Contact Details</h3>
                     <p className="mt-2 text-gray-600">
-                      Email: codewith3@gmail.com<br />
+                      Email: beonicxgroup@gmail.com<br />
                       Phone: +91-9129842706
                     </p>
                   </div>
@@ -202,7 +229,7 @@ export default function ContactUs() {
                       disabled={isSubmitting}
                       className="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
                     >
-                      {isSubmitting ? 'ending...' : 'end Message'}
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
                   </div>
                 </form>

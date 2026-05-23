@@ -4,32 +4,37 @@ const emailService = require('../utils/email');
 // Submit contact form
 exports.submitContact = async (req, res) => {
   try {
-    const { name, email, phone, subject, message } = req.body;
-    
+    const { name, email, phone, skype, subject, message, formType } = req.body;
+
     // Create new contact entry
     const newContact = await Contact.create({
       name,
       email,
       phone,
-      subject,
-      message
+      skype,
+      subject: subject || 'General Inquiry',
+      message,
+      formType: formType || 'contact'
     });
-    
+
     // Send notification email to admin
     await emailService.sendContactNotification({
       name,
       email,
-      subject,
-      message
+      phone,
+      skype,
+      subject: subject || 'General Inquiry',
+      message,
+      formType: formType || 'contact'
     });
-    
+
     // Send confirmation email to user
     await emailService.sendContactConfirmation({
       name,
       email,
-      subject
+      subject: subject || 'General Inquiry'
     });
-    
+
     res.status(201).json({
       status: 'success',
       message: 'Your message has been sent successfully!',
@@ -38,9 +43,10 @@ exports.submitContact = async (req, res) => {
       }
     });
   } catch (error) {
+    console.error('Contact submission error:', error);
     res.status(400).json({
       status: 'fail',
-      message: error.message
+      message: error.message || 'Failed to submit contact form'
     });
   }
 };
