@@ -116,53 +116,71 @@ export default function Toppage({ darkMode = false }) {
       <div className="absolute inset-0 w-full h-full z-0 transition-all duration-700">
         {darkMode ? (
           <div
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: "url('/api/placeholder/1920/1080')",
-              filter: 'brightness(0.4) saturate(1.2)'
+              backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')",
+              filter: 'brightness(0.3) saturate(1.3) contrast(1.1)'
             }}
-          />
+          >
+            {/* Dark overlay for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-blue-900/50 to-purple-900/60"></div>
+
+            {/* Animated gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-transparent to-purple-600/20 animate-pulse" style={{ animationDuration: '4s' }}></div>
+          </div>
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-            {/* Gradient orbs */}
-            <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-200/40 to-purple-200/40 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-br from-purple-200/40 to-pink-200/40 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-            <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-gradient-to-br from-indigo-200/30 to-blue-200/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+            {/* Enhanced gradient orbs with better positioning */}
+            <div className="absolute top-10 -left-20 w-[600px] h-[600px] bg-gradient-to-br from-blue-300/30 to-purple-300/30 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-10 -right-20 w-[700px] h-[700px] bg-gradient-to-br from-purple-300/25 to-pink-300/25 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-1/3 left-1/2 w-96 h-96 bg-gradient-to-br from-indigo-300/20 to-blue-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
-            {/* Grid pattern */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{
+            {/* Subtle grid pattern */}
+            <div className="absolute inset-0 opacity-[0.025]" style={{
               backgroundImage: 'linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)',
-              backgroundSize: '60px 60px'
+              backgroundSize: '80px 80px'
             }}></div>
 
-            {/* Dots pattern */}
-            <div className="absolute inset-0 opacity-[0.04]" style={{
-              backgroundImage: 'radial-gradient(circle, rgba(99, 102, 241, 0.4) 1px, transparent 1px)',
-              backgroundSize: '40px 40px'
+            {/* Animated dots pattern */}
+            <div className="absolute inset-0 opacity-[0.035]" style={{
+              backgroundImage: 'radial-gradient(circle, rgba(99, 102, 241, 0.5) 1.5px, transparent 1.5px)',
+              backgroundSize: '50px 50px',
+              backgroundPosition: '0 0, 25px 25px'
+            }}></div>
+
+            {/* Light rays effect */}
+            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-100/20 to-transparent" style={{
+              clipPath: 'polygon(40% 0%, 60% 0%, 50% 100%)'
             }}></div>
           </div>
         )}
       </div>
 
-      {/* Animated particles */}
+      {/* Animated particles with glow effect */}
       {particles.map((particle, index) => (
         <div
           key={index}
-          className={`absolute rounded-full ${darkMode ? 'bg-blue-400' : 'bg-blue-300'} opacity-20 z-1`}
+          className={`absolute rounded-full transition-all duration-1000 ${
+            darkMode
+              ? 'bg-blue-400 shadow-lg shadow-blue-500/50'
+              : 'bg-blue-300 shadow-md shadow-blue-400/30'
+          }`}
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
             width: `${particle.size}px`,
             height: `${particle.size}px`,
+            opacity: darkMode ? 0.3 : 0.2,
+            filter: darkMode ? 'blur(1px)' : 'blur(0.5px)',
             transition: 'top 1s linear'
           }}
         />
       ))}
       
-      {/* Content overlay with glassmorphism effect */}
-      <div className={`relative z-10 min-h-screen 
-        ${darkMode ? 'bg-gradient-to-br from-black/80 to-purple-900/50' : 'bg-gradient-to-br from-white/60 to-purple-100/40'} 
-        backdrop-blur-sm px-4 sm:px-6 md:px-12 lg:px-20 py-8 md:py-12`}>
+      {/* Content overlay with enhanced glassmorphism effect */}
+      <div className={`relative z-10 min-h-screen
+        ${darkMode ? 'bg-gradient-to-br from-black/60 via-blue-900/30 to-purple-900/40' : 'bg-gradient-to-br from-white/70 via-blue-50/50 to-purple-50/60'}
+        backdrop-blur-[2px] px-4 sm:px-6 md:px-12 lg:px-20 py-8 md:py-12`}>
         
         {/* Header with navigation */}
       

@@ -219,7 +219,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
       `}>
         <div className="max-w-7xl mx-auto">
           {/* Main navbar */}
-          <div className="flex items-center justify-between py-4 px-4 md:px-6">
+          <div className="flex items-center justify-between py-2 px-4 md:px-6">
             {/* Logo */}
             <motion.div 
               className="flex items-center"
