@@ -180,10 +180,13 @@ export default function Toppage({ darkMode = false }) {
       {/* Content overlay with enhanced glassmorphism effect */}
       <div className={`relative z-10 min-h-screen
         ${darkMode ? 'bg-gradient-to-br from-black/60 via-blue-900/30 to-purple-900/40' : 'bg-gradient-to-br from-white/70 via-blue-50/50 to-purple-50/60'}
-        backdrop-blur-[2px] px-4 sm:px-6 md:px-12 lg:px-20 pt-28 md:pt-36 pb-12 md:pb-16`}>
+        backdrop-blur-[2px] px-4 sm:px-6 md:px-12 lg:px-20 pb-12 md:pb-16`}>
+
+        {/* Spacer for navbar - ensures content starts below fixed navbar */}
+        <div className="h-24 sm:h-28 md:h-32 lg:h-36"></div>
 
         {/* Main content with enhanced typography */}
-        <main className="max-w-4xl">
+        <main className="max-w-4xl mt-8 md:mt-12">
           {/* Animated headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
             <span className="block mb-2">Empowering Businesses with</span>
