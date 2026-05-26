@@ -10,6 +10,6 @@ export const metadata = {
     },
   };
 
-  export default function HomePage1({ children }) {
+  export default function MetaData({ children }) {
     return children
   }

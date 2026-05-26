@@ -37,7 +37,7 @@ export default function ChatWidget({ darkMode = false }) {
 
     try {
       // ✅ FIX: Check if BASE_URL is defined
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
+      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ;
       const apiUrl = `${baseUrl}/api/ai/chat`;
 
       console.log('[ChatWidget] Sending request to:', apiUrl);
@@ -193,7 +193,7 @@ export default function ChatWidget({ darkMode = false }) {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 ${
+          className={`fixed cursor-pointer bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 ${
             darkMode
               ? 'bg-gradient-to-br from-purple-600 to-blue-600'
               : 'bg-gradient-to-br from-blue-600 to-purple-600'

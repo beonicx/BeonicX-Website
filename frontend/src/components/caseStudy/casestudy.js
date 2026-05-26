@@ -3,7 +3,7 @@ import React from "react";
 import Image from 'next/image';
 import Footer from "@/layouts/footer/Footer";
 import Navbar from "@/layouts/navbar/Navbar";
-import Header from "../header/Header";
+import Header from "../social/SocialLinks";
 
 const appData = [
   {

@@ -9,49 +9,49 @@ export default function InteractiveMap({ darkMode = false }) {
   
   // More realistic locations with coordinates for map links
   const locations = [
-    { 
-      id: 1, 
-      name: "Noida", 
-      x: 25, 
-      y: 40, 
-      description: "The Big Apple", 
-      coords :"28.5355,77.3910",
+    {
+      id: 1,
+      name: "Noida",
+      x: 72,  
+      y: 34, 
+      description: "The Silicon Valley of India",  
+      coords: "28.58466,77.35200",
       color: "red"
     },
-    { 
-      id: 2, 
-      name: "London", 
-      x: 45, 
-      y: 35, 
-      description: "The City on Thames", 
+    {
+      id: 2,
+      name: "London",
+      x: 50, 
+      y: 21, 
+      description: "The City on the Thames",
       coords: "51.5074,-0.1278",
       color: "blue"
     },
-    { 
-      id: 3, 
-      name: "Tokyo", 
-      x: 80, 
-      y: 40, 
-      description: "The Land of Rising Sun", 
+    {
+      id: 3,
+      name: "Tokyo",
+      x: 89, 
+      y: 30,  
+      description: "The Land of the Rising Sun",
       coords: "35.6762,139.6503",
       color: "green"
     },
-    { 
-      id: 4, 
-      name: "Sydney", 
-      x: 85, 
-      y: 70, 
-      description: "The Harbor City", 
+    {
+      id: 4,
+      name: "Sydney",
+      x: 92,  
+      y: 69, 
+      description: "The Harbour City",
       coords: "-33.8688,151.2093",
       color: "purple"
     },
-    { 
-      id: 5, 
-      name: "Rio de Janeiro", 
-      x: 35, 
-      y: 65, 
-      description: "The Marvelous City", 
-      coords: "-22.9068,-43.1729",
+    {
+      id: 5,
+      name: "Silicon Valley",
+      x: 16,  
+      y: 29, 
+      description: "The Startup Capital of the World",
+      coords: "37.4048,-122.1111",
       color: "orange"
     },
   ];

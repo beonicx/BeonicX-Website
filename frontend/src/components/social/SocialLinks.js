@@ -9,7 +9,7 @@ import {
   FaPinterest,
 } from 'react-icons/fa';
 
-export default function HomePage({ darkMode }) {
+export default function SocialLinks({ darkMode }) {
   return (
     <div className={darkMode ? 'min-h-screen bg-gray-900 text-white' : 'min-h-screen bg-gray-50 text-blac'}>
       <Head>

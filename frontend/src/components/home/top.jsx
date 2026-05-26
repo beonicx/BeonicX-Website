@@ -217,7 +217,7 @@ export default function Toppage({ darkMode = false }) {
             {[
               { num: '50+', label: 'AI Agents Deployed' },
               { num: '30+', label: 'Enterprise Clients' },
-              { num: '5M+', label: 'Tasks Automated' },
+              { num: '1M+', label: 'Tasks Automated' },
             ].map(s => (
               <div
                 key={s.num}

@@ -2,17 +2,17 @@
 
 import { useState, useEffect, createContext } from "react";
 
-import Faq from "../../constants/FaqConstants";
-import WhatsAppButton from "../../constants/whatsapp";
+import Faq from "../../constants/FAQ/FaqConstants";
+import WhatsAppButton from "../../constants/whatsapp/whatsapp";
 import Navbar from "@/layouts/navbar/Navbar";
 import Footer from "@/layouts/footer/Footer";
-import Featuressection from "../../components/home/featuressection";
+import Featuressection from "../../components/home/featuresSection";
 import Testonomial from "../../components/home/testonomial";
-import Slider from "../../constants/slider/Slider";
+import Slider from "../../constants/slider1/Slider";
 import FreelamceBanner from "../../components/home/join";
-import HeroSection1 from "../../components/home/heroSection1";
+import HeroSection1 from "../../components/home/heroSection";
 import IndustrySlider from "../../components/home/industrySlider";
-import Header from "../../components/header/Header";
+import Header from "../../components/social/SocialLinks";
 import Technologiessection from "../../components/service/technologiessection";
 import Toppage from "../../components/home/top";
 import ChatWidget from "../../components/ai/ChatWidget";

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import Testinomials from './Testinomials';
+import Testinomials from '../testimonials/Testinomials';
 
 const FAQ = ({ darkMode }) => {
   const [activeIndex, setActiveIndex] = useState(null);
