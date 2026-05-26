@@ -6,7 +6,7 @@ import Faq from "../../constants/FAQ/FaqConstants";
 import WhatsAppButton from "../../constants/whatsapp/whatsapp";
 import Navbar from "../../layouts/navbar/Navbar";
 import Footer from "../../layouts/footer/Footer";
-import FeaturesSection from "../../components/home/featuresSection";
+import FeatureSection from "../../components/home/featureSection";
 import Testonomial from "../../components/home/testonomial";
 import Slider from "../../constants/slider1/Slider";
 import FreelamceBanner from "../../components/home/join";
@@ -67,7 +67,7 @@ export default function Home() {
           <div className="pt-16">
             {/* <Header darkMode={darkMode} /> */}
             <Toppage darkMode={darkMode}/>
-            <FeaturesSection darkMode={darkMode} />
+            <FeatureSection darkMode={darkMode} />
             <Technologiessection darkMode={darkMode}/>
             <Slider darkMode={darkMode} />
             <Testonomial darkMode={darkMode} />
