@@ -1,12 +1,10 @@
 // pages/index.js
 import Head from 'next/head';
 import {
-  FaFacebookF,
   FaLinkedinIn,
   FaInstagram,
   FaTwitter,
   FaYoutube,
-  FaPinterest,
 } from 'react-icons/fa';
 
 export default function SocialLinks({ darkMode }) {
@@ -46,9 +44,6 @@ export default function SocialLinks({ darkMode }) {
 
           {/* Social Media Icons */}
           <div className="fixed right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4 z-50">
-            <a href="#" className="text-blue-500 hover:text-blue-600 transition-colors">
-              <FaFacebookF size={24} />
-            </a>
             <a href="https://www.linkedin.com/company/beonicx/posts/?feedView=all" className="text-blue-500 hover:text-blue-600 transition-colors">
               <FaLinkedinIn size={24} />
             </a>
@@ -60,9 +55,6 @@ export default function SocialLinks({ darkMode }) {
             </a>
             <a href="https://www.youtube.com/@beonicx" className="text-red-500 hover:text-red-600 transition-colors">
               <FaYoutube size={24} />
-            </a>
-            <a href="#" className="text-red-400 hover:text-red-500 transition-colors">
-              <FaPinterest size={24} />
             </a>
           </div>
         </section>

@@ -12,7 +12,6 @@ import Slider from "../../constants/slider1/Slider";
 import FreelamceBanner from "../../components/home/join";
 import HeroSection from "../../components/home/heroSection";
 import IndustrySlider from "../../components/home/industrySlider";
-import Social from "../../components/social/SocialLinks";
 import Technologiessection from "../../components/service/technologiessection";
 import Toppage from "../../components/home/top";
 import ChatWidget from "../../components/ai/ChatWidget";
