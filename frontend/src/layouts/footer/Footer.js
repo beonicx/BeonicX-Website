@@ -1,7 +1,17 @@
 'use client'
 import React, { useState } from 'react';
 import Image from 'next/image';
-import InteractiveMap from '@/components/footer/map';
+import InteractiveMap from '@/components/map/map';
+import {
+  FaLinkedinIn,
+  FaInstagram,
+  FaTwitter,
+  FaYoutube,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaArrowUp,
+} from 'react-icons/fa';
 
 const Footer = ({ darkMode }) => {
   const [email, setEmail] = useState('');
@@ -16,12 +26,10 @@ const Footer = ({ darkMode }) => {
     }
   };
 
-  // Force dark mode class on parent element when darkMode is true
   const darkModeClass = darkMode ? 'dark' : '';
 
   return (
     <footer className={`${darkModeClass} w-full`}>
-      {/* Use "dark:" prefix for dark mode styling with Tailwind */}
       <div className={`bg-gray-100 text-gray-800 pt-12 transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-white' : ''}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -74,24 +82,20 @@ const Footer = ({ darkMode }) => {
               </div>
               <p className="font-semibold mb-2">Leading AI & SaaS Platform</p>
               <p className="font-semibold mb-6">Powering Intelligent Automation</p>
+
+              {/* ✅ FIXED: Using React Icons components instead of <i> tags */}
               <div className="flex gap-4 text-2xl">
-                <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-600'}`}>
-                  <i className="fab fa-facebook"></i>
+                <a href="https://www.linkedin.com/company/beonicx/posts/?feedView=all" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-500' : 'hover:text-blue-700'}`}>
+                  <FaLinkedinIn />
                 </a>
-                <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-500' : 'hover:text-blue-700'}`}>
-                  <i className="fab fa-linkedin"></i>
-                </a>
-                <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-pink-400' : 'hover:text-pink-500'}`}>
-                  <i className="fab fa-instagram"></i>
+                <a href="https://www.instagram.com/beonicx/" className={`transition-colors duration-200 ${darkMode ? 'hover:text-pink-400' : 'hover:text-pink-500'}`}>
+                  <FaInstagram />
                 </a>
                 <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-gray-300' : 'hover:text-gray-700'}`}>
-                  <i className="fab fa-x-twitter"></i>
+                  <FaTwitter />
                 </a>
-                <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-red-400' : 'hover:text-red-600'}`}>
-                  <i className="fab fa-youtube"></i>
-                </a>
-                <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-red-400' : 'hover:text-red-500'}`}>
-                  <i className="fab fa-pinterest"></i>
+                <a href="https://www.youtube.com/@beonicx" className={`transition-colors duration-200 ${darkMode ? 'hover:text-red-400' : 'hover:text-red-600'}`}>
+                  <FaYoutube />
                 </a>
               </div>
             </div>
@@ -138,17 +142,19 @@ const Footer = ({ darkMode }) => {
               </ul>
               
               <h3 className={`text-lg font-bold mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-900'}`}>Contact Us</h3>
+
+              {/* ✅ FIXED: Using React Icons components instead of <i> tags */}
               <div className="space-y-3 text-sm">
                 <p className="flex items-start">
-                  <i className={`fas fa-map-marker-alt mr-3 mt-1 ${darkMode ? 'text-blue-500' : 'text-blue-800'}`}></i>
+                  <FaMapMarkerAlt className={`mr-3 mt-1 flex-shrink-0 ${darkMode ? 'text-blue-500' : 'text-blue-800'}`} />
                   <span>123 Business Avenue, Tech Park, Suite 456</span>
                 </p>
                 <p className="flex items-center">
-                  <i className={`fas fa-phone mr-3 ${darkMode ? 'text-blue-500' : 'text-blue-800'}`}></i>
+                  <FaPhone className={`mr-3 flex-shrink-0 ${darkMode ? 'text-blue-500' : 'text-blue-800'}`} />
                   <span>+91-9129842706</span>
                 </p>
                 <p className="flex items-center">
-                  <i className={`fas fa-envelope mr-3 ${darkMode ? 'text-blue-500' : 'text-blue-800'}`}></i>
+                  <FaEnvelope className={`mr-3 flex-shrink-0 ${darkMode ? 'text-blue-500' : 'text-blue-800'}`} />
                   <span>contact@beonicx.com</span>
                 </p>
               </div>
@@ -156,7 +162,7 @@ const Footer = ({ darkMode }) => {
           </div>
 
           {/* Map Section */}
-         <InteractiveMap/>
+          <InteractiveMap/>
 
           {/* Quick Links */}
           <div className={`flex flex-wrap justify-center gap-6 border-t pt-8 pb-4 ${darkMode ? 'border-gray-700' : 'border-gray-300'}`}>
@@ -171,19 +177,14 @@ const Footer = ({ darkMode }) => {
           <div className={`mt-6 border-t py-6 text-sm flex flex-col md:flex-row justify-between items-center ${darkMode ? 'border-gray-700' : 'border-gray-300'}`}>
             <p>© {new Date().getFullYear()} All rights reserved - BeonicX</p>
             <div className="flex flex-wrap gap-4 mt-4 md:mt-0 justify-center">
-              <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
-                Privacy Policy
-              </a>
-              <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
-                Terms and Conditions
-              </a>
-              <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
-                Cookies Policy
-              </a>
+              <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>Privacy Policy</a>
+              <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>Terms and Conditions</a>
+              <a href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>Cookies Policy</a>
             </div>
           </div>
 
           {/* Back to top button */}
+          {/* ✅ FIXED: Using React Icons component instead of <i> tag */}
           <div className="flex justify-center pb-6">
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -192,7 +193,7 @@ const Footer = ({ darkMode }) => {
               }`}
               aria-label="Back to top"
             >
-              <i className="fas fa-arrow-up"></i>
+              <FaArrowUp />
             </button>
           </div>
         </div>

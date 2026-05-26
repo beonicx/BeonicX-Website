@@ -58,8 +58,6 @@ export default function SocialLinks({ darkMode }) {
             </a>
           </div>
         </section>
-
-        {/* Tagline Section */}
       
       </main>
     </div>
