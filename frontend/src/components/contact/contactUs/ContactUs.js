@@ -66,7 +66,7 @@ export default function ContactUs() {
         const data = await response.json();
 
         if (response.ok && data.status === 'success') {
-          setSubmitMessage('Thanks for your message! We will get back to you soon.');
+          setSubmitMessage('✅ Thanks for your message! We will get back to you soon.');
           setFormData({
             name: '',
             email: '',
@@ -74,14 +74,20 @@ export default function ContactUs() {
             skype: '',
             message: '',
           });
+          setErrors({});
         } else {
-          setSubmitMessage('Failed to send message. Please try again later.');
+          const errorMsg = data.message || 'Failed to send message. Please try again later.';
+          setSubmitMessage(`❌ ${errorMsg}`);
         }
       } catch (error) {
         console.error('Error submitting form:', error);
-        setSubmitMessage('Failed to send message. Please check your connection and try again.');
+        setSubmitMessage('❌ Failed to send message. Please check your connection and try again.');
       } finally {
         setIsSubmitting(false);
+        // Auto-hide message after 5 seconds
+        setTimeout(() => {
+          setSubmitMessage('');
+        }, 5000);
       }
     }
   };
@@ -141,11 +147,15 @@ export default function ContactUs() {
               <div className="bg-white rounded-lg shadow-lg p-8">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-6">Send Us a Message</h2>
                 
-                {submitMessage ? (
-                  <div className="p-4 bg-green-100 text-green-700 rounded-lg mb-6">
+                {submitMessage && (
+                  <div className={`p-4 rounded-lg mb-6 ${
+                    submitMessage.includes('✅')
+                      ? 'bg-green-100 text-green-700 border border-green-300'
+                      : 'bg-red-100 text-red-700 border border-red-300'
+                  }`}>
                     {submitMessage}
                   </div>
-                ) : null}
+                )}
                 
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -223,11 +233,11 @@ export default function ContactUs() {
                     {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
                   </div>
                   
-                  <div className="flex justify-end">
+                  <div className="flex justify-end ">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
+                      className="px-6 py-3 bg-blue-600 cursor-pointer text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
                     >
                       {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
