@@ -1,6 +1,6 @@
 import React from 'react';
 
-function HeroSection1({ darkMode }) {
+function HeroSection({ darkMode }) {
   const stats = [
     {
       icon: "🤖",
@@ -126,4 +126,4 @@ function HeroSection1({ darkMode }) {
   
 }
 
-export default HeroSection1;
+export default HeroSection;
