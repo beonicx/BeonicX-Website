@@ -12,7 +12,6 @@ import Slider from "../../constants/slider1/Slider";
 import FreelamceBanner from "../../components/home/join";
 import HeroSection from "../../components/home/heroSection";
 import IndustrySlider from "../../components/home/industrySlider";
-import Technologiessection from "../../components/service/technologiessection";
 import Toppage from "../../components/home/top";
 import ChatWidget from "../../components/ai-agent/ChatWidget";
 
@@ -65,10 +64,8 @@ export default function Home() {
         <div className={`min-h-screen ${darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900"}`}>
           <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
           <div className="pt-16">
-            {/* <Header darkMode={darkMode} /> */}
             <Toppage darkMode={darkMode}/>
             <FeatureSection darkMode={darkMode} />
-            <Technologiessection darkMode={darkMode}/>
             <Slider darkMode={darkMode} />
             <Testonomial darkMode={darkMode} />
             <HeroSection darkMode={darkMode} />
