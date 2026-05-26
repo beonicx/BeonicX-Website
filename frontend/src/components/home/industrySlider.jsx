@@ -295,7 +295,7 @@ const defaultIndustries = [
   {
     title: "Logistics & Distribution",
     subtitle: "Bring your logistic industry-specific development requirements to get unique customer-centric solutions.",
-    image: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/33537946/pexels-photo-33537946.jpeg",
     features: [
       "Real-time shipment tracking systems",
       "Fleet management optimization",
@@ -306,7 +306,7 @@ const defaultIndustries = [
   {
     title: "Social Networking",
     subtitle: "Build engaging and seasoned social media applications that can offer a unique user experience.",
-    image: "https://images.pexels.com/photos/12663061/pexels-photo-12663061.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=252&fit=crop&h=408",
+    image: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
     features: [
       "Advanced user engagement analytics",
       "Content recommendation engines",
@@ -317,7 +317,7 @@ const defaultIndustries = [
   {
     title: "Real Estate",
     subtitle: "Get cutting-edge real-estate solutions designed specifically to meet your unique business requirements.",
-    image: "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/27307398/pexels-photo-27307398.jpeg",
     features: [
       "Virtual property tours",
       "AI-powered price prediction",
@@ -328,7 +328,7 @@ const defaultIndustries = [
   {
     title: "Travel & Hospitality",
     subtitle: "Deliver seamless travel experience along with seamless user experience with top-notch features.",
-    image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/4901993/pexels-photo-4901993.jpeg",
     features: [
       "Personalized booking engines",
       "Dynamic pricing systems",
@@ -339,7 +339,7 @@ const defaultIndustries = [
   {
     title: "Healthcare & Wellness",
     subtitle: "Transform patient care with cutting-edge digital healthcare solutions that improve outcomes and efficiency.",
-    image: "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/4021779/pexels-photo-4021779.jpeg",
     features: [
       "Telemedicine platforms",
       "Electronic health records",
@@ -350,7 +350,7 @@ const defaultIndustries = [
   {
     title: "Financial Services",
     subtitle: "Empower your financial business with secure, compliant, and user-friendly digital solutions.",
-    image: "https://images.pexels.com/videos/3466611/free-video-3466611.jpg?auto=compress&cs=tinysrgb&h=204&fit=crop&w=228&dpr=2",
+    image: "https://images.pexels.com/photos/10628030/pexels-photo-10628030.png",
     features: [
       "Secure payment gateways",
       "Risk assessment algorithms",

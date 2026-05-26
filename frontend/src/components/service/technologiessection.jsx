@@ -41,8 +41,8 @@ function Technologiessection({darkMode}) {
         variants={staggerContainer}
       >
         {[
-          "React Native", "Flutter", "Swift", "Kotlin", "JavaScript",
-          "TypeScript", "Node.js", "Firebase", "AWS", "Google Cloud"
+          "Next", "React", "Node.js", "Python", "JavaScript",
+          "Claude", "Docker", "Firebase", "AWS", "Google Cloud"
         ].map((tech, index) => (
           <motion.div 
             key={index} 

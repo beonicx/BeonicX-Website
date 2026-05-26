@@ -4,7 +4,7 @@ function HeroSection1({ darkMode }) {
   const stats = [
     {
       icon: "🤖",
-      number: "150+",
+      number: "50+",
       label: "AI Agents Built",
       bgColor: "bg-pink-100 dark:bg-pink-500",
       textColor: "text-pink-500 dark:text-white"
@@ -25,21 +25,21 @@ function HeroSection1({ darkMode }) {
     },
     {
       icon: "💬",
-      number: "200+",
+      number: "100+",
       label: "Conversational AI",
       bgColor: "bg-red-100 dark:bg-red-500",
       textColor: "text-red-500 dark:text-white"
     },
     {
       icon: "📈",
-      number: "10M+",
+      number: "1M+",
       label: "Tasks Processed",
       bgColor: "bg-purple-100 dark:bg-purple-500",
       textColor: "text-purple-500 dark:text-white"
     },
     {
       icon: "⭐",
-      number: "100+",
+      number: "30+",
       label: "Enterprise Clients",
       bgColor: "bg-yellow-100 dark:bg-yellow-500",
       textColor: "text-yellow-600 dark:text-white"
@@ -53,7 +53,7 @@ function HeroSection1({ darkMode }) {
     },
     {
       icon: "🎯",
-      number: "85%",
+      number: "75%",
       label: "Cost Reduction",
       bgColor: "bg-purple-100 dark:bg-purple-500",
       textColor: "text-purple-500 dark:text-white"
