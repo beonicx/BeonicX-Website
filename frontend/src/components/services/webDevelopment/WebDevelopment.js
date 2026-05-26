@@ -1,13 +1,13 @@
-// pages/index.js
-
+// Web Development Services Page
 'use client'
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
-  Phone, Server, Code, Globe, CheckCircle, Award, 
-  Users, Activity, Zap, MessageSquare, Moon, Sun
+  Phone, Server, Code, Globe, CheckCircle, Award,
+  Users, Activity, Zap, MessageSquare, Sparkles, Rocket,
+  Shield, TrendingUp, Target, Layers
 } from 'lucide-react';
 
 export default function WebDevelopment({ darkMode }) {
@@ -38,35 +38,44 @@ export default function WebDevelopment({ darkMode }) {
   };
 
   return (
-    <div className={`font-sans transition-colors duration-300 py-42 ${darkMode ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-800'}`}>
+    <div className={`font-sans transition-colors duration-300 py-42 ${darkMode ? 'dark bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 text-white' : 'bg-gradient-to-br from-gray-50 via-white to-blue-50 text-gray-800'}`}>
       <Head>
-        <title>Mobile App Development Company | YourBrand</title>
-        <meta name="description" content="Custom iOS, Android, and cross-platform mobile apps tailored to your business needs." />
+        <title>Web Development Services | BeonicX</title>
+        <meta name="description" content="Custom web development solutions with modern technologies. Build responsive, scalable, and high-performance web applications." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}
-      <section className={`${darkMode ? 'bg-gradient-to-r from-blue-900 to-purple-900' : 'bg-gradient-to-r from-blue-600 to-blue-800'} text-white py-20 px-4 relative overflow-hidden`}>
+      <section className={`${darkMode ? 'bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900' : 'bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600'} text-white py-20 px-4 relative overflow-hidden`}>
         {/* Animated background shapes */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(6)].map((_, i) => (
-            <div 
+          {[...Array(8)].map((_, i) => (
+            <div
               key={i}
-              className="absolute rounded-full opacity-10"
+              className={`absolute rounded-full ${darkMode ? 'opacity-10' : 'opacity-20'}`}
               style={{
-                width: `${Math.random() * 300 + 100}px`,
-                height: `${Math.random() * 300 + 100}px`,
+                width: `${Math.random() * 400 + 150}px`,
+                height: `${Math.random() * 400 + 150}px`,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                background: `rgba(255, 255, 255, ${Math.random() * 0.3})`,
-                animation: `float ${Math.random() * 10 + 10}s ease-in-out infinite`,
+                background: `radial-gradient(circle, rgba(255, 255, 255, ${Math.random() * 0.4}) 0%, transparent 70%)`,
+                animation: `float ${Math.random() * 15 + 15}s ease-in-out infinite`,
                 animationDelay: `${Math.random() * 5}s`,
-                transform: `scale(${Math.random() * 0.5 + 0.5})`
+                transform: `scale(${Math.random() * 0.5 + 0.5})`,
+                filter: 'blur(40px)'
               }}
             />
           ))}
         </div>
+
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px'
+          }}
+        />
 
         <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div 
@@ -75,49 +84,114 @@ export default function WebDevelopment({ darkMode }) {
             animate="visible"
             variants={staggerContainer}
           >
-            <motion.div 
+            <motion.div
               className="md:w-1/2 mb-12 md:mb-0"
               variants={fadeInUp}
             >
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/30"
+              >
+                <Sparkles size={18} className="text-yellow-300" />
+                <span className="text-sm font-medium">Award-Winning Development Team</span>
+              </motion.div>
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Mobile App <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">Development</span> Company
+                Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300">Web Development</span> Services
               </h1>
-              <p className="text-xl mb-8 text-gray-100">Transform your business with custom mobile applications designed for today&apos;s digital landscape.</p>
+              <p className="text-xl mb-8 text-gray-100 leading-relaxed">
+                Transform your vision into reality with cutting-edge web applications. We build scalable, high-performance solutions tailored to your business needs.
+              </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-800 font-semibold py-3 px-8 rounded-md hover:bg-gray-100 transition shadow-lg"
+                  className="bg-white text-indigo-700 font-bold py-4 px-8 rounded-xl hover:bg-gray-50 transition shadow-2xl flex items-center justify-center gap-2"
                 >
-                  Get a Free Quote
+                  <Rocket size={20} />
+                  Get Started
                 </motion.button>
-                <motion.button 
+                <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-white text-white font-semibold py-3 px-8 rounded-md hover:bg-white hover:text-blue-800 transition backdrop-blur-sm bg-white/10"
+                  className="border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-indigo-700 transition backdrop-blur-md bg-white/10"
                 >
-                  Our Portfolio
+                  View Our Work
                 </motion.button>
               </div>
+
+              {/* Trust indicators */}
+              <motion.div
+                className="flex items-center gap-6 mt-8 flex-wrap"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+              >
+                <div className="flex items-center gap-2">
+                  <CheckCircle size={20} className="text-green-300" />
+                  <span className="text-sm">100+ Projects Delivered</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle size={20} className="text-green-300" />
+                  <span className="text-sm">98% Client Satisfaction</span>
+                </div>
+              </motion.div>
             </motion.div>
-            <motion.div 
-              className="md:w-1/2 flex justify-center"
+            <motion.div
+              className="md:w-1/2 flex justify-center items-center"
               variants={fadeInUp}
-              initial={{ opacity: 0, y: 40, rotateY: 30 }}
+              initial={{ opacity: 0, y: 40, rotateY: 20 }}
               animate={{ opacity: 1, y: 0, rotateY: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <div className="relative w-full max-w-md perspective">
-                <div className="phone-3d-wrapper">
-                  <Image
-                    src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=900&fit=crop"
-                    alt="Modern mobile app interface showcasing iOS and Android development with sleek UI design"
-                    width={400}
-                    height={450}
-                    className="h-96 object-contain transform hover:scale-105 transition-transform duration-500 rounded-2xl"
-                    unoptimized
-                    priority
-                  />
+              <div className="relative w-full max-w-lg">
+                {/* Glow effect */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl blur-2xl opacity-30 animate-pulse" />
+
+                {/* Main image container */}
+                <div className="relative perspective-container">
+                  <motion.div
+                    className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm"
+                    whileHover={{ scale: 1.05, rotateY: 5, rotateX: 5 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <Image
+                      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
+                      alt="Professional web development workspace with modern code editor and design tools"
+                      width={500}
+                      height={400}
+                      className="object-cover w-full h-auto"
+                      unoptimized
+                      priority
+                    />
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/40 to-transparent" />
+                  </motion.div>
+
+                  {/* Floating tech badges */}
+                  <motion.div
+                    className="absolute -top-6 -right-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-2xl border border-gray-200"
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <Code size={20} className="text-indigo-600" />
+                      <span className="font-bold text-gray-800">Modern Stack</span>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute -bottom-4 -left-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-2xl border border-gray-200"
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <Zap size={20} className="text-yellow-500" />
+                      <span className="font-bold text-gray-800">Fast & Scalable</span>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
@@ -126,24 +200,41 @@ export default function WebDevelopment({ darkMode }) {
       </section>
 
       {/* Services Section */}
-      <section className={`py-20 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
-        <div className="container mx-auto max-w-6xl">
-          <motion.div 
-            className="text-center mb-16"
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative`}>
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className={`absolute top-20 right-0 w-96 h-96 ${darkMode ? 'bg-indigo-900/20' : 'bg-indigo-100/50'} rounded-full blur-3xl`} />
+          <div className={`absolute bottom-20 left-0 w-96 h-96 ${darkMode ? 'bg-purple-900/20' : 'bg-purple-100/50'} rounded-full blur-3xl`} />
+        </div>
+
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <motion.div
+            className="text-center mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-              Our Mobile App Development Services
+            <motion.div
+              className="inline-block mb-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : 'bg-indigo-100 text-indigo-700 border border-indigo-200'}`}>
+                Our Services
+              </span>
+            </motion.div>
+
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Comprehensive Web Development Solutions
             </h2>
-            <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
-              We offer comprehensive mobile app development solutions tailored to your business needs.
+            <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+              From concept to deployment, we deliver full-stack web development services that drive business growth and user engagement.
             </p>
           </motion.div>
           
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             initial="hidden"
             whileInView="visible"
@@ -151,26 +242,80 @@ export default function WebDevelopment({ darkMode }) {
             variants={staggerContainer}
           >
             {[
-              { icon: <Phone size={36} />, title: "iOS App Development", desc: "Native iOS applications with stunning UX/UI design and performance." },
-              { icon: <Server size={36} />, title: "Android App Development", desc: "Custom Android applications optimized for various devices and OS versions." },
-              { icon: <Code size={36} />, title: "Cross-Platform Development", desc: "Build once, deploy everywhere with React Native and Flutter." },
-              { icon: <Globe size={36} />, title: "Web App Development", desc: "Progressive web apps with responsive design for all screen sizes." },
-              { icon: <CheckCircle size={36} />, title: "QA & Testing", desc: "Comprehensive testing ensuring high-quality, bug-free applications." },
-              { icon: <MessageSquare size={36} />, title: "Ongoing Support", desc: "Continuous maintenance and updates to keep your app running smoothly." }
+              {
+                icon: <Globe size={40} />,
+                title: "Full-Stack Development",
+                desc: "End-to-end web solutions with modern frontend frameworks and robust backend systems.",
+                gradient: "from-blue-500 to-cyan-500"
+              },
+              {
+                icon: <Layers size={40} />,
+                title: "Progressive Web Apps",
+                desc: "Fast, reliable, and engaging PWAs that work seamlessly across all devices and platforms.",
+                gradient: "from-purple-500 to-pink-500"
+              },
+              {
+                icon: <Code size={40} />,
+                title: "Custom Web Applications",
+                desc: "Tailored web applications built with cutting-edge technologies to meet your unique needs.",
+                gradient: "from-indigo-500 to-blue-500"
+              },
+              {
+                icon: <Server size={40} />,
+                title: "API Development & Integration",
+                desc: "Scalable RESTful and GraphQL APIs with seamless third-party service integration.",
+                gradient: "from-green-500 to-teal-500"
+              },
+              {
+                icon: <Shield size={40} />,
+                title: "Security & Performance",
+                desc: "Enterprise-grade security measures and optimized performance for lightning-fast experiences.",
+                gradient: "from-orange-500 to-red-500"
+              },
+              {
+                icon: <TrendingUp size={40} />,
+                title: "Maintenance & Support",
+                desc: "Ongoing support, updates, and enhancements to keep your application ahead of the curve.",
+                gradient: "from-violet-500 to-purple-500"
+              }
             ].map((service, index) => (
-              <motion.div 
-                key={index} 
-                className={`${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-blue-50'} rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300 border border-transparent ${darkMode ? 'hover:border-blue-500' : 'hover:border-blue-200'}`}
+              <motion.div
+                key={index}
+                className={`group relative rounded-2xl p-8 transition-all duration-300 ${
+                  darkMode
+                    ? 'bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-750 hover:to-gray-850 border border-gray-700 hover:border-indigo-500/50'
+                    : 'bg-white hover:bg-gray-50 border border-gray-200 hover:border-indigo-300 shadow-lg hover:shadow-2xl'
+                }`}
                 variants={fadeInUp}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                whileHover={{ y: -12, transition: { duration: 0.3 } }}
               >
-                <div className="text-blue-500 mb-4">{service.icon}</div>
-                <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+                {/* Gradient glow effect on hover */}
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-xl`} />
+
+                {/* Icon with gradient background */}
+                <div className={`relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} p-0.5 mb-6`}>
+                  <div className={`w-full h-full rounded-2xl flex items-center justify-center ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                    <div className={`bg-gradient-to-br ${service.gradient} bg-clip-text text-transparent`}>
+                      {service.icon}
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'} group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-br group-hover:${service.gradient} transition-all`}>
                   {service.title}
                 </h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                <p className={`text-base leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   {service.desc}
                 </p>
+
+                {/* Arrow indicator */}
+                <motion.div
+                  className={`mt-4 flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent opacity-0 group-hover:opacity-100 transition-opacity`}
+                  initial={{ x: -10 }}
+                  whileHover={{ x: 0 }}
+                >
+                  Learn More →
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>
@@ -178,81 +323,180 @@ export default function WebDevelopment({ darkMode }) {
       </section>
 
       {/* Process Section */}
-      <section className={`py-20 px-4 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
-        <div className="container mx-auto max-w-6xl">
-          <motion.div 
-            className="text-center mb-16"
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-gray-800 to-gray-900' : 'bg-gradient-to-b from-gray-50 to-white'} relative overflow-hidden`}>
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-30">
+          <div className={`absolute top-0 left-1/4 w-64 h-64 ${darkMode ? 'bg-indigo-600/20' : 'bg-indigo-200/40'} rounded-full blur-3xl`} />
+          <div className={`absolute bottom-0 right-1/4 w-64 h-64 ${darkMode ? 'bg-purple-600/20' : 'bg-purple-200/40'} rounded-full blur-3xl`} />
+        </div>
+
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <motion.div
+            className="text-center mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-              Our Development Process
+            <motion.div
+              className="inline-block mb-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-purple-100 text-purple-700 border border-purple-200'}`}>
+                Our Process
+              </span>
+            </motion.div>
+
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              How We Build Your Success
             </h2>
-            <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
-              We follow a structured approach to deliver high-quality mobile applications.
+            <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+              Our proven development methodology ensures transparency, quality, and timely delivery at every stage.
             </p>
           </motion.div>
           
-          <motion.div 
-            className="flex flex-col md:flex-row flex-wrap justify-center"
+          <motion.div
+            className="relative"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
           >
-            {[
-              { step: "01", title: "Discovery & Planning", desc: "Understanding your business goals and planning the app architecture." },
-              { step: "02", title: "UI/UX Design", desc: "Creating intuitive user interfaces with engaging user experience." },
-              { step: "03", title: "Development", desc: "Coding the application with clean, efficient, and maintainable code." },
-              { step: "04", title: "Testing", desc: "Rigorous testing to ensure quality and performance across devices." },
-              { step: "05", title: "Deployment", desc: "Publishing your app to app stores with proper optimization." },
-              { step: "06", title: "Maintenance", desc: "Ongoing support and updates to keep your app running smoothly." }
-            ].map((process, index) => (
-              <motion.div 
-                key={index} 
-                className="w-full md:w-1/2 lg:w-1/3 p-4"
-                variants={fadeInUp}
-              >
-                <div className={`${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-white hover:bg-blue-50'} rounded-lg shadow-lg p-6 h-full border-l-4 border-blue-500 hover:shadow-xl transition duration-300`}>
-                  <div className="flex items-start mb-4">
-                    <span className="text-3xl font-bold text-blue-500 mr-4">{process.step}</span>
-                    <div>
-                      <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                        {process.title}
-                      </h3>
-                      <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                        {process.desc}
-                      </p>
+            {/* Connection line for desktop */}
+            <div className={`hidden lg:block absolute top-1/2 left-0 right-0 h-1 ${darkMode ? 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500' : 'bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300'} opacity-30`} />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  step: "01",
+                  title: "Discovery & Planning",
+                  desc: "Deep dive into your business goals, target audience, and technical requirements to create a comprehensive project roadmap.",
+                  icon: <Target size={24} />,
+                  color: "from-blue-500 to-cyan-500"
+                },
+                {
+                  step: "02",
+                  title: "UI/UX Design",
+                  desc: "Craft intuitive, beautiful interfaces with user-centered design principles and modern aesthetics.",
+                  icon: <Sparkles size={24} />,
+                  color: "from-purple-500 to-pink-500"
+                },
+                {
+                  step: "03",
+                  title: "Development",
+                  desc: "Build robust, scalable applications using cutting-edge technologies and best coding practices.",
+                  icon: <Code size={24} />,
+                  color: "from-indigo-500 to-blue-500"
+                },
+                {
+                  step: "04",
+                  title: "Testing & QA",
+                  desc: "Rigorous testing across devices, browsers, and scenarios to ensure flawless performance.",
+                  icon: <CheckCircle size={24} />,
+                  color: "from-green-500 to-teal-500"
+                },
+                {
+                  step: "05",
+                  title: "Deployment",
+                  desc: "Seamless launch with optimized configurations, monitoring, and performance tuning.",
+                  icon: <Rocket size={24} />,
+                  color: "from-orange-500 to-red-500"
+                },
+                {
+                  step: "06",
+                  title: "Support & Growth",
+                  desc: "Continuous monitoring, updates, and feature enhancements to drive ongoing success.",
+                  icon: <TrendingUp size={24} />,
+                  color: "from-violet-500 to-purple-500"
+                }
+              ].map((process, index) => (
+                <motion.div
+                  key={index}
+                  className="relative"
+                  variants={fadeInUp}
+                >
+                  <motion.div
+                    className={`group relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-750 hover:to-gray-850' : 'bg-white hover:bg-gray-50'} rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-gray-700 hover:border-indigo-500/50' : 'border-gray-200 hover:border-indigo-300'}`}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                  >
+                    {/* Step number with gradient */}
+                    <div className="flex items-start justify-between mb-6">
+                      <div className={`relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${process.color} shadow-lg`}>
+                        <span className="text-white font-bold text-lg">{process.step}</span>
+                      </div>
+
+                      {/* Icon */}
+                      <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${darkMode ? 'bg-gray-700' : 'bg-gray-100'} group-hover:scale-110 transition-transform`}>
+                        <div className={`bg-gradient-to-br ${process.color} bg-clip-text text-transparent`}>
+                          {process.icon}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+
+                    <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                      {process.title}
+                    </h3>
+                    <p className={`text-base leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                      {process.desc}
+                    </p>
+
+                    {/* Progress indicator */}
+                    <div className="mt-6">
+                      <div className={`h-1.5 rounded-full ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} overflow-hidden`}>
+                        <motion.div
+                          className={`h-full bg-gradient-to-r ${process.color} rounded-full`}
+                          initial={{ width: '0%' }}
+                          whileInView={{ width: '100%' }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: index * 0.2 }}
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Why Choose Us Section */}
-      <section className={`py-20 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
-        <div className="container mx-auto max-w-6xl">
-          <motion.div 
-            className="text-center mb-16"
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative`}>
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] ${darkMode ? 'bg-indigo-600/10' : 'bg-indigo-200/30'} rounded-full blur-3xl`} />
+        </div>
+
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <motion.div
+            className="text-center mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-              Why Choose Us
+            <motion.div
+              className="inline-block mb-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
+                Why Choose Us
+              </span>
+            </motion.div>
+
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Your Success is Our Mission
             </h2>
-            <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
-              We deliver exceptional mobile app development services that drive results.
+            <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+              Partner with a team that's committed to delivering exceptional results and exceeding expectations.
             </p>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             initial="hidden"
             whileInView="visible"
@@ -260,26 +504,71 @@ export default function WebDevelopment({ darkMode }) {
             variants={staggerContainer}
           >
             {[
-              { icon: <Award size={32} />, title: "Expert Team", desc: "Skilled developers with years of experience." },
-              { icon: <Users size={32} />, title: "Client Focus", desc: "Your goals and satisfaction are our priority." },
-              { icon: <Activity size={32} />, title: "Quality Assurance", desc: "Rigorous testing for flawless performance." },
-              { icon: <Zap size={32} />, title: "Fast Delivery", desc: "On-time project completion without compromising quality." }
+              {
+                icon: <Award size={36} />,
+                title: "Expert Team",
+                desc: "Industry veterans with 10+ years of experience in cutting-edge web technologies.",
+                gradient: "from-yellow-400 to-orange-500",
+                stat: "10+ Years"
+              },
+              {
+                icon: <Users size={36} />,
+                title: "Client-Centric",
+                desc: "Your vision drives our process. We prioritize communication and collaboration.",
+                gradient: "from-blue-400 to-indigo-500",
+                stat: "98% Satisfaction"
+              },
+              {
+                icon: <Shield size={36} />,
+                title: "Quality First",
+                desc: "Rigorous testing, code reviews, and security audits ensure enterprise-grade quality.",
+                gradient: "from-green-400 to-teal-500",
+                stat: "Zero Compromise"
+              },
+              {
+                icon: <Zap size={36} />,
+                title: "Fast Delivery",
+                desc: "Agile methodology and efficient workflows deliver your project on time, every time.",
+                gradient: "from-purple-400 to-pink-500",
+                stat: "On-Time Delivery"
+              }
             ].map((feature, index) => (
-              <motion.div 
-                key={index} 
-                className={`${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-blue-50 hover:bg-blue-100'} rounded-lg p-6 text-center transition duration-300 transform hover:scale-105`}
+              <motion.div
+                key={index}
+                className="group relative"
                 variants={fadeInUp}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -10 }}
               >
-                <div className="text-blue-500 flex justify-center mb-4 transform-gpu hover:scale-110 transition-transform">
-                  {feature.icon}
+                <div className={`relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-white'} rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-gray-700 hover:border-indigo-500/50' : 'border-gray-200 hover:border-indigo-300'} overflow-hidden`}>
+                  {/* Hover gradient effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+
+                  {/* Icon with animated background */}
+                  <motion.div
+                    className={`relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${feature.gradient} mb-6 shadow-lg`}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="text-white">
+                      {feature.icon}
+                    </div>
+                  </motion.div>
+
+                  {/* Stat badge */}
+                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-4 ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}`}>
+                    {feature.stat}
+                  </div>
+
+                  <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                    {feature.title}
+                  </h3>
+                  <p className={`text-base leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    {feature.desc}
+                  </p>
+
+                  {/* Decorative element */}
+                  <div className={`absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-5 rounded-tl-full`} />
                 </div>
-                <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                  {feature.title}
-                </h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                  {feature.desc}
-                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -287,53 +576,129 @@ export default function WebDevelopment({ darkMode }) {
       </section>
 
       {/* Stats Section */}
-      <section className={`${darkMode ? 'bg-blue-900' : 'bg-blue-800'} text-white py-16 px-4 relative overflow-hidden`}>
+      <section className={`${darkMode ? 'bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900' : 'bg-gradient-to-br from-indigo-600 via-blue-600 to-purple-600'} text-white py-20 px-4 relative overflow-hidden`}>
         {/* Animated particles for background */}
         <div className="absolute inset-0">
-          {[...Array(15)].map((_, i) => (
-            <div 
+          {[...Array(20)].map((_, i) => (
+            <div
               key={i}
-              className="absolute rounded-full bg-white opacity-10"
+              className="absolute rounded-full bg-white"
               style={{
-                width: `${Math.random() * 10 + 5}px`,
-                height: `${Math.random() * 10 + 5}px`,
+                width: `${Math.random() * 8 + 3}px`,
+                height: `${Math.random() * 8 + 3}px`,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animation: `floatParticle ${Math.random() * 15 + 10}s linear infinite`
+                opacity: Math.random() * 0.3 + 0.1,
+                animation: `floatParticle ${Math.random() * 20 + 15}s linear infinite`,
+                animationDelay: `${Math.random() * 5}s`
               }}
             />
           ))}
         </div>
 
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}
+        />
+
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Trusted by Industry Leaders
+            </h2>
+            <p className="text-lg text-gray-100 max-w-2xl mx-auto">
+              Our track record speaks for itself. Here's what we've achieved together with our clients.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
           >
             {[
-              { number: "850+", text: "Completed Projects" },
-              { number: "200+", text: "Happy Clients" },
-              { number: "15+", text: "Years Experience" },
-              { number: "120+", text: "Team Members" }
+              { number: "500+", text: "Projects Delivered", icon: <Rocket size={28} /> },
+              { number: "250+", text: "Happy Clients", icon: <Users size={28} /> },
+              { number: "15+", text: "Years Experience", icon: <Award size={28} /> },
+              { number: "50+", text: "Team Members", icon: <Target size={28} /> }
             ].map((stat, index) => (
-              <motion.div 
-                key={index} 
-                className="text-center"
+              <motion.div
+                key={index}
+                className="text-center group"
                 variants={fadeInUp}
               >
-                <motion.h3 
-                  className="text-3xl md:text-4xl font-bold mb-2"
+                <motion.div
+                  className="relative inline-block mb-4"
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1, type: "spring", stiffness: 200 }}
                 >
-                  {stat.number}
-                </motion.h3>
-                <p className="text-lg">{stat.text}</p>
+                  {/* Icon background */}
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm border border-white/30 mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {stat.icon}
+                  </div>
+
+                  {/* Number with counter animation */}
+                  <motion.h3
+                    className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.15 }}
+                  >
+                    {stat.number}
+                  </motion.h3>
+                </motion.div>
+
+                <p className="text-base md:text-lg font-medium text-gray-100 group-hover:text-white transition-colors">
+                  {stat.text}
+                </p>
+
+                {/* Decorative line */}
+                <motion.div
+                  className="w-16 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mt-4 opacity-0 group-hover:opacity-50 transition-opacity"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Additional trust badges */}
+          <motion.div
+            className="mt-16 flex flex-wrap justify-center items-center gap-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+          >
+            {[
+              "ISO Certified",
+              "24/7 Support",
+              "Agile Methodology",
+              "100% Satisfaction"
+            ].map((badge, index) => (
+              <motion.div
+                key={index}
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
+              >
+                <CheckCircle size={18} className="text-green-300" />
+                <span className="text-sm font-medium">{badge}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -341,79 +706,232 @@ export default function WebDevelopment({ darkMode }) {
       </section>
 
       {/* CTA Section */}
-      <section className={`py-20 px-4 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
-        <div className="container mx-auto max-w-6xl">
-          <motion.div 
-            className={`${darkMode ? 'bg-gray-700 border border-blue-500' : 'bg-white'} rounded-lg shadow-xl p-8 md:p-12`}
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-gradient-to-br from-gray-50 to-white'} relative overflow-hidden`}>
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className={`absolute -top-24 -right-24 w-96 h-96 ${darkMode ? 'bg-indigo-600/20' : 'bg-indigo-200/40'} rounded-full blur-3xl`} />
+          <div className={`absolute -bottom-24 -left-24 w-96 h-96 ${darkMode ? 'bg-purple-600/20' : 'bg-purple-200/40'} rounded-full blur-3xl`} />
+        </div>
+
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <motion.div
+            className={`relative ${darkMode ? 'bg-gradient-to-br from-indigo-900 to-purple-900' : 'bg-gradient-to-br from-indigo-600 to-purple-600'} rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16 overflow-hidden`}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="md:w-2/3 mb-6 md:mb-0">
-                <h2 className={`text-2xl md:text-3xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                  Ready to Build Your Mobile App?
-                </h2>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                  Get in touch with us today to discuss your project and receive a free quote.
-                </p>
+            {/* Animated background pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 2px)`,
+                  backgroundSize: '50px 50px'
+                }}
+              />
+            </div>
+
+            {/* Glowing orbs */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+              <div className="lg:w-2/3 text-center lg:text-left">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/30">
+                    <Sparkles size={18} className="text-yellow-300" />
+                    <span className="text-sm font-medium text-white">Let's Build Something Amazing</span>
+                  </div>
+
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
+                    Ready to Transform Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300">Digital Presence?</span>
+                  </h2>
+                  <p className="text-lg md:text-xl text-gray-100 mb-8 leading-relaxed">
+                    Let's discuss your project and create a tailored solution that exceeds your expectations. Get a free consultation today.
+                  </p>
+
+                  {/* Features list */}
+                  <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                    {[
+                      "Free Consultation",
+                      "No Obligation Quote",
+                      "24h Response Time"
+                    ].map((feature, index) => (
+                      <div key={index} className="flex items-center gap-2 text-white">
+                        <CheckCircle size={18} className="text-green-300" />
+                        <span className="text-sm font-medium">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
               </div>
-              <div className="md:w-1/3 text-center md:text-right">
-                <motion.button 
-                  className={`${darkMode ? 'bg-blue-500 hover:bg-blue-600' : 'bg-blue-600 hover:bg-blue-700'} text-white font-semibold py-3 px-8 rounded-md transition shadow-lg`}
+
+              <motion.div
+                className="lg:w-1/3 flex flex-col gap-4 w-full lg:items-end"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+              >
+                <motion.button
+                  className="w-full lg:w-auto bg-white text-indigo-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-50 transition shadow-2xl flex items-center justify-center gap-3 group"
+                  whileHover={{ scale: 1.05, boxShadow: '0 25px 50px rgba(0,0,0,0.3)' }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>Get Started Now</span>
+                  <Rocket size={20} className="group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+
+                <motion.button
+                  className="w-full lg:w-auto border-2 border-white text-white font-bold py-4 px-10 rounded-xl hover:bg-white hover:text-indigo-700 transition backdrop-blur-md bg-white/10 flex items-center justify-center gap-3"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Contact Us
+                  <MessageSquare size={20} />
+                  <span>Schedule a Call</span>
                 </motion.button>
-              </div>
+
+                <p className="text-sm text-gray-200 text-center lg:text-right mt-2">
+                  Join 250+ satisfied clients worldwide
+                </p>
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Technologies Section */}
-      <section className={`py-20 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
-        <div className="container mx-auto max-w-6xl">
-          <motion.div 
-            className="text-center mb-16"
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative`}>
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className={`absolute top-0 left-1/3 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/40'} rounded-full blur-3xl`} />
+          <div className={`absolute bottom-0 right-1/3 w-96 h-96 ${darkMode ? 'bg-indigo-900/20' : 'bg-indigo-100/40'} rounded-full blur-3xl`} />
+        </div>
+
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <motion.div
+            className="text-center mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-              Technologies We Use
+            <motion.div
+              className="inline-block mb-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30' : 'bg-cyan-100 text-cyan-700 border border-cyan-200'}`}>
+                Tech Stack
+              </span>
+            </motion.div>
+
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Cutting-Edge Technologies
             </h2>
-            <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
-              We leverage the latest technologies to build powerful mobile applications.
+            <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+              We leverage the most powerful and modern technologies to build scalable, performant, and future-proof web applications.
             </p>
           </motion.div>
-          
-          <motion.div 
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-          >
+
+          {/* Tech categories */}
+          <div className="space-y-12">
             {[
-              "React Native", "Flutter", "Swift", "Kotlin", "JavaScript",
-              "TypeScript", "Node.js", "Firebase", "AWS", "Google Cloud"
-            ].map((tech, index) => (
-              <motion.div 
-                key={index} 
-                className={`${darkMode ? 'bg-gray-800 hover:bg-gray-700 border border-gray-700' : 'bg-gray-100 hover:bg-gray-200'} rounded-lg p-6 text-center flex items-center justify-center h-24 transition-all duration-300`}
-                variants={fadeInUp}
-                whileHover={{ 
-                  scale: 1.05, 
-                  boxShadow: darkMode ? '0 0 15px rgba(59, 130, 246, 0.5)' : '0 4px 15px rgba(0, 0, 0, 0.1)' 
-                }}
+              {
+                category: "Frontend",
+                gradient: "from-blue-500 to-cyan-500",
+                techs: ["React", "Next.js", "Vue.js", "TypeScript", "Tailwind CSS"]
+              },
+              {
+                category: "Backend",
+                gradient: "from-green-500 to-teal-500",
+                techs: ["Node.js", "Python", "Go", "GraphQL", "REST APIs"]
+              },
+              {
+                category: "Database & Cloud",
+                gradient: "from-purple-500 to-pink-500",
+                techs: ["PostgreSQL", "MongoDB", "AWS", "Google Cloud", "Docker"]
+              },
+              {
+                category: "Tools & Platforms",
+                gradient: "from-orange-500 to-red-500",
+                techs: ["Git", "CI/CD", "Kubernetes", "Vercel", "Firebase"]
+              }
+            ].map((stack, stackIndex) => (
+              <motion.div
+                key={stackIndex}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: stackIndex * 0.1 }}
               >
-                <span className={`font-semibold ${darkMode ? 'text-white' : 'text-gray-800'}`}>{tech}</span>
+                <div className="mb-6">
+                  <h3 className={`text-2xl font-bold mb-2 bg-gradient-to-r ${stack.gradient} bg-clip-text text-transparent inline-block`}>
+                    {stack.category}
+                  </h3>
+                  <div className={`h-1 w-20 bg-gradient-to-r ${stack.gradient} rounded-full`} />
+                </div>
+
+                <motion.div
+                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={staggerContainer}
+                >
+                  {stack.techs.map((tech, techIndex) => (
+                    <motion.div
+                      key={techIndex}
+                      className={`group relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-750 hover:to-gray-850 border border-gray-700' : 'bg-white hover:bg-gray-50 border border-gray-200'} rounded-xl p-6 text-center transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden`}
+                      variants={fadeInUp}
+                      whileHover={{
+                        y: -8,
+                        scale: 1.05,
+                        transition: { duration: 0.3 }
+                      }}
+                    >
+                      {/* Gradient glow on hover */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${stack.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-xl`} />
+
+                      {/* Tech icon placeholder - can be replaced with actual icons */}
+                      <div className={`relative w-12 h-12 mx-auto mb-4 rounded-lg bg-gradient-to-br ${stack.gradient} flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
+                        {tech.charAt(0)}
+                      </div>
+
+                      <span className={`relative font-semibold text-base ${darkMode ? 'text-white' : 'text-gray-900'} group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:${stack.gradient}`}>
+                        {tech}
+                      </span>
+
+                      {/* Decorative corner */}
+                      <div className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-br ${stack.gradient} opacity-5 rounded-bl-full`} />
+                    </motion.div>
+                  ))}
+                </motion.div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Additional info */}
+          <motion.div
+            className={`mt-16 text-center p-8 rounded-2xl ${darkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700' : 'bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200'}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            <Code size={40} className={`mx-auto mb-4 ${darkMode ? 'text-indigo-400' : 'text-indigo-600'}`} />
+            <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              And Many More...
+            </h3>
+            <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              We stay up-to-date with the latest technologies and frameworks to deliver the best solutions for your project.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -421,34 +939,100 @@ export default function WebDevelopment({ darkMode }) {
       {/* Add CSS for animations */}
       <style jsx global>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
+          0%, 100% {
+            transform: translateY(0) translateX(0);
+          }
+          25% {
+            transform: translateY(-20px) translateX(10px);
+          }
+          50% {
+            transform: translateY(-10px) translateX(-10px);
+          }
+          75% {
+            transform: translateY(-30px) translateX(5px);
+          }
         }
-        
+
         @keyframes floatParticle {
-          0% { transform: translate(0, 0); }
-          25% { transform: translate(10px, 10px); }
-          50% { transform: translate(0, 20px); }
-          75% { transform: translate(-10px, 10px); }
-          100% { transform: translate(0, 0); }
+          0% {
+            transform: translate(0, 0) rotate(0deg);
+            opacity: 0.3;
+          }
+          25% {
+            transform: translate(15px, -15px) rotate(90deg);
+            opacity: 0.5;
+          }
+          50% {
+            transform: translate(0, -30px) rotate(180deg);
+            opacity: 0.3;
+          }
+          75% {
+            transform: translate(-15px, -15px) rotate(270deg);
+            opacity: 0.5;
+          }
+          100% {
+            transform: translate(0, 0) rotate(360deg);
+            opacity: 0.3;
+          }
         }
-        
-        .perspective {
-          perspective: 1000px;
-        }
-        
-        .phone-3d-wrapper {
+
+        .perspective-container {
+          perspective: 1500px;
           transform-style: preserve-3d;
-          transition: transform 0.5s ease;
         }
-        
-        .phone-3d-wrapper:hover {
-          transform: rotateY(15deg) rotateX(5deg);
-        }
-        
+
         /* Dark mode transitions */
         .dark {
           color-scheme: dark;
+        }
+
+        /* Smooth scrolling */
+        html {
+          scroll-behavior: smooth;
+        }
+
+        /* Custom gradient text animation */
+        @keyframes gradientShift {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+
+        /* Improved dark mode colors */
+        .dark .bg-gray-750 {
+          background-color: #1f2937;
+        }
+
+        .dark .bg-gray-850 {
+          background-color: #1a202c;
+        }
+
+        /* Enhanced shadows for dark mode */
+        .dark .shadow-2xl {
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Gradient border animation */
+        @keyframes rotateBorder {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        /* Pulse animation for badges */
+        @keyframes pulse-glow {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+          }
+          50% {
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+          }
         }
       `}</style>
     </div>

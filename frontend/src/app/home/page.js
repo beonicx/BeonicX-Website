@@ -14,7 +14,7 @@ import HeroSection from "../../components/home/heroSection";
 import IndustrySlider from "../../components/home/industrySlider";
 import Technologiessection from "../../components/service/technologiessection";
 import Toppage from "../../components/home/top";
-import ChatWidget from "../../components/ai/ChatWidget";
+import ChatWidget from "../../components/ai-agent/ChatWidget";
 
 // Create a context to share dark mode state across components
 export const ThemeContext = createContext({

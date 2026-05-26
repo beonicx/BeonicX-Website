@@ -1,17 +1,25 @@
-// pages/education-app-development.js
 'use client'
-import Head from 'next/head';
-import Image from 'next/image';
 import { useState } from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import {
+  BookOpen, Users, Award, TrendingUp, Sparkles, Code,
+  Brain, Zap, Target, Shield, Clock, CheckCircle,
+  GraduationCap, Laptop, Globe, MessageSquare, BarChart,
+  Settings, Smartphone, Layers, ArrowRight, Star, Mail,
+  Phone, MapPin, Send
+} from 'lucide-react';
 
-export default function Education() {
+export default function Education({ darkMode = false }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: '',
   });
-  
+
+  const [activeTab, setActiveTab] = useState('k12');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -19,497 +27,755 @@ export default function Education() {
       [name]: value
     }));
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
     console.log('Form submitted:', formData);
-    // Reset form
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
-  // Education app benefits data
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
   const appBenefits = [
     {
+      icon: <Target className="w-8 h-8" />,
       title: "Custom Learning Path",
-      description: "Personalized learning experiences based on student performance and preferences."
+      description: "Personalized learning experiences based on student performance and preferences.",
+      gradient: "from-blue-500 to-cyan-500"
     },
     {
+      icon: <Zap className="w-8 h-8" />,
       title: "Interactive Content",
-      description: "Engage students with interactive lessons, quizzes, and multimedia content."
+      description: "Engage students with interactive lessons, quizzes, and multimedia content.",
+      gradient: "from-purple-500 to-pink-500"
     },
     {
+      icon: <BarChart className="w-8 h-8" />,
       title: "Progress Tracking",
-      description: "Monitor student progress with detailed analytics and performance insights."
+      description: "Monitor student progress with detailed analytics and performance insights.",
+      gradient: "from-green-500 to-teal-500"
     },
     {
+      icon: <Globe className="w-8 h-8" />,
       title: "Accessibility",
-      description: "Learn anytime, anywhere with mobile-friendly education applications."
+      description: "Learn anytime, anywhere with mobile-friendly education applications.",
+      gradient: "from-orange-500 to-red-500"
     },
     {
+      icon: <Award className="w-8 h-8" />,
       title: "Gamification Elements",
-      description: "Increase motivation through badges, rewards, and competitive learning features."
+      description: "Increase motivation through badges, rewards, and competitive learning features.",
+      gradient: "from-indigo-500 to-blue-500"
     },
     {
+      icon: <MessageSquare className="w-8 h-8" />,
       title: "Communication Tools",
-      description: "Connect students, teachers, and parents through integrated messaging features."
+      description: "Connect students, teachers, and parents through integrated messaging features.",
+      gradient: "from-pink-500 to-rose-500"
     }
   ];
 
-  // Education app features data
   const appFeatures = [
+    { icon: <Shield className="w-6 h-6" />, title: "User Authentication", description: "Secure login with role-based access." },
+    { icon: <Layers className="w-6 h-6" />, title: "Course Management", description: "Intuitive content organization dashboard." },
+    { icon: <CheckCircle className="w-6 h-6" />, title: "Assessment Tools", description: "Automated grading capabilities." },
+    { icon: <Users className="w-6 h-6" />, title: "Social Learning", description: "Forums and peer review functionality." },
+    { icon: <Smartphone className="w-6 h-6" />, title: "Mobile Responsive", description: "Seamless cross-device experience." },
+    { icon: <BarChart className="w-6 h-6" />, title: "Analytics Dashboard", description: "Track performance and engagement." },
+    { icon: <BookOpen className="w-6 h-6" />, title: "Content Library", description: "Rich educational resources." },
+    { icon: <Laptop className="w-6 h-6" />, title: "Offline Mode", description: "Access without internet connectivity." }
+  ];
+
+  const developmentSteps = [
+    { number: "01", icon: <Brain className="w-8 h-8" />, title: "Research & Analysis", description: "Strategic planning based on market trends and your requirements." },
+    { number: "02", icon: <Code className="w-8 h-8" />, title: "UI/UX Design", description: "Intuitive interfaces tailored for educational excellence." },
+    { number: "03", icon: <Settings className="w-8 h-8" />, title: "Development", description: "Building with latest technologies and best practices." },
+    { number: "04", icon: <CheckCircle className="w-8 h-8" />, title: "Testing & QA", description: "Rigorous testing for flawless performance." },
+    { number: "05", icon: <Zap className="w-8 h-8" />, title: "Deployment", description: "Smooth launch across all platforms." },
+    { number: "06", icon: <TrendingUp className="w-8 h-8" />, title: "Support & Maintenance", description: "Ongoing optimization and enhancements." }
+  ];
+
+  const technologies = [
+    'React Native', 'Flutter', 'iOS', 'Android', 'Node.js', 'Firebase',
+    'AWS', 'MongoDB', 'GraphQL', 'Kotlin', 'Swift', 'Python'
+  ];
+
+  const industries = [
+    'K-12 Schools and Districts',
+    'Higher Education Institutions',
+    'EdTech Startups',
+    'Corporate Training',
+    'Educational Publishers',
+    'Language Learning Providers',
+    'Online Learning Platforms',
+    'Test Preparation Services',
+    'Special Education'
+  ];
+
+  const caseStudies = [
     {
-      title: "User Authentication",
-      description: "Secure login for students, teachers, and administrators with role-based access."
+      title: "Interactive Learning Platform",
+      description: "K-12 platform with interactive lessons, assessments, and progress tracking.",
+      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop",
+      category: "K-12 Education"
     },
     {
-      title: "Course Management",
-      description: "Create, edit, and organize educational content with an intuitive dashboard."
+      title: "Virtual Classroom Solution",
+      description: "Real-time collaboration tools for remote learning and hybrid classrooms.",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
+      category: "Higher Education"
     },
     {
-      title: "Assessment Tools",
-      description: "Build quizzes, tests, and assignments with automated grading capabilities."
-    },
-    {
-      title: "Social Learning Features",
-      description: "Discussion forums, group projects, and peer review functionality."
-    },
-    {
-      title: "Mobile Responsiveness",
-      description: "Seamless experience across devices with responsive design principles."
-    },
-    {
-      title: "Analytics Dashboard",
-      description: "Track performance metrics, engagement, and learning outcomes."
-    },
-    {
-      title: "Content Library",
-      description: "Access to educational resources including videos, documents, and interactive modules."
-    },
-    {
-      title: "Offline Mode",
-      description: "Access content without internet connectivity with offline capabilities."
+      title: "Corporate Training App",
+      description: "Employee skill development platform with certification tracking.",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+      category: "Corporate"
     }
   ];
 
-  // Development process steps
-  const developmentSteps = [
+  const faqs = [
     {
-      number: "01",
-      title: "Research & Analysis",
-      description: "We analyze your requirements, target audience, and market trends to create a strategic development plan."
+      question: "How long does it take to develop an education app?",
+      answer: "Timeline varies based on complexity. Simple apps take 3-4 months, while complex platforms require 6-12 months. We provide detailed timelines after understanding your requirements."
     },
     {
-      number: "02",
-      title: "UI/UX Design",
-      description: "Our designers create intuitive, engaging interfaces tailored for educational purposes and your brand identity."
+      question: "What is the cost of developing an education app?",
+      answer: "Costs depend on platform choice, feature set, design complexity, and integrations. Our team provides detailed quotes after analyzing your specifications."
     },
     {
-      number: "03",
-      title: "Development",
-      description: "Our expert developers build your education app using the latest technologies and best practices."
+      question: "Do you offer post-launch support and maintenance?",
+      answer: "Yes, we provide comprehensive support including bug fixes, updates, feature enhancements, and technical assistance."
     },
     {
-      number: "04",
-      title: "Testing & QA",
-      description: "Rigorous testing across devices and scenarios ensures your app functions flawlessly for all users."
-    },
-    {
-      number: "05",
-      title: "Deployment",
-      description: "We handle the deployment process, ensuring your app launches smoothly on all target platforms."
-    },
-    {
-      number: "06",
-      title: "Support & Maintenance",
-      description: "Ongoing support, updates, and enhancements keep your education app performing optimally."
+      question: "Can you help with education app monetization strategies?",
+      answer: "Absolutely! We implement subscriptions, freemium models, in-app purchases, or licensing based on your goals."
     }
   ];
 
   return (
-    <>
-      <Head>
-        <title>Education App Development Services | Hyperlink InfoSystem</title>
-        <meta name="description" content="Custom education app development services for institutions, educators, and edtech companies. Create engaging learning platforms with Hyperlink InfoSystem." />
-      </Head>
-
+    <main className={`transition-colors duration-300 ${darkMode ? 'bg-gray-950 text-white' : 'bg-gray-50 text-gray-900'}`}>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-indigo-800 text-white py-64">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center">
-            <div className="lg:w-1/2 mb-10 lg:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Education App Development Services</h1>
-              <p className="text-xl mb-8">Transform the learning experience with custom education application development tailored to your specific needs and audience.</p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-lg transition duration-300">Get Free Consultation</button>
-                <button className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 text-white font-medium py-3 px-8 rounded-lg transition duration-300">Our Portfolio</button>
+      <section className={`relative overflow-hidden ${
+        darkMode
+          ? 'bg-gradient-to-br from-gray-900 via-indigo-950 to-purple-950'
+          : 'bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600'
+      } text-white py-24 md:py-36 px-4`}>
+        {/* Animated background */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={i}
+              className={`absolute rounded-full ${darkMode ? 'opacity-5' : 'opacity-10'}`}
+              style={{
+                width: `${Math.random() * 400 + 150}px`,
+                height: `${Math.random() * 400 + 150}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                background: `radial-gradient(circle, rgba(255, 255, 255, ${Math.random() * 0.4}) 0%, transparent 70%)`,
+                animation: `float ${Math.random() * 15 + 15}s ease-in-out infinite`,
+                filter: 'blur(40px)'
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            className="flex flex-col lg:flex-row items-center gap-12"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+          >
+            <motion.div className="lg:w-1/2" variants={fadeInUp}>
+              <motion.div
+                className={`inline-flex items-center gap-2 backdrop-blur-md px-5 py-2.5 rounded-full mb-6 border ${
+                  darkMode ? 'bg-indigo-500/20 border-indigo-400/40' : 'bg-white/25 border-white/40'
+                }`}
+              >
+                <Sparkles className={darkMode ? 'text-yellow-400' : 'text-yellow-200'} size={18} />
+                <span className="text-sm font-semibold tracking-wide">Education Excellence</span>
+              </motion.div>
+
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-8 leading-tight">
+                Education App{' '}
+                <span className={`text-transparent bg-clip-text bg-gradient-to-r ${
+                  darkMode ? 'from-cyan-400 via-blue-400 to-purple-400' : 'from-white via-blue-100 to-purple-100'
+                }`}>
+                  Development
+                </span>
+              </h1>
+
+              <p className={`text-lg md:text-xl mb-10 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-blue-50'}`}>
+                Transform the learning experience with custom education applications tailored to your specific needs and audience.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-5">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white text-indigo-700 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition shadow-2xl flex items-center justify-center gap-2"
+                >
+                  <Send size={20} />
+                  Get Free Consultation
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`font-bold py-4 px-8 rounded-xl transition backdrop-blur-md flex items-center justify-center gap-2 border-2 ${
+                    darkMode
+                      ? 'border-gray-400 text-white bg-white/10 hover:bg-white hover:text-indigo-700'
+                      : 'border-white text-white bg-white/20 hover:bg-white hover:text-indigo-700'
+                  }`}
+                >
+                  <BookOpen size={20} />
+                  Our Portfolio
+                </motion.button>
               </div>
-            </div>
-            <div className="lg:w-1/2">
-              <div className="relative w-full h-96">
-                {/* Replace with actual image */}
-                <div className="w-full h-full bg-blue-800 rounded-xl flex items-center justify-center">
-                  <p className="text-lg font-medium">Education App Hero Image</p>
-                </div>
+
+              {/* Stats */}
+              <motion.div className="flex flex-wrap gap-8 mt-12" variants={fadeInUp}>
+                {[
+                  { label: "Projects", value: "500+" },
+                  { label: "Students Reached", value: "2M+" },
+                  { label: "Success Rate", value: "98%" }
+                ].map((stat, index) => (
+                  <div key={index}>
+                    <div className={`text-3xl md:text-4xl font-extrabold ${darkMode ? 'text-cyan-400' : 'text-cyan-200'}`}>
+                      {stat.value}
+                    </div>
+                    <div className={`text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-blue-100'}`}>
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            <motion.div className="lg:w-1/2" variants={fadeInUp}>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl blur-2xl opacity-30 animate-pulse" />
+                <motion.div
+                  className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20"
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <Image
+                    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
+                    alt="Education App Development"
+                    width={600}
+                    height={400}
+                    className="object-cover w-full h-auto"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/60 to-transparent" />
+                  <div className="absolute top-4 left-4 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                    <Star size={16} fill="white" />
+                    Featured
+                  </div>
+                </motion.div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Innovative Education App Development Solutions</h2>
-            <p className="text-lg text-gray-600 mb-10">
-              At Hyperlink InfoSystem, we specialize in creating cutting-edge education applications that enhance learning experiences, 
-              streamline educational processes, and drive better outcomes for students and educators alike. Our custom education app 
-              development services empower educational institutions, publishers, and edtech companies to leverage the power of 
-              technology in transforming traditional learning methods.
+      {/* Services Overview */}
+      <section className={`py-24 px-4 relative ${darkMode ? 'bg-gray-950' : 'bg-white'}`}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className={`absolute top-20 right-0 w-[500px] h-[500px] ${darkMode ? 'bg-indigo-600/10' : 'bg-indigo-200/40'} rounded-full blur-3xl`} />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <motion.span
+              className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
+                darkMode ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30' : 'bg-indigo-100 text-indigo-700 border border-indigo-300'
+              }`}
+            >
+              Our Solutions
+            </motion.span>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Innovative Education Solutions
+            </h2>
+            <p className={`text-lg max-w-3xl mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+              We specialize in creating cutting-edge education applications that enhance learning experiences and drive better outcomes.
             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 100-12 6 6 0 000 12z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">K-12 Education Apps</h3>
-              <p className="text-gray-600">
-                Interactive learning applications designed for primary and secondary education, making learning engaging and effective for younger students.
-              </p>
-            </div>
-            
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">Higher Education Platforms</h3>
-              <p className="text-gray-600">
-                Comprehensive solutions for colleges and universities, including course management, virtual classrooms, and assessment tools.
-              </p>
-            </div>
-            
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">Corporate Training Apps</h3>
-              <p className="text-gray-600">
-                Employee training and skill development applications that help organizations build a more skilled and knowledgeable workforce.
-              </p>
-            </div>
-          </div>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {[
+              { icon: <BookOpen className="w-10 h-10" />, title: "K-12 Education Apps", desc: "Interactive learning for primary and secondary education.", gradient: "from-blue-500 to-cyan-500" },
+              { icon: <GraduationCap className="w-10 h-10" />, title: "Higher Education Platforms", desc: "Comprehensive solutions for colleges and universities.", gradient: "from-purple-500 to-pink-500" },
+              { icon: <Users className="w-10 h-10" />, title: "Corporate Training Apps", desc: "Employee skill development and certification tracking.", gradient: "from-green-500 to-teal-500" }
+            ].map((service, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
+                className={`relative rounded-2xl p-8 overflow-hidden transition-all duration-300 ${
+                  darkMode
+                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-xl hover:shadow-indigo-900/20'
+                    : 'bg-white border border-gray-200 shadow-lg hover:shadow-xl'
+                }`}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-5`} />
+                <div className={`relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${service.gradient} mb-6 shadow-lg text-white`}>
+                  {service.icon}
+                </div>
+                <h3 className={`text-2xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  {service.title}
+                </h3>
+                <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>
+                  {service.desc}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Benefits of Custom Education App Development</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our education app development services deliver powerful advantages for educational institutions, 
-              students, and educators alike.
-            </p>
-          </div>
+      <section className={`py-24 px-4 relative ${darkMode ? 'bg-gradient-to-b from-gray-900 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <motion.span
+              className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
+                darkMode ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' : 'bg-purple-100 text-purple-700 border border-purple-300'
+              }`}
+            >
+              Key Benefits
+            </motion.span>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Why Choose Our Services
+            </h2>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
             {appBenefits.map((benefit, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition duration-300">
-                <h3 className="text-xl font-semibold mb-3 text-blue-700">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
-              </div>
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ y: -8 }}
+                className={`rounded-2xl p-8 transition-all duration-300 ${
+                  darkMode
+                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-lg hover:shadow-indigo-900/20'
+                    : 'bg-white border border-gray-200 shadow-md hover:shadow-xl'
+                }`}
+              >
+                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${benefit.gradient} mb-6 shadow-lg text-white`}>
+                  {benefit.icon}
+                </div>
+                <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  {benefit.title}
+                </h3>
+                <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>
+                  {benefit.description}
+                </p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-blue-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Key Features of Our Education Apps</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We develop feature-rich education applications tailored to meet your specific requirements and objectives.
-            </p>
-          </div>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-950' : 'bg-white'}`}>
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <motion.span
+              className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
+                darkMode ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30' : 'bg-cyan-100 text-cyan-700 border border-cyan-300'
+              }`}
+            >
+              Features
+            </motion.span>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Powerful App Features
+            </h2>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
             {appFeatures.map((feature, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition duration-300">
-                <h3 className="text-lg font-semibold mb-3 text-gray-800">{feature.title}</h3>
-                <p className="text-gray-600 text-sm">{feature.description}</p>
-              </div>
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ scale: 1.05 }}
+                className={`rounded-xl p-6 transition-all duration-300 ${
+                  darkMode
+                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800'
+                    : 'bg-gradient-to-br from-gray-50 to-white border border-gray-200 shadow-sm hover:shadow-md'
+                }`}
+              >
+                <div className={`${darkMode ? 'text-indigo-400' : 'text-indigo-600'} mb-4`}>
+                  {feature.icon}
+                </div>
+                <h3 className={`text-lg font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  {feature.title}
+                </h3>
+                <p className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
+                  {feature.description}
+                </p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Development Process Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Our Education App Development Process</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We follow a proven development methodology to deliver high-quality education applications that exceed expectations.
-            </p>
-          </div>
+      {/* Development Process */}
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-gray-900 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <motion.span
+              className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
+                darkMode ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-green-100 text-green-700 border border-green-300'
+              }`}
+            >
+              Our Process
+            </motion.span>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Development Journey
+            </h2>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
             {developmentSteps.map((step, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-8 relative hover:shadow-lg transition duration-300">
-                <div className="absolute top-6 right-6 text-4xl font-bold text-blue-200">{step.number}</div>
-                <h3 className="text-xl font-semibold mb-4 text-blue-800">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
-              </div>
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
+                className={`relative rounded-2xl p-8 overflow-hidden transition-all duration-300 ${
+                  darkMode
+                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-lg hover:shadow-indigo-900/20'
+                    : 'bg-white border border-gray-200 shadow-md hover:shadow-xl'
+                }`}
+              >
+                <div className={`absolute top-6 right-6 text-6xl font-bold ${darkMode ? 'text-gray-800' : 'text-gray-100'}`}>
+                  {step.number}
+                </div>
+                <div className={`${darkMode ? 'text-indigo-400' : 'text-indigo-600'} mb-4 relative z-10`}>
+                  {step.icon}
+                </div>
+                <h3 className={`text-xl font-bold mb-3 relative z-10 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  {step.title}
+                </h3>
+                <p className={`relative z-10 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  {step.description}
+                </p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Technologies Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Technologies We Use</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We leverage cutting-edge technologies to build robust, scalable, and feature-rich education applications.
-            </p>
-          </div>
+      {/* Technologies */}
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-950' : 'bg-white'}`}>
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <motion.span
+              className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
+                darkMode ? 'bg-orange-500/20 text-orange-400 border border-orange-500/30' : 'bg-orange-100 text-orange-700 border border-orange-300'
+              }`}
+            >
+              Technology Stack
+            </motion.span>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Technologies We Use
+            </h2>
+          </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {['React Native', 'Flutter', 'iOS', 'Android', 'Node.js', 'Firebase', 'AWS', 'MongoDB', 'GraphQL', 'Kotlin', 'wift', 'Python'].map((tech, index) => (
-              <div key={index} className="bg-white rounded-lg p-4 flex items-center justify-center shadow-sm hover:shadow-md transition duration-300 h-24">
-                <p className="text-lg font-medium text-gray-700">{tech}</p>
-              </div>
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {technologies.map((tech, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                className={`rounded-xl p-6 flex items-center justify-center h-24 transition-all duration-300 ${
+                  darkMode
+                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 hover:border-indigo-700'
+                    : 'bg-white border border-gray-200 shadow-sm hover:shadow-md'
+                }`}
+              >
+                <p className={`text-base font-bold text-center ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                  {tech}
+                </p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Industries Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Industries We Serve</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our education app development services cater to a wide range of educational sectors and use cases.
-            </p>
-          </div>
+      {/* Case Studies */}
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-gray-900 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <motion.span
+              className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
+                darkMode ? 'bg-pink-500/20 text-pink-400 border border-pink-500/30' : 'bg-pink-100 text-pink-700 border border-pink-300'
+              }`}
+            >
+              Success Stories
+            </motion.span>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Case Studies
+            </h2>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              'K-12 Schools and Districts',
-              'Higher Education Institutions',
-              'EdTech Startups',
-              'Corporate Training',
-              'Educational Publishers',
-              'Language Learning Providers',
-              'Online Learning Platforms',
-              'Test Preparation Services',
-              'pecial Education'
-            ].map((industry, index) => (
-              <div key={index} className="bg-blue-50 rounded-lg p-6 hover:bg-blue-100 transition duration-300">
-                <h3 className="text-lg font-semibold text-gray-800">{industry}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Case Studies</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Explore our successful education app development projects and learn how we&apos;ve helped our clients achieve their goals.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
-                <div className="h-48 bg-gray-300 flex items-center justify-center">
-                  <p className="text-gray-600">Case Study Image</p>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {caseStudies.map((study, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
+                className={`group rounded-2xl overflow-hidden transition-all duration-300 ${
+                  darkMode
+                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-lg hover:shadow-indigo-900/20'
+                    : 'bg-white border border-gray-200 shadow-md hover:shadow-xl'
+                }`}
+              >
+                <div className="relative h-56 w-full overflow-hidden">
+                  <Image
+                    src={study.image}
+                    alt={study.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <span className="text-xs font-bold uppercase tracking-wider bg-indigo-500 text-white px-3 py-1.5 rounded-full">
+                      {study.category}
+                    </span>
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-800">Interactive Learning Platform</h3>
-                  <p className="text-gray-600 mb-4">
-                    A comprehensive educational platform for K-12 students featuring interactive lessons, assessments, and progress tracking.
+                  <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                    {study.title}
+                  </h3>
+                  <p className={`mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                    {study.description}
                   </p>
-                  <a href="#" className="text-blue-600 font-medium hover:text-blue-800 transition duration-300">Read Case Study →</a>
+                  <motion.button
+                    whileHover={{ x: 5 }}
+                    className="flex items-center gap-2 text-indigo-500 font-semibold group"
+                  >
+                    Read Case Study
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Frequently Asked Questions</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Find answers to common questions about our education app development services.
-            </p>
-          </div>
+      {/* Industries Served */}
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-950' : 'bg-white'}`}>
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Industries We Serve
+            </h2>
+          </motion.div>
 
-          <div className="max-w-3xl mx-auto">
-            {[
-              {
-                question: "How long does it take to develop an education app?",
-                answer: "The timeline for education app development varies based on complexity, features, and scope. Simple apps may take 3-4 months, while complex platforms could require 6-12 months. We'll provide a detailed timeline after understanding your specific requirements."
-              },
-              {
-                question: "What is the cost of developing an education app?",
-                answer: "Education app development costs depend on factors like platform choice (iOS, Android, web), feature set, design complexity, and integration requirements. Our team will provide a detailed quote after analyzing your project specifications."
-              },
-              {
-                question: "Do you offer post-launch support and maintenance?",
-                answer: "Yes, we provide comprehensive post-launch support and maintenance services to ensure your education app continues to perform optimally. Our support packages include bug fixes, updates, feature enhancements, and technical assistance."
-              },
-              {
-                question: "Can you help with education app monetization strategies?",
-                answer: "Absolutely! We can help implement various monetization models such as subscriptions, freemium models, in-app purchases, advertising, or licensing. Our team will recommend the best approach based on your target audience and business goals."
-              }
-            ].map((faq, index) => (
-              <div key={index} className="mb-6 border-b border-gray-200 pb-6 last:border-b-0 last:pb-0">
-                <h3 className="text-lg font-semibold mb-3 text-gray-800">{faq.question}</h3>
-                <p className="text-gray-600">{faq.answer}</p>
-              </div>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {industries.map((industry, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ scale: 1.05 }}
+                className={`rounded-xl p-6 transition-all duration-300 ${
+                  darkMode
+                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 hover:border-indigo-700'
+                    : 'bg-gradient-to-br from-indigo-50 to-purple-50 hover:from-indigo-100 hover:to-purple-100 border border-indigo-200'
+                }`}
+              >
+                <h3 className={`text-lg font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  {industry}
+                </h3>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-gray-900 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Frequently Asked Questions
+            </h2>
+          </motion.div>
+
+          <motion.div
+            className="space-y-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className={`rounded-2xl p-8 transition-all duration-300 ${
+                  darkMode
+                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800'
+                    : 'bg-white border border-gray-200 shadow-sm'
+                }`}
+              >
+                <h3 className={`text-lg font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  {faq.question}
+                </h3>
+                <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>
+                  {faq.answer}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-800 to-indigo-900 text-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Educational Approach?</h2>
-            <p className="text-xl mb-8">
-              Let &apos;s collaborate to create an education app that enhances learning experiences and drives better outcomes.
+      <section className={`relative py-24 px-4 overflow-hidden ${
+        darkMode
+          ? 'bg-gradient-to-br from-indigo-950 via-purple-950 to-blue-950'
+          : 'bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-600'
+      }`}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className={`absolute rounded-full ${darkMode ? 'opacity-5' : 'opacity-10'}`}
+              style={{
+                width: `${Math.random() * 300 + 100}px`,
+                height: `${Math.random() * 300 + 100}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                background: `radial-gradient(circle, rgba(255, 255, 255, ${Math.random() * 0.3}) 0%, transparent 70%)`,
+                filter: 'blur(30px)'
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="max-w-4xl mx-auto text-center text-white relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <GraduationCap className="w-16 h-16 mx-auto mb-6 text-cyan-300" />
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-6">
+              Ready to Transform Education?
+            </h2>
+            <p className={`text-lg md:text-xl mb-10 ${darkMode ? 'text-gray-300' : 'text-blue-50'}`}>
+              Let's collaborate to create an education app that enhances learning experiences and drives better outcomes.
             </p>
-            <button className="bg-white text-blue-800 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition duration-300">
-              Schedule a Free Consultation
-            </button>
-          </div>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-indigo-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-100 transition shadow-2xl inline-flex items-center gap-2"
+            >
+              <Send size={20} />
+              Schedule Free Consultation
+            </motion.button>
+          </motion.div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="md:flex">
-              <div className="md:w-1/2 bg-blue-800 text-white p-8">
-                <h2 className="text-2xl font-bold mb-6">Get In Touch</h2>
-                <p className="mb-6">
-                  Fill out the form and our team will get back to you within 24 hours to discuss your education app development needs.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <svg className="w-6 h-6 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                    </svg>
-                    <div>
-                      <p className="font-medium">Address</p>
-                      <p className="text-blue-200">One World Trade Center, Suite 8500, New York, NY 10007, USA</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <svg className="w-6 h-6 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                    </svg>
-                    <div>
-                      <p className="font-medium">Phone</p>
-                      <p className="text-blue-200">+1 (123) 456-7890</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <svg className="w-6 h-6 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                    <div>
-                      <p className="font-medium">Email</p>
-                      <p className="text-blue-200">info@example.com</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="md:w-1/2 p-8">
-                <h3 className="text-xl font-semibold mb-6 text-gray-800">Send Us a Message</h3>
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-4">
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name*</label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email*</label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                    <input 
-                      type="tel" 
-                      id="phone" 
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                  </div>
-                  <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message*</label>
-                    <textarea 
-                      id="message" 
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows="4" 
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      required
-                    ></textarea>
-                  </div>
-                  <button 
-                    type="submit" 
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300"
-                  >
-                    Submit
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+    </main>
   );
 }

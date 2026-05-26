@@ -41,11 +41,11 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
   
   const navLinks = [
     {
-      name: 'AI AGENTS',
+      name: 'SERVICES',
       href: '#services',
       id: 'services',
       hoverContent: [
-        { title: 'Autonomous AI Agents', onClick: ()=>{router.push('/services/autonomous-agents')} },
+        { title: 'Web Development', onClick: ()=>{router.push('/services/webdevelopment')} },
         { title: 'Customer Service Agents', onClick: ()=>{router.push('/services/customer-service-agents')} },
         { title: 'Sales & Marketing Agents', onClick: ()=>{router.push('/services/sales-agents')} },
         { title: 'Data Intelligence Agents', onClick: ()=>{router.push('/services/data-agents')} },
@@ -53,15 +53,15 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
       ]
     },
     {
-      name: 'SOLUTIONS',
+      name: 'TECHNOLOGY',
       href: '#technology',
       id: 'technology',
       hoverContent: [
-        { title: 'AI Chatbots', onClick: ()=>{router.push('/solutions/chatbots')} },
-        { title: 'Process Automation', onClick: ()=>{router.push('/solutions/automation')} },
-        { title: 'Predictive Analytics', onClick: ()=>{router.push('/solutions/analytics')} },
-        { title: 'AI Integration', onClick: ()=>{router.push('/solutions/integration')} },
-        { title: 'Custom AI Models', onClick: ()=>{router.push('/solutions/custom-models')} }
+        { title: 'Next.js', onClick: ()=>{router.push('/technology/nextjs')} },
+        { title: 'Process Automation', onClick: ()=>{router.push('/technology/automation')} },
+        { title: 'Predictive Analytics', onClick: ()=>{router.push('/technology/analytics')} },
+        { title: 'AI Integration', onClick: ()=>{router.push('/technology/integration')} },
+        { title: 'Custom AI Models', onClick: ()=>{router.push('/technology/custom-models')} }
       ]
     },
     {
@@ -151,64 +151,6 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
 
   return (
     <>
-      {/* Header Section */}
-      {/* <AnimatePresence>
-        {showHeader && (
-          <motion.header 
-            className={`
-              fixed w-full z-50 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-800'}
-              border-b ${darkMode ? 'border-gray-800' : 'border-gray-200'}
-              px-4 py-3 md:px-6
-            `}
-            variants={headerVariants}
-            initial="visible"
-            animate={showHeader ? "visible" : "hidden"}
-            exit="hidden"
-            transition={{ duration: 0.3 }}
-          >
-            <div className="max-w-7xl mx-auto">
-              <div className="flex flex-col md:flex-row justify-between items-center">
-               
-                <div className="text-2xl md:text-3xl font-bold mb-4 md:mb-0 relative overflow-hidden group cursor-pointer" onClick={() => router.push('/')}>
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
-                    BeonicX
-                  </span>
-                  <div className={`h-1 w-full mt-1 ${darkMode ? 'bg-purple-500' : 'bg-purple-600'} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}></div>
-                </div>
-                
-                
-               
-                <div className="flex flex-wrap justify-center gap-2">
-                  <motion.button
-                    className={`relative overflow-hidden ${darkMode ? 'bg-purple-700 hover:bg-blue-600' : 'bg-blue-600 hover:bg-blue-600'} px-4 py-2 rounded-full text-white font-medium transition-all duration-300 text-sm md:text-base`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span className="relative z-10">Platform Demo</span>
-                    <span className="absolute inset-0 w-full h-full bg-white opacity-0 hover:opacity-20 transition-opacity"></span>
-                  </motion.button>
-                  <motion.button
-                    className={`relative overflow-hidden ${darkMode ? 'bg-indigo-700 hover:bg-indigo-600' : 'bg-indigo-600 hover:bg-indigo-500'} px-4 py-2 rounded-full text-white font-medium transition-all duration-300 text-sm md:text-base`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span className="relative z-10">AI Agent Showcase</span>
-                    <span className="absolute inset-0 w-full h-full bg-white opacity-0 hover:opacity-20 transition-opacity"></span>
-                  </motion.button>
-                  <motion.button
-                    className={`relative overflow-hidden ${darkMode ? 'bg-pink-700 hover:bg-blue-800' : 'bg-blue-800 hover:bg-blue-900'} px-4 py-2 rounded-full text-white font-medium transition-all duration-300 text-sm md:text-base`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span className="relative z-10">Start Free Trial</span>
-                    <span className="absolute inset-0 w-full h-full bg-white opacity-0 hover:opacity-20 transition-opacity"></span>
-                  </motion.button>
-                </div>
-              </div>
-            </div>
-          </motion.header>
-        )}
-      </AnimatePresence> */}
 
       {/* Main Navbar */}
       <nav className={`
