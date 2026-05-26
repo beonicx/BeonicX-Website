@@ -9,7 +9,7 @@ import {
   FaUserSecret,
 } from 'react-icons/fa';
 
-export default function SolutionsPage({ darkMode = false }) {
+export default function FeaturesSection({ darkMode = false }) {
   const features = [
     {
       icon: <FaRobot />,

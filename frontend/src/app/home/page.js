@@ -4,8 +4,8 @@ import { useState, useEffect, createContext } from "react";
 
 import Faq from "../../constants/FAQ/FaqConstants";
 import WhatsAppButton from "../../constants/whatsapp/whatsapp";
-import Navbar from "@/layouts/navbar/Navbar";
-import Footer from "@/layouts/footer/Footer";
+import Navbar from "../../layouts/navbar/Navbar";
+import Footer from "../../layouts/footer/Footer";
 import FeaturesSection from "../../components/home/featuresSection";
 import Testonomial from "../../components/home/testonomial";
 import Slider from "../../constants/slider1/Slider";
