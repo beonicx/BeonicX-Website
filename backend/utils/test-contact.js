@@ -5,7 +5,7 @@
 
 require('dotenv').config();
 const mongoose = require('mongoose');
-const { connectDB } = require('./config/db');
+const { connectDB } = require('../config/db');
 
 // Test contact submission
 async function testContactSubmission() {
@@ -13,7 +13,7 @@ async function testContactSubmission() {
     console.log('🔌 Connecting to database...');
     await connectDB();
 
-    const Contact = require('./models/contact');
+    const Contact = require('../models/contact');
 
     // Create a test contact
     const testContact = {
