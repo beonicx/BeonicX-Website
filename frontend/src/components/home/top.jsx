@@ -40,12 +40,14 @@ export default function Toppage({ darkMode = false }) {
     setSubmitMessage('');
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5002/api';
-      const response = await fetch(`${apiUrl}/contact`, {
+      const response = await fetch(`${apiUrl}/contact/query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formData.name, email: formData.email,
-          subject: 'Home Page Query', message: formData.message, formType: 'query'
+          name: formData.name,
+          email: formData.email,
+          subject: 'Home Page Query',
+          message: formData.message
         }),
       });
       const data = await response.json();
@@ -54,7 +56,7 @@ export default function Toppage({ darkMode = false }) {
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => { setShowModal(false); setSubmitMessage(''); }, 2000);
       } else {
-        setSubmitMessage('Failed to submit query. Please try again.');
+        setSubmitMessage(data.message || 'Failed to submit query. Please try again.');
       }
     } catch (error) {
       console.error('Error submitting query:', error);

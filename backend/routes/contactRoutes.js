@@ -4,8 +4,13 @@ const contactController = require('../controllers/contactcontroller');
 const authMiddleware = require('../middleware/auth');
 const validateRequest = require('../middleware/validateRequest');
 
-// Public route for submitting contact form
-router.post('/', 
+// Public route for submitting query (no database save)
+router.post('/query',
+  contactController.submitQuery
+);
+
+// Public route for submitting contact form (with database save)
+router.post('/',
   validateRequest.validateContactForm,
   contactController.submitContact
 );

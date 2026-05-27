@@ -1,7 +1,49 @@
 const Contact = require('../models/contact');
 const emailService = require('../utils/email');
 
-// Submit contact form
+// Submit query form (no database save, only email)
+exports.submitQuery = async (req, res) => {
+  try {
+    const { name, email, message, subject } = req.body;
+
+    // Validate required fields
+    if (!name || !email || !message) {
+      return res.status(400).json({
+        status: 'fail',
+        message: 'Name, email, and message are required'
+      });
+    }
+
+    // Send notification email to admin
+    await emailService.sendContactNotification({
+      name,
+      email,
+      subject: subject || 'Home Page Query',
+      message,
+      formType: 'query'
+    });
+
+    // Send confirmation email to user
+    await emailService.sendContactConfirmation({
+      name,
+      email,
+      subject: subject || 'Home Page Query'
+    });
+
+    res.status(200).json({
+      status: 'success',
+      message: 'Your query has been sent successfully!'
+    });
+  } catch (error) {
+    console.error('Query submission error:', error);
+    res.status(500).json({
+      status: 'fail',
+      message: error.message || 'Failed to submit query. Please try again.'
+    });
+  }
+};
+
+// Submit contact form (saves to database + sends email)
 exports.submitContact = async (req, res) => {
   try {
     const { name, email, phone, skype, subject, message, formType } = req.body;
