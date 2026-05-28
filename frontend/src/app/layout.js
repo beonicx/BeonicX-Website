@@ -102,6 +102,30 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#3B82F6" />
+
+        {/* WebSite Structured Data — tells Google to show "BeonicX" instead of "beonicx.com" */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "BeonicX",
+              "alternateName": "BeonicX AI",
+              "url": "https://beonicx.com",
+              "description": "AI-Powered Autonomous Agents & Intelligent Automation Solutions",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://beonicx.com/search?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
+
         <StructuredData />
       </head>
       <body className={raleway.className}>{children}</body>
