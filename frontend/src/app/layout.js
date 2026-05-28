@@ -35,6 +35,9 @@ export const metadata = {
     "AI for e-commerce",
     "process automation"
   ],
+  icons: {
+    icon: '/favicon.png',
+  },
   authors: [{ name: "BeonicX" }],
   creator: "BeonicX",
   publisher: "BeonicX",
