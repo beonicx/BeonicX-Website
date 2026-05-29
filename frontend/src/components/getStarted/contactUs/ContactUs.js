@@ -99,11 +99,11 @@ export default function ContactUs({ darkMode = false }) {
         <meta name="description" content="Get in touch with our team" />
       </Head>
       
-      <div className="bg-gray-50 dark:bg-gray-900 py-48 transition-colors duration-200">
+      <div className={`py-48 transition-colors duration-200 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Get in Touch</h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <h1 className={`text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Get in Touch</h1>
+            <p className={`text-lg max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               Let us know how we can help you. Fill out the form and our team will get back to you shortly.
             </p>
           </div>
@@ -111,29 +111,29 @@ export default function ContactUs({ darkMode = false }) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Info */}
             <div className="col-span-1">
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 h-full transition-colors duration-200">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Contact Information</h2>
+              <div className={`rounded-lg shadow-lg p-8 h-full transition-colors duration-200 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Contact Information</h2>
 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-medium text-blue-600 dark:text-blue-400">India (Headquarters)</h3>
-                    <p className="mt-2 text-gray-600 dark:text-gray-300">
+                    <h3 className={`text-lg font-medium ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>India (Headquarters)</h3>
+                    <p className={`mt-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                       One World Trade Center, Suite 8500<br />
                       Greater Noida, Haryana , India
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-medium text-blue-600 dark:text-blue-400">India</h3>
-                    <p className="mt-2 text-gray-600 dark:text-gray-300">
+                    <h3 className={`text-lg font-medium ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>India</h3>
+                    <p className={`mt-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                       14th Floor, Titanium City Center<br />
                       Chandigarh, Chandigarh, India
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-medium text-blue-600 dark:text-blue-400">Contact Details</h3>
-                    <p className="mt-2 text-gray-600 dark:text-gray-300">
+                    <h3 className={`text-lg font-medium ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Contact Details</h3>
+                    <p className={`mt-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                       Email: beonicxgroup@gmail.com<br />
                       Phone: +91-9129842706
                     </p>
@@ -144,14 +144,18 @@ export default function ContactUs({ darkMode = false }) {
             
             {/* Contact Form */}
             <div className="col-span-1 lg:col-span-2">
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 transition-colors duration-200">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Send Us a Message</h2>
+              <div className={`rounded-lg shadow-lg p-8 transition-colors duration-200 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Send Us a Message</h2>
 
                 {submitMessage && (
                   <div className={`p-4 rounded-lg mb-6 ${
                     submitMessage.includes('✅')
-                      ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border border-green-300 dark:border-green-700'
-                      : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 border border-red-300 dark:border-red-700'
+                      ? darkMode
+                        ? 'bg-green-900/30 text-green-300 border border-green-700'
+                        : 'bg-green-100 text-green-700 border border-green-300'
+                      : darkMode
+                        ? 'bg-red-900/30 text-red-300 border border-red-700'
+                        : 'bg-red-100 text-red-700 border border-red-300'
                   }`}>
                     {submitMessage}
                   </div>
@@ -160,7 +164,7 @@ export default function ContactUs({ darkMode = false }) {
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label htmlFor="name" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                         Name*
                       </label>
                       <input
@@ -169,13 +173,19 @@ export default function ContactUs({ darkMode = false }) {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ${errors.name ? 'border-red-500 dark:border-red-400' : 'border-gray-300 dark:border-gray-600'}`}
+                        className={`w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ${
+                          darkMode ? 'bg-gray-700 text-white' : 'bg-white text-gray-900'
+                        } ${
+                          errors.name
+                            ? darkMode ? 'border-red-400' : 'border-red-500'
+                            : darkMode ? 'border-gray-600' : 'border-gray-300'
+                        }`}
                       />
-                      {errors.name && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>}
+                      {errors.name && <p className={`mt-1 text-sm ${darkMode ? 'text-red-400' : 'text-red-600'}`}>{errors.name}</p>}
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label htmlFor="email" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                         Email*
                       </label>
                       <input
@@ -184,13 +194,19 @@ export default function ContactUs({ darkMode = false }) {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ${errors.email ? 'border-red-500 dark:border-red-400' : 'border-gray-300 dark:border-gray-600'}`}
+                        className={`w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ${
+                          darkMode ? 'bg-gray-700 text-white' : 'bg-white text-gray-900'
+                        } ${
+                          errors.email
+                            ? darkMode ? 'border-red-400' : 'border-red-500'
+                            : darkMode ? 'border-gray-600' : 'border-gray-300'
+                        }`}
                       />
-                      {errors.email && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>}
+                      {errors.email && <p className={`mt-1 text-sm ${darkMode ? 'text-red-400' : 'text-red-600'}`}>{errors.email}</p>}
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label htmlFor="phone" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                         Phone Number
                       </label>
                       <input
@@ -199,12 +215,14 @@ export default function ContactUs({ darkMode = false }) {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+                        className={`w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ${
+                          darkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-900 border-gray-300'
+                        }`}
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="skype" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label htmlFor="skype" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                         Skype ID
                       </label>
                       <input
@@ -213,13 +231,15 @@ export default function ContactUs({ darkMode = false }) {
                         name="skype"
                         value={formData.skype}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+                        className={`w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ${
+                          darkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-900 border-gray-300'
+                        }`}
                       />
                     </div>
                   </div>
 
                   <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="message" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                       Message*
                     </label>
                     <textarea
@@ -228,16 +248,26 @@ export default function ContactUs({ darkMode = false }) {
                       rows="4"
                       value={formData.message}
                       onChange={handleChange}
-                      className={`w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ${errors.message ? 'border-red-500 dark:border-red-400' : 'border-gray-300 dark:border-gray-600'}`}
+                      className={`w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ${
+                        darkMode ? 'bg-gray-700 text-white' : 'bg-white text-gray-900'
+                      } ${
+                        errors.message
+                          ? darkMode ? 'border-red-400' : 'border-red-500'
+                          : darkMode ? 'border-gray-600' : 'border-gray-300'
+                      }`}
                     ></textarea>
-                    {errors.message && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>}
+                    {errors.message && <p className={`mt-1 text-sm ${darkMode ? 'text-red-400' : 'text-red-600'}`}>{errors.message}</p>}
                   </div>
                   
                   <div className="flex justify-end ">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-6 py-3 bg-blue-600 dark:bg-blue-500 cursor-pointer text-white font-medium rounded-md hover:bg-blue-700 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className={`px-6 py-3 cursor-pointer text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${
+                        darkMode
+                          ? 'bg-blue-500 hover:bg-blue-600 focus:ring-offset-gray-800'
+                          : 'bg-blue-600 hover:bg-blue-700 focus:ring-offset-2'
+                      }`}
                     >
                       {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
@@ -249,10 +279,10 @@ export default function ContactUs({ darkMode = false }) {
           
           {/* Map Section */}
           <div className="mt-12">
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 transition-colors duration-200">
-              <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Our Location - Noida</h2>
+            <div className={`rounded-lg shadow-lg p-8 transition-colors duration-200 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+              <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Our Location - Noida</h2>
 
-              <div className="w-full h-96 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+              <div className={`w-full h-96 rounded-lg overflow-hidden border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224346.5398039306!2d77.22652749999999!3d28.527554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1704000000000!5m2!1sen!2sin"
                   width="100%"
@@ -261,14 +291,14 @@ export default function ContactUs({ darkMode = false }) {
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="dark:brightness-90 dark:contrast-125 dark:invert-[0.85] dark:hue-rotate-180"
+                  className={darkMode ? 'brightness-90 contrast-125 invert-[0.85] hue-rotate-180' : ''}
                   title="Noida Office Location"
                 ></iframe>
               </div>
 
-              <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+              <div className={`mt-4 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                 <p className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className={`w-5 h-5 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
