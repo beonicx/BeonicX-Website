@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
-import ContactUs from '@/components/contact/contactUs/ContactUs'
+import ContactUs from '@/components/getStarted/contactUs/ContactUs'
 import Footer from '@/layouts/footer/Footer'
 import Navbar from '@/layouts/navbar/Navbar'
 

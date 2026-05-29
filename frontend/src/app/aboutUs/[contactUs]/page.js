@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
-import ContactUs from '@/components/contact/contactUs/ContactUs'
+import AboutUs from '@/components/aboutUs/AboutUs';
 import Footer from '@/layouts/footer/Footer'
 import Navbar from '@/layouts/navbar/Navbar'
 
@@ -33,7 +33,7 @@ const Page = () => {
     <div className={darkMode ? "dark" : ""}>
       <div className={`min-h-screen ${darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900"}`}>
         <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
-        <ContactUs darkMode={darkMode} />
+        <AboutUs darkMode={darkMode} />
         <Footer darkMode={darkMode} />
       </div>
     </div>

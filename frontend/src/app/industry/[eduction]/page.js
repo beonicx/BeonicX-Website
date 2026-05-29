@@ -1,6 +1,6 @@
 'use client'
 
-import Education from '@/components/industry/education/Education'
+import Education from '@/components/industries/education/Education'
 import Footer from '@/layouts/footer/Footer'
 import Navbar from '@/layouts/navbar/Navbar'
 import React, { useState, useEffect } from 'react'

@@ -2,7 +2,7 @@
 
 import Footer from '@/layouts/footer/Footer'
 import Navbar from '@/layouts/navbar/Navbar'
-import Nextjs from '@/components/technology/nextjs/Nextjs'
+import Nextjs from '@/components/technologies/nextjs/Nextjs'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 
