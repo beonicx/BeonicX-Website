@@ -388,7 +388,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
               <motion.button 
                 onClick={onToggleDarkMode}
                 className={`
-                  ml-4 p-2 rounded-full transition-all duration-300
+                  ml-4 p-2 rounded-full transition-all duration-300 cursor-pointer
                   ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'}
                 `}
                 aria-label="Toggle Dark Mode"
@@ -594,7 +594,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                       <span>Contact</span>
                     </motion.a>
                     <motion.a 
-                      href="mailto:info@visiority.com" 
+                      href="mailto:contact@beonicx.com" 
                       className={`
                         flex items-center text-sm transition-colors duration-300
                         ${darkMode ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'}
