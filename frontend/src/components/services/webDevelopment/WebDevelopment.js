@@ -38,7 +38,7 @@ export default function WebDevelopment({ darkMode }) {
   };
 
   return (
-    <div className={`font-sans transition-colors duration-300 py-42 ${darkMode ? 'dark bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 text-white' : 'bg-gradient-to-br from-gray-50 via-white to-blue-50 text-gray-800'}`}>
+    <div className={`font-sans transition-colors duration-300 py-18 ${darkMode ? 'dark bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 text-white' : 'bg-gradient-to-br from-gray-50 via-white to-blue-50 text-gray-800'}`}>
       <Head>
         <title>Web Development Services | BeonicX</title>
         <meta name="description" content="Custom web development solutions with modern technologies. Build responsive, scalable, and high-performance web applications." />
