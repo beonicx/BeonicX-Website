@@ -1,9 +1,8 @@
 'use client'
-
-import Nextjs from '@/components/technology/nextjs/Nextjs'
+import { useState, useEffect } from 'react';
+import ContactUs from '@/components/contact/contactUs/ContactUs'
 import Footer from '@/layouts/footer/Footer'
 import Navbar from '@/layouts/navbar/Navbar'
-import React, { useState, useEffect } from 'react'
 
 const Page = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -31,15 +30,13 @@ const Page = () => {
   };
 
   return (
-    <main className={darkMode ? "dark" : ""}>
+    <div className={darkMode ? "dark" : ""}>
       <div className={`min-h-screen ${darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900"}`}>
         <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
-        <div className="pt-16">
-          <Nextjs darkMode={darkMode} />
-        </div>
+        <ContactUs darkMode={darkMode} />
         <Footer darkMode={darkMode} />
       </div>
-    </main>
+    </div>
   )
 }
 

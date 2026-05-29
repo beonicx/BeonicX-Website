@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Subtitles } from 'lucide-react';
 
 const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [hoveredSubItem, setHoveredSubItem] = useState(null);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const router = useRouter();
@@ -45,27 +47,61 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
       href: '#services',
       id: 'services',
       hoverContent: [
-        { title: 'Web Development', onClick: ()=>{router.push('/services/webdevelopment')} },
-        { title: 'Customer Service Agents', onClick: ()=>{router.push('/services/customer-service-agents')} },
-        { title: 'Sales & Marketing Agents', onClick: ()=>{router.push('/services/sales-agents')} },
-        { title: 'Data Intelligence Agents', onClick: ()=>{router.push('/services/data-agents')} },
-        { title: 'Workflow Automation', onClick: ()=>{router.push('/services/workflow-automation')} }
+        { title: 'Full Stack Web Development', onClick: ()=>{router.push('/services/full-stack-web-development')} },
+        { title: 'Mobile App Development', onClick: ()=>{router.push('/services/app-development')} },
+        { title: 'AI Agent Integration', onClick: ()=>{router.push('/services/ai-agents')} },
+        { title: 'Voice Agent Integration', onClick: ()=>{router.push('/services/voice-agents')} },
+        { title: 'CRM & ERP', onClick: ()=>{router.push('/services/data-agents')} },
+        { title: 'DevOps', onClick: ()=>{router.push('/services/devops')} }
       ]
     },
     {
-      name: 'TECHNOLOGY',
-      href: '#technology',
-      id: 'technology',
+      name: 'TECHNOLOGIES',
+      href: '#technologies',
+      id: 'technologies',
       hoverContent: [
-        { title: 'Next.js', onClick: ()=>{router.push('/technology/nextjs')} },
-        { title: 'Process Automation', onClick: ()=>{router.push('/technology/automation')} },
-        { title: 'Predictive Analytics', onClick: ()=>{router.push('/technology/analytics')} },
-        { title: 'AI Integration', onClick: ()=>{router.push('/technology/integration')} },
-        { title: 'Custom AI Models', onClick: ()=>{router.push('/technology/custom-models')} }
+        {
+          title: 'Frontend Technologies',
+          subItems: [
+            { title: 'Next.js', onClick: () => { router.push('/technologies/frontend/nextjs') } },
+            { title: 'React', onClick: () => { router.push('/technologies/frontend/react') } },
+            { title: 'Vue.js', onClick: () => { router.push('/technologies/frontend/vuejs') } },
+          ]
+        },
+        {
+          title: 'Backend Technologies',
+          subItems: [
+            { title: 'Node.js', onClick: () => { router.push('/technologies/backend/nodejs') } },
+            { title: 'Python', onClick: () => { router.push('/technologies/backend/python') } },
+          ]
+        },
+        {
+          title: 'Databases',
+          subItems: [
+            { title: 'PostgreSQL', onClick: () => { router.push('/technologies/databases/postgresql') } },
+            { title: 'MySQL', onClick: () => { router.push('/technologies/databases/mysql') } },
+            { title: 'MongoDB', onClick: () => { router.push('/technologies/databases/mongodb') } },
+          ]
+        },
+        {
+          title: 'DevOps',
+          subItems: [
+            { title: 'Docker', onClick: () => { router.push('/technologies/devops/docker') } },
+            { title: 'AWS', onClick: () => { router.push('/technologies/devops/aws') } },
+          ]
+        },
+        {
+          title: 'AI & ML',
+          subItems: [
+            { title: 'LangChain', onClick: () => { router.push('/technologies/ai-ml/langchain') } },
+            { title: 'Claude', onClick: () => { router.push('/technologies/ai-ml/claude') } },
+            { title: 'OpenAI', onClick: () => { router.push('/technologies/ai-ml/openai') } },
+          ]
+        },
       ]
     },
     {
-      name: 'INDUSTRY',
+      name: 'INDUSTRIES',
       href: '#industry',
       id: 'industry',
       hoverContent: [
@@ -88,13 +124,13 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
       ] 
     },
     { 
-      name: 'CONTACT', 
-      href: '#contact', 
-      id: 'contact',
+      name: 'ABOUT US', 
+      href: '#aboutUs', 
+      id: 'aboutUs',
       hoverContent: [
-        { title: 'Contact Us',  onClick: () => router.push('/contact/contact-us') },
-        { title: 'Support', onClick: () => router.push('/contact/support') },
-        { title: 'Partnership',onClick: () => router.push('/contact/partnership') }
+        { title: 'About Us',  onClick: () => router.push('/aboutUs/us') },
+        { title: 'Support', onClick: () => router.push('/aboutUs/support') },
+        { title: 'Partnership',onClick: () => router.push('/aboutUs/partnership') }
       ] 
     }
   ];
@@ -253,7 +289,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                     {/* Hover Content Panel */}
                     <AnimatePresence>
                       {link.hoverContent && hoveredItem === link.id && (
-                        <motion.div 
+                        <motion.div
                           className={`
                             absolute left-0 mt-0 py-4 px-4 w-64 rounded-lg shadow-lg z-10
                             ${darkMode ? 'bg-gray-900 text-white border-t-2 border-blue-500' : 'bg-white text-gray-800 border-t-2 border-blue-600'}
@@ -265,17 +301,66 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                         >
                           <div className="space-y-1">
                             {link.hoverContent.map((item, index) => (
-                              <motion.div 
-                                key={index} 
-                                onClick={item.onClick}
-                                className={`
-                                  block px-3 py-2 text-sm rounded-md transition-all duration-200 cursor-pointer
-                                  ${darkMode ? 'hover:bg-blue-900/50 hover:text-blue-300' : 'hover:bg-blue-50 hover:text-blue-600'}
-                                `}
+                              <motion.div
+                                key={index}
+                                className="relative"
                                 variants={itemVariants}
-                                whileHover={{ x: 5 }}
+                                onMouseEnter={() => item.subItems && setHoveredSubItem(index)}
+                                onMouseLeave={() => setHoveredSubItem(null)}
                               >
-                                {item.title}
+                                <div
+                                  onClick={item.onClick}
+                                  className={`
+                                    flex items-center justify-between px-3 py-2 text-sm rounded-md transition-all duration-200
+                                    ${item.onClick ? 'cursor-pointer' : 'cursor-default'}
+                                    ${darkMode ? 'hover:bg-blue-900/50 hover:text-blue-300' : 'hover:bg-blue-50 hover:text-blue-600'}
+                                  `}
+                                >
+                                  <span>{item.title}</span>
+                                  {item.subItems && (
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="h-4 w-4 ml-2"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke="currentColor"
+                                    >
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                  )}
+                                </div>
+
+                                {/* Second-level dropdown for sub-items */}
+                                <AnimatePresence>
+                                  {item.subItems && hoveredSubItem === index && (
+                                    <motion.div
+                                      className={`
+                                        absolute left-full top-0 ml-2 py-4 px-4 w-64 rounded-lg shadow-lg z-20
+                                        ${darkMode ? 'bg-gray-900 text-white border-t-2 border-blue-500' : 'bg-white text-gray-800 border-t-2 border-blue-600'}
+                                      `}
+                                      initial={{ opacity: 0, x: -10 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      exit={{ opacity: 0, x: -10 }}
+                                      transition={{ duration: 0.2 }}
+                                    >
+                                      <div className="space-y-1">
+                                        {item.subItems.map((subItem, subIndex) => (
+                                          <motion.div
+                                            key={subIndex}
+                                            onClick={subItem.onClick}
+                                            className={`
+                                              block px-3 py-2 text-sm rounded-md transition-all duration-200 cursor-pointer
+                                              ${darkMode ? 'hover:bg-blue-900/50 hover:text-blue-300' : 'hover:bg-blue-50 hover:text-blue-600'}
+                                            `}
+                                            whileHover={{ x: 5 }}
+                                          >
+                                            {subItem.title}
+                                          </motion.div>
+                                        ))}
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
                               </motion.div>
                             ))}
                           </div>
@@ -287,16 +372,17 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
               </div>
               
               <motion.a 
-                href="/get-started" 
+                href="/get-started"
                 className={`
                   ml-8 px-6 py-3 text-sm font-medium rounded-full transition-all duration-300
                   ${darkMode ? 'bg-blue-500 hover:bg-blue-600 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white'}
                   hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1
+                  ) 
                 `}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Join Us
+                Get Started
               </motion.a>
               
               <motion.button 
@@ -419,7 +505,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                     
                     <AnimatePresence>
                       {link.hoverContent && activeLink === link.id && (
-                        <motion.div 
+                        <motion.div
                           className={`
                             ml-4 mt-2 space-y-1 border-l-2
                             ${darkMode ? 'border-blue-500 pl-4' : 'border-blue-500 pl-4'}
@@ -430,17 +516,38 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                           exit="exit"
                         >
                           {link.hoverContent.map((item, index) => (
-                            <motion.div 
-                              key={index} 
-                              onClick={item.onClick}
-                              className={`
-                                block py-2 text-sm cursor-pointer transition-all duration-300
-                                ${darkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}
-                              `}
+                            <motion.div
+                              key={index}
                               variants={itemVariants}
-                              whileHover={{ x: 5 }}
                             >
-                              {item.title}
+                              <div
+                                onClick={item.onClick}
+                                className={`
+                                  block py-2 text-sm cursor-pointer transition-all duration-300
+                                  ${darkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}
+                                `}
+                              >
+                                {item.title}
+                              </div>
+
+                              {/* Sub-items for mobile */}
+                              {item.subItems && (
+                                <div className="ml-4 mt-1 space-y-1">
+                                  {item.subItems.map((subItem, subIndex) => (
+                                    <motion.div
+                                      key={subIndex}
+                                      onClick={subItem.onClick}
+                                      className={`
+                                        block py-1.5 text-xs cursor-pointer transition-all duration-300
+                                        ${darkMode ? 'text-gray-400 hover:text-blue-300' : 'text-gray-600 hover:text-blue-600'}
+                                      `}
+                                      whileHover={{ x: 5 }}
+                                    >
+                                      {subItem.title}
+                                    </motion.div>
+                                  ))}
+                                </div>
+                              )}
                             </motion.div>
                           ))}
                         </motion.div>

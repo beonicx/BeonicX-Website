@@ -106,6 +106,29 @@ const latestNews = [
 export default function Nextjs({ darkMode = false }) {
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Generate random values only once for background shapes (prevents hydration mismatch)
+  const [backgroundShapes] = useState(() =>
+    Array.from({ length: 10 }, () => ({
+      width: Math.random() * 400 + 150,
+      height: Math.random() * 400 + 150,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      opacity: Math.random() * 0.4,
+      duration: Math.random() * 15 + 15,
+      delay: Math.random() * 5
+    }))
+  );
+
+  const [newsletterShapes] = useState(() =>
+    Array.from({ length: 6 }, () => ({
+      width: Math.random() * 300 + 100,
+      height: Math.random() * 300 + 100,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      opacity: Math.random() * 0.3
+    }))
+  );
+
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
@@ -132,18 +155,18 @@ export default function Nextjs({ darkMode = false }) {
       } text-white py-24 md:py-36 px-4 overflow-hidden`}>
         {/* Animated background shapes */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(10)].map((_, i) => (
+          {backgroundShapes.map((shape, i) => (
             <div
               key={i}
               className={`absolute rounded-full ${darkMode ? 'opacity-10' : 'opacity-20'}`}
               style={{
-                width: `${Math.random() * 400 + 150}px`,
-                height: `${Math.random() * 400 + 150}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                background: `radial-gradient(circle, rgba(255, 255, 255, ${Math.random() * 0.4}) 0%, transparent 70%)`,
-                animation: `float ${Math.random() * 15 + 15}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 5}s`,
+                width: `${shape.width}px`,
+                height: `${shape.height}px`,
+                left: `${shape.left}%`,
+                top: `${shape.top}%`,
+                background: `radial-gradient(circle, rgba(255, 255, 255, ${shape.opacity}) 0%, transparent 70%)`,
+                animation: `float ${shape.duration}s ease-in-out infinite`,
+                animationDelay: `${shape.delay}s`,
                 filter: 'blur(40px)'
               }}
             />
@@ -641,16 +664,16 @@ export default function Nextjs({ darkMode = false }) {
       }`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(6)].map((_, i) => (
+          {newsletterShapes.map((shape, i) => (
             <div
               key={i}
               className={`absolute rounded-full ${darkMode ? 'opacity-5' : 'opacity-10'}`}
               style={{
-                width: `${Math.random() * 300 + 100}px`,
-                height: `${Math.random() * 300 + 100}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                background: `radial-gradient(circle, rgba(255, 255, 255, ${Math.random() * 0.3}) 0%, transparent 70%)`,
+                width: `${shape.width}px`,
+                height: `${shape.height}px`,
+                left: `${shape.left}%`,
+                top: `${shape.top}%`,
+                background: `radial-gradient(circle, rgba(255, 255, 255, ${shape.opacity}) 0%, transparent 70%)`,
                 filter: 'blur(30px)'
               }}
             />
