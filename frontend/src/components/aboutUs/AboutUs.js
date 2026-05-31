@@ -47,13 +47,13 @@ export default function AboutUs({ darkMode = false }) {
       avatar: '👨‍💼'
     },
     {
-      name: 'Ansh Yadav',
+      name: 'Abhishek Mishra',
       role: 'Co-Founder & CTO',
       description: 'Technology architect specializing in scalable systems and AI integration',
       avatar: '👨‍💻'
     },
     {
-      name: 'Abhishek Mishra',
+      name: 'Ansh Yadav',
       role: 'Co-Founder & COO',
       description: 'Operations expert ensuring excellence in delivery and client satisfaction',
       avatar: '👨‍🏫'
