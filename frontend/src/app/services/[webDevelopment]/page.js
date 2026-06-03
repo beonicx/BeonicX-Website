@@ -62,6 +62,15 @@ const Page = ({ params }) => {
       document.head.appendChild(ogDesc);
     }
     ogDesc.content = meta.description;
+
+    // Update canonical link
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = `https://beonicx.com/services/${serviceSlug}`;
   }, [serviceSlug]);
 
   // Initialize theme based on user preference

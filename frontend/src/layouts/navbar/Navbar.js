@@ -44,94 +44,73 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
   const navLinks = [
     {
       name: 'SERVICES',
-      href: '#services',
+      href: '/services/web-development',
       id: 'services',
       hoverContent: [
-        { title: 'Full Stack Web Development', onClick: ()=>{router.push('/services/full-stack-web-development')} },
-        { title: 'Mobile App Development', onClick: ()=>{router.push('/services/app-development')} },
-        { title: 'AI Agent Integration', onClick: ()=>{router.push('/services/ai-agents')} },
-        { title: 'Voice Agent Integration', onClick: ()=>{router.push('/services/voice-agents')} },
-        { title: 'CRM & ERP', onClick: ()=>{router.push('/services/data-agents')} },
-        { title: 'DevOps', onClick: ()=>{router.push('/services/devops')} }
+        { title: 'Web Development', href: '/services/web-development', onClick: ()=>{router.push('/services/web-development')} },
+        { title: 'Mobile App Development', href: '/services/app-development', onClick: ()=>{router.push('/services/app-development')} },
+        { title: 'AI Solutions', href: '/services/ai-solutions', onClick: ()=>{router.push('/services/ai-solutions')} },
+        { title: 'Cloud Services', href: '/services/cloud-services', onClick: ()=>{router.push('/services/cloud-services')} },
       ]
     },
     {
       name: 'TECHNOLOGIES',
-      href: '#technologies',
+      href: '/technologies/frontend/nextjs',
       id: 'technologies',
       hoverContent: [
         {
           title: 'Frontend Technologies',
           subItems: [
-            { title: 'Next.js', onClick: () => { router.push('/technologies/frontend/nextjs') } },
-            { title: 'React', onClick: () => { router.push('/technologies/frontend/react') } },
-            { title: 'Vue.js', onClick: () => { router.push('/technologies/frontend/vuejs') } },
+            { title: 'Next.js', href: '/technologies/frontend/nextjs', onClick: () => { router.push('/technologies/frontend/nextjs') } },
+            { title: 'React', href: '/technologies/frontend/react', onClick: () => { router.push('/technologies/frontend/react') } },
           ]
         },
         {
           title: 'Backend Technologies',
           subItems: [
-            { title: 'Node.js', onClick: () => { router.push('/technologies/backend/nodejs') } },
-            { title: 'Python', onClick: () => { router.push('/technologies/backend/python') } },
+            { title: 'Node.js', href: '/technologies/backend/nodejs', onClick: () => { router.push('/technologies/backend/nodejs') } },
+            { title: 'Python', href: '/technologies/backend/python', onClick: () => { router.push('/technologies/backend/python') } },
           ]
         },
         {
-          title: 'Databases',
+          title: 'Mobile Development',
           subItems: [
-            { title: 'PostgreSQL', onClick: () => { router.push('/technologies/databases/postgresql') } },
-            { title: 'MySQL', onClick: () => { router.push('/technologies/databases/mysql') } },
-            { title: 'MongoDB', onClick: () => { router.push('/technologies/databases/mongodb') } },
-          ]
-        },
-        {
-          title: 'DevOps',
-          subItems: [
-            { title: 'Docker', onClick: () => { router.push('/technologies/devops/docker') } },
-            { title: 'AWS', onClick: () => { router.push('/technologies/devops/aws') } },
-          ]
-        },
-        {
-          title: 'AI & ML',
-          subItems: [
-            { title: 'LangChain', onClick: () => { router.push('/technologies/ai-ml/langchain') } },
-            { title: 'Claude', onClick: () => { router.push('/technologies/ai-ml/claude') } },
-            { title: 'OpenAI', onClick: () => { router.push('/technologies/ai-ml/openai') } },
+            { title: 'React Native', href: '/technologies/mobile/react-native', onClick: () => { router.push('/technologies/mobile/react-native') } },
+            { title: 'Flutter', href: '/technologies/mobile/flutter', onClick: () => { router.push('/technologies/mobile/flutter') } },
           ]
         },
       ]
     },
     {
       name: 'INDUSTRIES',
-      href: '#industry',
+      href: '/industry/healthcare',
       id: 'industry',
       hoverContent: [
-        { title: 'Healthcare', onClick: ()=>{router.push('/industry/health-care')} },
-        { title: 'Finance & Banking', onClick: ()=>{router.push('/industry/finance')} },
-        { title: 'E-commerce', onClick: ()=>{router.push('/industry/ecommerce')}},
-        { title: 'SaaS & Tech',onClick: ()=>{router.push('/industry/saas')} },
-        { title: 'Manufacturing',onClick: ()=>{router.push('/industry/manufacturing')} }
+        { title: 'Healthcare', href: '/industry/healthcare', onClick: ()=>{router.push('/industry/healthcare')} },
+        { title: 'Finance & Banking', href: '/industry/finance', onClick: ()=>{router.push('/industry/finance')} },
+        { title: 'E-commerce', href: '/industry/ecommerce', onClick: ()=>{router.push('/industry/ecommerce')}},
+        { title: 'Education', href: '/industry/education', onClick: ()=>{router.push('/industry/education')} },
       ]
     },
-    { 
-      name: 'CASE STUDY', 
-      href: '#caseStudy', 
+    {
+      name: 'CASE STUDY',
+      href: '/caseStudy/enterprise',
       id: 'caseStudy',
       hoverContent: [
-        { title: 'Enterprise Solutions', onClick: () => router.push('/caseStudy/enterprise') },
-        { title: 'Startup Projects', onClick: () => router.push('/caseStudy/startup-projects') },
-        { title: 'Mobile Applications',  onClick: () => router.push('/caseStudy/mobile-application') },
-        { title: 'Web Platforms', onClick: () => router.push('/caseStudy/web-platforms') }
-      ] 
+        { title: 'Enterprise Solutions', href: '/caseStudy/enterprise', onClick: () => router.push('/caseStudy/enterprise') },
+        { title: 'Startup Projects', href: '/caseStudy/startup', onClick: () => router.push('/caseStudy/startup') },
+        { title: 'Mobile Applications', href: '/caseStudy/mobile', onClick: () => router.push('/caseStudy/mobile') },
+      ]
     },
-    { 
-      name: 'ABOUT US', 
-      href: '#aboutUs', 
+    {
+      name: 'ABOUT US',
+      href: '/aboutUs/about',
       id: 'aboutUs',
       hoverContent: [
-        { title: 'About Us',  onClick: () => router.push('/aboutUs/us') },
-        { title: 'Support', onClick: () => router.push('/aboutUs/support') },
-        { title: 'Partnership',onClick: () => router.push('/aboutUs/partnership') }
-      ] 
+        { title: 'About Us', href: '/aboutUs/about', onClick: () => router.push('/aboutUs/about') },
+        { title: 'Contact', href: '/aboutUs/contact', onClick: () => router.push('/aboutUs/contact') },
+        { title: 'Team', href: '/aboutUs/team', onClick: () => router.push('/aboutUs/team') }
+      ]
     }
   ];
   
@@ -205,9 +184,13 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div 
+              <a
+                href="/"
                 className="flex items-center font-bold text-xl tracking-tight relative cursor-pointer"
-                onClick={() => router.push('/')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push('/');
+                }}
               >
                 {darkMode ? (
                   <div className="h-16 w-16 relative mr-3 flex-shrink-0">
@@ -235,7 +218,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 <span className={`bg-clip-text text-transparent ${darkMode? 'bg-white' : 'bg-gray-700'} font-extrabold`}>
                   BeonicX
                 </span>
-              </div>
+              </a>
             </motion.div>
             
             {/* Desktop Navigation */}
@@ -308,27 +291,42 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                 onMouseEnter={() => item.subItems && setHoveredSubItem(index)}
                                 onMouseLeave={() => setHoveredSubItem(null)}
                               >
-                                <div
-                                  onClick={item.onClick}
-                                  className={`
-                                    flex items-center justify-between px-3 py-2 text-sm rounded-md transition-all duration-200
-                                    ${item.onClick ? 'cursor-pointer' : 'cursor-default'}
-                                    ${darkMode ? 'hover:bg-blue-900/50 hover:text-blue-300' : 'hover:bg-blue-50 hover:text-blue-600'}
-                                  `}
-                                >
-                                  <span>{item.title}</span>
-                                  {item.subItems && (
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      className="h-4 w-4 ml-2"
-                                      fill="none"
-                                      viewBox="0 0 24 24"
-                                      stroke="currentColor"
-                                    >
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                  )}
-                                </div>
+                                {item.href ? (
+                                  <a
+                                    href={item.href}
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      item.onClick?.();
+                                    }}
+                                    className={`
+                                      flex items-center justify-between px-3 py-2 text-sm rounded-md transition-all duration-200 cursor-pointer
+                                      ${darkMode ? 'hover:bg-blue-900/50 hover:text-blue-300' : 'hover:bg-blue-50 hover:text-blue-600'}
+                                    `}
+                                  >
+                                    <span>{item.title}</span>
+                                  </a>
+                                ) : (
+                                  <div
+                                    className={`
+                                      flex items-center justify-between px-3 py-2 text-sm rounded-md transition-all duration-200
+                                      ${item.subItems ? 'cursor-default' : 'cursor-pointer'}
+                                      ${darkMode ? 'hover:bg-blue-900/50 hover:text-blue-300' : 'hover:bg-blue-50 hover:text-blue-600'}
+                                    `}
+                                  >
+                                    <span>{item.title}</span>
+                                    {item.subItems && (
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-4 w-4 ml-2"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                      >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                      </svg>
+                                    )}
+                                  </div>
+                                )}
 
                                 {/* Second-level dropdown for sub-items */}
                                 <AnimatePresence>
@@ -345,9 +343,13 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                     >
                                       <div className="space-y-1">
                                         {item.subItems.map((subItem, subIndex) => (
-                                          <motion.div
+                                          <motion.a
                                             key={subIndex}
-                                            onClick={subItem.onClick}
+                                            href={subItem.href}
+                                            onClick={(e) => {
+                                              e.preventDefault();
+                                              subItem.onClick?.();
+                                            }}
                                             className={`
                                               block px-3 py-2 text-sm rounded-md transition-all duration-200 cursor-pointer
                                               ${darkMode ? 'hover:bg-blue-900/50 hover:text-blue-300' : 'hover:bg-blue-50 hover:text-blue-600'}
@@ -355,7 +357,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                             whileHover={{ x: 5 }}
                                           >
                                             {subItem.title}
-                                          </motion.div>
+                                          </motion.a>
                                         ))}
                                       </div>
                                     </motion.div>
