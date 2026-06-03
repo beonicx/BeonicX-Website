@@ -57,15 +57,6 @@ const Page = () => {
       document.head.appendChild(ogTitle);
     }
     ogTitle.content = title;
-
-    // Update canonical link
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.rel = 'canonical';
-      document.head.appendChild(canonical);
-    }
-    canonical.href = `https://beonicx.com/technologies/${section}/${subsection}`;
   }, [section, subsection]);
 
   // Render content based on section and subsection

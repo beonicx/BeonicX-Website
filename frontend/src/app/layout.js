@@ -43,9 +43,6 @@ export const metadata = {
   creator: "BeonicX",
   publisher: "BeonicX",
   metadataBase: new URL('https://beonicx.com'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -79,10 +76,8 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-  },
+  // Google verification is done via HTML file in public directory
+  // Remove placeholder values to avoid meta tag pollution
 };
 
 export const viewport = {
