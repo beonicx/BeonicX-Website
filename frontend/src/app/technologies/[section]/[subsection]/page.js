@@ -33,6 +33,32 @@ const Page = () => {
     localStorage.setItem('darkMode', newDarkMode.toString());
   };
 
+  // Update document head for SEO
+  useEffect(() => {
+    const title = `${subsection?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} | ${section?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} Technology | BeonicX`;
+    const description = `Explore our expertise in ${subsection?.replace(/-/g, ' ')} for ${section?.replace(/-/g, ' ')} development. Professional development services using cutting-edge ${subsection?.replace(/-/g, ' ')} technology.`;
+
+    document.title = title;
+
+    // Update meta description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = description;
+
+    // Update OG tags
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta');
+      ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.content = title;
+  }, [section, subsection]);
+
   // Render content based on section and subsection
   const renderContent = () => {
     // Map specific technologies to their components
@@ -79,4 +105,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default Page;

@@ -104,13 +104,31 @@ const Footer = ({ darkMode }) => {
             <div>
               <h3 className={`text-lg font-bold mb-6 ${darkMode ? 'text-blue-400' : 'text-blue-900'}`}>Company</h3>
               <ul className="space-y-3">
-                {['About us', 'Careers', 'Contact-us', 'Blog', 'Case Study', 'Process', 'Vision', 'Client'].map((item, index) => (
-                  <li key={index} className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
-                    <a href="#" className="flex items-center">
-                      <span className="mr-2 text-xs">▶</span> {item}
-                    </a>
-                  </li>
-                ))}
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/aboutUs/about" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> About us
+                  </a>
+                </li>
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/aboutUs/team" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> Careers
+                  </a>
+                </li>
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/aboutUs/contact" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> Contact us
+                  </a>
+                </li>
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/caseStudy/enterprise" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> Case Studies
+                  </a>
+                </li>
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/get-started" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> Get Started
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -118,13 +136,26 @@ const Footer = ({ darkMode }) => {
             <div>
               <h3 className={`text-lg font-bold mb-6 ${darkMode ? 'text-blue-400' : 'text-blue-900'}`}>Industries</h3>
               <ul className="space-y-3">
-                {['Healthcare AI', 'SaaS & Tech', 'E-commerce', 'Finance & Banking', 'Manufacturing', 'Customer Service', 'Marketing & Sales', 'HR & Operations'].map((item, index) => (
-                  <li key={index} className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
-                    <a href="#" className="flex items-center">
-                      <span className="mr-2 text-xs">▶</span> {item}
-                    </a>
-                  </li>
-                ))}
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/industry/healthcare" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> Healthcare AI
+                  </a>
+                </li>
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/industry/ecommerce" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> E-commerce
+                  </a>
+                </li>
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/industry/finance" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> Finance & Banking
+                  </a>
+                </li>
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/industry/education" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> Education
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -132,13 +163,26 @@ const Footer = ({ darkMode }) => {
             <div>
               <h3 className={`text-lg font-bold mb-6 ${darkMode ? 'text-blue-400' : 'text-blue-900'}`}>AI Agent Services</h3>
               <ul className="space-y-3 mb-8">
-                {['Autonomous AI Agents', 'Customer Service Bots', 'Sales Automation', 'Data Intelligence', 'Workflow Orchestration'].map((item, index) => (
-                  <li key={index} className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
-                    <a href="#" className="flex items-center">
-                      <span className="mr-2 text-xs">▶</span> {item}
-                    </a>
-                  </li>
-                ))}
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/services/web-development" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> Web Development
+                  </a>
+                </li>
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/services/app-development" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> App Development
+                  </a>
+                </li>
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/services/ai-solutions" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> AI Solutions
+                  </a>
+                </li>
+                <li className={`transition-colors duration-200 cursor-pointer ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+                  <a href="/services/cloud-services" className="flex items-center">
+                    <span className="mr-2 text-xs">▶</span> Cloud Services
+                  </a>
+                </li>
               </ul>
               
               <h3 className={`text-lg font-bold mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-900'}`}>Contact Us</h3>
@@ -166,11 +210,27 @@ const Footer = ({ darkMode }) => {
 
           {/* Quick Links */}
           <div className={`flex flex-wrap justify-center gap-6 border-t pt-8 pb-4 ${darkMode ? 'border-gray-700' : 'border-gray-300'}`}>
-            {['Home', 'Services', 'Solutions', 'Portfolio', 'Testimonials', 'FAQ', 'Support', 'Sitemap'].map((link, index) => (
-              <a key={index} href="#" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
-                {link}
-              </a>
-            ))}
+            <a href="/home" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+              Home
+            </a>
+            <a href="/services/web-development" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+              Services
+            </a>
+            <a href="/industry/healthcare" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+              Industries
+            </a>
+            <a href="/caseStudy/enterprise" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+              Portfolio
+            </a>
+            <a href="/technologies/frontend/nextjs" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+              Technologies
+            </a>
+            <a href="/get-started" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+              Contact
+            </a>
+            <a href="/sitemap.xml" className={`transition-colors duration-200 ${darkMode ? 'hover:text-blue-400' : 'hover:text-blue-800'}`}>
+              Sitemap
+            </a>
           </div>
 
           {/* Bottom Bar */}

@@ -14,6 +14,8 @@ import HeroSection from "../../components/home/heroSection";
 import IndustrySlider from "../../components/home/industrySlider";
 import Toppage from "../../components/home/top";
 import ChatWidget from "../../components/ai-agent/ChatWidget";
+import FAQSchema from "../../components/seo/FAQSchema";
+import Head from "next/head";
 
 // Create a context to share dark mode state across components
 export const ThemeContext = createContext({
@@ -60,6 +62,9 @@ export default function Home() {
 
   return (
     <ThemeContext.Provider value={themeContextValue}>
+      <Head>
+        <FAQSchema />
+      </Head>
       <main className={darkMode ? "dark" : ""}>
         <div className={`min-h-screen ${darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900"}`}>
           <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
