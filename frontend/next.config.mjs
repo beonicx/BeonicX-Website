@@ -19,7 +19,8 @@ const nextConfig = {
         headers: [
           {
             key: 'X-Robots-Tag',
-            value: process.env.VERCEL_URL?.includes('vercel.app')
+            // Only apply noindex on Vercel preview deployments (not production)
+            value: process.env.VERCEL_ENV === 'preview'
               ? 'noindex, nofollow'
               : 'index, follow',
           },
