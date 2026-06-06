@@ -161,15 +161,14 @@ export default function Toppage({ darkMode = false }) {
             Empowering Businesses with AI
           </div>
 
-          {/* Headline */}
+          {/* Headline - PRIMARY H1 */}
           <h1
             className={`font-extrabold leading-[1.15] tracking-[-0.03em] max-w-[820px] mx-auto mb-5
               text-[clamp(2.2rem,5.5vw,4rem)]
               ${darkMode ? 'text-sky-50' : 'text-slate-900'}`}
             style={{ fontFamily: "'Sora', sans-serif" }}
           >
-            Empowering Businesses with<br />
-            <span className="text-blue-700">Intelligent AI Agents</span>
+            BeonicX: AI-Powered Autonomous Agents for Enterprise Automation
           </h1>
 
           {/* Sub-heading */}

@@ -3,9 +3,24 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "BeonicX",
+    "legalName": "BeonicX",
+    "alternateName": ["BeonicX AI", "BeonicX Automation"],
     "url": "https://beonicx.com",
     "logo": "https://i.postimg.cc/Pxd5LK34/Whats-App-Image-2025-04-09-at-00-27-19-removebg-preview.png",
     "description": "BeonicX provides cutting-edge AI agents and intelligent automation solutions for businesses across healthcare, finance, e-commerce, and SaaS industries.",
+    "slogan": "AI-Powered Autonomous Agents for Enterprise Automation",
+    "knowsAbout": [
+      "Artificial Intelligence",
+      "Autonomous AI Agents",
+      "Workflow Automation",
+      "AI Chatbots",
+      "Machine Learning",
+      "Intelligent Automation",
+      "Enterprise AI",
+      "AI for Healthcare",
+      "AI for Finance",
+      "AI for E-commerce"
+    ],
     "sameAs": [
       "https://www.linkedin.com/company/beonicx",
       "https://twitter.com/beonicx",
@@ -21,18 +36,7 @@ export default function StructuredData() {
     }
   };
 
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "BeonicX",
-    "url": "https://beonicx.com",
-    "description": "AI-powered autonomous agents and intelligent automation solutions",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://beonicx.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  };
+  // WebSite schema is in root layout.js to avoid duplication
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -88,10 +92,6 @@ export default function StructuredData() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <script
         type="application/ld+json"

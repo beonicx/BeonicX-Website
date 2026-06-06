@@ -47,9 +47,9 @@ const FAQ = ({ darkMode }) => {
   return (
     <div className={`${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} py-10 px-4 sm:px-6 lg:px-20 transition-all duration-300`}>
     <div className="max-w-7xl">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-10">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">
         Frequently Asked Questions
-      </h1>
+      </h2>
   
       <div className="space-y-4">
         {faqItems.map((item, index) => (

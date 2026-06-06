@@ -26,7 +26,7 @@ export async function generateMetadata({ params }) {
     title: meta.title,
     description: meta.description,
     alternates: {
-      canonical: `/industry/${industrySlug}`,
+      canonical: `https://beonicx.com/industry/${industrySlug}`,
     },
     openGraph: {
       title: meta.title,

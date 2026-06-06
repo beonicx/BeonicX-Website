@@ -8,9 +8,9 @@ const FreelamceBanner = ({ darkMode }) => {
         transition-colors duration-300`}>
         
         <div className="max-w-screen-xl w-full text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-8 leading-snug">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-8 leading-snug">
             BeonicX services at your <span className="text-[#FF6B35]">fingertips</span>
-          </h1>
+          </h2>
 
           <button className={`px-6 py-3 rounded-md font-medium text-sm sm:text-base transition-colors
             ${darkMode 

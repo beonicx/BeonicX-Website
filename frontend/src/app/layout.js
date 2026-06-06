@@ -15,6 +15,9 @@ export const metadata = {
     template: "%s | BeonicX"
   },
   description: "Transform your business with BeonicX's cutting-edge AI agents and intelligent automation. We build autonomous AI agents, customer service bots, sales & marketing agents, and workflow automation solutions tailored for healthcare, finance, e-commerce, and SaaS industries.",
+  alternates: {
+    canonical: 'https://beonicx.com',
+  },
   keywords: [
     "AI agents",
     "autonomous AI agents",

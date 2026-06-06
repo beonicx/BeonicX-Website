@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
     title: meta.title,
     description: meta.description,
     alternates: {
-      canonical: `/aboutUs/${aboutSlug}`,
+      canonical: `https://beonicx.com/aboutUs/${aboutSlug}`,
     },
     openGraph: {
       title: meta.title,

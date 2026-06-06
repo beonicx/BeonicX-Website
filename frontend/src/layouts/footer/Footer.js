@@ -37,7 +37,7 @@ const Footer = ({ darkMode }) => {
           <div className={`flex flex-col md:flex-row justify-between items-center border-b pb-10 mb-10 ${darkMode ? 'border-gray-700' : 'border-gray-300'}`}>
             <div className="mb-6 md:mb-0">
               <h2 className={`text-xl font-semibold ${darkMode ? 'text-blue-400' : 'text-blue-800'}`}>Subscribe to our</h2>
-              <h1 className={`text-3xl font-bold ${darkMode ? 'text-blue-300' : 'text-blue-900'}`}>Newsletter</h1>
+              <p className={`text-3xl font-bold ${darkMode ? 'text-blue-300' : 'text-blue-900'}`}>Newsletter</p>
               <p className={`mt-2 max-w-md ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Get the latest updates, news and special offers sent directly to your inbox.</p>
             </div>
             <div className="w-full md:w-auto">
