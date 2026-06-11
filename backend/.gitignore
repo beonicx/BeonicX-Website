@@ -11,6 +11,10 @@ uploads/*
 
 # Log files
 npm-debug.log
+*.log
+*.tmp
+*.swp
+backend.log
 
 # macOS system file
 .DS_Store

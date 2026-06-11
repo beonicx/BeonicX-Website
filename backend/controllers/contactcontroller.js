@@ -45,10 +45,26 @@ exports.submitQuery = async (req, res) => {
 
 // Submit contact form (saves to database + sends email)
 exports.submitContact = async (req, res) => {
+  console.log('\n=== CONTACT FORM SUBMISSION ===');
+  console.log('Request Body:', req.body);
+  console.log('Request Headers:', req.headers);
+
   try {
     const { name, email, phone, skype, subject, message, formType } = req.body;
 
+    // Validate required fields
+    if (!name || !email || !message) {
+      console.log('❌ Validation failed: Missing required fields');
+      return res.status(400).json({
+        status: 'fail',
+        message: 'Name, email, and message are required'
+      });
+    }
+
+    console.log('✅ Basic validation passed');
+
     // Create new contact entry
+    console.log('📝 Creating database entry...');
     const newContact = await Contact.create({
       name,
       email,
@@ -58,24 +74,42 @@ exports.submitContact = async (req, res) => {
       message,
       formType: formType || 'contact'
     });
+    console.log('✅ Database entry created:', newContact._id);
 
     // Send notification email to admin
-    await emailService.sendContactNotification({
-      name,
-      email,
-      phone,
-      skype,
-      subject: subject || 'General Inquiry',
-      message,
-      formType: formType || 'contact'
-    });
+    console.log('📧 Sending admin notification email...');
+    try {
+      await emailService.sendContactNotification({
+        name,
+        email,
+        phone,
+        skype,
+        subject: subject || 'General Inquiry',
+        message,
+        formType: formType || 'contact'
+      });
+      console.log('✅ Admin notification sent');
+    } catch (emailError) {
+      console.error('⚠️ Failed to send admin notification:', emailError.message);
+      // Continue even if email fails
+    }
 
     // Send confirmation email to user
-    await emailService.sendContactConfirmation({
-      name,
-      email,
-      subject: subject || 'General Inquiry'
-    });
+    console.log('📧 Sending user confirmation email...');
+    try {
+      await emailService.sendContactConfirmation({
+        name,
+        email,
+        subject: subject || 'General Inquiry'
+      });
+      console.log('✅ User confirmation sent');
+    } catch (emailError) {
+      console.error('⚠️ Failed to send user confirmation:', emailError.message);
+      // Continue even if email fails
+    }
+
+    console.log('✅ Contact form submission completed successfully');
+    console.log('=== END CONTACT FORM SUBMISSION ===\n');
 
     res.status(201).json({
       status: 'success',
@@ -85,10 +119,30 @@ exports.submitContact = async (req, res) => {
       }
     });
   } catch (error) {
-    console.error('Contact submission error:', error);
-    res.status(400).json({
-      status: 'fail',
-      message: error.message || 'Failed to submit contact form'
+    console.error('💥 Contact submission error:', error);
+    console.error('Error name:', error.name);
+    console.error('Error message:', error.message);
+    console.error('Error stack:', error.stack);
+    console.log('=== END CONTACT FORM SUBMISSION (ERROR) ===\n');
+
+    // Handle specific error types
+    if (error.name === 'ValidationError') {
+      return res.status(400).json({
+        status: 'fail',
+        message: 'Validation error: ' + Object.values(error.errors).map(e => e.message).join(', ')
+      });
+    }
+
+    if (error.name === 'MongoServerError' && error.code === 11000) {
+      return res.status(400).json({
+        status: 'fail',
+        message: 'Duplicate entry detected'
+      });
+    }
+
+    res.status(500).json({
+      status: 'error',
+      message: error.message || 'Failed to submit contact form. Please try again later.'
     });
   }
 };

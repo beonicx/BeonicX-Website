@@ -18,20 +18,30 @@ const createTransporter = () => {
 
 // Send email function
 const sendEmail = async (options) => {
-  // Create transporter
-  const transporter = createTransporter();
-  
-  // Define email options
-  const mailOptions = {
-    from: `BeonicX<${process.env.EMAIL_FROM || 'noreply@beonicx.com'}>`,
-    to: options.email,
-    subject: options.subject,
-    html: options.html,
-    text: options.text
-  };
-  
-  // Send email
-  await transporter.sendMail(mailOptions);
+  console.log('📧 Sending email to:', options.email);
+  console.log('📧 Subject:', options.subject);
+
+  try {
+    // Create transporter
+    const transporter = createTransporter();
+
+    // Define email options
+    const mailOptions = {
+      from: `BeonicX <${process.env.EMAIL_FROM || 'noreply@beonicx.com'}>`,
+      to: options.email,
+      subject: options.subject,
+      html: options.html,
+      text: options.text
+    };
+
+    // Send email
+    const info = await transporter.sendMail(mailOptions);
+    console.log('✅ Email sent successfully:', info.messageId);
+    return info;
+  } catch (error) {
+    console.error('❌ Email sending failed:', error.message);
+    throw error;
+  }
 };
 
 // Send contact form notification to admin
