@@ -1,5 +1,6 @@
 export async function generateMetadata({ params }) {
-  const aboutSlug = params.contactUs || 'about';
+  const { contactUs } = await params;
+  const aboutSlug = contactUs || 'about';
 
   const aboutMetadata = {
     'about': {

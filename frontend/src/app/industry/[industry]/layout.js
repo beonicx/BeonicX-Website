@@ -1,5 +1,6 @@
 export async function generateMetadata({ params }) {
-  const industrySlug = params.industry || 'education';
+  const { industry } = await params;
+  const industrySlug = industry || 'education';
 
   const industryMetadata = {
     'education': {

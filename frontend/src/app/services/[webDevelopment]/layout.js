@@ -1,5 +1,6 @@
 export async function generateMetadata({ params }) {
-  const serviceSlug = params.webDevelopment || 'web-development';
+  const { webDevelopment } = await params;
+  const serviceSlug = webDevelopment || 'web-development';
 
   const serviceMetadata = {
     'web-development': {

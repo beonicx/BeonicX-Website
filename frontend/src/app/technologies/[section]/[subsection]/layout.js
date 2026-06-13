@@ -1,5 +1,5 @@
 export async function generateMetadata({ params }) {
-  const { section, subsection } = params;
+  const { section, subsection } = await params;
 
   const formatTitle = (str) => str?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 

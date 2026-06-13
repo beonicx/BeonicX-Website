@@ -1,5 +1,6 @@
 export async function generateMetadata({ params }) {
-  const caseStudySlug = params.enterprise || 'enterprise';
+  const { enterprise } = await params;
+  const caseStudySlug = enterprise || 'enterprise';
 
   const caseStudyMetadata = {
     'enterprise': {
