@@ -1,4 +1,4 @@
-// Web Development Services Page
+// Mobile App Development Services Page
 'use client'
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -9,7 +9,7 @@ import {
   Shield, TrendingUp, Target, Layers
 } from 'lucide-react';
 
-export default function WebDevelopment({ darkMode }) {
+export default function AppDevelopment({ darkMode }) {
   // Apply dark mode class to <html> based on prop
   useEffect(() => {
     const root = document.documentElement;
@@ -92,10 +92,10 @@ export default function WebDevelopment({ darkMode }) {
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300">Web Development</span> Services
+                Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-teal-300 to-cyan-300">Mobile App Development</span> Services
               </h1>
               <p className="text-xl mb-8 text-gray-100 leading-relaxed">
-                Transform your vision into reality with cutting-edge web applications. We build scalable, high-performance solutions tailored to your business needs.
+                Build powerful mobile applications for iOS and Android. We create native and cross-platform apps with seamless user experiences and cutting-edge features.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <motion.button

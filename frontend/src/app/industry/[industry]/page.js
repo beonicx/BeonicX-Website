@@ -8,6 +8,9 @@ import React, { useState, useEffect } from 'react'
 const Page = ({ params }) => {
   const [darkMode, setDarkMode] = useState(false);
 
+  // Extract industry slug (not currently used for dynamic rendering)
+  const industrySlug = params?.industry || 'education';
+
   // Metadata is handled server-side in layout.js
 
   // Initialize theme based on user preference

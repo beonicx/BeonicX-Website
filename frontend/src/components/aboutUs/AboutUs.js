@@ -1,6 +1,5 @@
 'use client'
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 
 export default function AboutUs({ darkMode = false }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -104,10 +103,6 @@ export default function AboutUs({ darkMode = false }) {
 
   return (
     <>
-      <Head>
-        <title>About Us | BeonicX</title>
-        <meta name="description" content="Learn about BeonicX - Your trusted partner in AI-powered software solutions" />
-      </Head>
 
       <div className={`min-h-screen transition-colors duration-200 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
 

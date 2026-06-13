@@ -16,6 +16,7 @@ export async function generateMetadata({ params }) {
       title,
       description,
       url: `https://beonicx.com/technologies/${section}/${subsection}`,
+      images: ['https://beonicx.com/og-default.jpg'],
     },
     twitter: {
       title,

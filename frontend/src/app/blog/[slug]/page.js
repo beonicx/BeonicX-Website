@@ -26,19 +26,23 @@ export async function generateMetadata({ params }) {
   return {
     title: `${post.title} | BeonicX Blog`,
     description: post.excerpt || post.title,
+    alternates: {
+      canonical: `https://beonicx.com/blog/${slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: 'article',
       publishedTime: post.publishedAt,
       authors: [post.author],
-      images: post.featuredImage ? [post.featuredImage] : [],
+      images: post.featuredImage ? [post.featuredImage] : ['https://beonicx.com/og-default.jpg'],
+      url: `https://beonicx.com/blog/${slug}`,
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
-      images: post.featuredImage ? [post.featuredImage] : [],
+      images: post.featuredImage ? [post.featuredImage] : ['https://beonicx.com/og-default.jpg'],
     },
   };
 }

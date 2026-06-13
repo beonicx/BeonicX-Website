@@ -1,4 +1,4 @@
-// Web Development Services Page
+// Cloud Services & Infrastructure Page
 'use client'
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -9,7 +9,7 @@ import {
   Shield, TrendingUp, Target, Layers
 } from 'lucide-react';
 
-export default function WebDevelopment({ darkMode }) {
+export default function CloudServices({ darkMode }) {
   // Apply dark mode class to <html> based on prop
   useEffect(() => {
     const root = document.documentElement;
@@ -92,10 +92,10 @@ export default function WebDevelopment({ darkMode }) {
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300">Web Development</span> Services
+                Enterprise <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-red-300 to-pink-300">Cloud Services</span> &amp; Infrastructure
               </h1>
               <p className="text-xl mb-8 text-gray-100 leading-relaxed">
-                Transform your vision into reality with cutting-edge web applications. We build scalable, high-performance solutions tailored to your business needs.
+                Scale your infrastructure with enterprise cloud solutions on AWS, Azure, and GCP. We provide cloud migration, DevOps, and serverless architecture services.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <motion.button

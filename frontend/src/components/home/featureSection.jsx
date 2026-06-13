@@ -1,5 +1,4 @@
 // pages/solutions.js
-import Head from 'next/head';
 import {
   FaMicrochip,
   FaChartPie,
@@ -45,21 +44,6 @@ export default function FeatureSection({ darkMode = false }) {
   
   return (
     <div className={darkMode ? 'min-h-screen bg-gray-900 text-white' : 'min-h-screen bg-gray-50 text-black'}>
-      <Head>
-        <title>AI Solutions for Business Growth | BeonicX</title>
-        <meta
-          name="description"
-          content="Explore our innovative AI solutions tailored to automate operations, enhance decision-making, and unlock new business opportunities."
-        />
-        <meta name="keywords" content="AI solutions, artificial intelligence, business automation, machine learning, AI development, BeonicX AI" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="AI Solutions for Business Growth | BeonicX" />
-        <meta property="og:description" content="Discover how BeonicX’s AI technologies are driving transformation across industries." />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta property="og:url" content="https://www.beonicx.ai/solutions" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
 
       <main>
         <section id="solutions" className={`py-20 ${darkMode ? "bg-gray-900" : "bg-gray-50"}`}>

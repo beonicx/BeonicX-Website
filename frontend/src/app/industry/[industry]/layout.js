@@ -1,5 +1,5 @@
 export async function generateMetadata({ params }) {
-  const industrySlug = params.eduction || 'education';
+  const industrySlug = params.industry || 'education';
 
   const industryMetadata = {
     'education': {
@@ -32,6 +32,7 @@ export async function generateMetadata({ params }) {
       title: meta.title,
       description: meta.description,
       url: `https://beonicx.com/industry/${industrySlug}`,
+      images: ['https://beonicx.com/og-default.jpg'],
     },
     twitter: {
       title: meta.title,

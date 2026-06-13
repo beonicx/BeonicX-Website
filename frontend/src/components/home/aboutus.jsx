@@ -1,6 +1,6 @@
 // import React, { useState } from 'react'
 
-function Aboutus() {
+function Aboutus({ darkMode = false }) {
     // const [darkMode, setDarkMode] = useState(false);
   return (
     <section

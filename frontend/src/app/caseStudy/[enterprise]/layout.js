@@ -28,6 +28,7 @@ export async function generateMetadata({ params }) {
       title: meta.title,
       description: meta.description,
       url: `https://beonicx.com/caseStudy/${caseStudySlug}`,
+      images: ['https://beonicx.com/og-default.jpg'],
     },
     twitter: {
       title: meta.title,
