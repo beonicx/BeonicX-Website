@@ -3,7 +3,7 @@
  * Run with: node utils/test-query-email.js
  */
 
-require('dotenv').config();
+require('dotenv').config({ path: '.env.local' });
 const emailService = require('./email');
 
 async function testQueryEmail() {

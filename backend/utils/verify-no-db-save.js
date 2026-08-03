@@ -3,7 +3,7 @@
  * Run with: node utils/verify-no-db-save.js
  */
 
-require('dotenv').config();
+require('dotenv').config({ path: '.env.local' });
 const mongoose = require('mongoose');
 const { connectDB } = require('../config/db');
 

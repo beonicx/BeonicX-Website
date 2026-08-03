@@ -6,7 +6,7 @@
  * Usage: node test-email.js
  */
 
-require('dotenv').config();
+require('dotenv').config({ path: '.env.local' });
 const nodemailer = require('nodemailer');
 
 // Colors for console output

@@ -1,6 +1,7 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import AboutUs from '@/components/aboutUs/AboutUs';
+import PrivacyPolicyPage from '@/components/privacyPolicy/PrivacyPolicyPage';
 import Footer from '@/layouts/footer/Footer'
 import Navbar from '@/layouts/navbar/Navbar'
 
@@ -18,13 +19,21 @@ const aboutMetadata = {
     title: 'Our Team | BeonicX Leadership & Experts',
     description: 'Meet the BeonicX team of AI experts, developers, and consultants. Experienced professionals dedicated to delivering exceptional results.',
   },
+  'privacyPolicy': {
+    title: 'Privacy Policy | BeonicX',
+    description: 'Privacy Policy for BeonicX. We are committed to protecting your privacy and ensuring the security of your personal information.',
+  },
+  'terms': {
+    title: 'Terms & Conditions | BeonicX',
+    description: 'Terms of Service for BeonicX. By using our services, you agree to the terms and conditions outlined in this document.',
+  },
 };
 
 const Page = ({ params }) => {
+  const { contactUs } = use(params);
   const [darkMode, setDarkMode] = useState(false);
 
-  // Get about page slug from params
-  const aboutSlug = params?.contactUs || 'about';
+  const aboutSlug = contactUs || 'about';
 
   // Update document head for SEO
   useEffect(() => {
@@ -80,11 +89,20 @@ const Page = ({ params }) => {
     localStorage.setItem('darkMode', newDarkMode.toString());
   };
 
+  const renderContent = () => {
+    switch (aboutSlug) {
+      case 'privacyPolicy':
+        return <PrivacyPolicyPage darkMode={darkMode} />;
+      default:
+        return <AboutUs darkMode={darkMode} />;
+    }
+  };
+
   return (
     <div className={darkMode ? "dark" : ""}>
       <div className={`min-h-screen ${darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900"}`}>
         <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
-        <AboutUs darkMode={darkMode} />
+        {renderContent()}
         <Footer darkMode={darkMode} />
       </div>
     </div>

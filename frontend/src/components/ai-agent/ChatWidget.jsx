@@ -99,6 +99,7 @@ export default function ChatWidget({ darkMode = false }) {
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
       let assistantMessage = '';
+      let buffer = '';
 
       // Add empty assistant message that we'll update
       setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
@@ -107,43 +108,36 @@ export default function ChatWidget({ darkMode = false }) {
         const { done, value } = await reader.read();
         if (done) break;
 
-        const chunk = decoder.decode(value);
-        const lines = chunk.split('\n');
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || '';
 
         for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            try {
-              const rawData = line.slice(6).trim();
+          if (!line.startsWith('data: ')) continue;
 
-              // ✅ FIX: Skip empty data lines
-              if (!rawData || rawData === '[DONE]') continue;
+          const rawData = line.slice(6).trim();
+          if (!rawData || rawData === '[DONE]') continue;
 
-              const data = JSON.parse(rawData);
+          try {
+            const data = JSON.parse(rawData);
 
-              if (data.type === 'text') {
-                assistantMessage += data.content;
-                // Update the last message (assistant's) with accumulated content
-                setMessages(prev => {
-                  const updated = [...prev];
-                  updated[updated.length - 1] = {
-                    role: 'assistant',
-                    content: assistantMessage
-                  };
-                  return updated;
-                });
-              } else if (data.type === 'done') {
-                console.log('[ChatWidget] Stream complete. Total chars:', assistantMessage.length);
-                break;
-              } else if (data.type === 'error') {
-                console.error('[ChatWidget] Stream error from server:', data.content);
-                throw new Error(`Stream error: ${data.content}`);
-              }
-            } catch (e) {
-              // Only log if it's a real parse error, not empty lines
-              if (e.message !== 'Unexpected end of JSON input') {
-                console.error('[ChatWidget] Error parsing SSE data:', e, '| Raw line:', line);
-              }
+            if (data.type === 'text') {
+              assistantMessage += data.content;
+              setMessages(prev => {
+                const updated = [...prev];
+                updated[updated.length - 1] = {
+                  role: 'assistant',
+                  content: assistantMessage
+                };
+                return updated;
+              });
+            } else if (data.type === 'done') {
+              break;
+            } else if (data.type === 'error') {
+              throw new Error(`Stream error: ${data.content}`);
             }
+          } catch (e) {
+            if (e.message.startsWith('Stream error:')) throw e;
           }
         }
       }

@@ -10,7 +10,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.pexels.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
+    minimumCacheTTL: 86400,
+    dangerouslyAllowSVG: false,
+    unoptimized: process.env.NODE_ENV === 'development',
   },
   async headers() {
     return [

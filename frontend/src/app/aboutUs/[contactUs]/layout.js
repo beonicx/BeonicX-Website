@@ -15,6 +15,14 @@ export async function generateMetadata({ params }) {
       title: 'Our Team | BeonicX Leadership & Experts',
       description: 'Meet the BeonicX team of AI experts, developers, and consultants. Experienced professionals dedicated to delivering exceptional results.',
     },
+    'privacyPolicy': {
+      title: 'Privacy Policy | BeonicX',
+      description: 'Privacy Policy for BeonicX. We are committed to protecting your privacy and ensuring the security of your personal information.',
+    },
+    'terms': {
+      title: 'Terms & Conditions | BeonicX',
+      description: 'Terms of Service for BeonicX. By using our services, you agree to the terms and conditions outlined in this document.',
+    }, 
   };
 
   const meta = aboutMetadata[aboutSlug] || aboutMetadata['about'];

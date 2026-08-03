@@ -109,7 +109,9 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
       hoverContent: [
         { title: 'About Us', href: '/aboutUs/about', onClick: () => router.push('/aboutUs/about') },
         { title: 'Contact', href: '/aboutUs/contact', onClick: () => router.push('/aboutUs/contact') },
-        { title: 'Team', href: '/aboutUs/team', onClick: () => router.push('/aboutUs/team') }
+        { title: 'Team', href: '/aboutUs/team', onClick: () => router.push('/aboutUs/team') },
+        { title: 'Privacy Policy', href: '/aboutUs/privacyPolicy', onClick: () => router.push('/aboutUs/privacyPolicy') },
+        { title: 'Terms & Conditions', href: '/aboutUs/terms&Conditions', onClick: () => router.push('/aboutUs/terms&Conditions') }
       ]
     }
   ];
@@ -195,22 +197,22 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 {darkMode ? (
                   <div className="h-16 w-16 relative mr-3 flex-shrink-0">
                     <Image
-                      src="https://i.postimg.cc/GpFph6Qt/Whats-App-Image-2025-04-09-at-00-22-42-removebg-preview.png"
+                      src="/images/darklogo.png"
                       alt="BeonicX - AI Agents & Intelligent Automation Solutions Logo"
-                      layout="fill"
-                      objectFit="contain"
-                      className="transition-all duration-300 hover:scale-105"
+                      fill
+                      sizes="64px"
+                      className="object-contain transition-all duration-300 hover:scale-105"
                       priority
                     />
                   </div>
                 ) : (
                   <div className="h-16 w-16 relative flex-shrink-0">
                     <Image
-                      src="https://i.postimg.cc/Pxd5LK34/Whats-App-Image-2025-04-09-at-00-27-19-removebg-preview.png"
+                      src="/images/lightlogo2.png"
                       alt="BeonicX - AI Agents & Intelligent Automation Solutions Logo"
-                      layout="fill"
-                      objectFit="contain"
-                      className="transition-all duration-300 hover:scale-105"
+                      fill
+                      sizes="64px"
+                      className="object-contain transition-all duration-300 hover:scale-105"
                       priority
                     />
                   </div>
