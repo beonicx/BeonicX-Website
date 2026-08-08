@@ -48,7 +48,13 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
       id: 'services',
       hoverContent: [
         { title: 'Web Development', href: '/services/web-development', onClick: ()=>{router.push('/services/web-development')} },
-        { title: 'Mobile App Development', href: '/services/app-development', onClick: ()=>{router.push('/services/app-development')} },
+        { 
+          title: 'Mobile App Development',
+          subItems: [
+            { title: 'Android', href: '/services/app-development/android', onClick: () => { router.push('/services/ai-automation/android') } },
+            { title: 'iOS', href: '/services/ai-automation/voice-agent', onClick: () => { router.push('/services/app-development/iOS') } },
+          ], href: '/services/app-development/iOS', onClick: ()=>{router.push('/services/app-development')} 
+        },
         { 
           title: 'AI Automation',
           subItems: [
