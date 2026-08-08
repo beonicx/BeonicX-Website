@@ -49,7 +49,14 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
       hoverContent: [
         { title: 'Web Development', href: '/services/web-development', onClick: ()=>{router.push('/services/web-development')} },
         { title: 'Mobile App Development', href: '/services/app-development', onClick: ()=>{router.push('/services/app-development')} },
-        { title: 'AI Solutions', href: '/services/ai-solutions', onClick: ()=>{router.push('/services/ai-solutions')} },
+        { 
+          title: 'AI Automation',
+          subItems: [
+            { title: 'WhatsApp Automation', href: 'https://wacrm.beonicx.com', onClick: () => { window.open('https://wacrm.beonicx.com', '_blank') } },
+            { title: 'Instagram Automation', href: '/services/ai-automation/instagram', onClick: () => { router.push('/services/ai-automation/instagram') } },
+            { title: 'Voice Agent', href: '/services/ai-automation/voice-agent', onClick: () => { router.push('/services/ai-automation/voice-agent') } },
+          ], href: '/services/ai-automation', onClick: ()=>{router.push('/services/ai-automation')} 
+        },
         { title: 'Cloud Services', href: '/services/cloud-services', onClick: ()=>{router.push('/services/cloud-services')} },
       ]
     },
@@ -62,7 +69,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
           title: 'Frontend Technologies',
           subItems: [
             { title: 'Next.js', href: '/technologies/frontend/nextjs', onClick: () => { router.push('/technologies/frontend/nextjs') } },
-            { title: 'React', href: '/technologies/frontend/react', onClick: () => { router.push('/technologies/frontend/react') } },
+            { title: 'React.js', href: '/technologies/frontend/reactjs', onClick: () => { router.push('/technologies/frontend/reactjs') } },
           ]
         },
         {
