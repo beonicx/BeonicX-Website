@@ -55,7 +55,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
             { title: 'WhatsApp Automation', href: 'https://wacrm.beonicx.com', onClick: () => { window.open('https://wacrm.beonicx.com', '_blank') } },
             { title: 'Instagram Automation', href: '/services/ai-automation/instagram', onClick: () => { router.push('/services/ai-automation/instagram') } },
             { title: 'Voice Agent', href: '/services/ai-automation/voice-agent', onClick: () => { router.push('/services/ai-automation/voice-agent') } },
-          ], href: '/services/ai-automation', onClick: ()=>{router.push('/services/ai-automation')} 
+          ],
         },
         { title: 'Cloud Services', href: '/services/cloud-services', onClick: ()=>{router.push('/services/cloud-services')} },
       ]
