@@ -7,19 +7,19 @@ import { getProjects, getServices } from '@/lib/api';
 
 const defaultProjects = [
   { title: "Website Development", description: "Custom website built with React and Next.js", image: "https://images.pexels.com/photos/30885764/pexels-photo-30885764.jpeg" },
-  { title: "Logo Design", description: "Brand identity and logo design for startups", image: "https://images.pexels.com/photos/6593545/pexels-photo-6593545.jpeg" },
+  { title: "Custom CRM Development", description: "Brand identity and logo design for startups", image: "https://images.pexels.com/photos/110078/pexels-photo-110078.jpeg" },
   { title: "SEO Optimization", description: "Improve your website's search engine ranking", image: "https://images.pexels.com/photos/9822732/pexels-photo-9822732.jpeg" },
-  { title: "Architecture Design", description: "Architecture Design", image: "https://images.pexels.com/photos/36477894/pexels-photo-36477894.jpeg" },
-  { title: "Voice Over", description: "Professional voice recording for your projects", image: "https://images.pexels.com/photos/31393274/pexels-photo-31393274/free-photo-of-urban-architecture-building-with-yamamoto-kisho-sign.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load" },
-  { title: "Social Media Marketing", description: "Grow your brand with effective social campaigns", image: "https://images.pexels.com/photos/15406294/pexels-photo-15406294.jpeg" },
+  { title: "App Development", description: "App Development", image: "https://images.pexels.com/photos/11216260/pexels-photo-11216260.jpeg" },
+  { title: "ERP Next Solutions", description: "Professional ERP Next Solutions for your business enterprize", image: "https://images.pexels.com/photos/8636589/pexels-photo-8636589.jpeg" },
+  { title: "AI Agents Integration", description: "Grow your brand with effective social campaigns", image: "https://media.istockphoto.com/id/1733631411/photo/maze-and-ai-concept.jpg?s=1024x1024&w=is&k=20&c=rkBmepxe0-Un3oyamHdCnRUT-bJX5F4HdsqqJ71holM=" },
 ];
 
 const defaultServices = [
   { title: "Website Development", description: "Custom websites built with React and Next.js for high performance and scalability.", image: "https://images.pexels.com/photos/30885764/pexels-photo-30885764.jpeg" },
   { title: "Mobile App Development", description: "Cross-platform mobile apps built using React Native for seamless user experience.", image: "https://images.pexels.com/photos/8296105/pexels-photo-8296105.jpeg" },
-  { title: "E-Commerce Solutions", description: "End-to-end e-commerce platforms with secure payment gateways and user-friendly UI.", image: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg" },
-  { title: "SEO & Digital Marketing", description: "Boost your online presence with advanced SEO strategies and digital marketing campaigns.", image: "https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load" },
-  { title: "UI/UX Design", description: "Create intuitive and engaging user interfaces with cutting-edge design principles.", image: "https://images.pexels.com/photos/326518/pexels-photo-326518.jpeg" },
+  { title: "Custom CRM Development", description: "End-to-end e-commerce platforms with secure payment gateways and user-friendly UI.", image: "https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg" },
+  { title: "ERP Solutions", description: "Boost your online presence with advanced SEO strategies and digital marketing campaigns.", image: "https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load" },
+  { title: "SEO & Digital Marketing", description: "Create intuitive and engaging user interfaces with cutting-edge design principles.", image: "https://images.pexels.com/photos/326518/pexels-photo-326518.jpeg" },
 ];
 
 export default function Slider({ darkMode }) {
