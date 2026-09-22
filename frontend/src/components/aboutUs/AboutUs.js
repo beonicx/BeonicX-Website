@@ -107,11 +107,11 @@ export default function AboutUs({ darkMode = false }) {
       <div className={`min-h-screen transition-colors duration-200 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
 
         {/* Hero Section */}
-        <section className={`relative py-20 lg:py-32 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900' : 'bg-gradient-to-br from-blue-50 via-white to-purple-50'}`}>
+        <section className={`relative py-20 lg:py-32 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900' : 'bg-gradient-to-br from-blue-50 via-white to-blue-50'}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className={`text-center transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h1 className={`text-5xl lg:text-7xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                About <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">BeonicX</span>
+                About <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">BeonicX</span>
               </h1>
               <p className={`text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                 Empowering businesses with cutting-edge AI-powered software solutions.
@@ -122,7 +122,7 @@ export default function AboutUs({ darkMode = false }) {
 
           {/* Decorative Elements */}
           <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
         </section>
 
         {/* Stats Section */}
@@ -137,7 +137,7 @@ export default function AboutUs({ darkMode = false }) {
                   }`}
                 >
                   <div className="text-4xl mb-3">{stat.icon}</div>
-                  <div className={`text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent`}>
+                  <div className={`text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent`}>
                     {stat.number}
                   </div>
                   <div className={`text-sm lg:text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
@@ -355,7 +355,7 @@ export default function AboutUs({ darkMode = false }) {
         </section>
 
         {/* CTA Section */}
-        <section className={`py-20 ${darkMode ? 'bg-gradient-to-r from-blue-900 to-purple-900' : 'bg-gradient-to-r from-blue-600 to-purple-600'}`}>
+        <section className={`py-20 ${darkMode ? 'bg-gradient-to-r from-blue-950 to-blue-800' : 'bg-gradient-to-r from-blue-500 to-blue-700'}`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Transform Your Business?

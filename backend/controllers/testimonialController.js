@@ -1,10 +1,9 @@
-const Industry = require('../models/industry');
+const Testimonial = require('../models/testimonial');
 
-exports.getAllIndustries = async (req, res) => {
+exports.getAllTestimonials = async (req, res) => {
   try {
     const queryObj = { active: true };
-
-    let query = Industry.find(queryObj).sort('order');
+    let query = Testimonial.find(queryObj).sort('order');
 
     if (req.query.fields) {
       const fields = req.query.fields.split(',').join(' ');
@@ -13,12 +12,12 @@ exports.getAllIndustries = async (req, res) => {
       query = query.select('-__v');
     }
 
-    const industries = await query;
+    const testimonials = await query;
 
     res.status(200).json({
       status: 'success',
-      results: industries.length,
-      data: industries
+      results: testimonials.length,
+      data: testimonials
     });
   } catch (error) {
     res.status(500).json({
@@ -28,20 +27,40 @@ exports.getAllIndustries = async (req, res) => {
   }
 };
 
-exports.getIndustry = async (req, res) => {
+exports.getFeaturedTestimonials = async (req, res) => {
   try {
-    const industry = await Industry.findById(req.params.id);
+    const testimonials = await Testimonial.find({ active: true, featured: true })
+      .sort('order')
+      .limit(6)
+      .select('-__v');
 
-    if (!industry) {
+    res.status(200).json({
+      status: 'success',
+      results: testimonials.length,
+      data: testimonials
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: 'error',
+      message: error.message
+    });
+  }
+};
+
+exports.getTestimonial = async (req, res) => {
+  try {
+    const testimonial = await Testimonial.findById(req.params.id);
+
+    if (!testimonial) {
       return res.status(404).json({
         status: 'fail',
-        message: 'Industry not found'
+        message: 'Testimonial not found'
       });
     }
 
     res.status(200).json({
       status: 'success',
-      data: industry
+      data: testimonial
     });
   } catch (error) {
     res.status(500).json({
@@ -51,40 +70,17 @@ exports.getIndustry = async (req, res) => {
   }
 };
 
-exports.getIndustryBySlug = async (req, res) => {
-  try {
-    const industry = await Industry.findOne({ slug: req.params.slug });
-
-    if (!industry) {
-      return res.status(404).json({
-        status: 'fail',
-        message: 'Industry not found'
-      });
-    }
-
-    res.status(200).json({
-      status: 'success',
-      data: industry
-    });
-  } catch (error) {
-    res.status(500).json({
-      status: 'error',
-      message: error.message
-    });
-  }
-};
-
-exports.createIndustry = async (req, res) => {
+exports.createTestimonial = async (req, res) => {
   try {
     if (req.file) {
       req.body.image = `/uploads/${req.file.filename}`;
     }
 
-    const newIndustry = await Industry.create(req.body);
+    const newTestimonial = await Testimonial.create(req.body);
 
     res.status(201).json({
       status: 'success',
-      data: newIndustry
+      data: newTestimonial
     });
   } catch (error) {
     res.status(400).json({
@@ -94,13 +90,13 @@ exports.createIndustry = async (req, res) => {
   }
 };
 
-exports.updateIndustry = async (req, res) => {
+exports.updateTestimonial = async (req, res) => {
   try {
     if (req.file) {
       req.body.image = `/uploads/${req.file.filename}`;
     }
 
-    const updated = await Industry.findByIdAndUpdate(req.params.id, req.body, {
+    const updated = await Testimonial.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true
     });
@@ -108,7 +104,7 @@ exports.updateIndustry = async (req, res) => {
     if (!updated) {
       return res.status(404).json({
         status: 'fail',
-        message: 'Industry not found'
+        message: 'Testimonial not found'
       });
     }
 
@@ -124,14 +120,14 @@ exports.updateIndustry = async (req, res) => {
   }
 };
 
-exports.deleteIndustry = async (req, res) => {
+exports.deleteTestimonial = async (req, res) => {
   try {
-    const industry = await Industry.findByIdAndDelete(req.params.id);
+    const testimonial = await Testimonial.findByIdAndDelete(req.params.id);
 
-    if (!industry) {
+    if (!testimonial) {
       return res.status(404).json({
         status: 'fail',
-        message: 'Industry not found'
+        message: 'Testimonial not found'
       });
     }
 

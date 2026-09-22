@@ -53,6 +53,41 @@ const serviceSchema = new mongoose.Schema({
   active: {
     type: Boolean,
     default: true
+  },
+  heroSubtitle: {
+    type: String,
+    trim: true
+  },
+  gradient: {
+    type: String,
+    default: 'from-blue-500 to-cyan-500'
+  },
+  stats: [{
+    value: { type: String },
+    label: { type: String }
+  }],
+  sections: [{
+    title: { type: String },
+    description: { type: String },
+    items: [{
+      title: { type: String },
+      description: { type: String }
+    }]
+  }],
+  processSteps: [{
+    step: { type: Number },
+    title: { type: String },
+    description: { type: String }
+  }],
+  techStack: [{
+    name: { type: String },
+    category: { type: String }
+  }],
+  cta: {
+    title: { type: String },
+    description: { type: String },
+    buttonText: { type: String, default: 'Get Started' },
+    buttonLink: { type: String, default: '/get-started' }
   }
 });
 

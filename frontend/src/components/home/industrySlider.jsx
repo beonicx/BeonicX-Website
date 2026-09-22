@@ -1,21 +1,40 @@
 "use client"
 
-// components/EnhancedIndustrySlider.jsx
 import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { getIndustries } from '@/lib/api';
 
-const EnhancedIndustrySlider = ({ 
+const EnhancedIndustrySlider = ({
   darkMode = false,
-  industries = defaultIndustries,
+  industries: industriesProp,
   title = "Industries We Serve",
   description = "We deliver innovative digital solutions across diverse industries, helping businesses transform their operations and reach new heights."
 }) => {
+  const router = useRouter();
+  const [industries, setIndustries] = useState(industriesProp || defaultIndustries);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const autoplayRef = useRef(null);
+
+  useEffect(() => {
+    async function load() {
+      const data = await getIndustries();
+      if (data && data.length > 0) {
+        const mapped = data.map(ind => ({
+          title: ind.title,
+          slug: ind.slug,
+          subtitle: ind.shortDescription || ind.description,
+          image: ind.image || '',
+          features: ind.features || [],
+        }));
+        setIndustries(mapped);
+      }
+    }
+    if (!industriesProp) load();
+  }, [industriesProp]);
 
   // Handle auto-sliding
   useEffect(() => {
@@ -139,11 +158,17 @@ const EnhancedIndustrySlider = ({
                     </ul>
                   </div>
                 )}
-                <button className={`self-start px-6 py-2 rounded-lg shadow-md transition-colors ${
-                  darkMode 
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-                    : 'bg-blue-600 hover:bg-blue-700 text-white'
-                }`}>
+                <button
+                  onClick={() => {
+                    const slug = industries[currentIndex].slug || industries[currentIndex].title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '');
+                    router.push(`/industry/${slug}`);
+                  }}
+                  className={`self-start px-6 py-2 rounded-lg shadow-md transition-colors cursor-pointer ${
+                    darkMode
+                      ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                      : 'bg-blue-600 hover:bg-blue-700 text-white'
+                  }`}
+                >
                   Learn More
                 </button>
               </div>
@@ -294,6 +319,7 @@ const EnhancedIndustrySlider = ({
 const defaultIndustries = [
   {
     title: "Logistics & Distribution",
+    slug: "logistics",
     subtitle: "Bring your logistic industry-specific development requirements to get unique customer-centric solutions.",
     image: "https://images.pexels.com/photos/33537946/pexels-photo-33537946.jpeg",
     features: [
@@ -305,6 +331,7 @@ const defaultIndustries = [
   },
   {
     title: "Social Networking",
+    slug: "social-networking",
     subtitle: "Build engaging and seasoned social media applications that can offer a unique user experience.",
     image: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
     features: [
@@ -316,6 +343,7 @@ const defaultIndustries = [
   },
   {
     title: "Real Estate",
+    slug: "real-estate",
     subtitle: "Get cutting-edge real-estate solutions designed specifically to meet your unique business requirements.",
     image: "https://images.pexels.com/photos/27307398/pexels-photo-27307398.jpeg",
     features: [
@@ -327,6 +355,7 @@ const defaultIndustries = [
   },
   {
     title: "Travel & Hospitality",
+    slug: "travel-hospitality",
     subtitle: "Deliver seamless travel experience along with seamless user experience with top-notch features.",
     image: "https://images.pexels.com/photos/4901993/pexels-photo-4901993.jpeg",
     features: [
@@ -338,6 +367,7 @@ const defaultIndustries = [
   },
   {
     title: "Healthcare & Wellness",
+    slug: "healthcare",
     subtitle: "Transform patient care with cutting-edge digital healthcare solutions that improve outcomes and efficiency.",
     image: "https://images.pexels.com/photos/4021779/pexels-photo-4021779.jpeg",
     features: [
@@ -349,6 +379,7 @@ const defaultIndustries = [
   },
   {
     title: "Financial Services",
+    slug: "finance",
     subtitle: "Empower your financial business with secure, compliant, and user-friendly digital solutions.",
     image: "https://images.pexels.com/photos/10628030/pexels-photo-10628030.png",
     features: [

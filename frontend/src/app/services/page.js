@@ -3,18 +3,97 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Code, Smartphone, Brain, Cloud, ArrowRight, Sparkles, Shield, Zap } from 'lucide-react';
+import { Code, Smartphone, Brain, Cloud, ArrowRight, Sparkles, Shield, Zap, Database, BarChart3, Mic } from 'lucide-react';
 import Navbar from '@/layouts/navbar/Navbar';
 import Footer from '@/layouts/footer/Footer';
+import { getServices } from '@/lib/api';
+
+const iconMap = {
+  'Code': <Code size={48} />,
+  'Smartphone': <Smartphone size={48} />,
+  'Brain': <Brain size={48} />,
+  'Cloud': <Cloud size={48} />,
+  'Database': <Database size={48} />,
+  'BarChart3': <BarChart3 size={48} />,
+  'Mic': <Mic size={48} />,
+};
+
+const defaultServices = [
+  {
+    slug: 'website-development',
+    icon: <Code size={48} />,
+    title: 'Website Development',
+    description: 'Custom websites and web applications built with Next.js, React, and modern full-stack technologies — fast, responsive, and SEO-optimized.',
+    features: ['Full-Stack Web Apps', 'E-commerce Platforms', 'Progressive Web Apps', 'API Development', 'Performance Optimization', 'SEO & Analytics'],
+    gradient: 'from-blue-600 to-blue-400',
+  },
+  {
+    slug: 'app-development',
+    icon: <Smartphone size={48} />,
+    title: 'App Development (Android + iOS)',
+    description: 'Native and cross-platform mobile apps for Android and iOS — built with Swift, Kotlin, React Native, and Flutter.',
+    features: ['iOS (Swift & SwiftUI)', 'Android (Kotlin & Compose)', 'React Native & Flutter', 'App Store Optimization', 'Push Notifications', 'Offline-First Architecture'],
+    gradient: 'from-blue-500 to-blue-400',
+  },
+  {
+    slug: 'crm-development',
+    icon: <Database size={48} />,
+    title: 'Custom CRM Development',
+    description: 'Tailored CRM systems that centralize your customer data, automate sales pipelines, and drive retention — built for your exact workflow.',
+    features: ['Sales Pipeline Automation', 'Contact & Lead Management', 'Custom Dashboards & Reports', 'Email & Communication Tracking', 'Third-Party Integrations', 'Role-Based Access Control'],
+    gradient: 'from-blue-600 to-blue-400',
+  },
+  {
+    slug: 'erp-solutions',
+    icon: <BarChart3 size={48} />,
+    title: 'ERP Solutions',
+    description: 'Enterprise resource planning systems that unify finance, HR, inventory, and operations into one intelligent platform.',
+    features: ['Financial Management', 'HR & Payroll Automation', 'Inventory & Supply Chain', 'Project Management', 'Business Intelligence', 'Multi-Location Support'],
+    gradient: 'from-blue-400 to-blue-600',
+  },
+  {
+    slug: 'ai-agents-integration',
+    icon: <Brain size={48} />,
+    title: 'AI Agents Integration',
+    description: 'Deploy autonomous AI agents into your business — from customer support bots and sales assistants to data analysis and workflow automation.',
+    features: ['Custom AI Agents', 'RAG & Knowledge Bases', 'LLM Fine-Tuning', 'Multi-Agent Orchestration', 'CRM & ERP AI Integration', 'Predictive Analytics'],
+    gradient: 'from-blue-500 to-blue-700',
+  },
+  {
+    slug: 'voice-agents-integration',
+    icon: <Mic size={48} />,
+    title: 'Voice Agents Integration',
+    description: 'Intelligent voice AI agents for inbound/outbound calls, IVR automation, appointment scheduling, and real-time conversational support.',
+    features: ['AI-Powered Voice Bots', 'Inbound & Outbound Calling', 'IVR Automation', 'Appointment Scheduling', 'Multilingual Support', 'Call Analytics & Transcription'],
+    gradient: 'from-blue-600 to-blue-400',
+  },
+];
 
 const ServicesHub = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [services, setServices] = useState(defaultServices);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('darkMode');
     if (savedTheme) {
       setDarkMode(savedTheme === 'true');
     }
+
+    async function loadServices() {
+      const data = await getServices();
+      if (data && data.length > 0) {
+        const mapped = data.map(svc => ({
+          slug: svc.slug,
+          icon: iconMap[svc.icon] || <Code size={48} />,
+          title: svc.title,
+          description: svc.shortDescription || svc.description,
+          features: svc.features || [],
+          gradient: svc.gradient || 'from-blue-600 to-blue-400',
+        }));
+        setServices(mapped);
+      }
+    }
+    loadServices();
   }, []);
 
   const toggleDarkMode = () => {
@@ -22,69 +101,6 @@ const ServicesHub = () => {
     setDarkMode(newMode);
     localStorage.setItem('darkMode', newMode.toString());
   };
-
-  const services = [
-    {
-      slug: 'ai-solutions',
-      icon: <Brain size={48} />,
-      title: 'AI Solutions & Autonomous Agents',
-      description: 'Build intelligent AI agents that work 24/7 to automate complex workflows, make decisions, and drive business growth.',
-      features: [
-        'Autonomous AI Agents',
-        'Custom AI Models',
-        'RAG Systems',
-        'AI Chatbots',
-        'Machine Learning',
-        'Predictive Analytics',
-      ],
-      gradient: 'from-purple-500 to-pink-500',
-    },
-    {
-      slug: 'web-development',
-      icon: <Code size={48} />,
-      title: 'Web Development',
-      description: 'Custom web applications built with modern frameworks like Next.js, React, and cutting-edge technologies.',
-      features: [
-        'Full-Stack Development',
-        'Progressive Web Apps',
-        'E-commerce Platforms',
-        'API Development',
-        'Performance Optimization',
-        'Security Hardening',
-      ],
-      gradient: 'from-blue-500 to-cyan-500',
-    },
-    {
-      slug: 'app-development',
-      icon: <Smartphone size={48} />,
-      title: 'Mobile App Development',
-      description: 'Native and cross-platform mobile applications for iOS and Android with seamless user experiences.',
-      features: [
-        'iOS Development',
-        'Android Development',
-        'React Native',
-        'Flutter',
-        'App Store Optimization',
-        'Push Notifications',
-      ],
-      gradient: 'from-green-500 to-teal-500',
-    },
-    {
-      slug: 'cloud-services',
-      icon: <Cloud size={48} />,
-      title: 'Cloud Services & Infrastructure',
-      description: 'Scalable cloud infrastructure on AWS, Azure, and Google Cloud with DevOps best practices.',
-      features: [
-        'Cloud Migration',
-        'DevOps & CI/CD',
-        'Serverless Architecture',
-        'Container Orchestration',
-        'Infrastructure as Code',
-        'Cloud Security',
-      ],
-      gradient: 'from-orange-500 to-red-500',
-    },
-  ];
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
@@ -96,8 +112,7 @@ const ServicesHub = () => {
       <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
 
       <main className={`min-h-screen pt-24 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
-        {/* Hero Section */}
-        <div className={`relative py-20 px-4 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900' : 'bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600'}`}>
+        <div className={`relative py-20 px-4 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900' : 'bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700'}`}>
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
               backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
@@ -117,12 +132,12 @@ const ServicesHub = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
               >
-                <Sparkles size={18} className="text-yellow-300" />
+                <Sparkles size={18} className="text-blue-300" />
                 <span className="text-sm font-medium text-white">Comprehensive Technology Solutions</span>
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-                BeonicX <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300">Services</span>
+                BeonicX <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-600">Services</span>
               </h1>
 
               <p className="text-xl mb-8 text-gray-100 max-w-3xl mx-auto leading-relaxed">
@@ -131,11 +146,11 @@ const ServicesHub = () => {
 
               <div className="flex flex-wrap justify-center gap-4 mt-8">
                 <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/30 text-white">
-                  <Shield size={18} className="text-green-300" />
+                  <Shield size={18} className="text-blue-300" />
                   <span className="text-sm font-medium">Enterprise-Grade Security</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/30 text-white">
-                  <Zap size={18} className="text-yellow-300" />
+                  <Zap size={18} className="text-blue-300" />
                   <span className="text-sm font-medium">Fast Delivery</span>
                 </div>
               </div>
@@ -143,9 +158,8 @@ const ServicesHub = () => {
           </div>
         </div>
 
-        {/* Services Grid */}
         <div className="container mx-auto max-w-7xl px-4 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.slug}
@@ -156,17 +170,14 @@ const ServicesHub = () => {
                   darkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white'
                 }`}
               >
-                {/* Gradient glow effect */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
 
-                {/* Icon */}
                 <div className={`relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${service.gradient} mb-6 shadow-lg`}>
                   <div className="text-white">
                     {service.icon}
                   </div>
                 </div>
 
-                {/* Content */}
                 <h2 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   {service.title}
                 </h2>
@@ -175,7 +186,6 @@ const ServicesHub = () => {
                   {service.description}
                 </p>
 
-                {/* Features */}
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature) => (
                     <li key={feature} className={`flex items-start gap-2 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -185,7 +195,6 @@ const ServicesHub = () => {
                   ))}
                 </ul>
 
-                {/* CTA */}
                 <Link
                   href={`/services/${service.slug}`}
                   className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-br ${service.gradient} hover:shadow-lg transition-all group-hover:gap-3`}
@@ -193,14 +202,12 @@ const ServicesHub = () => {
                   Learn More <ArrowRight size={18} />
                 </Link>
 
-                {/* Decorative element */}
                 <div className={`absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br ${service.gradient} opacity-5 rounded-tl-full`} />
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* CTA Section */}
         <div className={`py-20 px-4 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>

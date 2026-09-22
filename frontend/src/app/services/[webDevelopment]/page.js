@@ -1,33 +1,37 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
+import { getServiceBySlug } from '@/lib/api';
+import ServiceDetail from '@/components/services/ServiceDetail';
 import WebDevelopment from '@/components/services/webDevelopment/WebDevelopment';
 import AiSolutions from '@/components/services/aiSolutions/AiSolutions';
 import AppDevelopment from '@/components/services/appDevelopment/AppDevelopment';
+import CrmDevelopment from '@/components/services/crmDevelopment/CrmDevelopment';
+import ErpSolutions from '@/components/services/erpSolutions/ErpSolutions';
+import VoiceAgents from '@/components/services/voiceAgents/VoiceAgents';
 import CloudServices from '@/components/services/cloudServices/CloudServices';
 import Footer from '@/layouts/footer/Footer';
 import Navbar from '@/layouts/navbar/Navbar';
 
+const fallbackComponents = {
+  'website-development': WebDevelopment,
+  'web-development': WebDevelopment,
+  'ai-agents-integration': AiSolutions,
+  'app-development': AppDevelopment,
+  'crm-development': CrmDevelopment,
+  'erp-solutions': ErpSolutions,
+  'voice-agents-integration': VoiceAgents,
+  'cloud-services': CloudServices,
+};
+
 const Page = ({ params }) => {
+  const { webDevelopment } = use(params);
   const [darkMode, setDarkMode] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [service, setService] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Get service slug from params
-  const serviceSlug = params?.webDevelopment || 'web-development';
+  const serviceSlug = webDevelopment || 'website-development';
 
-  // Component mapping for dynamic routing
-  const serviceComponents = {
-    'web-development': WebDevelopment,
-    'ai-solutions': AiSolutions,
-    'app-development': AppDevelopment,
-    'cloud-services': CloudServices,
-  };
-
-  const ServiceComponent = serviceComponents[serviceSlug] || WebDevelopment;
-
-  // Metadata is handled server-side in layout.js - no client-side manipulation needed
-
-  // Initialize theme based on user preference
   useEffect(() => {
     const savedTheme = localStorage.getItem('darkMode');
     if (savedTheme) {
@@ -38,24 +42,47 @@ const Page = ({ params }) => {
     ) {
       setDarkMode(true);
     }
-  }, []);
 
-  // Toggle theme function
+    async function loadService() {
+      const data = await getServiceBySlug(serviceSlug);
+      setService(data);
+      setLoading(false);
+    }
+    loadService();
+  }, [serviceSlug]);
+
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
     localStorage.setItem('darkMode', newDarkMode.toString());
   };
 
-  // Toggle mobile menu (not used currently but included for future use)
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  const hasRichContent = service && (
+    (service.sections && service.sections.length > 0) ||
+    (service.processSteps && service.processSteps.length > 0) ||
+    (service.techStack && service.techStack.length > 0)
+  );
+
+  const FallbackComponent = fallbackComponents[serviceSlug];
 
   return (
     <div className={darkMode ? 'dark' : ''}>
       <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
-      <ServiceComponent darkMode={darkMode} />
+      {loading ? (
+        <div className={`min-h-screen flex items-center justify-center ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500" />
+        </div>
+      ) : hasRichContent ? (
+        <ServiceDetail darkMode={darkMode} service={service} />
+      ) : FallbackComponent ? (
+        <FallbackComponent darkMode={darkMode} />
+      ) : service ? (
+        <ServiceDetail darkMode={darkMode} service={service} />
+      ) : (
+        <div className={`min-h-screen flex items-center justify-center ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50'}`}>
+          <p className="text-xl">Service not found</p>
+        </div>
+      )}
       <Footer darkMode={darkMode} />
     </div>
   );

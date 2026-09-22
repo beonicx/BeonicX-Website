@@ -118,7 +118,7 @@ const EnhancedProjectSlider = ({
         <div className="text-center mb-12">
           <h2 className={`text-4xl font-bold mb-4 relative inline-block  ${darkMode ? 'text-white' : 'text-gray-900'}`}>
             Our Projects
-            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-green-600 rounded-full"></span>
+            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-blue-600 rounded-full"></span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${
             darkMode ? 'text-gray-300' : 'text-gray-600'
@@ -156,14 +156,14 @@ const EnhancedProjectSlider = ({
                   {activeProject.tags && activeProject.tags.map((tag, i) => (
                     <span key={i} className={`px-3 py-1 rounded-full text-sm ${
                       darkMode 
-                        ? 'bg-green-900 text-green-100' 
-                        : 'bg-green-100 text-green-800'
+                        ? 'bg-blue-900 text-blue-100' 
+                        : 'bg-blue-100 text-blue-800'
                     }`}>
                       {tag}
                     </span>
                   ))}
                 </div>
-                <button className="self-start px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors shadow-md">
+                <button className="self-start px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-md">
                   View Details
                 </button>
               </div>
@@ -195,7 +195,7 @@ const EnhancedProjectSlider = ({
               >
                 <div 
                   className={`rounded-xl overflow-hidden shadow-lg h-full cursor-pointer transform transition-all duration-300 hover:translate-y-2 ${
-                    index === currentIndex ? 'ring-2 ring-green-500 ring-offset-2' : ''
+                    index === currentIndex ? 'ring-2 ring-blue-500 ring-offset-2' : ''
                   } ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
                   onClick={() => goToSlide(index)}
                 >
@@ -242,7 +242,7 @@ const EnhancedProjectSlider = ({
                 onClick={() => goToSlide(idx)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   idx === currentIndex 
-                    ? 'w-8 bg-green-600' 
+                    ? 'w-8 bg-blue-600' 
                     : darkMode 
                       ? 'bg-gray-600 hover:bg-gray-500' 
                       : 'bg-gray-300 hover:bg-gray-400'

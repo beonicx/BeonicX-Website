@@ -150,8 +150,8 @@ export default function Nextjs({ darkMode = false }) {
       {/* Hero Section */}
       <section className={`relative ${
         darkMode
-          ? 'bg-gradient-to-br from-gray-900 via-indigo-950 to-purple-950'
-          : 'bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600'
+          ? 'bg-gradient-to-br from-gray-900 via-blue-950 to-blue-950'
+          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'
       } text-white py-24 md:py-36 px-4 overflow-hidden`}>
         {/* Animated background shapes */}
         <div className="absolute inset-0 overflow-hidden">
@@ -196,11 +196,11 @@ export default function Nextjs({ darkMode = false }) {
                 transition={{ duration: 0.6 }}
                 className={`inline-flex items-center gap-2 backdrop-blur-md px-5 py-2.5 rounded-full mb-6 border ${
                   darkMode
-                    ? 'bg-indigo-500/20 border-indigo-400/40'
+                    ? 'bg-blue-500/20 border-blue-400/40'
                     : 'bg-white/25 border-white/40'
                 }`}
               >
-                <Sparkles size={18} className={darkMode ? 'text-yellow-400' : 'text-yellow-200'} />
+                <Sparkles size={18} className={darkMode ? 'text-blue-400' : 'text-blue-200'} />
                 <span className="text-sm font-semibold tracking-wide">Latest Tech Insights</span>
               </motion.div>
 
@@ -208,8 +208,8 @@ export default function Nextjs({ darkMode = false }) {
                 Explore the Future of{' '}
                 <span className={`text-transparent bg-clip-text bg-gradient-to-r ${
                   darkMode
-                    ? 'from-cyan-400 via-blue-400 to-purple-400'
-                    : 'from-white via-blue-100 to-purple-100'
+                    ? 'from-blue-300 via-blue-400 to-blue-600'
+                    : 'from-white via-blue-100 to-blue-200'
                 }`}>
                   Technology
                 </span>
@@ -247,8 +247,8 @@ export default function Nextjs({ darkMode = false }) {
                     whileTap={{ scale: 0.95 }}
                     className={`px-7 py-2.5 rounded-xl font-semibold shadow-lg transition-all ${
                       darkMode
-                        ? 'bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white'
-                        : 'bg-gradient-to-r from-indigo-700 to-purple-700 hover:from-indigo-600 hover:to-purple-600 text-white'
+                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white'
+                        : 'bg-gradient-to-r from-blue-700 to-blue-700 hover:from-blue-700 hover:to-blue-500 text-white'
                     }`}
                   >
                     Search
@@ -258,12 +258,12 @@ export default function Nextjs({ darkMode = false }) {
 
               <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
                 <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: darkMode ? '0 20px 40px rgba(99, 102, 241, 0.4)' : '0 20px 40px rgba(0,0,0,0.2)' }}
+                  whileHover={{ scale: 1.05, boxShadow: darkMode ? '0 20px 40px rgba(59, 130, 246, 0.4)' : '0 20px 40px rgba(0,0,0,0.2)' }}
                   whileTap={{ scale: 0.95 }}
                   className={`font-bold py-4 px-8 rounded-xl transition shadow-2xl flex items-center justify-center gap-2 ${
                     darkMode
-                      ? 'bg-white text-indigo-700 hover:bg-gray-100'
-                      : 'bg-white text-indigo-700 hover:bg-gray-50'
+                      ? 'bg-white text-blue-700 hover:bg-gray-100'
+                      : 'bg-white text-blue-700 hover:bg-gray-50'
                   }`}
                 >
                   <BookOpen size={20} />
@@ -274,8 +274,8 @@ export default function Nextjs({ darkMode = false }) {
                   whileTap={{ scale: 0.95 }}
                   className={`font-bold py-4 px-8 rounded-xl transition backdrop-blur-md flex items-center justify-center gap-2 border-2 ${
                     darkMode
-                      ? 'border-gray-400 text-white bg-white/10 hover:bg-white hover:text-indigo-700'
-                      : 'border-white text-white bg-white/20 hover:bg-white hover:text-indigo-700'
+                      ? 'border-gray-400 text-white bg-white/10 hover:bg-white hover:text-blue-700'
+                      : 'border-white text-white bg-white/20 hover:bg-white hover:text-blue-700'
                   }`}
                 >
                   <TrendingUp size={20} />
@@ -295,7 +295,7 @@ export default function Nextjs({ darkMode = false }) {
                 ].map((stat, index) => (
                   <div key={index} className="text-center lg:text-left">
                     <div className={`text-3xl md:text-4xl font-extrabold ${
-                      darkMode ? 'text-cyan-400' : 'text-cyan-200'
+                      darkMode ? 'text-blue-400' : 'text-blue-200'
                     }`}>
                       {stat.value}
                     </div>
@@ -315,7 +315,7 @@ export default function Nextjs({ darkMode = false }) {
             >
               <div className="relative">
                 {/* Glow effect */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl blur-2xl opacity-30 animate-pulse" />
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700 rounded-3xl blur-2xl opacity-30 animate-pulse" />
 
                 {/* Main featured image */}
                 <motion.div
@@ -333,17 +333,17 @@ export default function Nextjs({ darkMode = false }) {
                     unoptimized
                   />
                   {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent" />
 
                   {/* Featured badge */}
-                  <div className="absolute top-4 left-4 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                  <div className="absolute top-4 left-4 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
                     <Star size={16} fill="white" />
                     Featured
                   </div>
 
                   {/* Article info overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <span className="text-xs font-semibold uppercase tracking-wider bg-cyan-500/80 px-3 py-1 rounded-full">
+                    <span className="text-xs font-semibold uppercase tracking-wider bg-blue-500/80 px-3 py-1 rounded-full">
                       {featuredArticles[0].category}
                     </span>
                     <h3 className="text-xl font-bold mt-3 mb-2">{featuredArticles[0].title}</h3>
@@ -371,10 +371,10 @@ export default function Nextjs({ darkMode = false }) {
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className={`absolute top-20 right-0 w-[500px] h-[500px] ${
-            darkMode ? 'bg-indigo-600/10' : 'bg-indigo-200/40'
+            darkMode ? 'bg-blue-600/10' : 'bg-blue-200/40'
           } rounded-full blur-3xl`} />
           <div className={`absolute bottom-20 left-0 w-[500px] h-[500px] ${
-            darkMode ? 'bg-purple-600/10' : 'bg-purple-200/40'
+            darkMode ? 'bg-blue-600/10' : 'bg-blue-200/40'
           } rounded-full blur-3xl`} />
         </div>
 
@@ -389,8 +389,8 @@ export default function Nextjs({ darkMode = false }) {
               <motion.span
                 className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide ${
                   darkMode
-                    ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30'
-                    : 'bg-indigo-100 text-indigo-700 border border-indigo-300'
+                    ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                    : 'bg-blue-100 text-blue-700 border border-blue-300'
                 }`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -408,8 +408,8 @@ export default function Nextjs({ darkMode = false }) {
               href="/articles"
               className={`hidden md:flex items-center gap-2 font-bold group transition-colors ${
                 darkMode
-                  ? 'text-indigo-400 hover:text-indigo-300'
-                  : 'text-indigo-600 hover:text-indigo-700'
+                  ? 'text-blue-400 hover:text-blue-300'
+                  : 'text-blue-600 hover:text-blue-700'
               }`}
             >
               View All
@@ -433,7 +433,7 @@ export default function Nextjs({ darkMode = false }) {
               >
                 <div className={`h-full rounded-2xl overflow-hidden transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-xl hover:shadow-indigo-900/20'
+                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-xl hover:shadow-blue-900/20'
                     : 'bg-white border border-gray-200 shadow-lg hover:shadow-xl'
                 }`}>
                   {/* Image */}
@@ -450,7 +450,7 @@ export default function Nextjs({ darkMode = false }) {
                     {/* Category badge */}
                     <div className="absolute top-4 left-4">
                       <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full ${
-                        index === 0 ? 'bg-red-600' : index === 1 ? 'bg-blue-600' : 'bg-purple-600'
+                        index === 0 ? 'bg-blue-600' : index === 1 ? 'bg-blue-600' : 'bg-blue-600'
                       } text-white`}>
                         {article.category}
                       </span>
@@ -466,9 +466,9 @@ export default function Nextjs({ darkMode = false }) {
                   {/* Content */}
                   <div className="p-6">
                     <h3 className={`text-xl font-bold mb-3 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r transition-all ${
-                      index === 0 ? 'group-hover:from-red-500 group-hover:to-orange-500' :
-                      index === 1 ? 'group-hover:from-blue-500 group-hover:to-cyan-500' :
-                      'group-hover:from-purple-500 group-hover:to-pink-500'
+                      index === 0 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
+                      index === 1 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
+                      'group-hover:from-blue-600 group-hover:to-blue-400'
                     } ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                       {article.title}
                     </h3>
@@ -481,7 +481,7 @@ export default function Nextjs({ darkMode = false }) {
                     {/* Author info */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="relative h-10 w-10 rounded-full overflow-hidden ring-2 ring-offset-2 ring-indigo-500">
+                        <div className="relative h-10 w-10 rounded-full overflow-hidden ring-2 ring-offset-2 ring-blue-500">
                           <Image
                             src={article.author.avatar}
                             alt={article.author.name}
@@ -505,9 +505,9 @@ export default function Nextjs({ darkMode = false }) {
                         className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${
                           darkMode ? 'bg-gray-800' : 'bg-gray-100'
                         } group-hover:bg-gradient-to-r ${
-                          index === 0 ? 'group-hover:from-red-500 group-hover:to-orange-500' :
-                          index === 1 ? 'group-hover:from-blue-500 group-hover:to-cyan-500' :
-                          'group-hover:from-purple-500 group-hover:to-pink-500'
+                          index === 0 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
+                          index === 1 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
+                          'group-hover:from-blue-600 group-hover:to-blue-400'
                         }`}
                         whileHover={{ scale: 1.15 }}
                       >
@@ -526,7 +526,7 @@ export default function Nextjs({ darkMode = false }) {
           <div className="mt-12 text-center md:hidden">
             <Link
               href="/articles"
-              className={`inline-flex items-center gap-2 ${darkMode ? 'text-indigo-400 hover:text-indigo-300' : 'text-indigo-600 hover:text-indigo-700'} font-semibold`}
+              className={`inline-flex items-center gap-2 ${darkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'} font-semibold`}
             >
               View All Articles
               <ArrowRight size={20} />
@@ -542,7 +542,7 @@ export default function Nextjs({ darkMode = false }) {
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] ${
-            darkMode ? 'bg-indigo-600/10' : 'bg-indigo-200/30'
+            darkMode ? 'bg-blue-600/10' : 'bg-blue-200/30'
           } rounded-full blur-3xl`} />
         </div>
 
@@ -556,8 +556,8 @@ export default function Nextjs({ darkMode = false }) {
             <motion.span
               className={`inline-block px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-5 ${
                 darkMode
-                  ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
-                  : 'bg-purple-100 text-purple-700 border border-purple-300'
+                  ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                  : 'bg-blue-100 text-blue-700 border border-blue-300'
               }`}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -586,14 +586,14 @@ export default function Nextjs({ darkMode = false }) {
           >
             {categories.map((cat, index) => {
               const gradients = [
-                'from-blue-500 to-cyan-500',
-                'from-purple-500 to-pink-500',
-                'from-green-500 to-teal-500',
-                'from-orange-500 to-red-500',
-                'from-indigo-500 to-blue-500',
-                'from-violet-500 to-purple-500',
-                'from-cyan-500 to-blue-500',
-                'from-pink-500 to-rose-500'
+                'from-blue-500 to-blue-400',
+                'from-blue-600 to-blue-400',
+                'from-blue-500 to-blue-400',
+                'from-blue-400 to-blue-600',
+                'from-blue-600 to-blue-400',
+                'from-blue-500 to-blue-700',
+                'from-blue-400 to-blue-600',
+                'from-blue-600 to-blue-400'
               ];
               const gradient = gradients[index % gradients.length];
 
@@ -607,7 +607,7 @@ export default function Nextjs({ darkMode = false }) {
                     href={`/category/${cat.slug}`}
                     className={`group block h-full rounded-2xl p-6 text-center transition-all duration-300 relative overflow-hidden ${
                       darkMode
-                        ? 'bg-gradient-to-br from-gray-900 to-gray-950 hover:from-gray-850 hover:to-gray-900 border border-gray-800 shadow-lg hover:shadow-indigo-900/20'
+                        ? 'bg-gradient-to-br from-gray-900 to-gray-950 hover:from-gray-850 hover:to-gray-900 border border-gray-800 shadow-lg hover:shadow-blue-900/20'
                         : 'bg-white hover:bg-gray-50 border border-gray-200 shadow-md hover:shadow-xl'
                     }`}
                   >
@@ -659,8 +659,8 @@ export default function Nextjs({ darkMode = false }) {
       {/* Newsletter */}
       <section className={`py-20 px-4 relative overflow-hidden ${
         darkMode
-          ? 'bg-gradient-to-br from-indigo-950 via-purple-950 to-blue-950'
-          : 'bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-600'
+          ? 'bg-gradient-to-br from-blue-950 via-blue-950 to-blue-950'
+          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'
       }`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -686,7 +686,7 @@ export default function Nextjs({ darkMode = false }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Mail className="w-16 h-16 mx-auto mb-6 text-cyan-300" />
+            <Mail className="w-16 h-16 mx-auto mb-6 text-blue-300" />
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
               Stay Updated with Tech Trends
             </h2>
@@ -700,7 +700,7 @@ export default function Nextjs({ darkMode = false }) {
                 placeholder="Enter your email address"
                 className={`flex-1 px-6 py-4 rounded-xl text-base focus:outline-none focus:ring-4 transition-all ${
                   darkMode
-                    ? 'bg-gray-800 text-white placeholder-gray-500 focus:ring-indigo-500/50'
+                    ? 'bg-gray-800 text-white placeholder-gray-500 focus:ring-blue-500/50'
                     : 'bg-white text-gray-900 placeholder-gray-500 focus:ring-white/50'
                 }`}
                 required
@@ -711,8 +711,8 @@ export default function Nextjs({ darkMode = false }) {
                 whileTap={{ scale: 0.95 }}
                 className={`py-4 px-8 rounded-xl font-bold transition shadow-xl ${
                   darkMode
-                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white'
-                    : 'bg-white text-indigo-700 hover:bg-gray-100'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white'
+                    : 'bg-white text-blue-700 hover:bg-gray-100'
                 }`}
               >
                 Subscribe
@@ -739,8 +739,8 @@ export default function Nextjs({ darkMode = false }) {
               <motion.span
                 className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
                   darkMode
-                    ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
-                    : 'bg-cyan-100 text-cyan-700 border border-cyan-300'
+                    ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                    : 'bg-blue-100 text-blue-700 border border-blue-300'
                 }`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -758,8 +758,8 @@ export default function Nextjs({ darkMode = false }) {
               href="/news"
               className={`hidden md:flex items-center gap-2 font-bold group transition-colors ${
                 darkMode
-                  ? 'text-cyan-400 hover:text-cyan-300'
-                  : 'text-cyan-600 hover:text-cyan-700'
+                  ? 'text-blue-400 hover:text-blue-300'
+                  : 'text-blue-600 hover:text-blue-700'
               }`}
             >
               View All News
@@ -783,7 +783,7 @@ export default function Nextjs({ darkMode = false }) {
               >
                 <div className={`flex flex-col md:flex-row gap-6 p-6 rounded-2xl transition-all duration-300 h-full ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-lg hover:shadow-cyan-900/20'
+                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-lg hover:shadow-blue-900/20'
                     : 'bg-white border border-gray-200 shadow-md hover:shadow-xl'
                 }`}>
                   <div className="md:w-1/3 relative h-48 md:h-auto w-full rounded-xl overflow-hidden min-h-[180px]">
@@ -797,20 +797,20 @@ export default function Nextjs({ darkMode = false }) {
                   </div>
                   <div className="md:w-2/3 flex flex-col">
                     <span className={`text-xs font-bold uppercase tracking-wider mb-3 ${
-                      index === 0 ? 'text-red-500' :
+                      index === 0 ? 'text-blue-500' :
                       index === 1 ? 'text-blue-500' :
-                      index === 2 ? 'text-purple-500' :
-                      'text-green-500'
+                      index === 2 ? 'text-blue-500' :
+                      'text-blue-500'
                     }`}>
                       {news.category}
                     </span>
                     <h3 className={`text-xl font-bold mb-3 line-clamp-2 ${
                       darkMode ? 'text-white' : 'text-gray-900'
                     } group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${
-                      index === 0 ? 'group-hover:from-red-500 group-hover:to-orange-500' :
-                      index === 1 ? 'group-hover:from-blue-500 group-hover:to-cyan-500' :
-                      index === 2 ? 'group-hover:from-purple-500 group-hover:to-pink-500' :
-                      'group-hover:from-green-500 group-hover:to-teal-500'
+                      index === 0 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
+                      index === 1 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
+                      index === 2 ? 'group-hover:from-blue-600 group-hover:to-blue-400' :
+                      'group-hover:from-blue-400 group-hover:to-blue-500'
                     } transition-all`}>
                       {news.title}
                     </h3>
@@ -821,7 +821,7 @@ export default function Nextjs({ darkMode = false }) {
                     </p>
                     <div className="flex items-center justify-between mt-auto">
                       <div className="flex items-center gap-3">
-                        <div className="relative h-10 w-10 rounded-full overflow-hidden ring-2 ring-offset-2 ring-cyan-500">
+                        <div className="relative h-10 w-10 rounded-full overflow-hidden ring-2 ring-offset-2 ring-blue-500">
                           <Image
                             src={news.author.avatar}
                             alt={news.author.name}

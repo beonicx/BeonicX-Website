@@ -1,71 +1,86 @@
-import React from 'react';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react';
-import { getPostBySlug, getRelatedPosts, getAllPosts, calculateReadingTime } from '@/lib/blog';
+'use client';
+
+import React, { useState, useEffect, use } from 'react';
+import { getBlogBySlug, getBlogs } from '@/lib/api';
 import { marked } from 'marked';
 import BlogPostClient from './BlogPostClient';
 
-export async function generateStaticParams() {
-  const posts = getAllPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+const BlogPost = ({ params }) => {
+  const { slug } = use(params);
+  const [post, setPost] = useState(null);
+  const [relatedPosts, setRelatedPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
-export async function generateMetadata({ params }) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
+  useEffect(() => {
+    async function load() {
+      const data = await getBlogBySlug(slug);
 
-  if (!post) {
-    return {
-      title: 'Post Not Found',
-    };
+      if (!data) {
+        setNotFound(true);
+        setLoading(false);
+        return;
+      }
+
+      const readingTime = `${Math.ceil((data.content?.length || 0) / 1500)} min read`;
+      const htmlContent = marked(data.content || '');
+
+      setPost({
+        title: data.title,
+        slug: data.slug,
+        content: htmlContent,
+        excerpt: data.excerpt,
+        featuredImage: data.image,
+        author: data.author?.name || 'BeonicX Team',
+        category: data.categories?.[0] || '',
+        categories: data.categories || [],
+        tags: data.tags || [],
+        publishedAt: data.createdAt,
+        readingTime,
+      });
+
+      const allPosts = await getBlogs();
+      if (allPosts && allPosts.length > 0) {
+        const related = allPosts
+          .filter(p => p.slug !== slug)
+          .slice(0, 3)
+          .map(p => ({
+            slug: p.slug,
+            title: p.title,
+            excerpt: p.excerpt,
+            featuredImage: p.image,
+            category: p.categories?.[0] || '',
+          }));
+        setRelatedPosts(related);
+      }
+
+      setLoading(false);
+    }
+    load();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500" />
+      </div>
+    );
   }
 
-  return {
-    title: `${post.title} | BeonicX Blog`,
-    description: post.excerpt || post.title,
-    alternates: {
-      canonical: `https://beonicx.com/blog/${slug}`,
-    },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      type: 'article',
-      publishedTime: post.publishedAt,
-      authors: [post.author],
-      images: post.featuredImage ? [post.featuredImage] : ['https://beonicx.com/og-default.jpg'],
-      url: `https://beonicx.com/blog/${slug}`,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
-      images: post.featuredImage ? [post.featuredImage] : ['https://beonicx.com/og-default.jpg'],
-    },
-  };
-}
-
-const BlogPost = async ({ params }) => {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
-
-  if (!post) {
-    notFound();
+  if (notFound) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
+          <p className="text-gray-600">The blog post you're looking for doesn't exist.</p>
+        </div>
+      </div>
+    );
   }
-
-  const relatedPosts = getRelatedPosts(slug, 3);
-  const readingTime = post.readingTime || calculateReadingTime(post.content);
-  const htmlContent = marked(post.content);
 
   return (
     <BlogPostClient
-      post={{
-        ...post,
-        readingTime,
-        content: htmlContent,
-      }}
+      post={post}
       relatedPosts={relatedPosts}
       slug={slug}
     />

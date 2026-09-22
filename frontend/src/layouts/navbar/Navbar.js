@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Subtitles } from 'lucide-react';
+import { getServices } from '@/lib/api';
 
 const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -13,7 +13,23 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
   const [hoveredSubItem, setHoveredSubItem] = useState(null);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [dynamicServiceLinks, setDynamicServiceLinks] = useState(null);
   const router = useRouter();
+
+  useEffect(() => {
+    async function loadServiceLinks() {
+      const data = await getServices();
+      if (data && data.length > 0) {
+        const links = data.map(svc => ({
+          title: svc.title,
+          href: `/services/${svc.slug}`,
+          onClick: () => { router.push(`/services/${svc.slug}`); }
+        }));
+        setDynamicServiceLinks(links);
+      }
+    }
+    loadServiceLinks();
+  }, [router]);
   
   // Handle scroll effect
   useEffect(() => {
@@ -44,26 +60,21 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
   const navLinks = [
     {
       name: 'SERVICES',
-      href: '/services/web-development',
+      href: '/services',
       id: 'services',
-      hoverContent: [
-        { title: 'Web Development', href: '/services/web-development', onClick: ()=>{router.push('/services/web-development')} },
-        { 
-          title: 'Mobile App Development',
+      hoverContent: dynamicServiceLinks || [
+        { title: 'Website Development', href: '/services/website-development', onClick: () => { router.push('/services/website-development') } },
+        {
+          title: 'App Development',
           subItems: [
-            { title: 'Android', href: '/services/app-development/android', onClick: () => { router.push('/services/ai-automation/android') } },
-            { title: 'iOS', href: '/services/ai-automation/voice-agent', onClick: () => { router.push('/services/app-development/iOS') } },
-          ], href: '/services/app-development/iOS', onClick: ()=>{router.push('/services/app-development')} 
+            { title: 'Android', href: '/services/app-development', onClick: () => { router.push('/services/app-development') } },
+            { title: 'iOS', href: '/services/app-development', onClick: () => { router.push('/services/app-development') } },
+          ], href: '/services/app-development', onClick: () => { router.push('/services/app-development') }
         },
-        { 
-          title: 'AI Automation',
-          subItems: [
-            { title: 'WhatsApp Automation', href: 'https://wacrm.beonicx.com', onClick: () => { window.open('https://wacrm.beonicx.com', '_blank') } },
-            { title: 'Instagram Automation', href: '/services/ai-automation/instagram', onClick: () => { router.push('/services/ai-automation/instagram') } },
-            { title: 'Voice Agent', href: '/services/ai-automation/voice-agent', onClick: () => { router.push('/services/ai-automation/voice-agent') } },
-          ],
-        },
-        { title: 'Cloud Services', href: '/services/cloud-services', onClick: ()=>{router.push('/services/cloud-services')} },
+        { title: 'Custom CRM Development', href: '/services/crm-development', onClick: () => { router.push('/services/crm-development') } },
+        { title: 'ERP Solutions', href: '/services/erp-solutions', onClick: () => { router.push('/services/erp-solutions') } },
+        { title: 'AI Agents Integration', href: '/services/ai-agents-integration', onClick: () => { router.push('/services/ai-agents-integration') } },
+        { title: 'Voice Agents Integration', href: '/services/voice-agents-integration', onClick: () => { router.push('/services/voice-agents-integration') } },
       ]
     },
     {
@@ -114,6 +125,11 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
         { title: 'Startup Projects', href: '/caseStudy/startup', onClick: () => router.push('/caseStudy/startup') },
         { title: 'Mobile Applications', href: '/caseStudy/mobile', onClick: () => router.push('/caseStudy/mobile') },
       ]
+    },
+    {
+      name: 'BLOG',
+      href: '/blog',
+      id: 'blog',
     },
     {
       name: 'ABOUT US',
@@ -185,8 +201,12 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
       {/* Main Navbar */}
       <nav className={`
         fixed w-full z-40 transition-all duration-500
-        ${scrolled ? (darkMode ? 'bg-gray-900/90 backdrop-blur-md shadow-lg shadow-blue-500/10' : 'bg-white/90 backdrop-blur-md shadow-lg shadow-blue-500/10') : (darkMode ? 'bg-gray-900' : 'bg-white')}
-        ${darkMode ? 'text-white' : 'text-black'}
+        ${scrolled
+          ? (darkMode
+            ? 'bg-[#030712]/80 backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.05)] border-b border-white/[0.05]'
+            : 'bg-white/80 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] border-b border-gray-200/60')
+          : (darkMode ? 'bg-[#030712]' : 'bg-white')}
+        ${darkMode ? 'text-white' : 'text-gray-900'}
         ${showHeader ? 'top-0' : 'top-0'}
       `}>
         <div className="max-w-7xl mx-auto">
@@ -201,36 +221,23 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
             >
               <a
                 href="/"
-                className="flex items-center font-bold text-xl tracking-tight relative cursor-pointer"
+                className="flex items-center gap-2 relative cursor-pointer group"
                 onClick={(e) => {
                   e.preventDefault();
                   router.push('/');
                 }}
               >
-                {darkMode ? (
-                  <div className="h-16 w-16 relative mr-3 flex-shrink-0">
-                    <Image
-                      src="/images/darklogo.png"
-                      alt="BeonicX - AI Agents & Intelligent Automation Solutions Logo"
-                      fill
-                      sizes="64px"
-                      className="object-contain transition-all duration-300 hover:scale-105"
-                      priority
-                    />
-                  </div>
-                ) : (
-                  <div className="h-16 w-16 relative flex-shrink-0">
-                    <Image
-                      src="/images/lightlogo2.png"
-                      alt="BeonicX - AI Agents & Intelligent Automation Solutions Logo"
-                      fill
-                      sizes="64px"
-                      className="object-contain transition-all duration-300 hover:scale-105"
-                      priority
-                    />
-                  </div>
-                )}
-                <span className={`bg-clip-text text-transparent ${darkMode? 'bg-white' : 'bg-gray-700'} font-extrabold`}>
+                <div className="h-10 w-10 relative flex-shrink-0">
+                  <Image
+                    src={darkMode ? "/images/darklogo.png" : "/images/lightlogo2.png"}
+                    alt="BeonicX Logo"
+                    fill
+                    sizes="40px"
+                    className="object-contain transition-transform duration-300 group-hover:scale-110"
+                    priority
+                  />
+                </div>
+                <span className={`text-xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-gray-800'}`}>
                   BeonicX
                 </span>
               </a>
@@ -289,8 +296,8 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                       {link.hoverContent && hoveredItem === link.id && (
                         <motion.div
                           className={`
-                            absolute left-0 mt-0 py-4 px-4 w-64 rounded-lg shadow-lg z-10
-                            ${darkMode ? 'bg-gray-900 text-white border-t-2 border-blue-500' : 'bg-white text-gray-800 border-t-2 border-blue-600'}
+                            absolute left-0 mt-0 py-4 px-4 w-64 rounded-2xl shadow-2xl z-10
+                            ${darkMode ? 'bg-[#030712]/95 backdrop-blur-xl text-white border border-white/[0.08]' : 'bg-white/95 backdrop-blur-xl text-gray-800 border border-gray-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)]'}
                           `}
                           variants={dropdownVariants}
                           initial="hidden"
@@ -348,8 +355,8 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                   {item.subItems && hoveredSubItem === index && (
                                     <motion.div
                                       className={`
-                                        absolute left-full top-0 ml-2 py-4 px-4 w-64 rounded-lg shadow-lg z-20
-                                        ${darkMode ? 'bg-gray-900 text-white border-t-2 border-blue-500' : 'bg-white text-gray-800 border-t-2 border-blue-600'}
+                                        absolute left-full top-0 ml-2 py-4 px-4 w-64 rounded-2xl shadow-2xl z-20
+                                        ${darkMode ? 'bg-[#030712]/95 backdrop-blur-xl text-white border border-white/[0.08]' : 'bg-white/95 backdrop-blur-xl text-gray-800 border border-gray-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)]'}
                                       `}
                                       initial={{ opacity: 0, x: -10 }}
                                       animate={{ opacity: 1, x: 0 }}
@@ -388,13 +395,14 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 ))}
               </div>
               
-              <motion.a 
+              <motion.a
                 href="/get-started"
                 className={`
-                  ml-8 px-6 py-3 text-sm font-medium rounded-full transition-all duration-300
-                  ${darkMode ? 'bg-blue-500 hover:bg-blue-600 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white'}
-                  hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1
-                  ) 
+                  ml-8 px-6 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300
+                  bg-gradient-to-r from-blue-600 to-blue-700 text-white
+                  hover:from-blue-500 hover:to-blue-600
+                  shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30
+                  hover:-translate-y-0.5
                 `}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -413,7 +421,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 whileTap={{ scale: 0.9 }}
               >
                 {darkMode ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 ) : (
@@ -437,7 +445,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 whileTap={{ scale: 0.9 }}
               >
                 {darkMode ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 ) : (

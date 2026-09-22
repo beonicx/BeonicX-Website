@@ -1,4 +1,4 @@
-// Web Development Services Page
+// Voice Agents Integration Page
 'use client'
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -9,7 +9,7 @@ import {
   Shield, TrendingUp, Target, Layers
 } from 'lucide-react';
 
-export default function WebDevelopment({ darkMode }) {
+export default function VoiceAgents({ darkMode }) {
   // Apply dark mode class to <html> based on prop
   useEffect(() => {
     const root = document.documentElement;
@@ -88,14 +88,14 @@ export default function WebDevelopment({ darkMode }) {
                 className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/30"
               >
                 <Sparkles size={18} className="text-blue-300" />
-                <span className="text-sm font-medium">Award-Winning Development Team</span>
+                <span className="text-sm font-medium">Voice AI Specialists</span>
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600">Web Development</span> Services
+                Enterprise <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200">Cloud Services</span> &amp; Infrastructure
               </h1>
               <p className="text-xl mb-8 text-gray-100 leading-relaxed">
-                Transform your vision into reality with cutting-edge web applications. We build scalable, high-performance solutions tailored to your business needs.
+                Deploy AI-powered voice agents for inbound and outbound calls, IVR automation, appointment scheduling, and multilingual conversational support — available 24/7.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <motion.button
@@ -152,7 +152,7 @@ export default function WebDevelopment({ darkMode }) {
                   >
                     <Image
                       src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-                      alt="Professional web development workspace with modern code editor and design tools"
+                      alt="Voice agent AI interface with call analytics and conversation flow"
                       width={500}
                       height={400}
                       className="object-cover w-full h-auto"
@@ -171,7 +171,7 @@ export default function WebDevelopment({ darkMode }) {
                   >
                     <div className="flex items-center gap-2">
                       <Code size={20} className="text-blue-600" />
-                      <span className="font-bold text-gray-800">Modern Stack</span>
+                      <span className="font-bold text-gray-800">Human-Like Voice AI</span>
                     </div>
                   </motion.div>
 
@@ -182,7 +182,7 @@ export default function WebDevelopment({ darkMode }) {
                   >
                     <div className="flex items-center gap-2">
                       <Zap size={20} className="text-blue-500" />
-                      <span className="font-bold text-gray-800">Fast & Scalable</span>
+                      <span className="font-bold text-gray-800">24/7 Availability</span>
                     </div>
                   </motion.div>
                 </div>
@@ -220,10 +220,10 @@ export default function WebDevelopment({ darkMode }) {
             </motion.div>
 
             <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              Comprehensive Web Development Solutions
+              Complete Voice AI Solutions
             </h2>
             <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
-              From concept to deployment, we deliver full-stack web development services that drive business growth and user engagement.
+              From IVR automation to AI-powered outbound campaigns, we build voice agents that handle calls naturally and scale without adding headcount.
             </p>
           </motion.div>
           
@@ -237,38 +237,38 @@ export default function WebDevelopment({ darkMode }) {
             {[
               {
                 icon: <Globe size={40} />,
-                title: "Full-Stack Development",
-                desc: "End-to-end web solutions with modern frontend frameworks and robust backend systems.",
+                title: "AI-Powered Voice Bots",
+                desc: "Human-like conversational AI that handles customer calls, understands intent, and resolves queries without human intervention.",
                 gradient: "from-blue-500 to-blue-400"
               },
               {
                 icon: <Layers size={40} />,
-                title: "Progressive Web Apps",
-                desc: "Fast, reliable, and engaging PWAs that work seamlessly across all devices and platforms.",
+                title: "Inbound & Outbound Calling",
+                desc: "Automated inbound support lines and outbound campaigns for lead qualification, reminders, surveys, and collections.",
                 gradient: "from-blue-600 to-blue-400"
               },
               {
                 icon: <Code size={40} />,
-                title: "Custom Web Applications",
-                desc: "Tailored web applications built with cutting-edge technologies to meet your unique needs.",
+                title: "IVR Automation",
+                desc: "Replace rigid IVR menus with intelligent voice routing that understands natural language and routes calls dynamically.",
                 gradient: "from-blue-600 to-blue-400"
               },
               {
                 icon: <Server size={40} />,
-                title: "API Development & Integration",
-                desc: "Scalable RESTful and GraphQL APIs with seamless third-party service integration.",
+                title: "Appointment Scheduling",
+                desc: "Voice agents that book, reschedule, and confirm appointments directly over the phone with calendar integration.",
                 gradient: "from-blue-500 to-blue-400"
               },
               {
                 icon: <Shield size={40} />,
-                title: "Security & Performance",
-                desc: "Enterprise-grade security measures and optimized performance for lightning-fast experiences.",
+                title: "Multilingual Support",
+                desc: "Deploy voice agents in multiple languages and dialects. Real-time translation and accent-aware speech recognition.",
                 gradient: "from-blue-400 to-blue-600"
               },
               {
                 icon: <TrendingUp size={40} />,
-                title: "Maintenance & Support",
-                desc: "Ongoing support, updates, and enhancements to keep your application ahead of the curve.",
+                title: "Call Analytics & Transcription",
+                desc: "Real-time call transcription, sentiment analysis, conversation analytics, and quality monitoring dashboards.",
                 gradient: "from-blue-500 to-blue-700"
               }
             ].map((service, index) => (
@@ -829,7 +829,7 @@ export default function WebDevelopment({ darkMode }) {
               Cutting-Edge Technologies
             </h2>
             <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
-              We leverage the most powerful and modern technologies to build scalable, performant, and future-proof web applications.
+              We integrate best-in-class voice AI and telephony platforms to build reliable, scalable voice agent systems.
             </p>
           </motion.div>
 
@@ -837,24 +837,24 @@ export default function WebDevelopment({ darkMode }) {
           <div className="space-y-12">
             {[
               {
-                category: "Frontend",
+                category: "Voice AI Platforms",
                 gradient: "from-blue-500 to-blue-400",
-                techs: ["React", "Next.js", "Vue.js", "TypeScript", "Tailwind CSS"]
+                techs: ["OpenAI Realtime", "ElevenLabs", "Deepgram", "Google STT", "Azure Speech"]
               },
               {
-                category: "Backend",
+                category: "Telephony & SIP",
                 gradient: "from-blue-500 to-blue-400",
-                techs: ["Node.js", "Python", "Go", "GraphQL", "REST APIs"]
+                techs: ["Twilio", "Vonage", "Plivo", "FreeSWITCH", "WebRTC"]
               },
               {
-                category: "Database & Cloud",
+                category: "Backend & Orchestration",
                 gradient: "from-blue-600 to-blue-400",
-                techs: ["PostgreSQL", "MongoDB", "AWS", "Google Cloud", "Docker"]
+                techs: ["Node.js", "Python", "FastAPI", "LangChain", "Redis"]
               },
               {
-                category: "Tools & Platforms",
+                category: "Analytics & NLP",
                 gradient: "from-blue-400 to-blue-600",
-                techs: ["Git", "CI/CD", "Kubernetes", "Vercel", "Firebase"]
+                techs: ["Whisper", "Hugging Face", "Elasticsearch", "Grafana", "PostgreSQL"]
               }
             ].map((stack, stackIndex) => (
               <motion.div

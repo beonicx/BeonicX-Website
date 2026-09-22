@@ -1,4 +1,4 @@
-// Web Development Services Page
+// Custom CRM Development Page
 'use client'
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -9,7 +9,7 @@ import {
   Shield, TrendingUp, Target, Layers
 } from 'lucide-react';
 
-export default function WebDevelopment({ darkMode }) {
+export default function CrmDevelopment({ darkMode }) {
   // Apply dark mode class to <html> based on prop
   useEffect(() => {
     const root = document.documentElement;
@@ -88,14 +88,14 @@ export default function WebDevelopment({ darkMode }) {
                 className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/30"
               >
                 <Sparkles size={18} className="text-blue-300" />
-                <span className="text-sm font-medium">Award-Winning Development Team</span>
+                <span className="text-sm font-medium">CRM Development Experts</span>
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600">Web Development</span> Services
+                Custom <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200">CRM Development</span> Solutions
               </h1>
               <p className="text-xl mb-8 text-gray-100 leading-relaxed">
-                Transform your vision into reality with cutting-edge web applications. We build scalable, high-performance solutions tailored to your business needs.
+                Centralize your customer data, automate sales pipelines, and drive retention with a CRM built for your exact business workflow — not a one-size-fits-all template.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <motion.button
@@ -152,7 +152,7 @@ export default function WebDevelopment({ darkMode }) {
                   >
                     <Image
                       src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-                      alt="Professional web development workspace with modern code editor and design tools"
+                      alt="Custom CRM dashboard showing sales pipeline and customer analytics"
                       width={500}
                       height={400}
                       className="object-cover w-full h-auto"
@@ -171,7 +171,7 @@ export default function WebDevelopment({ darkMode }) {
                   >
                     <div className="flex items-center gap-2">
                       <Code size={20} className="text-blue-600" />
-                      <span className="font-bold text-gray-800">Modern Stack</span>
+                      <span className="font-bold text-gray-800">Custom Built CRM</span>
                     </div>
                   </motion.div>
 
@@ -182,7 +182,7 @@ export default function WebDevelopment({ darkMode }) {
                   >
                     <div className="flex items-center gap-2">
                       <Zap size={20} className="text-blue-500" />
-                      <span className="font-bold text-gray-800">Fast & Scalable</span>
+                      <span className="font-bold text-gray-800">360° Customer View</span>
                     </div>
                   </motion.div>
                 </div>
@@ -220,10 +220,10 @@ export default function WebDevelopment({ darkMode }) {
             </motion.div>
 
             <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              Comprehensive Web Development Solutions
+              Comprehensive CRM Development Services
             </h2>
             <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
-              From concept to deployment, we deliver full-stack web development services that drive business growth and user engagement.
+              From lead capture to post-sale support, we build CRM systems that automate your entire customer lifecycle and give your team real-time visibility.
             </p>
           </motion.div>
           
@@ -237,38 +237,38 @@ export default function WebDevelopment({ darkMode }) {
             {[
               {
                 icon: <Globe size={40} />,
-                title: "Full-Stack Development",
-                desc: "End-to-end web solutions with modern frontend frameworks and robust backend systems.",
+                title: "Sales Pipeline Automation",
+                desc: "Automate lead scoring, deal tracking, and follow-ups. Visualize your entire sales funnel with real-time pipeline dashboards.",
                 gradient: "from-blue-500 to-blue-400"
               },
               {
                 icon: <Layers size={40} />,
-                title: "Progressive Web Apps",
-                desc: "Fast, reliable, and engaging PWAs that work seamlessly across all devices and platforms.",
+                title: "Contact & Lead Management",
+                desc: "Centralized contact database with smart segmentation, interaction history, tagging, and automated lead nurturing workflows.",
                 gradient: "from-blue-600 to-blue-400"
               },
               {
                 icon: <Code size={40} />,
-                title: "Custom Web Applications",
-                desc: "Tailored web applications built with cutting-edge technologies to meet your unique needs.",
+                title: "Custom Dashboards & Reports",
+                desc: "Real-time analytics dashboards with KPI tracking, sales forecasting, team performance metrics, and exportable reports.",
                 gradient: "from-blue-600 to-blue-400"
               },
               {
                 icon: <Server size={40} />,
-                title: "API Development & Integration",
-                desc: "Scalable RESTful and GraphQL APIs with seamless third-party service integration.",
+                title: "Communication Tracking",
+                desc: "Track emails, calls, meetings, and messages in one place. Automatic logging with calendar sync and follow-up reminders.",
                 gradient: "from-blue-500 to-blue-400"
               },
               {
                 icon: <Shield size={40} />,
-                title: "Security & Performance",
-                desc: "Enterprise-grade security measures and optimized performance for lightning-fast experiences.",
+                title: "Third-Party Integrations",
+                desc: "Connect your CRM with email, payment gateways, marketing tools, accounting software, and any API-based service.",
                 gradient: "from-blue-400 to-blue-600"
               },
               {
                 icon: <TrendingUp size={40} />,
-                title: "Maintenance & Support",
-                desc: "Ongoing support, updates, and enhancements to keep your application ahead of the curve.",
+                title: "Role-Based Access Control",
+                desc: "Granular permissions for teams, managers, and admins. Secure data access with audit trails and activity logging.",
                 gradient: "from-blue-500 to-blue-700"
               }
             ].map((service, index) => (
@@ -829,7 +829,7 @@ export default function WebDevelopment({ darkMode }) {
               Cutting-Edge Technologies
             </h2>
             <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
-              We leverage the most powerful and modern technologies to build scalable, performant, and future-proof web applications.
+              We use modern frameworks and battle-tested platforms to build CRM systems that are fast, reliable, and easy to extend.
             </p>
           </motion.div>
 
@@ -839,22 +839,22 @@ export default function WebDevelopment({ darkMode }) {
               {
                 category: "Frontend",
                 gradient: "from-blue-500 to-blue-400",
-                techs: ["React", "Next.js", "Vue.js", "TypeScript", "Tailwind CSS"]
+                techs: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Recharts"]
               },
               {
-                category: "Backend",
+                category: "Backend & APIs",
                 gradient: "from-blue-500 to-blue-400",
-                techs: ["Node.js", "Python", "Go", "GraphQL", "REST APIs"]
+                techs: ["Node.js", "Python", "GraphQL", "REST APIs", "WebSockets"]
               },
               {
-                category: "Database & Cloud",
+                category: "Database & Storage",
                 gradient: "from-blue-600 to-blue-400",
-                techs: ["PostgreSQL", "MongoDB", "AWS", "Google Cloud", "Docker"]
+                techs: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "S3"]
               },
               {
-                category: "Tools & Platforms",
+                category: "Integrations",
                 gradient: "from-blue-400 to-blue-600",
-                techs: ["Git", "CI/CD", "Kubernetes", "Vercel", "Firebase"]
+                techs: ["Stripe", "Twilio", "SendGrid", "Zapier", "OAuth 2.0"]
               }
             ].map((stack, stackIndex) => (
               <motion.div

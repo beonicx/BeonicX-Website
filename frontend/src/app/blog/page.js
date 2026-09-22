@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 import { Search, Calendar, Clock, Tag, ArrowRight, BookOpen } from 'lucide-react';
 import Navbar from '@/layouts/navbar/Navbar';
 import Footer from '@/layouts/footer/Footer';
+import { getBlogs } from '@/lib/api';
 
-// This will be replaced with server-side data fetching in layout
 const BlogPage = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -16,25 +16,32 @@ const BlogPage = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    // Initialize theme
     const savedTheme = localStorage.getItem('darkMode');
     if (savedTheme) {
       setDarkMode(savedTheme === 'true');
     }
-
-    // Fetch blog posts from API
     fetchPosts();
   }, []);
 
   const fetchPosts = async () => {
-    try {
-      const response = await fetch('/api/blog');
-      const data = await response.json();
-      setPosts(data.posts || []);
-      setCategories(data.categories || []);
-    } catch (error) {
-      console.error('Error fetching posts:', error);
-      // Use mock data for development
+    const data = await getBlogs();
+    if (data && data.length > 0) {
+      const mapped = data.map(post => ({
+        slug: post.slug,
+        title: post.title,
+        excerpt: post.excerpt || '',
+        category: post.categories?.[0] || '',
+        tags: post.tags || [],
+        publishedAt: post.createdAt,
+        readingTime: `${Math.ceil((post.content?.length || 0) / 1500)} min read`,
+        featuredImage: post.image,
+        author: post.author?.name || 'BeonicX Team',
+      }));
+      setPosts(mapped);
+
+      const allCategories = [...new Set(data.flatMap(p => p.categories || []))];
+      setCategories(allCategories);
+    } else {
       setPosts(getMockPosts());
       setCategories(getMockCategories());
     }
@@ -63,8 +70,7 @@ const BlogPage = () => {
       <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
 
       <main className={`min-h-screen pt-24 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
-        {/* Hero Section */}
-        <div className={`relative py-20 px-4 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900' : 'bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600'}`}>
+        <div className={`relative py-20 px-4 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900' : 'bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700'}`}>
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
               backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
@@ -84,19 +90,18 @@ const BlogPage = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
               >
-                <BookOpen size={18} className="text-yellow-300" />
+                <BookOpen size={18} className="text-blue-300" />
                 <span className="text-sm font-medium text-white">AI & Automation Insights</span>
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-                BeonicX <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300">AI Blog</span>
+                BeonicX <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-600">AI Blog</span>
               </h1>
 
               <p className="text-xl mb-8 text-gray-100 max-w-3xl mx-auto leading-relaxed">
                 Expert insights on AI agents, automation, machine learning, and enterprise AI solutions
               </p>
 
-              {/* Search Bar */}
               <div className="max-w-2xl mx-auto">
                 <div className="relative">
                   <input
@@ -117,7 +122,6 @@ const BlogPage = () => {
           </div>
         </div>
 
-        {/* Categories */}
         <div className={`sticky top-20 z-40 ${darkMode ? 'bg-gray-900/95' : 'bg-gray-50/95'} backdrop-blur-md border-b ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
           <div className="container mx-auto max-w-6xl px-4 py-4">
             <div className="flex gap-3 overflow-x-auto scrollbar-hide">
@@ -152,7 +156,6 @@ const BlogPage = () => {
           </div>
         </div>
 
-        {/* Blog Posts Grid */}
         <div className="container mx-auto max-w-6xl px-4 py-12">
           {filteredPosts.length === 0 ? (
             <div className={`text-center py-20 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -243,7 +246,6 @@ const BlogPage = () => {
   );
 };
 
-// Mock data for development
 function getMockPosts() {
   return [
     {
@@ -257,7 +259,6 @@ function getMockPosts() {
       featuredImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
       author: 'BeonicX Team',
     },
-    // Add more mock posts as needed
   ];
 }
 

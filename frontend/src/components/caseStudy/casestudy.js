@@ -1,7 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Navbar from "@/layouts/navbar/Navbar";
 import Footer from "@/layouts/footer/Footer";
 import {
@@ -10,14 +12,45 @@ import {
   Smartphone, Globe, ShoppingCart, Heart, Award,
   BookOpen, Activity, DollarSign, BarChart3
 } from 'lucide-react';
+import { getCaseStudies } from '@/lib/api';
 
 const CardList = ({ darkMode = false, toggleDarkMode }) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [apiCaseStudies, setApiCaseStudies] = useState(null);
 
-  // Comprehensive case study data with detailed information
-  const caseStudies = [
+  useEffect(() => {
+    async function load() {
+      const data = await getCaseStudies();
+      if (data && data.length > 0) {
+        const mapped = data.map((cs, index) => ({
+          id: index + 1,
+          title: cs.title,
+          description: cs.challenge || cs.solution || '',
+          image: cs.image || '',
+          category: cs.industry || 'General',
+          tags: cs.technologies || [],
+          client: cs.client || '',
+          duration: '',
+          results: cs.metrics?.reduce((acc, m, i) => {
+            acc[`metric${i + 1}`] = m.value;
+            acc[`label${i + 1}`] = m.label;
+            return acc;
+          }, {}) || {},
+          challenges: cs.challenge ? [cs.challenge] : [],
+          solutions: cs.solution ? [cs.solution] : [],
+          technologies: cs.technologies || [],
+          gradient: 'from-blue-500 to-blue-400',
+          icon: <Globe className="w-6 h-6" />,
+        }));
+        setApiCaseStudies(mapped);
+      }
+    }
+    load();
+  }, []);
+
+  const defaultCaseStudies = [
     {
       id: 1,
       title: "Papa John's Pizza Delivery Revolution",
@@ -46,7 +79,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Cloud-based inventory sync"
       ],
       technologies: ["React Native", "Node.js", "MongoDB", "Redis", "AWS"],
-      gradient: "from-red-500 to-orange-500",
+      gradient: "from-blue-600 to-blue-400",
       icon: <ShoppingCart className="w-6 h-6" />
     },
     {
@@ -77,7 +110,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Adaptive streaming for videos"
       ],
       technologies: ["Flutter", "Firebase", "TensorFlow", "Cloud Storage"],
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-blue-600 to-blue-400",
       icon: <Heart className="w-6 h-6" />
     },
     {
@@ -108,7 +141,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "ML-based adaptive training plans"
       ],
       technologies: ["React Native", "Python", "TensorFlow", "HealthKit", "Google Fit"],
-      gradient: "from-green-500 to-teal-500",
+      gradient: "from-blue-500 to-blue-400",
       icon: <Activity className="w-6 h-6" />
     },
     {
@@ -139,7 +172,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Real-time database synchronization"
       ],
       technologies: ["React Native", "WebRTC", "Node.js", "PostgreSQL", "Redis"],
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-blue-500 to-blue-400",
       icon: <BookOpen className="w-6 h-6" />
     },
     {
@@ -170,7 +203,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Multi-gateway payment abstraction"
       ],
       technologies: ["Flutter", "TensorFlow", "ARCore", "ARKit", "Stripe"],
-      gradient: "from-indigo-500 to-purple-500",
+      gradient: "from-blue-500 to-blue-700",
       icon: <ShoppingCart className="w-6 h-6" />
     },
     {
@@ -201,7 +234,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Blockchain for audit trails"
       ],
       technologies: ["React Native", "Node.js", "PostgreSQL", "WebRTC", "Blockchain"],
-      gradient: "from-cyan-500 to-blue-500",
+      gradient: "from-blue-400 to-blue-600",
       icon: <Heart className="w-6 h-6" />
     },
     {
@@ -232,7 +265,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "PCI-DSS compliant architecture"
       ],
       technologies: ["Native iOS/Android", "Node.js", "ML", "Blockchain", "AWS"],
-      gradient: "from-emerald-500 to-teal-500",
+      gradient: "from-blue-500 to-blue-400",
       icon: <DollarSign className="w-6 h-6" />
     },
     {
@@ -294,7 +327,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Real-time database sync"
       ],
       technologies: ["React Native", "Firebase", "WebRTC", "Node.js", "Socket.io"],
-      gradient: "from-violet-500 to-purple-500",
+      gradient: "from-blue-500 to-blue-700",
       icon: <Users className="w-6 h-6" />
     },
     {
@@ -325,7 +358,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Price aggregation service"
       ],
       technologies: ["React Native", "Google Maps API", "TensorFlow", "Node.js"],
-      gradient: "from-amber-500 to-orange-500",
+      gradient: "from-blue-600 to-blue-400",
       icon: <Globe className="w-6 h-6" />
     },
     {
@@ -356,7 +389,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Blockchain-based document storage"
       ],
       technologies: ["Flutter", "ARCore", "ARKit", "Google Maps", "Blockchain"],
-      gradient: "from-rose-500 to-pink-500",
+      gradient: "from-blue-500 to-blue-600",
       icon: <Target className="w-6 h-6" />
     },
     {
@@ -387,10 +420,12 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Real-time fleet tracking"
       ],
       technologies: ["React Native", "Node.js", "MongoDB", "Redis", "Google Maps"],
-      gradient: "from-orange-500 to-red-500",
+      gradient: "from-blue-400 to-blue-600",
       icon: <ShoppingCart className="w-6 h-6" />
     }
   ];
+
+  const caseStudies = apiCaseStudies || defaultCaseStudies;
 
   const categories = [
     "All",
@@ -436,8 +471,8 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       {/* Hero Section */}
       <section className={`relative overflow-hidden ${
         darkMode
-          ? 'bg-gradient-to-br from-gray-900 via-indigo-950 to-purple-950'
-          : 'bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600'
+          ? 'bg-gradient-to-br from-gray-900 via-blue-950 to-blue-950'
+          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'
       } text-white py-24 md:py-32 px-4`}>
         {/* Animated background */}
         <div className="absolute inset-0 overflow-hidden">
@@ -468,10 +503,10 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
             <motion.div
               variants={fadeInUp}
               className={`inline-flex items-center gap-2 backdrop-blur-md px-5 py-2.5 rounded-full mb-6 border ${
-                darkMode ? 'bg-indigo-500/20 border-indigo-400/40' : 'bg-white/25 border-white/40'
+                darkMode ? 'bg-blue-500/20 border-blue-400/40' : 'bg-white/25 border-white/40'
               }`}
             >
-              <Sparkles className={darkMode ? 'text-yellow-400' : 'text-yellow-200'} size={18} />
+              <Sparkles className={darkMode ? 'text-blue-400' : 'text-blue-200'} size={18} />
               <span className="text-sm font-semibold tracking-wide">Success Stories</span>
             </motion.div>
 
@@ -481,7 +516,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
             >
               Our{' '}
               <span className={`text-transparent bg-clip-text bg-gradient-to-r ${
-                darkMode ? 'from-cyan-400 via-blue-400 to-purple-400' : 'from-white via-blue-100 to-purple-100'
+                darkMode ? 'from-blue-300 via-blue-400 to-blue-600' : 'from-white via-blue-100 to-blue-200'
               }`}>
                 Case Studies
               </span>
@@ -507,7 +542,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                 { icon: <Star className="w-8 h-8" />, value: "4.8★", label: "Average Rating" }
               ].map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className={`${darkMode ? 'text-cyan-400' : 'text-cyan-200'} mb-2 flex justify-center`}>
+                  <div className={`${darkMode ? 'text-blue-400' : 'text-blue-200'} mb-2 flex justify-center`}>
                     {stat.icon}
                   </div>
                   <div className={`text-3xl md:text-4xl font-extrabold ${darkMode ? 'text-white' : 'text-white'}`}>
@@ -560,8 +595,8 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                 className={`px-5 py-2.5 rounded-xl font-semibold whitespace-nowrap transition-all ${
                   selectedCategory === category
                     ? darkMode
-                      ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg'
-                      : 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg'
+                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                      : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
                     : darkMode
                       ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -596,7 +631,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
               onHoverEnd={() => setHoveredCard(null)}
               className={`group rounded-2xl overflow-hidden transition-all duration-300 ${
                 darkMode
-                  ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-xl hover:shadow-indigo-900/20'
+                  ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-xl hover:shadow-blue-900/20'
                   : 'bg-white border border-gray-200 shadow-lg hover:shadow-2xl'
               }`}
             >
@@ -630,15 +665,17 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                     animate={{ opacity: 1 }}
                     className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 flex items-center justify-center"
                   >
-                    <motion.button
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: 0.1 }}
-                      className="bg-white text-gray-900 font-bold py-3 px-6 rounded-xl hover:bg-gray-100 transition flex items-center gap-2"
-                    >
-                      View Details
-                      <ArrowRight size={18} />
-                    </motion.button>
+                    <Link href="/get-started">
+                      <motion.button
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: 0.1 }}
+                        className="bg-white text-gray-900 font-bold py-3 px-6 rounded-xl hover:bg-gray-100 transition flex items-center gap-2"
+                      >
+                        View Details
+                        <ArrowRight size={18} />
+                      </motion.button>
+                    </Link>
                   </motion.div>
                 )}
               </div>
@@ -659,8 +696,8 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                       key={idx}
                       className={`text-xs font-semibold px-3 py-1 rounded-full ${
                         darkMode
-                          ? 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30'
-                          : 'bg-indigo-100 text-indigo-700 border border-indigo-200'
+                          ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                          : 'bg-blue-100 text-blue-700 border border-blue-200'
                       }`}
                     >
                       {tag}
@@ -736,8 +773,8 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       {/* CTA Section */}
       <section className={`relative py-24 px-4 overflow-hidden ${
         darkMode
-          ? 'bg-gradient-to-br from-indigo-950 via-purple-950 to-blue-950'
-          : 'bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-600'
+          ? 'bg-gradient-to-br from-blue-950 via-blue-950 to-blue-950'
+          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'
       }`}>
         <div className="max-w-4xl mx-auto text-center text-white relative z-10">
           <motion.div
@@ -745,21 +782,23 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Zap className="w-16 h-16 mx-auto mb-6 text-cyan-300" />
+            <Zap className="w-16 h-16 mx-auto mb-6 text-blue-300" />
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6">
               Ready to Start Your Success Story?
             </h2>
             <p className={`text-lg md:text-xl mb-10 ${darkMode ? 'text-gray-300' : 'text-blue-50'}`}>
               Let's collaborate to create an exceptional product that transforms your business.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-indigo-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-100 transition shadow-2xl inline-flex items-center gap-2"
-            >
-              Start Your Project
-              <ArrowRight size={20} />
-            </motion.button>
+            <Link href="/get-started">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-100 transition shadow-2xl inline-flex items-center gap-2"
+              >
+                Start Your Project
+                <ArrowRight size={20} />
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </section>

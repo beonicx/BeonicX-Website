@@ -7,17 +7,17 @@ export default function PrivacyPolicyPage({ darkMode = false }) {
   return (
     <div className={`min-h-screen transition-colors duration-200 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
       {/* Hero Section */}
-      <section className={`relative py-20 lg:py-28 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900' : 'bg-gradient-to-br from-blue-50 via-white to-purple-50'}`}>
+      <section className={`relative py-20 lg:py-28 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900' : 'bg-gradient-to-br from-blue-50 via-white to-blue-50'}`}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className={`text-4xl lg:text-6xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-            Privacy <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Policy</span>
+            Privacy <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">Policy</span>
           </h1>
           <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
             Last Updated: {lastUpdated}
           </p>
         </div>
         <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
       </section>
 
       {/* Content */}

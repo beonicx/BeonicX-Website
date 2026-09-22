@@ -13,6 +13,10 @@ const blogRoutes = require('./routes/blogRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const aiRoutes = require('./routes/ai');
+const testimonialRoutes = require('./routes/testimonialRoutes');
+const faqRoutes = require('./routes/faqRoutes');
+const caseStudyRoutes = require('./routes/caseStudyRoutes');
+const industryRoutes = require('./routes/industryRoutes');
 
 const app = express();
 
@@ -49,6 +53,10 @@ app.use('/api/blog', blogRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/ai', aiRoutes);
+app.use('/api/testimonials', testimonialRoutes);
+app.use('/api/faqs', faqRoutes);
+app.use('/api/case-studies', caseStudyRoutes);
+app.use('/api/industries', industryRoutes);
 
 // 404 route
 app.all('*', (req, res, next) => {

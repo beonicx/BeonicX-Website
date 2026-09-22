@@ -103,9 +103,9 @@ export default function InteractiveMap({ darkMode = false }) {
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-transparent to-white opacity-30"></div>
             
             {/* Continents */}
-            <div className={`absolute top-1/4 left-1/4 w-8 h-6 rounded-sm transform rotate-12 ${darkMode ? 'bg-green-800' : 'bg-green-500'}`}></div>
-            <div className={`absolute top-2/4 left-1/3 w-10 h-8 rounded-md ${darkMode ? 'bg-green-800' : 'bg-green-500'}`}></div>
-            <div className={`absolute bottom-1/4 right-1/4 w-12 h-6 rounded-sm transform -rotate-12 ${darkMode ? 'bg-green-800' : 'bg-green-500'}`}></div>
+            <div className={`absolute top-1/4 left-1/4 w-8 h-6 rounded-sm transform rotate-12 ${darkMode ? 'bg-blue-800' : 'bg-blue-500'}`}></div>
+            <div className={`absolute top-2/4 left-1/3 w-10 h-8 rounded-md ${darkMode ? 'bg-blue-800' : 'bg-blue-500'}`}></div>
+            <div className={`absolute bottom-1/4 right-1/4 w-12 h-6 rounded-sm transform -rotate-12 ${darkMode ? 'bg-blue-800' : 'bg-blue-500'}`}></div>
 
             {/* Equator line */}
             <div className={`absolute top-1/2 left-0 w-full h-1 opacity-50 transform -translate-y-1/2 ${darkMode ? 'bg-blue-400' : 'bg-blue-600'}`}></div>
@@ -140,9 +140,9 @@ export default function InteractiveMap({ darkMode = false }) {
           </div>
 
           {/* Continent shapes */}
-          <div className={`absolute top-1/4 left-1/4 w-20 h-12 rounded-lg opacity-70 ${darkMode ? 'bg-green-800' : 'bg-green-500'}`}></div>
-          <div className={`absolute top-1/3 right-1/4 w-24 h-16 rounded-lg opacity-70 ${darkMode ? 'bg-green-800' : 'bg-green-500'}`}></div>
-          <div className={`absolute bottom-1/4 left-1/3 w-32 h-16 rounded-lg opacity-70 ${darkMode ? 'bg-green-800' : 'bg-green-500'}`}></div>
+          <div className={`absolute top-1/4 left-1/4 w-20 h-12 rounded-lg opacity-70 ${darkMode ? 'bg-blue-800' : 'bg-blue-500'}`}></div>
+          <div className={`absolute top-1/3 right-1/4 w-24 h-16 rounded-lg opacity-70 ${darkMode ? 'bg-blue-800' : 'bg-blue-500'}`}></div>
+          <div className={`absolute bottom-1/4 left-1/3 w-32 h-16 rounded-lg opacity-70 ${darkMode ? 'bg-blue-800' : 'bg-blue-500'}`}></div>
 
           {/* Map markers - now directly open maps on click */}
           {locations.map(location => (

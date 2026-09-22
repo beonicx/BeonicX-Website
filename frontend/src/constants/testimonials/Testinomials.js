@@ -25,7 +25,7 @@ const testimonials = [
 export default function Testimonials({ darkMode }) {
   return (
     <div className={`${darkMode ? "dark" : ""}`}>
-      <div className="bg-yellow-400 dark:bg-neutral-900 min-h-screen flex items-center justify-center px-4 sm:px-8 py-12">
+      <div className="bg-blue-400 dark:bg-neutral-900 min-h-screen flex items-center justify-center px-4 sm:px-8 py-12">
         <div className="w-full max-w-7xl overflow-hidden relative group">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-10 text-black dark:text-white">
             Hear what our happy participants have to say.

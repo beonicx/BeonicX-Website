@@ -1,129 +1,152 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
+import {
+  Bot, Zap, Brain, MessageSquare,
+  Activity, Building2, Clock, TrendingDown,
+} from 'lucide-react';
+
+const stats = [
+  { icon: Bot,            number: '100+',  label: 'AI Agents Built',     accent: 'from-blue-500 to-blue-600' },
+  { icon: Zap,            number: '99%',   label: 'Automation Rate',     accent: 'from-blue-400 to-blue-500' },
+  { icon: Brain,          number: '200+',  label: 'AI Models Trained',   accent: 'from-blue-600 to-blue-400' },
+  { icon: MessageSquare,  number: '500+',  label: 'Conversational AI',   accent: 'from-blue-500 to-blue-600' },
+  { icon: Activity,       number: '10M+',  label: 'Tasks Processed',     accent: 'from-blue-500 to-fuchsia-500' },
+  { icon: Building2,      number: '50+',   label: 'Enterprise Clients',  accent: 'from-blue-300 to-blue-500' },
+  { icon: Clock,          number: '24/7',  label: 'Agent Uptime',        accent: 'from-blue-400 to-blue-500' },
+  { icon: TrendingDown,   number: '80%',   label: 'Cost Reduction',      accent: 'from-blue-500 to-blue-700' },
+];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.07, ease: 'easeOut' },
+  }),
+};
 
 function HeroSection({ darkMode }) {
-  const stats = [
-    {
-      icon: "🤖",
-      number: "50+",
-      label: "AI Agents Built",
-      bgColor: "bg-pink-100 dark:bg-pink-500",
-      textColor: "text-pink-500 dark:text-white"
-    },
-    {
-      icon: "⚡",
-      number: "95%",
-      label: "Automation Rate",
-      bgColor: "bg-green-100 dark:bg-green-500",
-      textColor: "text-green-500 dark:text-white"
-    },
-    {
-      icon: "🧠",
-      number: "50+",
-      label: "AI Models Trained",
-      bgColor: "bg-blue-100 dark:bg-blue-500",
-      textColor: "text-blue-500 dark:text-white"
-    },
-    {
-      icon: "💬",
-      number: "100+",
-      label: "Conversational AI",
-      bgColor: "bg-red-100 dark:bg-red-500",
-      textColor: "text-red-500 dark:text-white"
-    },
-    {
-      icon: "📈",
-      number: "1M+",
-      label: "Tasks Processed",
-      bgColor: "bg-purple-100 dark:bg-purple-500",
-      textColor: "text-purple-500 dark:text-white"
-    },
-    {
-      icon: "⭐",
-      number: "30+",
-      label: "Enterprise Clients",
-      bgColor: "bg-yellow-100 dark:bg-yellow-500",
-      textColor: "text-yellow-600 dark:text-white"
-    },
-    {
-      icon: "🔄",
-      number: "24/7",
-      label: "Agent Uptime",
-      bgColor: "bg-green-100 dark:bg-green-500",
-      textColor: "text-green-500 dark:text-white"
-    },
-    {
-      icon: "🎯",
-      number: "75%",
-      label: "Cost Reduction",
-      bgColor: "bg-purple-100 dark:bg-purple-500",
-      textColor: "text-purple-500 dark:text-white"
-    }
-  ];
-
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'}`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
-  
-        {/* Hero Title and Description */}
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8">
-            BeonicX: Transforming Businesses with Intelligent AI Agents
-          </h1>
-          <div className={`h-1 w-24 sm:w-32 mb-6 sm:mb-8 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
-          <p className={`text-sm sm:text-base md:text-lg mb-10 sm:mb-12 md:mb-16 max-w-4xl ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-            We build cutting-edge AI agents that automate complex workflows, enhance decision-making, and drive business growth.
-            Our SaaS platform empowers enterprises with autonomous AI systems that work 24/7 to streamline operations,
-            boost productivity, and deliver measurable ROI.
-          </p>
-        </div>
-  
-        {/* Stats Grid 1 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
-          {stats.slice(0, 4).map((stat, index) => (
-            <div
-              key={index}
-              className={`flex items-center p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ${
-                darkMode ? 'bg-gray-800' : 'bg-white'
-              }`}
-            >
-              <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center ${stat.bgColor} rounded-lg text-xl sm:text-2xl ${stat.textColor}`}>
-                {stat.icon}
-              </div>
-              <div className="ml-3 sm:ml-4">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold">{stat.number}</div>
-                <div className={`text-xs sm:text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{stat.label}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-  
-        {/* Spacer */}
-        <div className="h-6 sm:h-8 md:h-12"></div>
-  
-        {/* Stats Grid 2 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
-          {stats.slice(4, 8).map((stat, index) => (
-            <div
-              key={index}
-              className={`flex items-center p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ${
-                darkMode ? 'bg-gray-800' : 'bg-white'
-              }`}
-            >
-              <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center ${stat.bgColor} rounded-lg text-xl sm:text-2xl ${stat.textColor}`}>
-                {stat.icon}
-              </div>
-              <div className="ml-3 sm:ml-4">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold">{stat.number}</div>
-                <div className={`text-xs sm:text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{stat.label}</div>
-              </div>
-            </div>
-          ))}
-        </div>
+    <section
+      className={`relative overflow-hidden py-20 sm:py-28 transition-colors duration-500 ${
+        darkMode ? 'text-white' : 'text-gray-900'
+      }`}
+      style={{
+        background: darkMode
+          ? 'radial-gradient(ellipse at 20% 50%, rgba(59,130,246,0.12) 0%, transparent 50%),' +
+            'radial-gradient(ellipse at 80% 20%, rgba(37,99,235,0.09) 0%, transparent 50%),' +
+            'radial-gradient(ellipse at 60% 80%, rgba(96,165,250,0.07) 0%, transparent 50%),' +
+            '#030712'
+          : 'radial-gradient(ellipse at 20% 50%, rgba(59,130,246,0.06) 0%, transparent 50%),' +
+            'radial-gradient(ellipse at 80% 20%, rgba(37,99,235,0.05) 0%, transparent 50%),' +
+            'radial-gradient(ellipse at 60% 80%, rgba(96,165,250,0.04) 0%, transparent 50%),' +
+            '#ffffff',
+      }}
+    >
+      {/* Dot pattern overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle, ${
+            darkMode ? 'rgba(59,130,246,0.12)' : 'rgba(59,130,246,0.07)'
+          } 1px, transparent 1px)`,
+          backgroundSize: '24px 24px',
+        }}
+      />
 
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
+        <motion.div
+          className="max-w-3xl mb-14 sm:mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span
+            className={`inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1 rounded-full ${
+              darkMode
+                ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                : 'bg-blue-50 text-blue-600 border border-blue-200/60'
+            }`}
+          >
+            Platform Metrics
+          </span>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.15] mb-5">
+            Next-Gen AI Agents That{' '}
+            <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent">
+              Run Your Business
+            </span>
+          </h2>
+
+          <p className={`text-base sm:text-lg leading-relaxed max-w-2xl ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+            We engineer autonomous AI agents that handle complex workflows end-to-end — from
+            customer engagement and sales automation to data intelligence and process orchestration.
+          </p>
+        </motion.div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5">
+          {stats.map((stat, i) => {
+            const Icon = stat.icon;
+            return (
+              <motion.div
+                key={stat.label}
+                custom={i}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className={`group relative rounded-2xl p-5 sm:p-6 transition-all duration-300 cursor-default ${
+                  darkMode
+                    ? 'bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] hover:border-blue-500/30 hover:bg-white/[0.07]'
+                    : 'bg-white/70 backdrop-blur-xl border border-gray-200/60 shadow-sm hover:shadow-lg hover:border-blue-300/50'
+                }`}
+                style={{
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease',
+                }}
+                whileHover={{ y: -4 }}
+              >
+                {/* Hover glow */}
+                <div
+                  className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${
+                    darkMode ? '' : 'hidden'
+                  }`}
+                  style={{
+                    boxShadow: '0 0 40px rgba(59,130,246,0.08), inset 0 0 40px rgba(59,130,246,0.03)',
+                  }}
+                />
+
+                {/* Icon */}
+                <div
+                  className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br ${stat.accent} mb-4 shadow-lg`}
+                  style={{
+                    boxShadow: darkMode
+                      ? '0 4px 20px rgba(59,130,246,0.2)'
+                      : '0 4px 16px rgba(59,130,246,0.12)',
+                  }}
+                >
+                  <Icon size={20} className="text-white" strokeWidth={2} />
+                </div>
+
+                {/* Number */}
+                <div className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent">
+                  {stat.number}
+                </div>
+
+                {/* Label */}
+                <div className={`text-xs sm:text-sm font-medium ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                  {stat.label}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   );
-  
 }
 
 export default HeroSection;

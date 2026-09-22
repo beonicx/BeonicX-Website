@@ -107,10 +107,10 @@ const BlogPostClient = ({ post, relatedPosts, slug }) => {
         )}
 
         <div className="container mx-auto max-w-4xl px-4 py-12">
-          <div className={`prose prose-lg max-w-none ${
+          <div className={`prose pblue-lg max-w-none ${
             darkMode
-              ? 'prose-invert prose-headings:text-white prose-p:text-gray-300 prose-a:text-blue-400 prose-strong:text-white prose-code:text-blue-400'
-              : 'prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-strong:text-gray-900 prose-code:text-blue-600'
+              ? 'pblue-invert pblue-headings:text-white pblue-p:text-gray-300 pblue-a:text-blue-400 pblue-strong:text-white pblue-code:text-blue-400'
+              : 'pblue-headings:text-gray-900 pblue-p:text-gray-700 pblue-a:text-blue-600 pblue-strong:text-gray-900 pblue-code:text-blue-600'
           }`}>
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </div>

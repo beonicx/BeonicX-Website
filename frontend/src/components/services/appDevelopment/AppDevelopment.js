@@ -40,7 +40,7 @@ export default function AppDevelopment({ darkMode }) {
     <div className={`font-sans transition-colors duration-300 py-18 ${darkMode ? 'dark bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 text-white' : 'bg-gradient-to-br from-gray-50 via-white to-blue-50 text-gray-800'}`}>
 
       {/* Hero Section */}
-      <section className={`${darkMode ? 'bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900' : 'bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600'} text-white py-20 px-4 relative overflow-hidden`}>
+      <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'} text-white py-20 px-4 relative overflow-hidden`}>
         {/* Animated background shapes */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(8)].map((_, i) => (
@@ -87,12 +87,12 @@ export default function AppDevelopment({ darkMode }) {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/30"
               >
-                <Sparkles size={18} className="text-yellow-300" />
-                <span className="text-sm font-medium">Award-Winning Development Team</span>
+                <Sparkles size={18} className="text-blue-300" />
+                <span className="text-sm font-medium">Top-Rated Mobile Development Team</span>
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-teal-300 to-cyan-300">Mobile App Development</span> Services
+                Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300">Mobile App Development</span> Services
               </h1>
               <p className="text-xl mb-8 text-gray-100 leading-relaxed">
                 Build powerful mobile applications for iOS and Android. We create native and cross-platform apps with seamless user experiences and cutting-edge features.
@@ -101,7 +101,7 @@ export default function AppDevelopment({ darkMode }) {
                 <motion.button
                   whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-indigo-700 font-bold py-4 px-8 rounded-xl hover:bg-gray-50 transition shadow-2xl flex items-center justify-center gap-2"
+                  className="bg-white text-blue-700 font-bold py-4 px-8 rounded-xl hover:bg-gray-50 transition shadow-2xl flex items-center justify-center gap-2"
                 >
                   <Rocket size={20} />
                   Get Started
@@ -109,7 +109,7 @@ export default function AppDevelopment({ darkMode }) {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-indigo-700 transition backdrop-blur-md bg-white/10"
+                  className="border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-blue-700 transition backdrop-blur-md bg-white/10"
                 >
                   View Our Work
                 </motion.button>
@@ -123,11 +123,11 @@ export default function AppDevelopment({ darkMode }) {
                 transition={{ delay: 0.8 }}
               >
                 <div className="flex items-center gap-2">
-                  <CheckCircle size={20} className="text-green-300" />
+                  <CheckCircle size={20} className="text-blue-300" />
                   <span className="text-sm">100+ Projects Delivered</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle size={20} className="text-green-300" />
+                  <CheckCircle size={20} className="text-blue-300" />
                   <span className="text-sm">98% Client Satisfaction</span>
                 </div>
               </motion.div>
@@ -141,7 +141,7 @@ export default function AppDevelopment({ darkMode }) {
             >
               <div className="relative w-full max-w-lg">
                 {/* Glow effect */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl blur-2xl opacity-30 animate-pulse" />
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700 rounded-3xl blur-2xl opacity-30 animate-pulse" />
 
                 {/* Main image container */}
                 <div className="relative perspective-container">
@@ -152,7 +152,7 @@ export default function AppDevelopment({ darkMode }) {
                   >
                     <Image
                       src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-                      alt="Professional web development workspace with modern code editor and design tools"
+                      alt="Mobile app development workspace showing iOS and Android app designs"
                       width={500}
                       height={400}
                       className="object-cover w-full h-auto"
@@ -160,7 +160,7 @@ export default function AppDevelopment({ darkMode }) {
                       priority
                     />
                     {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
                   </motion.div>
 
                   {/* Floating tech badges */}
@@ -170,8 +170,8 @@ export default function AppDevelopment({ darkMode }) {
                     transition={{ duration: 3, repeat: Infinity }}
                   >
                     <div className="flex items-center gap-2">
-                      <Code size={20} className="text-indigo-600" />
-                      <span className="font-bold text-gray-800">Modern Stack</span>
+                      <Code size={20} className="text-blue-600" />
+                      <span className="font-bold text-gray-800">Native & Cross-Platform</span>
                     </div>
                   </motion.div>
 
@@ -181,8 +181,8 @@ export default function AppDevelopment({ darkMode }) {
                     transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
                   >
                     <div className="flex items-center gap-2">
-                      <Zap size={20} className="text-yellow-500" />
-                      <span className="font-bold text-gray-800">Fast & Scalable</span>
+                      <Zap size={20} className="text-blue-500" />
+                      <span className="font-bold text-gray-800">Pixel-Perfect UX</span>
                     </div>
                   </motion.div>
                 </div>
@@ -196,8 +196,8 @@ export default function AppDevelopment({ darkMode }) {
       <section className={`py-24 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className={`absolute top-20 right-0 w-96 h-96 ${darkMode ? 'bg-indigo-900/20' : 'bg-indigo-100/50'} rounded-full blur-3xl`} />
-          <div className={`absolute bottom-20 left-0 w-96 h-96 ${darkMode ? 'bg-purple-900/20' : 'bg-purple-100/50'} rounded-full blur-3xl`} />
+          <div className={`absolute top-20 right-0 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/50'} rounded-full blur-3xl`} />
+          <div className={`absolute bottom-20 left-0 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/50'} rounded-full blur-3xl`} />
         </div>
 
         <div className="container mx-auto max-w-7xl relative z-10">
@@ -214,16 +214,16 @@ export default function AppDevelopment({ darkMode }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30' : 'bg-indigo-100 text-indigo-700 border border-indigo-200'}`}>
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
                 Our Services
               </span>
             </motion.div>
 
             <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              Comprehensive Web Development Solutions
+              End-to-End Mobile App Development
             </h2>
             <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
-              From concept to deployment, we deliver full-stack web development services that drive business growth and user engagement.
+              From concept to App Store launch, we build high-performance native and cross-platform mobile apps that users love and businesses rely on.
             </p>
           </motion.div>
           
@@ -237,47 +237,47 @@ export default function AppDevelopment({ darkMode }) {
             {[
               {
                 icon: <Globe size={40} />,
-                title: "Full-Stack Development",
-                desc: "End-to-end web solutions with modern frontend frameworks and robust backend systems.",
-                gradient: "from-blue-500 to-cyan-500"
+                title: "iOS App Development",
+                desc: "Native iOS applications built with Swift and SwiftUI. Optimized for performance, following Apple's Human Interface Guidelines.",
+                gradient: "from-blue-500 to-blue-400"
               },
               {
                 icon: <Layers size={40} />,
-                title: "Progressive Web Apps",
-                desc: "Fast, reliable, and engaging PWAs that work seamlessly across all devices and platforms.",
-                gradient: "from-purple-500 to-pink-500"
+                title: "Android App Development",
+                desc: "Native Android apps with Kotlin and Jetpack Compose. Material Design 3, optimized for the full spectrum of Android devices.",
+                gradient: "from-blue-500 to-blue-400"
               },
               {
                 icon: <Code size={40} />,
-                title: "Custom Web Applications",
-                desc: "Tailored web applications built with cutting-edge technologies to meet your unique needs.",
-                gradient: "from-indigo-500 to-blue-500"
+                title: "Cross-Platform Apps",
+                desc: "Build once, deploy everywhere with React Native and Flutter. Shared codebase with near-native performance on iOS and Android.",
+                gradient: "from-blue-600 to-blue-400"
               },
               {
                 icon: <Server size={40} />,
-                title: "API Development & Integration",
-                desc: "Scalable RESTful and GraphQL APIs with seamless third-party service integration.",
-                gradient: "from-green-500 to-teal-500"
+                title: "Backend & API Development",
+                desc: "Scalable mobile backends with real-time sync, push notifications, authentication, and cloud-native microservices architecture.",
+                gradient: "from-blue-600 to-blue-400"
               },
               {
                 icon: <Shield size={40} />,
-                title: "Security & Performance",
-                desc: "Enterprise-grade security measures and optimized performance for lightning-fast experiences.",
-                gradient: "from-orange-500 to-red-500"
+                title: "App Security & Compliance",
+                desc: "Enterprise-grade mobile security — encryption, biometric auth, certificate pinning, and compliance with GDPR, HIPAA, and SOC 2.",
+                gradient: "from-blue-400 to-blue-600"
               },
               {
                 icon: <TrendingUp size={40} />,
-                title: "Maintenance & Support",
-                desc: "Ongoing support, updates, and enhancements to keep your application ahead of the curve.",
-                gradient: "from-violet-500 to-purple-500"
+                title: "App Store Optimization",
+                desc: "Launch strategy, ASO, analytics integration, and post-launch iteration to maximize downloads, retention, and user engagement.",
+                gradient: "from-blue-500 to-blue-700"
               }
             ].map((service, index) => (
               <motion.div
                 key={index}
                 className={`group relative rounded-2xl p-8 transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-750 hover:to-gray-850 border border-gray-700 hover:border-indigo-500/50'
-                    : 'bg-white hover:bg-gray-50 border border-gray-200 hover:border-indigo-300 shadow-lg hover:shadow-2xl'
+                    ? 'bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-750 hover:to-gray-850 border border-gray-700 hover:border-blue-500/50'
+                    : 'bg-white hover:bg-gray-50 border border-gray-200 hover:border-blue-300 shadow-lg hover:shadow-2xl'
                 }`}
                 variants={fadeInUp}
                 whileHover={{ y: -12, transition: { duration: 0.3 } }}
@@ -319,8 +319,8 @@ export default function AppDevelopment({ darkMode }) {
       <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-gray-800 to-gray-900' : 'bg-gradient-to-b from-gray-50 to-white'} relative overflow-hidden`}>
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-30">
-          <div className={`absolute top-0 left-1/4 w-64 h-64 ${darkMode ? 'bg-indigo-600/20' : 'bg-indigo-200/40'} rounded-full blur-3xl`} />
-          <div className={`absolute bottom-0 right-1/4 w-64 h-64 ${darkMode ? 'bg-purple-600/20' : 'bg-purple-200/40'} rounded-full blur-3xl`} />
+          <div className={`absolute top-0 left-1/4 w-64 h-64 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
+          <div className={`absolute bottom-0 right-1/4 w-64 h-64 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
         </div>
 
         <div className="container mx-auto max-w-7xl relative z-10">
@@ -337,7 +337,7 @@ export default function AppDevelopment({ darkMode }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-purple-100 text-purple-700 border border-purple-200'}`}>
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
                 Our Process
               </span>
             </motion.div>
@@ -358,7 +358,7 @@ export default function AppDevelopment({ darkMode }) {
             variants={staggerContainer}
           >
             {/* Connection line for desktop */}
-            <div className={`hidden lg:block absolute top-1/2 left-0 right-0 h-1 ${darkMode ? 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500' : 'bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300'} opacity-30`} />
+            <div className={`hidden lg:block absolute top-1/2 left-0 right-0 h-1 ${darkMode ? 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400' : 'bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200'} opacity-30`} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
@@ -367,42 +367,42 @@ export default function AppDevelopment({ darkMode }) {
                   title: "Discovery & Planning",
                   desc: "Deep dive into your business goals, target audience, and technical requirements to create a comprehensive project roadmap.",
                   icon: <Target size={24} />,
-                  color: "from-blue-500 to-cyan-500"
+                  color: "from-blue-500 to-blue-400"
                 },
                 {
                   step: "02",
                   title: "UI/UX Design",
                   desc: "Craft intuitive, beautiful interfaces with user-centered design principles and modern aesthetics.",
                   icon: <Sparkles size={24} />,
-                  color: "from-purple-500 to-pink-500"
+                  color: "from-blue-600 to-blue-400"
                 },
                 {
                   step: "03",
                   title: "Development",
                   desc: "Build robust, scalable applications using cutting-edge technologies and best coding practices.",
                   icon: <Code size={24} />,
-                  color: "from-indigo-500 to-blue-500"
+                  color: "from-blue-600 to-blue-400"
                 },
                 {
                   step: "04",
                   title: "Testing & QA",
                   desc: "Rigorous testing across devices, browsers, and scenarios to ensure flawless performance.",
                   icon: <CheckCircle size={24} />,
-                  color: "from-green-500 to-teal-500"
+                  color: "from-blue-500 to-blue-400"
                 },
                 {
                   step: "05",
                   title: "Deployment",
                   desc: "Seamless launch with optimized configurations, monitoring, and performance tuning.",
                   icon: <Rocket size={24} />,
-                  color: "from-orange-500 to-red-500"
+                  color: "from-blue-400 to-blue-600"
                 },
                 {
                   step: "06",
                   title: "Support & Growth",
                   desc: "Continuous monitoring, updates, and feature enhancements to drive ongoing success.",
                   icon: <TrendingUp size={24} />,
-                  color: "from-violet-500 to-purple-500"
+                  color: "from-blue-500 to-blue-700"
                 }
               ].map((process, index) => (
                 <motion.div
@@ -411,7 +411,7 @@ export default function AppDevelopment({ darkMode }) {
                   variants={fadeInUp}
                 >
                   <motion.div
-                    className={`group relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-750 hover:to-gray-850' : 'bg-white hover:bg-gray-50'} rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-gray-700 hover:border-indigo-500/50' : 'border-gray-200 hover:border-indigo-300'}`}
+                    className={`group relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-750 hover:to-gray-850' : 'bg-white hover:bg-gray-50'} rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-gray-700 hover:border-blue-500/50' : 'border-gray-200 hover:border-blue-300'}`}
                     whileHover={{ y: -8, scale: 1.02 }}
                   >
                     {/* Step number with gradient */}
@@ -459,7 +459,7 @@ export default function AppDevelopment({ darkMode }) {
       <section className={`py-24 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] ${darkMode ? 'bg-indigo-600/10' : 'bg-indigo-200/30'} rounded-full blur-3xl`} />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] ${darkMode ? 'bg-blue-600/10' : 'bg-blue-200/30'} rounded-full blur-3xl`} />
         </div>
 
         <div className="container mx-auto max-w-7xl relative z-10">
@@ -501,28 +501,28 @@ export default function AppDevelopment({ darkMode }) {
                 icon: <Award size={36} />,
                 title: "Expert Team",
                 desc: "Industry veterans with 10+ years of experience in cutting-edge web technologies.",
-                gradient: "from-yellow-400 to-orange-500",
+                gradient: "from-blue-400 to-blue-500",
                 stat: "10+ Years"
               },
               {
                 icon: <Users size={36} />,
                 title: "Client-Centric",
                 desc: "Your vision drives our process. We prioritize communication and collaboration.",
-                gradient: "from-blue-400 to-indigo-500",
+                gradient: "from-blue-400 to-blue-500",
                 stat: "98% Satisfaction"
               },
               {
                 icon: <Shield size={36} />,
                 title: "Quality First",
                 desc: "Rigorous testing, code reviews, and security audits ensure enterprise-grade quality.",
-                gradient: "from-green-400 to-teal-500",
+                gradient: "from-blue-400 to-blue-500",
                 stat: "Zero Compromise"
               },
               {
                 icon: <Zap size={36} />,
                 title: "Fast Delivery",
                 desc: "Agile methodology and efficient workflows deliver your project on time, every time.",
-                gradient: "from-purple-400 to-pink-500",
+                gradient: "from-blue-400 to-blue-500",
                 stat: "On-Time Delivery"
               }
             ].map((feature, index) => (
@@ -532,7 +532,7 @@ export default function AppDevelopment({ darkMode }) {
                 variants={fadeInUp}
                 whileHover={{ y: -10 }}
               >
-                <div className={`relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-white'} rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-gray-700 hover:border-indigo-500/50' : 'border-gray-200 hover:border-indigo-300'} overflow-hidden`}>
+                <div className={`relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-white'} rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-gray-700 hover:border-blue-500/50' : 'border-gray-200 hover:border-blue-300'} overflow-hidden`}>
                   {/* Hover gradient effect */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
 
@@ -569,7 +569,7 @@ export default function AppDevelopment({ darkMode }) {
       </section>
 
       {/* Stats Section */}
-      <section className={`${darkMode ? 'bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900' : 'bg-gradient-to-br from-indigo-600 via-blue-600 to-purple-600'} text-white py-20 px-4 relative overflow-hidden`}>
+      <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'} text-white py-20 px-4 relative overflow-hidden`}>
         {/* Animated particles for background */}
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
@@ -690,7 +690,7 @@ export default function AppDevelopment({ darkMode }) {
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
                 whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
               >
-                <CheckCircle size={18} className="text-green-300" />
+                <CheckCircle size={18} className="text-blue-300" />
                 <span className="text-sm font-medium">{badge}</span>
               </motion.div>
             ))}
@@ -702,13 +702,13 @@ export default function AppDevelopment({ darkMode }) {
       <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-gradient-to-br from-gray-50 to-white'} relative overflow-hidden`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className={`absolute -top-24 -right-24 w-96 h-96 ${darkMode ? 'bg-indigo-600/20' : 'bg-indigo-200/40'} rounded-full blur-3xl`} />
-          <div className={`absolute -bottom-24 -left-24 w-96 h-96 ${darkMode ? 'bg-purple-600/20' : 'bg-purple-200/40'} rounded-full blur-3xl`} />
+          <div className={`absolute -top-24 -right-24 w-96 h-96 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
+          <div className={`absolute -bottom-24 -left-24 w-96 h-96 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div
-            className={`relative ${darkMode ? 'bg-gradient-to-br from-indigo-900 to-purple-900' : 'bg-gradient-to-br from-indigo-600 to-purple-600'} rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16 overflow-hidden`}
+            className={`relative ${darkMode ? 'bg-gradient-to-br from-blue-900 to-blue-950' : 'bg-gradient-to-br from-blue-600 to-blue-700'} rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16 overflow-hidden`}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -737,12 +737,12 @@ export default function AppDevelopment({ darkMode }) {
                   transition={{ delay: 0.2 }}
                 >
                   <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/30">
-                    <Sparkles size={18} className="text-yellow-300" />
+                    <Sparkles size={18} className="text-blue-300" />
                     <span className="text-sm font-medium text-white">Let's Build Something Amazing</span>
                   </div>
 
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
-                    Ready to Transform Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300">Digital Presence?</span>
+                    Ready to Transform Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-600">Digital Presence?</span>
                   </h2>
                   <p className="text-lg md:text-xl text-gray-100 mb-8 leading-relaxed">
                     Let's discuss your project and create a tailored solution that exceeds your expectations. Get a free consultation today.
@@ -756,7 +756,7 @@ export default function AppDevelopment({ darkMode }) {
                       "24h Response Time"
                     ].map((feature, index) => (
                       <div key={index} className="flex items-center gap-2 text-white">
-                        <CheckCircle size={18} className="text-green-300" />
+                        <CheckCircle size={18} className="text-blue-300" />
                         <span className="text-sm font-medium">{feature}</span>
                       </div>
                     ))}
@@ -772,7 +772,7 @@ export default function AppDevelopment({ darkMode }) {
                 transition={{ delay: 0.4 }}
               >
                 <motion.button
-                  className="w-full lg:w-auto bg-white text-indigo-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-50 transition shadow-2xl flex items-center justify-center gap-3 group"
+                  className="w-full lg:w-auto bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-50 transition shadow-2xl flex items-center justify-center gap-3 group"
                   whileHover={{ scale: 1.05, boxShadow: '0 25px 50px rgba(0,0,0,0.3)' }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -781,7 +781,7 @@ export default function AppDevelopment({ darkMode }) {
                 </motion.button>
 
                 <motion.button
-                  className="w-full lg:w-auto border-2 border-white text-white font-bold py-4 px-10 rounded-xl hover:bg-white hover:text-indigo-700 transition backdrop-blur-md bg-white/10 flex items-center justify-center gap-3"
+                  className="w-full lg:w-auto border-2 border-white text-white font-bold py-4 px-10 rounded-xl hover:bg-white hover:text-blue-700 transition backdrop-blur-md bg-white/10 flex items-center justify-center gap-3"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -803,7 +803,7 @@ export default function AppDevelopment({ darkMode }) {
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className={`absolute top-0 left-1/3 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/40'} rounded-full blur-3xl`} />
-          <div className={`absolute bottom-0 right-1/3 w-96 h-96 ${darkMode ? 'bg-indigo-900/20' : 'bg-indigo-100/40'} rounded-full blur-3xl`} />
+          <div className={`absolute bottom-0 right-1/3 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/40'} rounded-full blur-3xl`} />
         </div>
 
         <div className="container mx-auto max-w-7xl relative z-10">
@@ -820,7 +820,7 @@ export default function AppDevelopment({ darkMode }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30' : 'bg-cyan-100 text-cyan-700 border border-cyan-200'}`}>
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
                 Tech Stack
               </span>
             </motion.div>
@@ -829,7 +829,7 @@ export default function AppDevelopment({ darkMode }) {
               Cutting-Edge Technologies
             </h2>
             <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
-              We leverage the most powerful and modern technologies to build scalable, performant, and future-proof web applications.
+              We use the most powerful mobile development frameworks and tools to build fast, beautiful, and reliable apps across all platforms.
             </p>
           </motion.div>
 
@@ -837,24 +837,24 @@ export default function AppDevelopment({ darkMode }) {
           <div className="space-y-12">
             {[
               {
-                category: "Frontend",
-                gradient: "from-blue-500 to-cyan-500",
-                techs: ["React", "Next.js", "Vue.js", "TypeScript", "Tailwind CSS"]
+                category: "Mobile Frameworks",
+                gradient: "from-blue-500 to-blue-400",
+                techs: ["React Native", "Flutter", "Swift", "Kotlin", "SwiftUI"]
               },
               {
-                category: "Backend",
-                gradient: "from-green-500 to-teal-500",
-                techs: ["Node.js", "Python", "Go", "GraphQL", "REST APIs"]
+                category: "Backend & APIs",
+                gradient: "from-blue-500 to-blue-400",
+                techs: ["Node.js", "Firebase", "GraphQL", "Supabase", "REST APIs"]
               },
               {
-                category: "Database & Cloud",
-                gradient: "from-purple-500 to-pink-500",
-                techs: ["PostgreSQL", "MongoDB", "AWS", "Google Cloud", "Docker"]
+                category: "Cloud & DevOps",
+                gradient: "from-blue-600 to-blue-400",
+                techs: ["AWS", "Google Cloud", "Azure", "Docker", "CI/CD"]
               },
               {
-                category: "Tools & Platforms",
-                gradient: "from-orange-500 to-red-500",
-                techs: ["Git", "CI/CD", "Kubernetes", "Vercel", "Firebase"]
+                category: "Testing & Analytics",
+                gradient: "from-blue-400 to-blue-600",
+                techs: ["Jest", "Detox", "Appium", "Firebase Analytics", "Sentry"]
               }
             ].map((stack, stackIndex) => (
               <motion.div
@@ -912,13 +912,13 @@ export default function AppDevelopment({ darkMode }) {
 
           {/* Additional info */}
           <motion.div
-            className={`mt-16 text-center p-8 rounded-2xl ${darkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700' : 'bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200'}`}
+            className={`mt-16 text-center p-8 rounded-2xl ${darkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700' : 'bg-gradient-to-r from-blue-50 to-blue-50 border border-blue-200'}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            <Code size={40} className={`mx-auto mb-4 ${darkMode ? 'text-indigo-400' : 'text-indigo-600'}`} />
+            <Code size={40} className={`mx-auto mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
             <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
               And Many More...
             </h3>
@@ -1000,7 +1000,7 @@ export default function AppDevelopment({ darkMode }) {
         }
 
         .dark .bg-gray-850 {
-          background-color: #1a202c;
+          background-color: #0f172a;
         }
 
         /* Enhanced shadows for dark mode */
@@ -1021,10 +1021,10 @@ export default function AppDevelopment({ darkMode }) {
         /* Pulse animation for badges */
         @keyframes pulse-glow {
           0%, 100% {
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
           }
           50% {
-            box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
           }
         }
       `}</style>

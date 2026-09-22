@@ -1,99 +1,199 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { getTestimonials } from '@/lib/api';
+
+const defaultTestimonials = [
+  {
+    quote: "BeonicX deployed AI agents that now handle 80% of our customer inquiries autonomously. Response times dropped from hours to seconds, and our CSAT score jumped to 96%.",
+    name: 'Rahul Sharma',
+    position: 'CTO, TechInnovate Solutions',
+  },
+  {
+    quote: "Their RAG-powered knowledge base agent transformed how we onboard clients. What used to take our team 3 days now takes 4 hours — with better accuracy.",
+    name: 'Priya Patel',
+    position: 'Head of Operations, RetailMax',
+  },
+  {
+    quote: "The predictive analytics agents from BeonicX cut our inventory waste by 42% and improved demand forecasting accuracy to 94%. Game-changing for our supply chain.",
+    name: 'Amit Singh',
+    position: 'Supply Chain Director, GlobalFoods',
+  },
+];
+
+const stagger = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+};
+
+const cardUp = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
 
 function Testonomial({ darkMode }) {
-  return (
-    <section className={`py-16 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
-      <div className="container mx-auto px-4">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2
-            className={`text-4xl font-bold mb-4 ${
-              darkMode ? 'text-white' : 'text-blue-800'
-            }`}
-          >
-            What Our Clients Say
-          </h2>
-          <p
-            className={`text-base max-w-2xl mx-auto ${
-              darkMode ? 'text-gray-300' : 'text-gray-700'
-            }`}
-          >
-            Hear from businesses that have transformed their operations with
-            our AI solutions.
-          </p>
-        </div>
+  const [testimonials, setTestimonials] = useState(defaultTestimonials);
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              quote:
-                "BeonicX' computer vision solution has revolutionized our quality control process, reducing defects by 78% and increasing productivity.",
-              name: 'Rahul Sharma',
-              position: 'CTO, TechInnovate',
-            },
-            {
-              quote:
-                "Implementing their NLP solution for our customer service has decreased response time by 65% while maintaining high customer satisfaction scores.",
-              name: 'Priya Patel',
-              position: 'Head of Customer Success, RetailMax',
-            },
-            {
-              quote:
-                "The predictive analytics platform provided by BeonicX has transformed how we forecast demand, resulting in 42% less inventory waste.",
-              name: 'Amit Singh',
-              position: 'upply Chain Director, GlobalFoods',
-            },
-          ].map((testimonial, index) => (
-            <div
-              key={index}
-              className={`rounded-xl p-8 ${
-                darkMode
-                  ? 'bg-gray-900 text-white'
-                  : 'bg-white text-[#161616]'
-              } shadow-lg transition-transform duration-300 hover:-translate-y-2`}
+  useEffect(() => {
+    async function load() {
+      const data = await getTestimonials();
+      if (data && data.length > 0) {
+        setTestimonials(data);
+      }
+    }
+    load();
+  }, []);
+
+  return (
+    <section
+      className={`relative py-24 overflow-hidden ${
+        darkMode ? 'bg-[#030712]' : 'bg-white'
+      }`}
+    >
+      {/* Background pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={
+          darkMode
+            ? {
+                backgroundImage:
+                  'linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px)',
+                backgroundSize: '48px 48px',
+              }
+            : {
+                backgroundImage:
+                  'radial-gradient(circle, rgba(59,130,246,0.06) 1px, transparent 1px)',
+                backgroundSize: '24px 24px',
+              }
+        }
+      />
+
+      {/* Ambient glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: darkMode
+            ? 'radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(59,130,246,0.05) 0%, transparent 70%)',
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <span
+            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 ${
+              darkMode
+                ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                : 'bg-blue-50 text-blue-600 border border-blue-100'
+            }`}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+            Testimonials
+          </span>
+
+          <h2
+            className={`text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 ${
+              darkMode ? 'text-white' : 'text-gray-900'
+            }`}
+          >
+            What Our{' '}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  'linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #60a5fa 100%)',
+              }}
             >
-              <div
-                className={`mb-6 ${
-                  darkMode ? 'text-blue-400' : 'text-blue-600'
-                }`}
+              Clients
+            </span>{' '}
+            Say
+          </h2>
+
+          <p
+            className={`text-base sm:text-lg max-w-2xl mx-auto ${
+              darkMode ? 'text-slate-400' : 'text-slate-600'
+            }`}
+          >
+            Hear from businesses that have transformed their operations with our
+            AI solutions.
+          </p>
+        </motion.div>
+
+        {/* Cards grid */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              variants={cardUp}
+              className={`group relative rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 ${
+                darkMode
+                  ? 'bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.08)]'
+                  : 'bg-white border border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:border-blue-200 hover:shadow-[0_8px_32px_rgba(59,130,246,0.08)]'
+              }`}
+            >
+              {/* Quote mark */}
+              <span
+                className="block text-5xl font-serif leading-none mb-4 select-none bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)',
+                }}
+                aria-hidden="true"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-12 w-12"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-              </div>
+                &ldquo;
+              </span>
+
+              {/* Quote */}
               <p
-                className={`text-base mb-6 ${
-                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                className={`text-base leading-relaxed italic mb-8 ${
+                  darkMode ? 'text-slate-300' : 'text-slate-600'
                 }`}
               >
                 {testimonial.quote}
               </p>
+
+              {/* Divider */}
+              <div
+                className="w-12 h-px mb-5"
+                style={{
+                  background:
+                    'linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)',
+                }}
+              />
+
+              {/* Author */}
               <div>
                 <p
-                  className={`font-semibold text-base ${
+                  className={`font-semibold text-sm ${
                     darkMode ? 'text-white' : 'text-gray-900'
                   }`}
                 >
                   {testimonial.name}
                 </p>
                 <p
-                  className={`text-sm ${
-                    darkMode ? 'text-gray-400' : 'text-gray-600'
+                  className={`text-xs mt-0.5 ${
+                    darkMode ? 'text-slate-500' : 'text-slate-500'
                   }`}
                 >
                   {testimonial.position}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
