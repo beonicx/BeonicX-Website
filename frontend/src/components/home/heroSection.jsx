@@ -7,14 +7,14 @@ import {
 } from 'lucide-react';
 
 const stats = [
-  { icon: Bot,            number: '100+',  label: 'AI Agents Built',     accent: 'from-blue-500 to-blue-600' },
-  { icon: Zap,            number: '99%',   label: 'Automation Rate',     accent: 'from-blue-400 to-blue-500' },
+  { icon: Bot,            number: '100+',  label: 'AI Agents Built',     accent: 'from-blue-600 to-blue-700' },
+  { icon: Zap,            number: '99%',   label: 'Automation Rate',     accent: 'from-blue-600 to-blue-700' },
   { icon: Brain,          number: '200+',  label: 'AI Models Trained',   accent: 'from-blue-600 to-blue-400' },
-  { icon: MessageSquare,  number: '500+',  label: 'Conversational AI',   accent: 'from-blue-500 to-blue-600' },
-  { icon: Activity,       number: '10M+',  label: 'Tasks Processed',     accent: 'from-blue-500 to-fuchsia-500' },
-  { icon: Building2,      number: '50+',   label: 'Enterprise Clients',  accent: 'from-blue-300 to-blue-500' },
-  { icon: Clock,          number: '24/7',  label: 'Agent Uptime',        accent: 'from-blue-400 to-blue-500' },
-  { icon: TrendingDown,   number: '80%',   label: 'Cost Reduction',      accent: 'from-blue-500 to-blue-700' },
+  { icon: MessageSquare,  number: '500+',  label: 'Conversational AI',   accent: 'from-blue-600 to-blue-700' },
+  { icon: Activity,       number: '10M+',  label: 'Tasks Processed',     accent: 'from-blue-600 to-indigo-600' },
+  { icon: Building2,      number: '50+',   label: 'Enterprise Clients',  accent: 'from-blue-600 to-blue-800' },
+  { icon: Clock,          number: '24/7',  label: 'Agent Uptime',        accent: 'from-blue-600 to-blue-700' },
+  { icon: TrendingDown,   number: '80%',   label: 'Cost Reduction',      accent: 'from-blue-600 to-blue-800' },
 ];
 
 const cardVariants = {
@@ -30,17 +30,17 @@ function HeroSection({ darkMode }) {
   return (
     <section
       className={`relative overflow-hidden py-20 sm:py-28 transition-colors duration-500 ${
-        darkMode ? 'text-white' : 'text-gray-900'
+        darkMode ? 'text-white' : 'text-slate-900'
       }`}
       style={{
         background: darkMode
-          ? 'radial-gradient(ellipse at 20% 50%, rgba(59,130,246,0.12) 0%, transparent 50%),' +
+          ? 'radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.12) 0%, transparent 50%),' +
             'radial-gradient(ellipse at 80% 20%, rgba(37,99,235,0.09) 0%, transparent 50%),' +
-            'radial-gradient(ellipse at 60% 80%, rgba(96,165,250,0.07) 0%, transparent 50%),' +
+            'radial-gradient(ellipse at 60% 80%, rgba(59,130,246,0.07) 0%, transparent 50%),' +
             '#030712'
-          : 'radial-gradient(ellipse at 20% 50%, rgba(59,130,246,0.06) 0%, transparent 50%),' +
+          : 'radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.06) 0%, transparent 50%),' +
             'radial-gradient(ellipse at 80% 20%, rgba(37,99,235,0.05) 0%, transparent 50%),' +
-            'radial-gradient(ellipse at 60% 80%, rgba(96,165,250,0.04) 0%, transparent 50%),' +
+            'radial-gradient(ellipse at 60% 80%, rgba(59,130,246,0.04) 0%, transparent 50%),' +
             '#ffffff',
       }}
     >
@@ -49,7 +49,7 @@ function HeroSection({ darkMode }) {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `radial-gradient(circle, ${
-            darkMode ? 'rgba(59,130,246,0.12)' : 'rgba(59,130,246,0.07)'
+            darkMode ? 'rgba(37,99,235,0.12)' : 'rgba(37,99,235,0.07)'
           } 1px, transparent 1px)`,
           backgroundSize: '24px 24px',
         }}
@@ -67,7 +67,7 @@ function HeroSection({ darkMode }) {
           <span
             className={`inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1 rounded-full ${
               darkMode
-                ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
                 : 'bg-blue-50 text-blue-600 border border-blue-200/60'
             }`}
           >
@@ -76,7 +76,7 @@ function HeroSection({ darkMode }) {
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.15] mb-5">
             Next-Gen AI Agents That{' '}
-            <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-600 bg-clip-text text-transparent">
               Run Your Business
             </span>
           </h2>
@@ -101,8 +101,8 @@ function HeroSection({ darkMode }) {
                 viewport={{ once: true }}
                 className={`group relative rounded-2xl p-5 sm:p-6 transition-all duration-300 cursor-default ${
                   darkMode
-                    ? 'bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] hover:border-blue-500/30 hover:bg-white/[0.07]'
-                    : 'bg-white/70 backdrop-blur-xl border border-gray-200/60 shadow-sm hover:shadow-lg hover:border-blue-300/50'
+                    ? 'bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] hover:border-blue-600/30 hover:bg-white/[0.07]'
+                    : 'bg-white/70 backdrop-blur-xl border border-slate-200/60 shadow-sm hover:shadow-lg hover:border-blue-600/50'
                 }`}
                 style={{
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease',
@@ -115,7 +115,7 @@ function HeroSection({ darkMode }) {
                     darkMode ? '' : 'hidden'
                   }`}
                   style={{
-                    boxShadow: '0 0 40px rgba(59,130,246,0.08), inset 0 0 40px rgba(59,130,246,0.03)',
+                    boxShadow: '0 0 40px rgba(37,99,235,0.08), inset 0 0 40px rgba(37,99,235,0.03)',
                   }}
                 />
 
@@ -124,15 +124,15 @@ function HeroSection({ darkMode }) {
                   className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br ${stat.accent} mb-4 shadow-lg`}
                   style={{
                     boxShadow: darkMode
-                      ? '0 4px 20px rgba(59,130,246,0.2)'
-                      : '0 4px 16px rgba(59,130,246,0.12)',
+                      ? '0 4px 20px rgba(37,99,235,0.2)'
+                      : '0 4px 16px rgba(37,99,235,0.12)',
                   }}
                 >
                   <Icon size={20} className="text-white" strokeWidth={2} />
                 </div>
 
                 {/* Number */}
-                <div className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent">
+                <div className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-1 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-600 bg-clip-text text-transparent">
                   {stat.number}
                 </div>
 

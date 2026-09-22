@@ -146,12 +146,12 @@ export default function Nextjs({ darkMode = false }) {
   };
 
   return (
-    <main className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <main className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-slate-950 text-white' : 'bg-slate-50 text-slate-900'}`}>
       {/* Hero Section */}
       <section className={`relative ${
         darkMode
-          ? 'bg-gradient-to-br from-gray-900 via-blue-950 to-blue-950'
-          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'
+          ? 'bg-gradient-to-br from-slate-950 via-blue-950 to-blue-950'
+          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'
       } text-white py-24 md:py-36 px-4 overflow-hidden`}>
         {/* Animated background shapes */}
         <div className="absolute inset-0 overflow-hidden">
@@ -196,7 +196,7 @@ export default function Nextjs({ darkMode = false }) {
                 transition={{ duration: 0.6 }}
                 className={`inline-flex items-center gap-2 backdrop-blur-md px-5 py-2.5 rounded-full mb-6 border ${
                   darkMode
-                    ? 'bg-blue-500/20 border-blue-400/40'
+                    ? 'bg-blue-600/20 border-blue-400/40'
                     : 'bg-white/25 border-white/40'
                 }`}
               >
@@ -215,7 +215,7 @@ export default function Nextjs({ darkMode = false }) {
                 </span>
               </h1>
               <p className={`text-lg md:text-xl mb-10 leading-relaxed ${
-                darkMode ? 'text-gray-300' : 'text-blue-50'
+                darkMode ? 'text-slate-300' : 'text-blue-50'
               }`}>
                 Stay ahead with cutting-edge tech news, in-depth articles, and expert insights on innovations shaping tomorrow.
               </p>
@@ -227,10 +227,10 @@ export default function Nextjs({ darkMode = false }) {
               >
                 <div className={`flex items-center gap-3 backdrop-blur-xl rounded-2xl p-4 shadow-2xl border transition-all ${
                   darkMode
-                    ? 'bg-gray-800/60 border-gray-700/50 hover:border-gray-600'
+                    ? 'bg-slate-800/60 border-slate-700/50 hover:border-slate-600'
                     : 'bg-white/95 border-white/60 hover:border-white/80'
                 }`}>
-                  <Search size={22} className={darkMode ? 'text-gray-400' : 'text-gray-600'} />
+                  <Search size={22} className={darkMode ? 'text-slate-400' : 'text-slate-600'} />
                   <input
                     type="text"
                     placeholder="Search articles, topics, technologies..."
@@ -239,7 +239,7 @@ export default function Nextjs({ darkMode = false }) {
                     className={`flex-1 bg-transparent text-base ${
                       darkMode
                         ? 'text-white placeholder-gray-500'
-                        : 'text-gray-900 placeholder-gray-600'
+                        : 'text-slate-900 placeholder-gray-600'
                     } focus:outline-none`}
                   />
                   <motion.button
@@ -247,8 +247,8 @@ export default function Nextjs({ darkMode = false }) {
                     whileTap={{ scale: 0.95 }}
                     className={`px-7 py-2.5 rounded-xl font-semibold shadow-lg transition-all ${
                       darkMode
-                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white'
-                        : 'bg-gradient-to-r from-blue-700 to-blue-700 hover:from-blue-700 hover:to-blue-500 text-white'
+                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-600 hover:to-blue-700 text-white'
+                        : 'bg-gradient-to-r from-blue-700 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white'
                     }`}
                   >
                     Search
@@ -258,12 +258,12 @@ export default function Nextjs({ darkMode = false }) {
 
               <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
                 <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: darkMode ? '0 20px 40px rgba(59, 130, 246, 0.4)' : '0 20px 40px rgba(0,0,0,0.2)' }}
+                  whileHover={{ scale: 1.05, boxShadow: darkMode ? '0 20px 40px rgba(37, 99, 235, 0.4)' : '0 20px 40px rgba(0,0,0,0.2)' }}
                   whileTap={{ scale: 0.95 }}
                   className={`font-bold py-4 px-8 rounded-xl transition shadow-2xl flex items-center justify-center gap-2 ${
                     darkMode
-                      ? 'bg-white text-blue-700 hover:bg-gray-100'
-                      : 'bg-white text-blue-700 hover:bg-gray-50'
+                      ? 'bg-white text-blue-700 hover:bg-slate-100'
+                      : 'bg-white text-blue-700 hover:bg-slate-50'
                   }`}
                 >
                   <BookOpen size={20} />
@@ -274,7 +274,7 @@ export default function Nextjs({ darkMode = false }) {
                   whileTap={{ scale: 0.95 }}
                   className={`font-bold py-4 px-8 rounded-xl transition backdrop-blur-md flex items-center justify-center gap-2 border-2 ${
                     darkMode
-                      ? 'border-gray-400 text-white bg-white/10 hover:bg-white hover:text-blue-700'
+                      ? 'border-slate-400 text-white bg-white/10 hover:bg-white hover:text-blue-700'
                       : 'border-white text-white bg-white/20 hover:bg-white hover:text-blue-700'
                   }`}
                 >
@@ -300,7 +300,7 @@ export default function Nextjs({ darkMode = false }) {
                       {stat.value}
                     </div>
                     <div className={`text-sm font-medium ${
-                      darkMode ? 'text-gray-400' : 'text-blue-100'
+                      darkMode ? 'text-slate-400' : 'text-blue-100'
                     }`}>
                       {stat.label}
                     </div>
@@ -343,7 +343,7 @@ export default function Nextjs({ darkMode = false }) {
 
                   {/* Article info overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <span className="text-xs font-semibold uppercase tracking-wider bg-blue-500/80 px-3 py-1 rounded-full">
+                    <span className="text-xs font-semibold uppercase tracking-wider bg-blue-600/80 px-3 py-1 rounded-full">
                       {featuredArticles[0].category}
                     </span>
                     <h3 className="text-xl font-bold mt-3 mb-2">{featuredArticles[0].title}</h3>
@@ -367,7 +367,7 @@ export default function Nextjs({ darkMode = false }) {
       </section>
 
       {/* Featured Articles */}
-      <section className={`py-24 px-4 relative ${darkMode ? 'bg-gray-950' : 'bg-white'}`}>
+      <section className={`py-24 px-4 relative ${darkMode ? 'bg-slate-950' : 'bg-white'}`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className={`absolute top-20 right-0 w-[500px] h-[500px] ${
@@ -389,7 +389,7 @@ export default function Nextjs({ darkMode = false }) {
               <motion.span
                 className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide ${
                   darkMode
-                    ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                    ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30'
                     : 'bg-blue-100 text-blue-700 border border-blue-300'
                 }`}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -399,7 +399,7 @@ export default function Nextjs({ darkMode = false }) {
                 Featured Content
               </motion.span>
               <h2 className={`text-4xl md:text-5xl font-extrabold mt-6 ${
-                darkMode ? 'text-white' : 'text-gray-900'
+                darkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 Must-Read Articles
               </h2>
@@ -433,8 +433,8 @@ export default function Nextjs({ darkMode = false }) {
               >
                 <div className={`h-full rounded-2xl overflow-hidden transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-xl hover:shadow-blue-900/20'
-                    : 'bg-white border border-gray-200 shadow-lg hover:shadow-xl'
+                    ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800 shadow-xl hover:shadow-blue-900/20'
+                    : 'bg-white border border-slate-200 shadow-lg hover:shadow-xl'
                 }`}>
                   {/* Image */}
                   <div className="relative h-56 w-full overflow-hidden">
@@ -469,11 +469,11 @@ export default function Nextjs({ darkMode = false }) {
                       index === 0 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
                       index === 1 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
                       'group-hover:from-blue-600 group-hover:to-blue-400'
-                    } ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                    } ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                       {article.title}
                     </h3>
                     <p className={`text-base leading-relaxed line-clamp-3 mb-6 ${
-                      darkMode ? 'text-gray-400' : 'text-gray-600'
+                      darkMode ? 'text-slate-400' : 'text-slate-600'
                     }`}>
                       {article.excerpt}
                     </p>
@@ -491,10 +491,10 @@ export default function Nextjs({ darkMode = false }) {
                           />
                         </div>
                         <div>
-                          <p className={`text-sm font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                          <p className={`text-sm font-semibold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                             {article.author.name}
                           </p>
-                          <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                          <p className={`text-xs ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                             {article.publishDate}
                           </p>
                         </div>
@@ -503,7 +503,7 @@ export default function Nextjs({ darkMode = false }) {
                       {/* Read more arrow */}
                       <motion.div
                         className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${
-                          darkMode ? 'bg-gray-800' : 'bg-gray-100'
+                          darkMode ? 'bg-slate-800' : 'bg-slate-100'
                         } group-hover:bg-gradient-to-r ${
                           index === 0 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
                           index === 1 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
@@ -512,7 +512,7 @@ export default function Nextjs({ darkMode = false }) {
                         whileHover={{ scale: 1.15 }}
                       >
                         <ArrowRight size={18} className={`transition-colors ${
-                          darkMode ? 'text-gray-400' : 'text-gray-600'
+                          darkMode ? 'text-slate-400' : 'text-slate-600'
                         } group-hover:text-white`} />
                       </motion.div>
                     </div>
@@ -537,7 +537,7 @@ export default function Nextjs({ darkMode = false }) {
 
       {/* Category Section */}
       <section className={`py-24 px-4 relative ${
-        darkMode ? 'bg-gradient-to-b from-gray-900 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'
+        darkMode ? 'bg-gradient-to-b from-slate-950 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'
       }`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -556,7 +556,7 @@ export default function Nextjs({ darkMode = false }) {
             <motion.span
               className={`inline-block px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-5 ${
                 darkMode
-                  ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                  ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30'
                   : 'bg-blue-100 text-blue-700 border border-blue-300'
               }`}
               initial={{ opacity: 0, scale: 0.8 }}
@@ -566,12 +566,12 @@ export default function Nextjs({ darkMode = false }) {
               Browse Topics
             </motion.span>
             <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${
-              darkMode ? 'text-white' : 'text-gray-900'
+              darkMode ? 'text-white' : 'text-slate-900'
             }`}>
               Explore By Category
             </h2>
             <p className={`text-lg leading-relaxed max-w-2xl mx-auto ${
-              darkMode ? 'text-gray-400' : 'text-gray-600'
+              darkMode ? 'text-slate-400' : 'text-slate-600'
             }`}>
               Dive deep into your areas of interest with our curated technology categories
             </p>
@@ -586,12 +586,12 @@ export default function Nextjs({ darkMode = false }) {
           >
             {categories.map((cat, index) => {
               const gradients = [
-                'from-blue-500 to-blue-400',
+                'from-blue-600 to-blue-700',
                 'from-blue-600 to-blue-400',
-                'from-blue-500 to-blue-400',
+                'from-blue-600 to-blue-700',
                 'from-blue-400 to-blue-600',
                 'from-blue-600 to-blue-400',
-                'from-blue-500 to-blue-700',
+                'from-blue-600 to-blue-800',
                 'from-blue-400 to-blue-600',
                 'from-blue-600 to-blue-400'
               ];
@@ -607,8 +607,8 @@ export default function Nextjs({ darkMode = false }) {
                     href={`/category/${cat.slug}`}
                     className={`group block h-full rounded-2xl p-6 text-center transition-all duration-300 relative overflow-hidden ${
                       darkMode
-                        ? 'bg-gradient-to-br from-gray-900 to-gray-950 hover:from-gray-850 hover:to-gray-900 border border-gray-800 shadow-lg hover:shadow-blue-900/20'
-                        : 'bg-white hover:bg-gray-50 border border-gray-200 shadow-md hover:shadow-xl'
+                        ? 'bg-gradient-to-br from-slate-950 to-gray-950 hover:from-gray-850 hover:to-slate-950 border border-slate-800 shadow-lg hover:shadow-blue-900/20'
+                        : 'bg-white hover:bg-slate-50 border border-slate-200 shadow-md hover:shadow-xl'
                     }`}
                   >
                     {/* Gradient glow on hover */}
@@ -625,12 +625,12 @@ export default function Nextjs({ darkMode = false }) {
                       </motion.div>
 
                       <h3 className={`text-lg font-bold mb-2 ${
-                        darkMode ? 'text-white' : 'text-gray-900'
+                        darkMode ? 'text-white' : 'text-slate-900'
                       }`}>
                         {cat.name}
                       </h3>
                       <p className={`text-sm font-medium ${
-                        darkMode ? 'text-gray-500' : 'text-gray-600'
+                        darkMode ? 'text-slate-500' : 'text-slate-600'
                       }`}>
                         {cat.articleCount} Articles
                       </p>
@@ -660,7 +660,7 @@ export default function Nextjs({ darkMode = false }) {
       <section className={`py-20 px-4 relative overflow-hidden ${
         darkMode
           ? 'bg-gradient-to-br from-blue-950 via-blue-950 to-blue-950'
-          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'
+          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'
       }`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -690,7 +690,7 @@ export default function Nextjs({ darkMode = false }) {
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
               Stay Updated with Tech Trends
             </h2>
-            <p className={`text-lg mb-10 ${darkMode ? 'text-gray-300' : 'text-blue-50'}`}>
+            <p className={`text-lg mb-10 ${darkMode ? 'text-slate-300' : 'text-blue-50'}`}>
               Get the latest tech news delivered straight to your inbox.
             </p>
 
@@ -700,8 +700,8 @@ export default function Nextjs({ darkMode = false }) {
                 placeholder="Enter your email address"
                 className={`flex-1 px-6 py-4 rounded-xl text-base focus:outline-none focus:ring-4 transition-all ${
                   darkMode
-                    ? 'bg-gray-800 text-white placeholder-gray-500 focus:ring-blue-500/50'
-                    : 'bg-white text-gray-900 placeholder-gray-500 focus:ring-white/50'
+                    ? 'bg-slate-800 text-white placeholder-gray-500 focus:ring-blue-600/50'
+                    : 'bg-white text-slate-900 placeholder-gray-500 focus:ring-white/50'
                 }`}
                 required
               />
@@ -711,15 +711,15 @@ export default function Nextjs({ darkMode = false }) {
                 whileTap={{ scale: 0.95 }}
                 className={`py-4 px-8 rounded-xl font-bold transition shadow-xl ${
                   darkMode
-                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white'
-                    : 'bg-white text-blue-700 hover:bg-gray-100'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-600 hover:to-blue-700 text-white'
+                    : 'bg-white text-blue-700 hover:bg-slate-100'
                 }`}
               >
                 Subscribe
               </motion.button>
             </form>
 
-            <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-blue-100'}`}>
+            <p className={`text-sm ${darkMode ? 'text-slate-400' : 'text-blue-100'}`}>
               By subscribing, you agree to our Privacy Policy and Terms of Service.
             </p>
           </motion.div>
@@ -727,7 +727,7 @@ export default function Nextjs({ darkMode = false }) {
       </section>
 
       {/* Latest News */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-950' : 'bg-white'}`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-slate-950' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="flex justify-between items-center mb-16"
@@ -739,7 +739,7 @@ export default function Nextjs({ darkMode = false }) {
               <motion.span
                 className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
                   darkMode
-                    ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                    ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30'
                     : 'bg-blue-100 text-blue-700 border border-blue-300'
                 }`}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -749,7 +749,7 @@ export default function Nextjs({ darkMode = false }) {
                 Latest Updates
               </motion.span>
               <h2 className={`text-4xl md:text-5xl font-extrabold ${
-                darkMode ? 'text-white' : 'text-gray-900'
+                darkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 Latest News
               </h2>
@@ -783,8 +783,8 @@ export default function Nextjs({ darkMode = false }) {
               >
                 <div className={`flex flex-col md:flex-row gap-6 p-6 rounded-2xl transition-all duration-300 h-full ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-lg hover:shadow-blue-900/20'
-                    : 'bg-white border border-gray-200 shadow-md hover:shadow-xl'
+                    ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800 shadow-lg hover:shadow-blue-900/20'
+                    : 'bg-white border border-slate-200 shadow-md hover:shadow-xl'
                 }`}>
                   <div className="md:w-1/3 relative h-48 md:h-auto w-full rounded-xl overflow-hidden min-h-[180px]">
                     <Image
@@ -797,25 +797,25 @@ export default function Nextjs({ darkMode = false }) {
                   </div>
                   <div className="md:w-2/3 flex flex-col">
                     <span className={`text-xs font-bold uppercase tracking-wider mb-3 ${
-                      index === 0 ? 'text-blue-500' :
-                      index === 1 ? 'text-blue-500' :
-                      index === 2 ? 'text-blue-500' :
-                      'text-blue-500'
+                      index === 0 ? 'text-blue-600' :
+                      index === 1 ? 'text-blue-600' :
+                      index === 2 ? 'text-blue-600' :
+                      'text-blue-600'
                     }`}>
                       {news.category}
                     </span>
                     <h3 className={`text-xl font-bold mb-3 line-clamp-2 ${
-                      darkMode ? 'text-white' : 'text-gray-900'
+                      darkMode ? 'text-white' : 'text-slate-900'
                     } group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${
                       index === 0 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
                       index === 1 ? 'group-hover:from-blue-500 group-hover:to-blue-400' :
                       index === 2 ? 'group-hover:from-blue-600 group-hover:to-blue-400' :
-                      'group-hover:from-blue-400 group-hover:to-blue-500'
+                      'group-hover:from-blue-400 group-hover:to-blue-600'
                     } transition-all`}>
                       {news.title}
                     </h3>
                     <p className={`text-base mb-6 line-clamp-2 flex-grow ${
-                      darkMode ? 'text-gray-400' : 'text-gray-600'
+                      darkMode ? 'text-slate-400' : 'text-slate-600'
                     }`}>
                       {news.excerpt}
                     </p>
@@ -832,12 +832,12 @@ export default function Nextjs({ darkMode = false }) {
                         </div>
                         <div>
                           <p className={`text-sm font-semibold ${
-                            darkMode ? 'text-white' : 'text-gray-900'
+                            darkMode ? 'text-white' : 'text-slate-900'
                           }`}>
                             {news.author.name}
                           </p>
                           <p className={`text-xs ${
-                            darkMode ? 'text-gray-500' : 'text-gray-500'
+                            darkMode ? 'text-slate-500' : 'text-slate-500'
                           }`}>
                             {news.publishDate}
                           </p>
@@ -846,10 +846,10 @@ export default function Nextjs({ darkMode = false }) {
                       <motion.div
                         whileHover={{ scale: 1.1 }}
                         className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
-                          darkMode ? 'bg-gray-800' : 'bg-gray-100'
+                          darkMode ? 'bg-slate-800' : 'bg-slate-100'
                         }`}
                       >
-                        <ArrowRight size={18} className={darkMode ? 'text-gray-400' : 'text-gray-600'} />
+                        <ArrowRight size={18} className={darkMode ? 'text-slate-400' : 'text-slate-600'} />
                       </motion.div>
                     </div>
                   </div>

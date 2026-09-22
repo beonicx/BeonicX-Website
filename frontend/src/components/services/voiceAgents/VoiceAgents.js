@@ -37,10 +37,10 @@ export default function VoiceAgents({ darkMode }) {
   };
 
   return (
-    <div className={`font-sans transition-colors duration-300 py-18 ${darkMode ? 'dark bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 text-white' : 'bg-gradient-to-br from-gray-50 via-white to-blue-50 text-gray-800'}`}>
+    <div className={`font-sans transition-colors duration-300 py-18 ${darkMode ? 'dark bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white' : 'bg-gradient-to-br from-gray-50 via-white to-blue-50 text-slate-800'}`}>
 
       {/* Hero Section */}
-      <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'} text-white py-20 px-4 relative overflow-hidden`}>
+      <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'} text-white py-20 px-4 relative overflow-hidden`}>
         {/* Animated background shapes */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(8)].map((_, i) => (
@@ -94,14 +94,14 @@ export default function VoiceAgents({ darkMode }) {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Enterprise <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200">Cloud Services</span> &amp; Infrastructure
               </h1>
-              <p className="text-xl mb-8 text-gray-100 leading-relaxed">
+              <p className="text-xl mb-8 text-slate-100 leading-relaxed">
                 Deploy AI-powered voice agents for inbound and outbound calls, IVR automation, appointment scheduling, and multilingual conversational support — available 24/7.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <motion.button
                   whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-700 font-bold py-4 px-8 rounded-xl hover:bg-gray-50 transition shadow-2xl flex items-center justify-center gap-2"
+                  className="bg-white text-blue-700 font-bold py-4 px-8 rounded-xl hover:bg-slate-50 transition shadow-2xl flex items-center justify-center gap-2"
                 >
                   <Rocket size={20} />
                   Get Started
@@ -165,24 +165,24 @@ export default function VoiceAgents({ darkMode }) {
 
                   {/* Floating tech badges */}
                   <motion.div
-                    className="absolute -top-6 -right-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-2xl border border-gray-200"
+                    className="absolute -top-6 -right-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-2xl border border-slate-200"
                     animate={{ y: [0, -10, 0] }}
                     transition={{ duration: 3, repeat: Infinity }}
                   >
                     <div className="flex items-center gap-2">
                       <Code size={20} className="text-blue-600" />
-                      <span className="font-bold text-gray-800">Human-Like Voice AI</span>
+                      <span className="font-bold text-slate-800">Human-Like Voice AI</span>
                     </div>
                   </motion.div>
 
                   <motion.div
-                    className="absolute -bottom-4 -left-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-2xl border border-gray-200"
+                    className="absolute -bottom-4 -left-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-2xl border border-slate-200"
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
                   >
                     <div className="flex items-center gap-2">
-                      <Zap size={20} className="text-blue-500" />
-                      <span className="font-bold text-gray-800">24/7 Availability</span>
+                      <Zap size={20} className="text-blue-600" />
+                      <span className="font-bold text-slate-800">24/7 Availability</span>
                     </div>
                   </motion.div>
                 </div>
@@ -193,7 +193,7 @@ export default function VoiceAgents({ darkMode }) {
       </section>
 
       {/* Services Section */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-slate-950' : 'bg-white'} relative`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className={`absolute top-20 right-0 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/50'} rounded-full blur-3xl`} />
@@ -214,15 +214,15 @@ export default function VoiceAgents({ darkMode }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-600/20 text-blue-300 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
                 Our Services
               </span>
             </motion.div>
 
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Complete Voice AI Solutions
             </h2>
-            <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+            <p className={`text-lg ${darkMode ? 'text-slate-300' : 'text-slate-600'} max-w-3xl mx-auto leading-relaxed`}>
               From IVR automation to AI-powered outbound campaigns, we build voice agents that handle calls naturally and scale without adding headcount.
             </p>
           </motion.div>
@@ -239,7 +239,7 @@ export default function VoiceAgents({ darkMode }) {
                 icon: <Globe size={40} />,
                 title: "AI-Powered Voice Bots",
                 desc: "Human-like conversational AI that handles customer calls, understands intent, and resolves queries without human intervention.",
-                gradient: "from-blue-500 to-blue-400"
+                gradient: "from-blue-600 to-blue-700"
               },
               {
                 icon: <Layers size={40} />,
@@ -257,7 +257,7 @@ export default function VoiceAgents({ darkMode }) {
                 icon: <Server size={40} />,
                 title: "Appointment Scheduling",
                 desc: "Voice agents that book, reschedule, and confirm appointments directly over the phone with calendar integration.",
-                gradient: "from-blue-500 to-blue-400"
+                gradient: "from-blue-600 to-blue-700"
               },
               {
                 icon: <Shield size={40} />,
@@ -269,15 +269,15 @@ export default function VoiceAgents({ darkMode }) {
                 icon: <TrendingUp size={40} />,
                 title: "Call Analytics & Transcription",
                 desc: "Real-time call transcription, sentiment analysis, conversation analytics, and quality monitoring dashboards.",
-                gradient: "from-blue-500 to-blue-700"
+                gradient: "from-blue-600 to-blue-800"
               }
             ].map((service, index) => (
               <motion.div
                 key={index}
                 className={`group relative rounded-2xl p-8 transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-750 hover:to-gray-850 border border-gray-700 hover:border-blue-500/50'
-                    : 'bg-white hover:bg-gray-50 border border-gray-200 hover:border-blue-300 shadow-lg hover:shadow-2xl'
+                    ? 'bg-gradient-to-br from-slate-800 to-slate-950 hover:from-slate-750 hover:to-slate-850 border border-slate-700 hover:border-blue-600/50'
+                    : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-blue-300 shadow-lg hover:shadow-2xl'
                 }`}
                 variants={fadeInUp}
                 whileHover={{ y: -12, transition: { duration: 0.3 } }}
@@ -287,17 +287,17 @@ export default function VoiceAgents({ darkMode }) {
 
                 {/* Icon with gradient background */}
                 <div className={`relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} p-0.5 mb-6`}>
-                  <div className={`w-full h-full rounded-2xl flex items-center justify-center ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                  <div className={`w-full h-full rounded-2xl flex items-center justify-center ${darkMode ? 'bg-slate-800' : 'bg-white'}`}>
                     <div className={`bg-gradient-to-br ${service.gradient} bg-clip-text text-transparent`}>
                       {service.icon}
                     </div>
                   </div>
                 </div>
 
-                <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'} group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-br group-hover:${service.gradient} transition-all`}>
+                <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'} group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-br group-hover:${service.gradient} transition-all`}>
                   {service.title}
                 </h3>
-                <p className={`text-base leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                <p className={`text-base leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                   {service.desc}
                 </p>
 
@@ -316,7 +316,7 @@ export default function VoiceAgents({ darkMode }) {
       </section>
 
       {/* Process Section */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-gray-800 to-gray-900' : 'bg-gradient-to-b from-gray-50 to-white'} relative overflow-hidden`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-slate-800 to-slate-950' : 'bg-gradient-to-b from-gray-50 to-white'} relative overflow-hidden`}>
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-30">
           <div className={`absolute top-0 left-1/4 w-64 h-64 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
@@ -337,15 +337,15 @@ export default function VoiceAgents({ darkMode }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-600/20 text-blue-300 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
                 Our Process
               </span>
             </motion.div>
 
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               How We Build Your Success
             </h2>
-            <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+            <p className={`text-lg ${darkMode ? 'text-slate-300' : 'text-slate-600'} max-w-3xl mx-auto leading-relaxed`}>
               Our proven development methodology ensures transparency, quality, and timely delivery at every stage.
             </p>
           </motion.div>
@@ -358,7 +358,7 @@ export default function VoiceAgents({ darkMode }) {
             variants={staggerContainer}
           >
             {/* Connection line for desktop */}
-            <div className={`hidden lg:block absolute top-1/2 left-0 right-0 h-1 ${darkMode ? 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400' : 'bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200'} opacity-30`} />
+            <div className={`hidden lg:block absolute top-1/2 left-0 right-0 h-1 ${darkMode ? 'bg-gradient-to-r from-blue-700 via-blue-600 to-blue-600' : 'bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200'} opacity-30`} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
@@ -367,7 +367,7 @@ export default function VoiceAgents({ darkMode }) {
                   title: "Discovery & Planning",
                   desc: "Deep dive into your business goals, target audience, and technical requirements to create a comprehensive project roadmap.",
                   icon: <Target size={24} />,
-                  color: "from-blue-500 to-blue-400"
+                  color: "from-blue-600 to-blue-700"
                 },
                 {
                   step: "02",
@@ -388,7 +388,7 @@ export default function VoiceAgents({ darkMode }) {
                   title: "Testing & QA",
                   desc: "Rigorous testing across devices, browsers, and scenarios to ensure flawless performance.",
                   icon: <CheckCircle size={24} />,
-                  color: "from-blue-500 to-blue-400"
+                  color: "from-blue-600 to-blue-700"
                 },
                 {
                   step: "05",
@@ -402,7 +402,7 @@ export default function VoiceAgents({ darkMode }) {
                   title: "Support & Growth",
                   desc: "Continuous monitoring, updates, and feature enhancements to drive ongoing success.",
                   icon: <TrendingUp size={24} />,
-                  color: "from-blue-500 to-blue-700"
+                  color: "from-blue-600 to-blue-800"
                 }
               ].map((process, index) => (
                 <motion.div
@@ -411,7 +411,7 @@ export default function VoiceAgents({ darkMode }) {
                   variants={fadeInUp}
                 >
                   <motion.div
-                    className={`group relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-750 hover:to-gray-850' : 'bg-white hover:bg-gray-50'} rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-gray-700 hover:border-blue-500/50' : 'border-gray-200 hover:border-blue-300'}`}
+                    className={`group relative ${darkMode ? 'bg-gradient-to-br from-slate-800 to-slate-950 hover:from-slate-750 hover:to-slate-850' : 'bg-white hover:bg-slate-50'} rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-slate-700 hover:border-blue-600/50' : 'border-slate-200 hover:border-blue-300'}`}
                     whileHover={{ y: -8, scale: 1.02 }}
                   >
                     {/* Step number with gradient */}
@@ -421,23 +421,23 @@ export default function VoiceAgents({ darkMode }) {
                       </div>
 
                       {/* Icon */}
-                      <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${darkMode ? 'bg-gray-700' : 'bg-gray-100'} group-hover:scale-110 transition-transform`}>
+                      <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${darkMode ? 'bg-slate-700' : 'bg-slate-100'} group-hover:scale-110 transition-transform`}>
                         <div className={`bg-gradient-to-br ${process.color} bg-clip-text text-transparent`}>
                           {process.icon}
                         </div>
                       </div>
                     </div>
 
-                    <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                    <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                       {process.title}
                     </h3>
-                    <p className={`text-base leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    <p className={`text-base leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                       {process.desc}
                     </p>
 
                     {/* Progress indicator */}
                     <div className="mt-6">
-                      <div className={`h-1.5 rounded-full ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} overflow-hidden`}>
+                      <div className={`h-1.5 rounded-full ${darkMode ? 'bg-slate-700' : 'bg-slate-200'} overflow-hidden`}>
                         <motion.div
                           className={`h-full bg-gradient-to-r ${process.color} rounded-full`}
                           initial={{ width: '0%' }}
@@ -456,7 +456,7 @@ export default function VoiceAgents({ darkMode }) {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-slate-950' : 'bg-white'} relative`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] ${darkMode ? 'bg-blue-600/10' : 'bg-blue-200/30'} rounded-full blur-3xl`} />
@@ -476,15 +476,15 @@ export default function VoiceAgents({ darkMode }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-600/20 text-blue-300 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
                 Why Choose Us
               </span>
             </motion.div>
 
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Your Success is Our Mission
             </h2>
-            <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+            <p className={`text-lg ${darkMode ? 'text-slate-300' : 'text-slate-600'} max-w-3xl mx-auto leading-relaxed`}>
               Partner with a team that's committed to delivering exceptional results and exceeding expectations.
             </p>
           </motion.div>
@@ -501,28 +501,28 @@ export default function VoiceAgents({ darkMode }) {
                 icon: <Award size={36} />,
                 title: "Expert Team",
                 desc: "Industry veterans with 10+ years of experience in cutting-edge web technologies.",
-                gradient: "from-blue-400 to-blue-500",
+                gradient: "from-blue-600 to-blue-700",
                 stat: "10+ Years"
               },
               {
                 icon: <Users size={36} />,
                 title: "Client-Centric",
                 desc: "Your vision drives our process. We prioritize communication and collaboration.",
-                gradient: "from-blue-400 to-blue-500",
+                gradient: "from-blue-600 to-blue-700",
                 stat: "98% Satisfaction"
               },
               {
                 icon: <Shield size={36} />,
                 title: "Quality First",
                 desc: "Rigorous testing, code reviews, and security audits ensure enterprise-grade quality.",
-                gradient: "from-blue-400 to-blue-500",
+                gradient: "from-blue-600 to-blue-700",
                 stat: "Zero Compromise"
               },
               {
                 icon: <Zap size={36} />,
                 title: "Fast Delivery",
                 desc: "Agile methodology and efficient workflows deliver your project on time, every time.",
-                gradient: "from-blue-400 to-blue-500",
+                gradient: "from-blue-600 to-blue-700",
                 stat: "On-Time Delivery"
               }
             ].map((feature, index) => (
@@ -532,7 +532,7 @@ export default function VoiceAgents({ darkMode }) {
                 variants={fadeInUp}
                 whileHover={{ y: -10 }}
               >
-                <div className={`relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-white'} rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-gray-700 hover:border-blue-500/50' : 'border-gray-200 hover:border-blue-300'} overflow-hidden`}>
+                <div className={`relative ${darkMode ? 'bg-gradient-to-br from-slate-800 to-slate-950' : 'bg-white'} rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-slate-700 hover:border-blue-600/50' : 'border-slate-200 hover:border-blue-300'} overflow-hidden`}>
                   {/* Hover gradient effect */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
 
@@ -548,14 +548,14 @@ export default function VoiceAgents({ darkMode }) {
                   </motion.div>
 
                   {/* Stat badge */}
-                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-4 ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}`}>
+                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-4 ${darkMode ? 'bg-slate-700 text-slate-300' : 'bg-slate-100 text-slate-700'}`}>
                     {feature.stat}
                   </div>
 
-                  <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     {feature.title}
                   </h3>
-                  <p className={`text-base leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <p className={`text-base leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                     {feature.desc}
                   </p>
 
@@ -569,7 +569,7 @@ export default function VoiceAgents({ darkMode }) {
       </section>
 
       {/* Stats Section */}
-      <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'} text-white py-20 px-4 relative overflow-hidden`}>
+      <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'} text-white py-20 px-4 relative overflow-hidden`}>
         {/* Animated particles for background */}
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
@@ -608,7 +608,7 @@ export default function VoiceAgents({ darkMode }) {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Trusted by Industry Leaders
             </h2>
-            <p className="text-lg text-gray-100 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-100 max-w-2xl mx-auto">
               Our track record speaks for itself. Here's what we've achieved together with our clients.
             </p>
           </motion.div>
@@ -655,7 +655,7 @@ export default function VoiceAgents({ darkMode }) {
                   </motion.h3>
                 </motion.div>
 
-                <p className="text-base md:text-lg font-medium text-gray-100 group-hover:text-white transition-colors">
+                <p className="text-base md:text-lg font-medium text-slate-100 group-hover:text-white transition-colors">
                   {stat.text}
                 </p>
 
@@ -699,7 +699,7 @@ export default function VoiceAgents({ darkMode }) {
       </section>
 
       {/* CTA Section */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-gradient-to-br from-gray-50 to-white'} relative overflow-hidden`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-br from-slate-800 to-slate-950' : 'bg-gradient-to-br from-gray-50 to-white'} relative overflow-hidden`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className={`absolute -top-24 -right-24 w-96 h-96 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
@@ -744,7 +744,7 @@ export default function VoiceAgents({ darkMode }) {
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
                     Ready to Transform Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-600">Digital Presence?</span>
                   </h2>
-                  <p className="text-lg md:text-xl text-gray-100 mb-8 leading-relaxed">
+                  <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
                     Let's discuss your project and create a tailored solution that exceeds your expectations. Get a free consultation today.
                   </p>
 
@@ -772,7 +772,7 @@ export default function VoiceAgents({ darkMode }) {
                 transition={{ delay: 0.4 }}
               >
                 <motion.button
-                  className="w-full lg:w-auto bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-50 transition shadow-2xl flex items-center justify-center gap-3 group"
+                  className="w-full lg:w-auto bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-slate-50 transition shadow-2xl flex items-center justify-center gap-3 group"
                   whileHover={{ scale: 1.05, boxShadow: '0 25px 50px rgba(0,0,0,0.3)' }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -789,7 +789,7 @@ export default function VoiceAgents({ darkMode }) {
                   <span>Schedule a Call</span>
                 </motion.button>
 
-                <p className="text-sm text-gray-200 text-center lg:text-right mt-2">
+                <p className="text-sm text-slate-200 text-center lg:text-right mt-2">
                   Join 250+ satisfied clients worldwide
                 </p>
               </motion.div>
@@ -799,7 +799,7 @@ export default function VoiceAgents({ darkMode }) {
       </section>
 
       {/* Technologies Section */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-slate-950' : 'bg-white'} relative`}>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className={`absolute top-0 left-1/3 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/40'} rounded-full blur-3xl`} />
@@ -820,15 +820,15 @@ export default function VoiceAgents({ darkMode }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
+              <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-600/20 text-blue-300 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
                 Tech Stack
               </span>
             </motion.div>
 
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Cutting-Edge Technologies
             </h2>
-            <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+            <p className={`text-lg ${darkMode ? 'text-slate-300' : 'text-slate-600'} max-w-3xl mx-auto leading-relaxed`}>
               We integrate best-in-class voice AI and telephony platforms to build reliable, scalable voice agent systems.
             </p>
           </motion.div>
@@ -838,12 +838,12 @@ export default function VoiceAgents({ darkMode }) {
             {[
               {
                 category: "Voice AI Platforms",
-                gradient: "from-blue-500 to-blue-400",
+                gradient: "from-blue-600 to-blue-700",
                 techs: ["OpenAI Realtime", "ElevenLabs", "Deepgram", "Google STT", "Azure Speech"]
               },
               {
                 category: "Telephony & SIP",
-                gradient: "from-blue-500 to-blue-400",
+                gradient: "from-blue-600 to-blue-700",
                 techs: ["Twilio", "Vonage", "Plivo", "FreeSWITCH", "WebRTC"]
               },
               {
@@ -881,7 +881,7 @@ export default function VoiceAgents({ darkMode }) {
                   {stack.techs.map((tech, techIndex) => (
                     <motion.div
                       key={techIndex}
-                      className={`group relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-750 hover:to-gray-850 border border-gray-700' : 'bg-white hover:bg-gray-50 border border-gray-200'} rounded-xl p-6 text-center transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden`}
+                      className={`group relative ${darkMode ? 'bg-gradient-to-br from-slate-800 to-slate-950 hover:from-slate-750 hover:to-slate-850 border border-slate-700' : 'bg-white hover:bg-slate-50 border border-slate-200'} rounded-xl p-6 text-center transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden`}
                       variants={fadeInUp}
                       whileHover={{
                         y: -8,
@@ -897,7 +897,7 @@ export default function VoiceAgents({ darkMode }) {
                         {tech.charAt(0)}
                       </div>
 
-                      <span className={`relative font-semibold text-base ${darkMode ? 'text-white' : 'text-gray-900'} group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:${stack.gradient}`}>
+                      <span className={`relative font-semibold text-base ${darkMode ? 'text-white' : 'text-slate-900'} group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:${stack.gradient}`}>
                         {tech}
                       </span>
 
@@ -912,17 +912,17 @@ export default function VoiceAgents({ darkMode }) {
 
           {/* Additional info */}
           <motion.div
-            className={`mt-16 text-center p-8 rounded-2xl ${darkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700' : 'bg-gradient-to-r from-blue-50 to-blue-50 border border-blue-200'}`}
+            className={`mt-16 text-center p-8 rounded-2xl ${darkMode ? 'bg-gradient-to-r from-slate-800 to-slate-950 border border-slate-700' : 'bg-gradient-to-r from-blue-50 to-blue-50 border border-blue-200'}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
             <Code size={40} className={`mx-auto mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-            <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               And Many More...
             </h3>
-            <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className={`${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
               We stay up-to-date with the latest technologies and frameworks to deliver the best solutions for your project.
             </p>
           </motion.div>
@@ -999,7 +999,7 @@ export default function VoiceAgents({ darkMode }) {
           background-color: #1f2937;
         }
 
-        .dark .bg-gray-850 {
+        .dark .bg-slate-850 {
           background-color: #0f172a;
         }
 
@@ -1021,10 +1021,10 @@ export default function VoiceAgents({ darkMode }) {
         /* Pulse animation for badges */
         @keyframes pulse-glow {
           0%, 100% {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
           }
           50% {
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.6);
           }
         }
       `}</style>

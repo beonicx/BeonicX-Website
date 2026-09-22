@@ -57,12 +57,12 @@ function Testonomial({ darkMode }) {
           darkMode
             ? {
                 backgroundImage:
-                  'linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px)',
+                  'linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px)',
                 backgroundSize: '48px 48px',
               }
             : {
                 backgroundImage:
-                  'radial-gradient(circle, rgba(59,130,246,0.06) 1px, transparent 1px)',
+                  'radial-gradient(circle, rgba(37,99,235,0.06) 1px, transparent 1px)',
                 backgroundSize: '24px 24px',
               }
         }
@@ -73,8 +73,8 @@ function Testonomial({ darkMode }) {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
           background: darkMode
-            ? 'radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(59,130,246,0.05) 0%, transparent 70%)',
+            ? 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 70%)',
         }}
       />
 
@@ -90,17 +90,17 @@ function Testonomial({ darkMode }) {
           <span
             className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 ${
               darkMode
-                ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
                 : 'bg-blue-50 text-blue-600 border border-blue-100'
             }`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
             Testimonials
           </span>
 
           <h2
             className={`text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 ${
-              darkMode ? 'text-white' : 'text-gray-900'
+              darkMode ? 'text-white' : 'text-slate-900'
             }`}
           >
             What Our{' '}
@@ -140,8 +140,8 @@ function Testonomial({ darkMode }) {
               variants={cardUp}
               className={`group relative rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 ${
                 darkMode
-                  ? 'bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.08)]'
-                  : 'bg-white border border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:border-blue-200 hover:shadow-[0_8px_32px_rgba(59,130,246,0.08)]'
+                  ? 'bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] hover:border-blue-600/30 hover:shadow-[0_0_30px_rgba(37,99,235,0.08)]'
+                  : 'bg-white border border-slate-100 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:border-blue-200 hover:shadow-[0_8px_32px_rgba(37,99,235,0.08)]'
               }`}
             >
               {/* Quote mark */}
@@ -178,7 +178,7 @@ function Testonomial({ darkMode }) {
               <div>
                 <p
                   className={`font-semibold text-sm ${
-                    darkMode ? 'text-white' : 'text-gray-900'
+                    darkMode ? 'text-white' : 'text-slate-900'
                   }`}
                 >
                   {testimonial.name}

@@ -204,9 +204,9 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
         ${scrolled
           ? (darkMode
             ? 'bg-[#030712]/80 backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.05)] border-b border-white/[0.05]'
-            : 'bg-white/80 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] border-b border-gray-200/60')
+            : 'bg-white/80 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] border-b border-slate-200/60')
           : (darkMode ? 'bg-[#030712]' : 'bg-white')}
-        ${darkMode ? 'text-white' : 'text-gray-900'}
+        ${darkMode ? 'text-white' : 'text-slate-900'}
         ${showHeader ? 'top-0' : 'top-0'}
       `}>
         <div className="max-w-7xl mx-auto">
@@ -237,7 +237,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                     priority
                   />
                 </div>
-                <span className={`text-xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+                <span className={`text-xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-800'}`}>
                   BeonicX
                 </span>
               </a>
@@ -268,7 +268,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                         relative px-4 py-6 text-sm font-medium transition-all duration-300 flex items-center
                         ${activeLink === link.id ? 
                           (darkMode ? 'text-blue-400 font-semibold' : 'text-blue-600 font-semibold') : 
-                          (darkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-800 hover:text-blue-600')}
+                          (darkMode ? 'text-slate-300 hover:text-blue-400' : 'text-slate-800 hover:text-blue-600')}
                         group
                       `}
                     >
@@ -297,7 +297,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                         <motion.div
                           className={`
                             absolute left-0 mt-0 py-4 px-4 w-64 rounded-2xl shadow-2xl z-10
-                            ${darkMode ? 'bg-[#030712]/95 backdrop-blur-xl text-white border border-white/[0.08]' : 'bg-white/95 backdrop-blur-xl text-gray-800 border border-gray-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)]'}
+                            ${darkMode ? 'bg-[#030712]/95 backdrop-blur-xl text-white border border-white/[0.08]' : 'bg-white/95 backdrop-blur-xl text-slate-800 border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)]'}
                           `}
                           variants={dropdownVariants}
                           initial="hidden"
@@ -356,7 +356,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                     <motion.div
                                       className={`
                                         absolute left-full top-0 ml-2 py-4 px-4 w-64 rounded-2xl shadow-2xl z-20
-                                        ${darkMode ? 'bg-[#030712]/95 backdrop-blur-xl text-white border border-white/[0.08]' : 'bg-white/95 backdrop-blur-xl text-gray-800 border border-gray-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)]'}
+                                        ${darkMode ? 'bg-[#030712]/95 backdrop-blur-xl text-white border border-white/[0.08]' : 'bg-white/95 backdrop-blur-xl text-slate-800 border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)]'}
                                       `}
                                       initial={{ opacity: 0, x: -10 }}
                                       animate={{ opacity: 1, x: 0 }}
@@ -400,8 +400,8 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 className={`
                   ml-8 px-6 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300
                   bg-gradient-to-r from-blue-600 to-blue-700 text-white
-                  hover:from-blue-500 hover:to-blue-600
-                  shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30
+                  hover:from-blue-600 hover:to-blue-700
+                  shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30
                   hover:-translate-y-0.5
                 `}
                 whileHover={{ scale: 1.05 }}
@@ -414,7 +414,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 onClick={onToggleDarkMode}
                 className={`
                   ml-4 p-2 rounded-full transition-all duration-300 cursor-pointer
-                  ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'}
+                  ${darkMode ? 'bg-slate-800 hover:bg-slate-700' : 'bg-slate-100 hover:bg-slate-200'}
                 `}
                 aria-label="Toggle Dark Mode"
                 whileHover={{ rotate: 15 }}
@@ -425,7 +425,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                   </svg>
                 )}
@@ -438,7 +438,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 onClick={onToggleDarkMode}
                 className={`
                   p-2 mr-2 rounded-full transition-all duration-300
-                  ${darkMode ? 'bg-gray-800' : 'bg-gray-100'}
+                  ${darkMode ? 'bg-slate-800' : 'bg-slate-100'}
                 `}
                 aria-label="Toggle Dark Mode"
                 whileHover={{ rotate: 15 }}
@@ -449,7 +449,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                   </svg>
                 )}
@@ -459,7 +459,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className={`
                   p-2 rounded-lg transition-all duration-300
-                  ${darkMode ? 'text-white hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100'}
+                  ${darkMode ? 'text-white hover:bg-slate-800' : 'text-slate-700 hover:bg-slate-100'}
                 `}
                 whileTap={{ scale: 0.9 }}
               >
@@ -483,7 +483,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
             <motion.div 
               className={`
                 lg:hidden shadow-lg
-                ${darkMode ? 'bg-gray-900 border-t border-gray-800' : 'bg-white border-t border-gray-100'}
+                ${darkMode ? 'bg-slate-950 border-t border-slate-800' : 'bg-white border-t border-slate-100'}
               `}
               variants={mobileMenuVariants}
               initial="hidden"
@@ -509,7 +509,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                           font-medium text-base transition-all duration-300
                           ${activeLink === link.id ? 
                             (darkMode ? 'text-blue-400' : 'text-blue-600') : 
-                            (darkMode ? 'text-gray-300' : 'text-gray-800')}
+                            (darkMode ? 'text-slate-300' : 'text-slate-800')}
                         `}
                       >
                         {link.name}
@@ -549,7 +549,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                 onClick={item.onClick}
                                 className={`
                                   block py-2 text-sm cursor-pointer transition-all duration-300
-                                  ${darkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}
+                                  ${darkMode ? 'text-slate-300 hover:text-blue-400' : 'text-slate-700 hover:text-blue-600'}
                                 `}
                               >
                                 {item.title}
@@ -564,7 +564,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                       onClick={subItem.onClick}
                                       className={`
                                         block py-1.5 text-xs cursor-pointer transition-all duration-300
-                                        ${darkMode ? 'text-gray-400 hover:text-blue-300' : 'text-gray-600 hover:text-blue-600'}
+                                        ${darkMode ? 'text-slate-400 hover:text-blue-300' : 'text-slate-600 hover:text-blue-600'}
                                       `}
                                       whileHover={{ x: 5 }}
                                     >
@@ -584,7 +584,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 <motion.div 
                   className={`
                     mt-6 pt-4 border-t
-                    ${darkMode ? 'border-gray-800' : 'border-gray-200'}
+                    ${darkMode ? 'border-slate-800' : 'border-slate-200'}
                   `}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -594,8 +594,8 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                     href="/get-started" 
                     className={`
                       block w-full py-3 text-center font-medium rounded-full transition-all duration-300
-                      ${darkMode ? 'bg-blue-500 hover:bg-blue-600 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white'}
-                      hover:shadow-lg hover:shadow-blue-500/30
+                      ${darkMode ? 'bg-blue-600 hover:bg-blue-600 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white'}
+                      hover:shadow-lg hover:shadow-blue-600/30
                     `}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -608,7 +608,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                       href="tel:+91-9129842706" 
                       className={`
                         flex items-center text-sm transition-colors duration-300
-                        ${darkMode ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'}
+                        ${darkMode ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}
                       `}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -622,7 +622,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                       href="mailto:contact@beonicx.com" 
                       className={`
                         flex items-center text-sm transition-colors duration-300
-                        ${darkMode ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'}
+                        ${darkMode ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}
                       `}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}

@@ -69,8 +69,8 @@ const Page = ({ params }) => {
     <div className={darkMode ? 'dark' : ''}>
       <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
       {loading ? (
-        <div className={`min-h-screen flex items-center justify-center ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500" />
+        <div className={`min-h-screen flex items-center justify-center ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600" />
         </div>
       ) : hasRichContent ? (
         <ServiceDetail darkMode={darkMode} service={service} />
@@ -79,7 +79,7 @@ const Page = ({ params }) => {
       ) : service ? (
         <ServiceDetail darkMode={darkMode} service={service} />
       ) : (
-        <div className={`min-h-screen flex items-center justify-center ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50'}`}>
+        <div className={`min-h-screen flex items-center justify-center ${darkMode ? 'bg-slate-950 text-white' : 'bg-slate-50'}`}>
           <p className="text-xl">Service not found</p>
         </div>
       )}

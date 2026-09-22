@@ -2,7 +2,6 @@
 
 import { useState, useEffect, createContext } from "react";
 
-import Faq from "../../constants/FAQ/FaqConstants";
 import WhatsAppButton from "../../constants/whatsapp/whatsapp";
 import Navbar from "../../layouts/navbar/Navbar";
 import Footer from "../../layouts/footer/Footer";
@@ -10,11 +9,9 @@ import FeatureSection from "../../components/home/featureSection";
 import Testonomial from "../../components/home/testonomial";
 import Slider from "../../constants/slider1/Slider";
 import FreelamceBanner from "../../components/home/join";
-import HeroSection from "../../components/home/heroSection";
 import IndustrySlider from "../../components/home/industrySlider";
 import Toppage from "../../components/home/top";
 import ChatWidget from "../../components/ai-agent/ChatWidget";
-import FAQSchema from "../../components/seo/FAQSchema";
 
 // Create a context to share dark mode state across components
 export const ThemeContext = createContext({
@@ -62,15 +59,13 @@ export default function Home() {
   return (
     <ThemeContext.Provider value={themeContextValue}>
       <main className={darkMode ? "dark" : ""}>
-        <div className={`min-h-screen ${darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900"}`}>
+        <div className={`min-h-screen ${darkMode ? "bg-slate-950 text-white" : "bg-slate-50 text-slate-900"}`}>
           <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
           <div className="pt-16">
             <Toppage darkMode={darkMode}/>
             <FeatureSection darkMode={darkMode} />
             <Slider darkMode={darkMode} />
             <Testonomial darkMode={darkMode} />
-            <HeroSection darkMode={darkMode} />
-            <Faq darkMode={darkMode} />
             <IndustrySlider darkMode={darkMode} />
             <WhatsAppButton darkMode={darkMode} />
             <div className="px-10">

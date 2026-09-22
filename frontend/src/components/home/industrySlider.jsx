@@ -98,15 +98,15 @@ const EnhancedIndustrySlider = ({
   };
 
   return (
-    <div className={`relative w-full py-16 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <div className={`relative w-full py-16 ${darkMode ? 'bg-slate-950 text-white' : 'bg-slate-50 text-slate-900'}`}>
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h2 className={`text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+          <h2 className={`text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
             {title}
             <span className="block w-24 h-1 mx-auto mt-2 bg-blue-600 rounded-full"></span>
           </h2>
-          <p className={`text-lg max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          <p className={`text-lg max-w-3xl mx-auto ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
             {description}
           </p>
         </div>
@@ -115,7 +115,7 @@ const EnhancedIndustrySlider = ({
         <div className="mb-12">
           <div 
             className={`rounded-xl overflow-hidden shadow-xl ${
-              darkMode ? 'bg-gray-800' : 'bg-white'
+              darkMode ? 'bg-slate-800' : 'bg-white'
             }`}
           >
             <div className="grid md:grid-cols-2">
@@ -135,21 +135,21 @@ const EnhancedIndustrySlider = ({
                 }`}>
                   Industry Focus
                 </div>
-                <h3 className={`text-3xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-3xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {industries[currentIndex].title}
                 </h3>
-                <p className={`mb-6 text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                <p className={`mb-6 text-lg ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                   {industries[currentIndex].subtitle}
                 </p>
                 {industries[currentIndex].features && (
                   <div className="mb-6">
-                    <h4 className={`font-semibold mb-2 ${darkMode ? 'text-gray-200' : 'text-gray-700'}`}>
+                    <h4 className={`font-semibold mb-2 ${darkMode ? 'text-slate-200' : 'text-slate-700'}`}>
                       Key Solutions:
                     </h4>
-                    <ul className={`space-y-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    <ul className={`space-y-2 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                       {industries[currentIndex].features.map((feature, idx) => (
                         <li key={idx} className="flex items-start">
-                          <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-5 h-5 text-blue-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                           {feature}
@@ -189,7 +189,7 @@ const EnhancedIndustrySlider = ({
                 key={idx}
                 className={`relative h-48 sm:h-52 md:h-56 lg:h-64 overflow-hidden rounded-lg cursor-pointer transition-all duration-300 transform ${
                   idx === currentIndex 
-                    ? `ring-2 ${darkMode ? 'ring-blue-500' : 'ring-blue-600'} scale-[1.02]` 
+                    ? `ring-2 ${darkMode ? 'ring-blue-600' : 'ring-blue-600'} scale-[1.02]` 
                     : 'hover:scale-[1.01]'
                 }`}
                 onClick={() => goToSlide(idx)}
@@ -204,7 +204,7 @@ const EnhancedIndustrySlider = ({
                 <div className={`absolute inset-0 ${
                   idx === currentIndex
                     ? darkMode ? 'bg-blue-900/75' : 'bg-blue-700/75'
-                    : darkMode ? 'bg-gray-900/65' : 'bg-gray-800/65'
+                    : darkMode ? 'bg-slate-950/65' : 'bg-slate-800/65'
                 } transition-colors duration-300`}></div>
 
                 {/* Text Content */}
@@ -224,7 +224,7 @@ const EnhancedIndustrySlider = ({
                 {idx === currentIndex && (
                   <div className="absolute top-3 right-3">
                     <div className={`w-3 h-3 rounded-full ${
-                      darkMode ? 'bg-blue-400' : 'bg-blue-500'
+                      darkMode ? 'bg-blue-400' : 'bg-blue-600'
                     }`}></div>
                   </div>
                 )}
@@ -238,8 +238,8 @@ const EnhancedIndustrySlider = ({
               onClick={handlePrev}
               className={`rounded-full p-2 shadow-lg transition-all ${
                 darkMode 
-                  ? 'bg-gray-800/70 hover:bg-gray-700 text-white' 
-                  : 'bg-white/70 hover:bg-white text-gray-800'
+                  ? 'bg-slate-800/70 hover:bg-slate-700 text-white' 
+                  : 'bg-white/70 hover:bg-white text-slate-800'
               }`}
               aria-label="Previous industry"
               disabled={isAnimating}
@@ -253,8 +253,8 @@ const EnhancedIndustrySlider = ({
               onClick={handleNext}
               className={`rounded-full p-2 shadow-lg transition-all ${
                 darkMode 
-                  ? 'bg-gray-800/70 hover:bg-gray-700 text-white' 
-                  : 'bg-white/70 hover:bg-white text-gray-800'
+                  ? 'bg-slate-800/70 hover:bg-slate-700 text-white' 
+                  : 'bg-white/70 hover:bg-white text-slate-800'
               }`}
               aria-label="Next industry"
               disabled={isAnimating}
@@ -274,8 +274,8 @@ const EnhancedIndustrySlider = ({
               onClick={() => goToSlide(idx)}
               className={`h-2 rounded-full transition-all duration-300 ${
                 currentIndex === idx 
-                  ? `w-10 ${darkMode ? 'bg-blue-500' : 'bg-blue-600'}` 
-                  : `w-2 ${darkMode ? 'bg-gray-600' : 'bg-gray-300'} hover:bg-gray-400`
+                  ? `w-10 ${darkMode ? 'bg-blue-600' : 'bg-blue-600'}` 
+                  : `w-2 ${darkMode ? 'bg-slate-600' : 'bg-slate-300'} hover:bg-slate-400`
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             ></button>
@@ -288,8 +288,8 @@ const EnhancedIndustrySlider = ({
             onClick={() => setIsPaused(!isPaused)}
             className={`text-sm flex items-center gap-2 mx-auto ${
               darkMode 
-                ? 'text-gray-400 hover:text-gray-200' 
-                : 'text-gray-500 hover:text-gray-700'
+                ? 'text-slate-400 hover:text-slate-200' 
+                : 'text-slate-500 hover:text-slate-700'
             }`}
           >
             {isPaused ? (

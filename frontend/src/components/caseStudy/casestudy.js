@@ -41,7 +41,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
           challenges: cs.challenge ? [cs.challenge] : [],
           solutions: cs.solution ? [cs.solution] : [],
           technologies: cs.technologies || [],
-          gradient: 'from-blue-500 to-blue-400',
+          gradient: 'from-blue-600 to-blue-700',
           icon: <Globe className="w-6 h-6" />,
         }));
         setApiCaseStudies(mapped);
@@ -141,7 +141,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "ML-based adaptive training plans"
       ],
       technologies: ["React Native", "Python", "TensorFlow", "HealthKit", "Google Fit"],
-      gradient: "from-blue-500 to-blue-400",
+      gradient: "from-blue-600 to-blue-700",
       icon: <Activity className="w-6 h-6" />
     },
     {
@@ -172,7 +172,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Real-time database synchronization"
       ],
       technologies: ["React Native", "WebRTC", "Node.js", "PostgreSQL", "Redis"],
-      gradient: "from-blue-500 to-blue-400",
+      gradient: "from-blue-600 to-blue-700",
       icon: <BookOpen className="w-6 h-6" />
     },
     {
@@ -203,7 +203,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Multi-gateway payment abstraction"
       ],
       technologies: ["Flutter", "TensorFlow", "ARCore", "ARKit", "Stripe"],
-      gradient: "from-blue-500 to-blue-700",
+      gradient: "from-blue-600 to-blue-800",
       icon: <ShoppingCart className="w-6 h-6" />
     },
     {
@@ -265,7 +265,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "PCI-DSS compliant architecture"
       ],
       technologies: ["Native iOS/Android", "Node.js", "ML", "Blockchain", "AWS"],
-      gradient: "from-blue-500 to-blue-400",
+      gradient: "from-blue-600 to-blue-700",
       icon: <DollarSign className="w-6 h-6" />
     },
     {
@@ -296,7 +296,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Background sync optimization"
       ],
       technologies: ["Flutter", "Python", "ML", "AWS", "OpenWeather API"],
-      gradient: "from-sky-500 to-blue-500",
+      gradient: "from-sky-500 to-blue-600",
       icon: <Globe className="w-6 h-6" />
     },
     {
@@ -327,7 +327,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Real-time database sync"
       ],
       technologies: ["React Native", "Firebase", "WebRTC", "Node.js", "Socket.io"],
-      gradient: "from-blue-500 to-blue-700",
+      gradient: "from-blue-600 to-blue-800",
       icon: <Users className="w-6 h-6" />
     },
     {
@@ -389,7 +389,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         "Blockchain-based document storage"
       ],
       technologies: ["Flutter", "ARCore", "ARKit", "Google Maps", "Blockchain"],
-      gradient: "from-blue-500 to-blue-600",
+      gradient: "from-blue-600 to-blue-700",
       icon: <Target className="w-6 h-6" />
     },
     {
@@ -465,14 +465,14 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
   });
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-gray-950' : 'bg-gray-50'}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
       <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
 
       {/* Hero Section */}
       <section className={`relative overflow-hidden ${
         darkMode
-          ? 'bg-gradient-to-br from-gray-900 via-blue-950 to-blue-950'
-          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'
+          ? 'bg-gradient-to-br from-slate-950 via-blue-950 to-blue-950'
+          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'
       } text-white py-24 md:py-32 px-4`}>
         {/* Animated background */}
         <div className="absolute inset-0 overflow-hidden">
@@ -503,7 +503,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
             <motion.div
               variants={fadeInUp}
               className={`inline-flex items-center gap-2 backdrop-blur-md px-5 py-2.5 rounded-full mb-6 border ${
-                darkMode ? 'bg-blue-500/20 border-blue-400/40' : 'bg-white/25 border-white/40'
+                darkMode ? 'bg-blue-600/20 border-blue-400/40' : 'bg-white/25 border-white/40'
               }`}
             >
               <Sparkles className={darkMode ? 'text-blue-400' : 'text-blue-200'} size={18} />
@@ -525,7 +525,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
             <motion.p
               variants={fadeInUp}
               className={`text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed ${
-                darkMode ? 'text-gray-300' : 'text-blue-50'
+                darkMode ? 'text-slate-300' : 'text-blue-50'
               }`}
             >
               Explore our portfolio of successful projects that have transformed businesses and delighted millions of users worldwide.
@@ -548,7 +548,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                   <div className={`text-3xl md:text-4xl font-extrabold ${darkMode ? 'text-white' : 'text-white'}`}>
                     {stat.value}
                   </div>
-                  <div className={`text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-blue-100'}`}>
+                  <div className={`text-sm font-medium ${darkMode ? 'text-slate-400' : 'text-blue-100'}`}>
                     {stat.label}
                   </div>
                 </div>
@@ -560,24 +560,24 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
 
       {/* Filter Section */}
       <section className={`sticky top-16 z-30 ${
-        darkMode ? 'bg-gray-900/95 border-b border-gray-800' : 'bg-white/95 border-b border-gray-200'
+        darkMode ? 'bg-slate-950/95 border-b border-slate-800' : 'bg-white/95 border-b border-slate-200'
       } backdrop-blur-md`}>
         <div className="max-w-7xl mx-auto px-4 py-6">
           {/* Search Bar */}
           <div className="mb-6">
             <div className={`flex items-center gap-3 backdrop-blur-xl rounded-xl p-4 border transition-all ${
               darkMode
-                ? 'bg-gray-800/60 border-gray-700/50 hover:border-gray-600'
-                : 'bg-white border-gray-300 hover:border-gray-400'
+                ? 'bg-slate-800/60 border-slate-700/50 hover:border-slate-600'
+                : 'bg-white border-slate-300 hover:border-slate-400'
             }`}>
-              <Search size={22} className={darkMode ? 'text-gray-400' : 'text-gray-600'} />
+              <Search size={22} className={darkMode ? 'text-slate-400' : 'text-slate-600'} />
               <input
                 type="text"
                 placeholder="Search by project name, technology, or category..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className={`flex-1 bg-transparent text-base ${
-                  darkMode ? 'text-white placeholder-gray-500' : 'text-gray-900 placeholder-gray-600'
+                  darkMode ? 'text-white placeholder-gray-500' : 'text-slate-900 placeholder-gray-600'
                 } focus:outline-none`}
               />
             </div>
@@ -585,7 +585,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
 
           {/* Category Filters */}
           <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
-            <Filter size={20} className={darkMode ? 'text-gray-400' : 'text-gray-600'} />
+            <Filter size={20} className={darkMode ? 'text-slate-400' : 'text-slate-600'} />
             {categories.map((category) => (
               <motion.button
                 key={category}
@@ -598,8 +598,8 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                       ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
                       : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
                     : darkMode
-                      ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
               >
                 {category}
@@ -608,7 +608,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
           </div>
 
           {/* Results Count */}
-          <div className={`mt-4 text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+          <div className={`mt-4 text-sm font-medium ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
             Showing {filteredCaseStudies.length} of {caseStudies.length} projects
           </div>
         </div>
@@ -631,8 +631,8 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
               onHoverEnd={() => setHoveredCard(null)}
               className={`group rounded-2xl overflow-hidden transition-all duration-300 ${
                 darkMode
-                  ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-xl hover:shadow-blue-900/20'
-                  : 'bg-white border border-gray-200 shadow-lg hover:shadow-2xl'
+                  ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800 shadow-xl hover:shadow-blue-900/20'
+                  : 'bg-white border border-slate-200 shadow-lg hover:shadow-2xl'
               }`}
             >
               {/* Image */}
@@ -670,7 +670,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ delay: 0.1 }}
-                        className="bg-white text-gray-900 font-bold py-3 px-6 rounded-xl hover:bg-gray-100 transition flex items-center gap-2"
+                        className="bg-white text-slate-900 font-bold py-3 px-6 rounded-xl hover:bg-slate-100 transition flex items-center gap-2"
                       >
                         View Details
                         <ArrowRight size={18} />
@@ -682,10 +682,10 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className={`text-xl font-bold mb-3 line-clamp-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-xl font-bold mb-3 line-clamp-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {study.title}
                 </h3>
-                <p className={`text-sm mb-4 line-clamp-2 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                <p className={`text-sm mb-4 line-clamp-2 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                   {study.description}
                 </p>
 
@@ -696,7 +696,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                       key={idx}
                       className={`text-xs font-semibold px-3 py-1 rounded-full ${
                         darkMode
-                          ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                          ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30'
                           : 'bg-blue-100 text-blue-700 border border-blue-200'
                       }`}
                     >
@@ -705,7 +705,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                   ))}
                   {study.tags.length > 3 && (
                     <span className={`text-xs font-semibold px-3 py-1 rounded-full ${
-                      darkMode ? 'bg-gray-800 text-gray-400' : 'bg-gray-100 text-gray-600'
+                      darkMode ? 'bg-slate-800 text-slate-400' : 'bg-slate-100 text-slate-600'
                     }`}>
                       +{study.tags.length - 3}
                     </span>
@@ -713,12 +713,12 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                 </div>
 
                 {/* Results Metrics */}
-                <div className={`grid grid-cols-3 gap-4 pt-4 border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+                <div className={`grid grid-cols-3 gap-4 pt-4 border-t ${darkMode ? 'border-slate-800' : 'border-slate-200'}`}>
                   <div>
                     <div className={`text-lg font-bold bg-gradient-to-r ${study.gradient} bg-clip-text text-transparent`}>
                       {study.results.metric1}
                     </div>
-                    <div className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
+                    <div className={`text-xs ${darkMode ? 'text-slate-500' : 'text-slate-600'}`}>
                       {study.results.label1}
                     </div>
                   </div>
@@ -726,7 +726,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                     <div className={`text-lg font-bold bg-gradient-to-r ${study.gradient} bg-clip-text text-transparent`}>
                       {study.results.metric2}
                     </div>
-                    <div className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
+                    <div className={`text-xs ${darkMode ? 'text-slate-500' : 'text-slate-600'}`}>
                       {study.results.label2}
                     </div>
                   </div>
@@ -734,14 +734,14 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
                     <div className={`text-lg font-bold bg-gradient-to-r ${study.gradient} bg-clip-text text-transparent`}>
                       {study.results.metric3}
                     </div>
-                    <div className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
+                    <div className={`text-xs ${darkMode ? 'text-slate-500' : 'text-slate-600'}`}>
                       {study.results.label3}
                     </div>
                   </div>
                 </div>
 
                 {/* Duration */}
-                <div className={`flex items-center gap-2 mt-4 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                <div className={`flex items-center gap-2 mt-4 text-sm ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                   <Clock size={16} />
                   <span>{study.duration} development</span>
                 </div>
@@ -757,13 +757,13 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center py-20"
           >
-            <div className={`text-6xl mb-4 ${darkMode ? 'text-gray-700' : 'text-gray-300'}`}>
+            <div className={`text-6xl mb-4 ${darkMode ? 'text-slate-700' : 'text-slate-300'}`}>
               🔍
             </div>
-            <h3 className={`text-2xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h3 className={`text-2xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               No projects found
             </h3>
-            <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>
+            <p className={darkMode ? 'text-slate-400' : 'text-slate-600'}>
               Try adjusting your search or filters
             </p>
           </motion.div>
@@ -774,7 +774,7 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       <section className={`relative py-24 px-4 overflow-hidden ${
         darkMode
           ? 'bg-gradient-to-br from-blue-950 via-blue-950 to-blue-950'
-          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'
+          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'
       }`}>
         <div className="max-w-4xl mx-auto text-center text-white relative z-10">
           <motion.div
@@ -786,14 +786,14 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6">
               Ready to Start Your Success Story?
             </h2>
-            <p className={`text-lg md:text-xl mb-10 ${darkMode ? 'text-gray-300' : 'text-blue-50'}`}>
+            <p className={`text-lg md:text-xl mb-10 ${darkMode ? 'text-slate-300' : 'text-blue-50'}`}>
               Let's collaborate to create an exceptional product that transforms your business.
             </p>
             <Link href="/get-started">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-100 transition shadow-2xl inline-flex items-center gap-2"
+                className="bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-slate-100 transition shadow-2xl inline-flex items-center gap-2"
               >
                 Start Your Project
                 <ArrowRight size={20} />

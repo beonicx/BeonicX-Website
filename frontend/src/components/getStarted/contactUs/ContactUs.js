@@ -232,13 +232,13 @@ export default function ContactUs({ darkMode = false }) {
   };
 
   const getInputClassName = (fieldName) => {
-    const baseClass = `w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ${
-      darkMode ? 'bg-gray-700 text-white' : 'bg-white text-gray-900'
+    const baseClass = `w-full px-4 py-2 border rounded-md focus:ring-blue-600 focus:border-blue-600 transition-colors duration-200 ${
+      darkMode ? 'bg-slate-700 text-white' : 'bg-white text-slate-900'
     }`;
 
     const errorClass = errors[fieldName] && touched[fieldName]
       ? darkMode ? 'border-red-400' : 'border-red-500'
-      : darkMode ? 'border-gray-600' : 'border-gray-300';
+      : darkMode ? 'border-slate-600' : 'border-slate-300';
 
     return `${baseClass} ${errorClass}`;
   };
@@ -250,11 +250,11 @@ export default function ContactUs({ darkMode = false }) {
         <meta name="description" content="Get in touch with our team" />
       </Head>
 
-      <div className={`py-48 transition-colors duration-200 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+      <div className={`py-48 transition-colors duration-200 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h1 className={`text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Get in Touch</h1>
-            <p className={`text-lg max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <h1 className={`text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>Get in Touch</h1>
+            <p className={`text-lg max-w-3xl mx-auto ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
               Let us know how we can help you. Fill out the form and our team will get back to you shortly.
             </p>
           </div>
@@ -262,13 +262,13 @@ export default function ContactUs({ darkMode = false }) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Info */}
             <div className="col-span-1">
-              <div className={`rounded-lg shadow-lg p-8 h-full transition-colors duration-200 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-                <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Contact Information</h2>
+              <div className={`rounded-lg shadow-lg p-8 h-full transition-colors duration-200 ${darkMode ? 'bg-slate-800' : 'bg-white'}`}>
+                <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-slate-800'}`}>Contact Information</h2>
 
                 <div className="space-y-6">
                   <div>
                     <h3 className={`text-lg font-medium ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>India (Headquarters)</h3>
-                    <p className={`mt-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    <p className={`mt-2 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                       One World Trade Center, Suite 8500<br />
                       Greater Noida, Haryana , India
                     </p>
@@ -276,7 +276,7 @@ export default function ContactUs({ darkMode = false }) {
 
                   <div>
                     <h3 className={`text-lg font-medium ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>India</h3>
-                    <p className={`mt-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    <p className={`mt-2 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                       14th Floor, Titanium City Center<br />
                       Chandigarh, Chandigarh, India
                     </p>
@@ -284,7 +284,7 @@ export default function ContactUs({ darkMode = false }) {
 
                   <div>
                     <h3 className={`text-lg font-medium ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Contact Details</h3>
-                    <p className={`mt-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    <p className={`mt-2 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                       Email: beonicxgroup@gmail.com<br />
                       Phone: +91-9129842706
                     </p>
@@ -295,8 +295,8 @@ export default function ContactUs({ darkMode = false }) {
 
             {/* Contact Form */}
             <div className="col-span-1 lg:col-span-2">
-              <div className={`rounded-lg shadow-lg p-8 transition-colors duration-200 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-                <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Send Us a Message</h2>
+              <div className={`rounded-lg shadow-lg p-8 transition-colors duration-200 ${darkMode ? 'bg-slate-800' : 'bg-white'}`}>
+                <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-slate-800'}`}>Send Us a Message</h2>
 
                 {submitMessage && (
                   <div className={`p-4 rounded-lg mb-6 ${
@@ -315,8 +315,8 @@ export default function ContactUs({ darkMode = false }) {
                 <form onSubmit={handleSubmit} noValidate>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                      <label htmlFor="name" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                        Name* <span className="text-xs text-gray-500">(3-50 characters, letters only)</span>
+                      <label htmlFor="name" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                        Name* <span className="text-xs text-slate-500">(3-50 characters, letters only)</span>
                       </label>
                       <input
                         type="text"
@@ -337,7 +337,7 @@ export default function ContactUs({ darkMode = false }) {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                      <label htmlFor="email" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
                         Email*
                       </label>
                       <input
@@ -359,8 +359,8 @@ export default function ContactUs({ darkMode = false }) {
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                        Phone Number <span className="text-xs text-gray-500">(10 digits, optional)</span>
+                      <label htmlFor="phone" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                        Phone Number <span className="text-xs text-slate-500">(10 digits, optional)</span>
                       </label>
                       <input
                         type="tel"
@@ -381,8 +381,8 @@ export default function ContactUs({ darkMode = false }) {
                     </div>
 
                     <div>
-                      <label htmlFor="skype" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                        Skype ID <span className="text-xs text-gray-500">(optional)</span>
+                      <label htmlFor="skype" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                        Skype ID <span className="text-xs text-slate-500">(optional)</span>
                       </label>
                       <input
                         type="text"
@@ -390,8 +390,8 @@ export default function ContactUs({ darkMode = false }) {
                         name="skype"
                         value={formData.skype}
                         onChange={handleChange}
-                        className={`w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ${
-                          darkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-900 border-gray-300'
+                        className={`w-full px-4 py-2 border rounded-md focus:ring-blue-600 focus:border-blue-600 transition-colors duration-200 ${
+                          darkMode ? 'bg-slate-700 text-white border-slate-600' : 'bg-white text-slate-900 border-slate-300'
                         }`}
                         disabled={isSubmitting}
                         placeholder="john.doe"
@@ -400,8 +400,8 @@ export default function ContactUs({ darkMode = false }) {
                   </div>
 
                   <div className="mb-6">
-                    <label htmlFor="message" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                      Message* <span className="text-xs text-gray-500">(20-1000 characters)</span>
+                    <label htmlFor="message" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                      Message* <span className="text-xs text-slate-500">(20-1000 characters)</span>
                     </label>
                     <textarea
                       id="message"
@@ -420,7 +420,7 @@ export default function ContactUs({ darkMode = false }) {
                           {errors.message}
                         </p>
                       )}
-                      <p className={`text-xs ml-auto ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                      <p className={`text-xs ml-auto ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                         {formData.message.length}/1000
                       </p>
                     </div>
@@ -430,9 +430,9 @@ export default function ContactUs({ darkMode = false }) {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`px-6 py-3 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 ${
+                      className={`px-6 py-3 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 ${
                         darkMode
-                          ? 'bg-blue-500 hover:bg-blue-600 focus:ring-offset-gray-800'
+                          ? 'bg-blue-600 hover:bg-blue-600 focus:ring-offset-slate-800'
                           : 'bg-blue-600 hover:bg-blue-700 focus:ring-offset-2'
                       } ${isSubmitting ? 'cursor-wait' : 'cursor-pointer'}`}
                     >
@@ -456,10 +456,10 @@ export default function ContactUs({ darkMode = false }) {
 
           {/* Map Section */}
           <div className="mt-12">
-            <div className={`rounded-lg shadow-lg p-8 transition-colors duration-200 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-              <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Our Location - Noida</h2>
+            <div className={`rounded-lg shadow-lg p-8 transition-colors duration-200 ${darkMode ? 'bg-slate-800' : 'bg-white'}`}>
+              <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-slate-800'}`}>Our Location - Noida</h2>
 
-              <div className={`w-full h-96 rounded-lg overflow-hidden border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+              <div className={`w-full h-96 rounded-lg overflow-hidden border ${darkMode ? 'border-slate-700' : 'border-slate-200'}`}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224346.5398039306!2d77.22652749999999!3d28.527554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1704000000000!5m2!1sen!2sin"
                   width="100%"
@@ -473,7 +473,7 @@ export default function ContactUs({ darkMode = false }) {
                 ></iframe>
               </div>
 
-              <div className={`mt-4 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+              <div className={`mt-4 text-sm ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                 <p className="flex items-center gap-2">
                   <svg className={`w-5 h-5 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

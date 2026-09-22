@@ -54,7 +54,7 @@
   
   .subscribe-btn {
     padding: 0.5rem 1rem;
-    background-color: #3b82f6;
+    background-color: #2563eb;
     color: white;
     border: none;
     border-radius: 0 4px 4px 0;
@@ -62,7 +62,7 @@
   }
   
   .subscribe-btn:hover {
-    background-color: #2563eb;
+    background-color: #1d4ed8;
   }
   
   .checkbox-container {

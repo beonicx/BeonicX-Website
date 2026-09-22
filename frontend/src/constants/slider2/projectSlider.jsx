@@ -110,18 +110,18 @@ const EnhancedProjectSlider = ({
   return (
     <div className={`w-full relative py-12 transition-colors duration-300 ${
       darkMode 
-        ? 'bg-gray-900 from-gray-900 to-gray-800 text-white' 
-        : 'bg-gradient-to-b from-gray-50 to-gray-100 text-gray-800'
+        ? 'bg-slate-950 from-slate-950 to-gray-800 text-white' 
+        : 'bg-gradient-to-b from-gray-50 to-gray-100 text-slate-800'
     }`}>
       <div className="container mx-auto px-4">
         {/* Header Section with Title and Description */}
         <div className="text-center mb-12">
-          <h2 className={`text-4xl font-bold mb-4 relative inline-block  ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+          <h2 className={`text-4xl font-bold mb-4 relative inline-block  ${darkMode ? 'text-white' : 'text-slate-900'}`}>
             Our Projects
             <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-blue-600 rounded-full"></span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${
-            darkMode ? 'text-gray-300' : 'text-gray-600'
+            darkMode ? 'text-slate-300' : 'text-slate-600'
           }`}>
             {description}
           </p>
@@ -130,7 +130,7 @@ const EnhancedProjectSlider = ({
         {/* Featured Project Display */}
         {activeProject && (
           <div className={`mb-12 rounded-xl shadow-xl p-6 transition-all duration-500 ${
-            darkMode ? 'bg-gray-800' : 'bg-white'
+            darkMode ? 'bg-slate-800' : 'bg-white'
           }`}>
             <div className="flex flex-col md:flex-row gap-6">
               <div className="md:w-1/2 h-64 md:h-96 relative rounded-xl overflow-hidden">
@@ -145,10 +145,10 @@ const EnhancedProjectSlider = ({
               </div>
               <div className="md:w-1/2 flex flex-col justify-center">
                 <h3 className={`text-3xl font-bold mb-4 ${
-                  darkMode ? 'text-white' : 'text-gray-800'
+                  darkMode ? 'text-white' : 'text-slate-800'
                 }`}>{activeProject.title}</h3>
                 <p className={`mb-6 ${
-                  darkMode ? 'text-gray-300' : 'text-gray-600'
+                  darkMode ? 'text-slate-300' : 'text-slate-600'
                 }`}>
                   {activeProject.description || "This is one of our featured projects showcasing our expertise and commitment to excellence."}
                 </p>
@@ -195,8 +195,8 @@ const EnhancedProjectSlider = ({
               >
                 <div 
                   className={`rounded-xl overflow-hidden shadow-lg h-full cursor-pointer transform transition-all duration-300 hover:translate-y-2 ${
-                    index === currentIndex ? 'ring-2 ring-blue-500 ring-offset-2' : ''
-                  } ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
+                    index === currentIndex ? 'ring-2 ring-blue-600 ring-offset-2' : ''
+                  } ${darkMode ? 'bg-slate-800' : 'bg-white'}`}
                   onClick={() => goToSlide(index)}
                 >
                   <div className="h-48 relative overflow-hidden">
@@ -224,8 +224,8 @@ const EnhancedProjectSlider = ({
             onClick={prevSlide}
             className={`rounded-full p-3 shadow-lg transition-colors ${
               darkMode 
-                ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                : 'bg-white hover:bg-gray-100 text-gray-800'
+                ? 'bg-slate-700 hover:bg-slate-600 text-white' 
+                : 'bg-white hover:bg-slate-100 text-slate-800'
             }`}
             aria-label="Previous slide"
           >
@@ -244,8 +244,8 @@ const EnhancedProjectSlider = ({
                   idx === currentIndex 
                     ? 'w-8 bg-blue-600' 
                     : darkMode 
-                      ? 'bg-gray-600 hover:bg-gray-500' 
-                      : 'bg-gray-300 hover:bg-gray-400'
+                      ? 'bg-slate-600 hover:bg-slate-500' 
+                      : 'bg-slate-300 hover:bg-slate-400'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -256,8 +256,8 @@ const EnhancedProjectSlider = ({
             onClick={nextSlide}
             className={`rounded-full p-3 shadow-lg transition-colors ${
               darkMode 
-                ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                : 'bg-white hover:bg-gray-100 text-gray-800'
+                ? 'bg-slate-700 hover:bg-slate-600 text-white' 
+                : 'bg-white hover:bg-slate-100 text-slate-800'
             }`}
             aria-label="Next slide"
           >
@@ -273,8 +273,8 @@ const EnhancedProjectSlider = ({
             onClick={() => setAutoplay(!autoplay)}
             className={`text-sm flex items-center gap-2 mx-auto ${
               darkMode 
-                ? 'text-gray-400 hover:text-gray-200' 
-                : 'text-gray-500 hover:text-gray-700'
+                ? 'text-slate-400 hover:text-slate-200' 
+                : 'text-slate-500 hover:text-slate-700'
             }`}
           >
             {autoplay ? (

@@ -58,7 +58,7 @@ export default function Slider({ darkMode }) {
     <div className="w-full px-4 sm:px-6 lg:px-8">
       <main
         className={`max-w-7xl mx-auto py-8 rounded-xl transition-colors duration-300 ${
-          darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'
+          darkMode ? 'bg-slate-950 text-white' : 'bg-white text-black'
         }`}
       >
         <div className="mb-12">

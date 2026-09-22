@@ -104,16 +104,16 @@ export default function AboutUs({ darkMode = false }) {
   return (
     <>
 
-      <div className={`min-h-screen transition-colors duration-200 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+      <div className={`min-h-screen transition-colors duration-200 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
 
         {/* Hero Section */}
-        <section className={`relative py-20 lg:py-32 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900' : 'bg-gradient-to-br from-blue-50 via-white to-blue-50'}`}>
+        <section className={`relative py-20 lg:py-32 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-slate-950 via-blue-900/20 to-slate-950' : 'bg-gradient-to-br from-blue-50 via-white to-blue-50'}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className={`text-center transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h1 className={`text-5xl lg:text-7xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                About <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">BeonicX</span>
+              <h1 className={`text-5xl lg:text-7xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                About <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">BeonicX</span>
               </h1>
-              <p className={`text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <p className={`text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
                 Empowering businesses with cutting-edge AI-powered software solutions.
                 We transform ideas into intelligent, scalable, and innovative digital experiences.
               </p>
@@ -121,26 +121,26 @@ export default function AboutUs({ darkMode = false }) {
           </div>
 
           {/* Decorative Elements */}
-          <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
         </section>
 
         {/* Stats Section */}
-        <section className={`py-16 ${darkMode ? 'bg-gray-800' : 'bg-white'} transition-colors duration-200`}>
+        <section className={`py-16 ${darkMode ? 'bg-slate-800' : 'bg-white'} transition-colors duration-200`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <div
                   key={index}
                   className={`text-center p-6 rounded-xl transition-all duration-300 hover:scale-105 ${
-                    darkMode ? 'bg-gray-700/50 hover:bg-gray-700' : 'bg-gray-50 hover:bg-gray-100'
+                    darkMode ? 'bg-slate-700/50 hover:bg-slate-700' : 'bg-slate-50 hover:bg-slate-100'
                   }`}
                 >
                   <div className="text-4xl mb-3">{stat.icon}</div>
-                  <div className={`text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent`}>
+                  <div className={`text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent`}>
                     {stat.number}
                   </div>
-                  <div className={`text-sm lg:text-base ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <div className={`text-sm lg:text-base ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                     {stat.label}
                   </div>
                 </div>
@@ -154,10 +154,10 @@ export default function AboutUs({ darkMode = false }) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h2 className={`text-4xl lg:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   Our Story
                 </h2>
-                <div className={`space-y-4 text-lg leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <div className={`space-y-4 text-lg leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
                   <p>
                     Founded in 2025, BeonicX emerged from a simple yet powerful vision: to democratize access to
                     cutting-edge technology and help businesses of all sizes harness the power of AI and modern software solutions.
@@ -177,19 +177,19 @@ export default function AboutUs({ darkMode = false }) {
                 </div>
               </div>
 
-              <div className={`rounded-2xl p-8 ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-2xl`}>
-                <h3 className={`text-2xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <div className={`rounded-2xl p-8 ${darkMode ? 'bg-slate-800' : 'bg-white'} shadow-2xl`}>
+                <h3 className={`text-2xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   Our Mission
                 </h3>
-                <p className={`text-lg mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <p className={`text-lg mb-8 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
                   To empower businesses with intelligent, scalable, and innovative technology solutions that drive growth,
                   efficiency, and competitive advantage in the digital age.
                 </p>
 
-                <h3 className={`text-2xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-2xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   Our Vision
                 </h3>
-                <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <p className={`text-lg ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
                   To be the world's most trusted partner in AI-powered digital transformation, recognized for excellence,
                   innovation, and the lasting impact we create for our clients.
                 </p>
@@ -199,13 +199,13 @@ export default function AboutUs({ darkMode = false }) {
         </section>
 
         {/* Values Section */}
-        <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-white'} transition-colors duration-200`}>
+        <section className={`py-20 ${darkMode ? 'bg-slate-800' : 'bg-white'} transition-colors duration-200`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 Our Core Values
               </h2>
-              <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p className={`text-xl ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                 The principles that guide everything we do
               </p>
             </div>
@@ -215,14 +215,14 @@ export default function AboutUs({ darkMode = false }) {
                 <div
                   key={index}
                   className={`p-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
-                    darkMode ? 'bg-gray-700/50 hover:bg-gray-700' : 'bg-gray-50 hover:bg-white hover:shadow-xl'
+                    darkMode ? 'bg-slate-700/50 hover:bg-slate-700' : 'bg-slate-50 hover:bg-white hover:shadow-xl'
                   }`}
                 >
                   <div className="text-5xl mb-4">{value.icon}</div>
-                  <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     {value.title}
                   </h3>
-                  <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <p className={`${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                     {value.description}
                   </p>
                 </div>
@@ -235,10 +235,10 @@ export default function AboutUs({ darkMode = false }) {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 What We Do
               </h2>
-              <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p className={`text-xl ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                 Comprehensive solutions for your digital transformation journey
               </p>
             </div>
@@ -249,15 +249,15 @@ export default function AboutUs({ darkMode = false }) {
                   key={index}
                   className={`p-8 rounded-xl border-2 transition-all duration-300 hover:scale-105 ${
                     darkMode
-                      ? 'bg-gray-800 border-gray-700 hover:border-blue-500'
-                      : 'bg-white border-gray-200 hover:border-blue-400 hover:shadow-xl'
+                      ? 'bg-slate-800 border-slate-700 hover:border-blue-600'
+                      : 'bg-white border-slate-200 hover:border-blue-400 hover:shadow-xl'
                   }`}
                 >
                   <div className="text-5xl mb-4">{service.icon}</div>
-                  <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     {service.title}
                   </h3>
-                  <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <p className={`${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                     {service.description}
                   </p>
                 </div>
@@ -267,13 +267,13 @@ export default function AboutUs({ darkMode = false }) {
         </section>
 
         {/* Team Section */}
-        <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-white'} transition-colors duration-200`}>
+        <section className={`py-20 ${darkMode ? 'bg-slate-800' : 'bg-white'} transition-colors duration-200`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 Meet Our Founders
               </h2>
-              <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p className={`text-xl ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                 The visionaries behind BeonicX
               </p>
             </div>
@@ -283,17 +283,17 @@ export default function AboutUs({ darkMode = false }) {
                 <div
                   key={index}
                   className={`text-center p-8 rounded-xl transition-all duration-300 hover:scale-105 ${
-                    darkMode ? 'bg-gray-700/50 hover:bg-gray-700' : 'bg-gray-50 hover:bg-white hover:shadow-xl'
+                    darkMode ? 'bg-slate-700/50 hover:bg-slate-700' : 'bg-slate-50 hover:bg-white hover:shadow-xl'
                   }`}
                 >
                   <div className="text-7xl mb-4">{member.avatar}</div>
-                  <h3 className={`text-2xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`text-2xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     {member.name}
                   </h3>
                   <p className="text-blue-600 dark:text-blue-400 font-semibold mb-3">
                     {member.role}
                   </p>
-                  <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <p className={`text-sm ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                     {member.description}
                   </p>
                 </div>
@@ -306,17 +306,17 @@ export default function AboutUs({ darkMode = false }) {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 Our Journey
               </h2>
-              <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p className={`text-xl ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                 Key milestones that shaped our story
               </p>
             </div>
 
             <div className="relative">
               {/* Timeline Line */}
-              <div className={`absolute left-1/2 transform -translate-x-1/2 h-full w-1 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} hidden lg:block`}></div>
+              <div className={`absolute left-1/2 transform -translate-x-1/2 h-full w-1 ${darkMode ? 'bg-slate-700' : 'bg-slate-200'} hidden lg:block`}></div>
 
               <div className="space-y-12">
                 {milestones.map((milestone, index) => (
@@ -328,14 +328,14 @@ export default function AboutUs({ darkMode = false }) {
                   >
                     {/* Content */}
                     <div className={`${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12 lg:col-start-2'}`}>
-                      <div className={`p-6 rounded-xl ${darkMode ? 'bg-gray-800' : 'bg-white shadow-lg'}`}>
+                      <div className={`p-6 rounded-xl ${darkMode ? 'bg-slate-800' : 'bg-white shadow-lg'}`}>
                         <div className="text-blue-600 dark:text-blue-400 font-bold text-2xl mb-2">
                         {milestone.month} {milestone.year}
                         </div>
-                        <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                        <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                           {milestone.event}
                         </h3>
-                        <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                        <p className={`${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                           {milestone.description}
                         </p>
                       </div>
@@ -344,7 +344,7 @@ export default function AboutUs({ darkMode = false }) {
                     {/* Timeline Dot */}
                     <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2">
                       <div className={`w-6 h-6 rounded-full border-4 ${
-                        darkMode ? 'bg-blue-500 border-gray-900' : 'bg-blue-600 border-white'
+                        darkMode ? 'bg-blue-600 border-slate-900' : 'bg-blue-600 border-white'
                       }`}></div>
                     </div>
                   </div>
@@ -355,7 +355,7 @@ export default function AboutUs({ darkMode = false }) {
         </section>
 
         {/* CTA Section */}
-        <section className={`py-20 ${darkMode ? 'bg-gradient-to-r from-blue-950 to-blue-800' : 'bg-gradient-to-r from-blue-500 to-blue-700'}`}>
+        <section className={`py-20 ${darkMode ? 'bg-gradient-to-r from-blue-950 to-blue-800' : 'bg-gradient-to-r from-blue-600 to-blue-800'}`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Transform Your Business?
@@ -366,7 +366,7 @@ export default function AboutUs({ darkMode = false }) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/get-started/contactUs"
-                className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 shadow-lg hover:shadow-xl"
+                className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-slate-100 transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
                 Get Started
               </a>
@@ -381,35 +381,35 @@ export default function AboutUs({ darkMode = false }) {
         </section>
 
         {/* Contact Info */}
-        <section className={`py-16 ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} transition-colors duration-200`}>
+        <section className={`py-16 ${darkMode ? 'bg-slate-800' : 'bg-slate-100'} transition-colors duration-200`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
                 <div className="text-4xl mb-3">📍</div>
-                <h3 className={`text-lg font-semibold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-lg font-semibold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   Headquarters
                 </h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                <p className={`${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                   Greater Noida, Haryana, India
                 </p>
               </div>
 
               <div>
                 <div className="text-4xl mb-3">📧</div>
-                <h3 className={`text-lg font-semibold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-lg font-semibold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   Email
                 </h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                <p className={`${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                   beonicxgroup@gmail.com
                 </p>
               </div>
 
               <div>
                 <div className="text-4xl mb-3">📞</div>
-                <h3 className={`text-lg font-semibold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-lg font-semibold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   Phone
                 </h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                <p className={`${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                   +91-9129842706
                 </p>
               </div>

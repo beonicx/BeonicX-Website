@@ -76,14 +76,14 @@ const FAQ = ({ darkMode }) => {
         >
           <span className={`inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 ${
             darkMode
-              ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+              ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
               : 'bg-blue-50 text-blue-600 border border-blue-200/60'
           }`}>
             <HelpCircle size={14} />
             FAQ
           </span>
 
-          <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+          <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
             Frequently Asked{' '}
             <span className="gradient-text">Questions</span>
           </h2>
@@ -102,12 +102,12 @@ const FAQ = ({ darkMode }) => {
                 onClick={() => toggleFAQ(index)}
                 className={`rounded-2xl px-6 py-5 cursor-pointer transition-all duration-300 ${
                   darkMode
-                    ? `bg-white/[0.03] border border-white/[0.08] ${activeIndex === index ? 'border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.06)]' : 'hover:border-white/[0.15]'}`
-                    : `bg-white border border-gray-100 ${activeIndex === index ? 'border-blue-200 shadow-[0_4px_24px_rgba(59,130,246,0.08)]' : 'hover:border-gray-200 shadow-[0_2px_12px_rgba(0,0,0,0.03)]'}`
+                    ? `bg-white/[0.03] border border-white/[0.08] ${activeIndex === index ? 'border-blue-600/30 shadow-[0_0_30px_rgba(37,99,235,0.06)]' : 'hover:border-white/[0.15]'}`
+                    : `bg-white border border-slate-100 ${activeIndex === index ? 'border-blue-200 shadow-[0_4px_24px_rgba(37,99,235,0.08)]' : 'hover:border-slate-200 shadow-[0_2px_12px_rgba(0,0,0,0.03)]'}`
                 }`}
               >
                 <div className="flex justify-between items-center gap-4">
-                  <h3 className={`text-sm sm:text-base font-semibold leading-snug ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`text-sm sm:text-base font-semibold leading-snug ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     {item.question}
                   </h3>
                   <motion.div
@@ -115,7 +115,7 @@ const FAQ = ({ darkMode }) => {
                     transition={{ duration: 0.3 }}
                     className="flex-shrink-0"
                   >
-                    <ChevronDown size={18} className={darkMode ? 'text-gray-500' : 'text-gray-400'} />
+                    <ChevronDown size={18} className={darkMode ? 'text-slate-500' : 'text-slate-400'} />
                   </motion.div>
                 </div>
 
@@ -129,7 +129,7 @@ const FAQ = ({ darkMode }) => {
                       className="overflow-hidden"
                     >
                       <div className={`mt-4 pt-4 text-sm leading-relaxed border-t ${
-                        darkMode ? 'border-white/[0.06] text-gray-400' : 'border-gray-100 text-gray-600'
+                        darkMode ? 'border-white/[0.06] text-slate-400' : 'border-slate-100 text-slate-600'
                       }`}>
                         {item.answer}
                       </div>

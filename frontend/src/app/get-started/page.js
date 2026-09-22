@@ -31,7 +31,7 @@ const Page = () => {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <div className={`min-h-screen ${darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900"}`}>
+      <div className={`min-h-screen ${darkMode ? "bg-slate-950 text-white" : "bg-slate-50 text-slate-900"}`}>
         <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
         <ContactUs darkMode={darkMode} />
         <Footer darkMode={darkMode} />

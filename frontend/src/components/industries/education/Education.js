@@ -53,7 +53,7 @@ export default function Education({ darkMode = false }) {
       icon: <Target className="w-8 h-8" />,
       title: "Custom Learning Path",
       description: "Personalized learning experiences based on student performance and preferences.",
-      gradient: "from-blue-500 to-blue-400"
+      gradient: "from-blue-600 to-blue-700"
     },
     {
       icon: <Zap className="w-8 h-8" />,
@@ -65,7 +65,7 @@ export default function Education({ darkMode = false }) {
       icon: <BarChart className="w-8 h-8" />,
       title: "Progress Tracking",
       description: "Monitor student progress with detailed analytics and performance insights.",
-      gradient: "from-blue-500 to-blue-400"
+      gradient: "from-blue-600 to-blue-700"
     },
     {
       icon: <Globe className="w-8 h-8" />,
@@ -165,12 +165,12 @@ export default function Education({ darkMode = false }) {
   ];
 
   return (
-    <main className={`transition-colors duration-300 ${darkMode ? 'bg-gray-950 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <main className={`transition-colors duration-300 ${darkMode ? 'bg-slate-950 text-white' : 'bg-slate-50 text-slate-900'}`}>
       {/* Hero Section */}
       <section className={`relative overflow-hidden ${
         darkMode
-          ? 'bg-gradient-to-br from-gray-900 via-blue-950 to-blue-950'
-          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'
+          ? 'bg-gradient-to-br from-slate-950 via-blue-950 to-blue-950'
+          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'
       } text-white py-24 md:py-36 px-4`}>
         {/* Animated background */}
         <div className="absolute inset-0 overflow-hidden">
@@ -201,7 +201,7 @@ export default function Education({ darkMode = false }) {
             <motion.div className="lg:w-1/2" variants={fadeInUp}>
               <motion.div
                 className={`inline-flex items-center gap-2 backdrop-blur-md px-5 py-2.5 rounded-full mb-6 border ${
-                  darkMode ? 'bg-blue-500/20 border-blue-400/40' : 'bg-white/25 border-white/40'
+                  darkMode ? 'bg-blue-600/20 border-blue-400/40' : 'bg-white/25 border-white/40'
                 }`}
               >
                 <Sparkles className={darkMode ? 'text-blue-400' : 'text-blue-200'} size={18} />
@@ -217,7 +217,7 @@ export default function Education({ darkMode = false }) {
                 </span>
               </h1>
 
-              <p className={`text-lg md:text-xl mb-10 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-blue-50'}`}>
+              <p className={`text-lg md:text-xl mb-10 leading-relaxed ${darkMode ? 'text-slate-300' : 'text-blue-50'}`}>
                 Transform the learning experience with custom education applications tailored to your specific needs and audience.
               </p>
 
@@ -225,7 +225,7 @@ export default function Education({ darkMode = false }) {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-700 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition shadow-2xl flex items-center justify-center gap-2"
+                  className="bg-white text-blue-700 font-bold py-4 px-8 rounded-xl hover:bg-slate-100 transition shadow-2xl flex items-center justify-center gap-2"
                 >
                   <Send size={20} />
                   Get Free Consultation
@@ -235,7 +235,7 @@ export default function Education({ darkMode = false }) {
                   whileTap={{ scale: 0.95 }}
                   className={`font-bold py-4 px-8 rounded-xl transition backdrop-blur-md flex items-center justify-center gap-2 border-2 ${
                     darkMode
-                      ? 'border-gray-400 text-white bg-white/10 hover:bg-white hover:text-blue-700'
+                      ? 'border-slate-400 text-white bg-white/10 hover:bg-white hover:text-blue-700'
                       : 'border-white text-white bg-white/20 hover:bg-white hover:text-blue-700'
                   }`}
                 >
@@ -255,7 +255,7 @@ export default function Education({ darkMode = false }) {
                     <div className={`text-3xl md:text-4xl font-extrabold ${darkMode ? 'text-blue-400' : 'text-blue-200'}`}>
                       {stat.value}
                     </div>
-                    <div className={`text-sm font-medium ${darkMode ? 'text-gray-400' : 'text-blue-100'}`}>
+                    <div className={`text-sm font-medium ${darkMode ? 'text-slate-400' : 'text-blue-100'}`}>
                       {stat.label}
                     </div>
                   </div>
@@ -291,7 +291,7 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* Services Overview */}
-      <section className={`py-24 px-4 relative ${darkMode ? 'bg-gray-950' : 'bg-white'}`}>
+      <section className={`py-24 px-4 relative ${darkMode ? 'bg-slate-950' : 'bg-white'}`}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className={`absolute top-20 right-0 w-[500px] h-[500px] ${darkMode ? 'bg-blue-600/10' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
         </div>
@@ -305,15 +305,15 @@ export default function Education({ darkMode = false }) {
           >
             <motion.span
               className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
-                darkMode ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
+                darkMode ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
               }`}
             >
               Our Solutions
             </motion.span>
-            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Innovative Education Solutions
             </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            <p className={`text-lg max-w-3xl mx-auto ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
               We specialize in creating cutting-edge education applications that enhance learning experiences and drive better outcomes.
             </p>
           </motion.div>
@@ -326,9 +326,9 @@ export default function Education({ darkMode = false }) {
             variants={staggerContainer}
           >
             {[
-              { icon: <BookOpen className="w-10 h-10" />, title: "K-12 Education Apps", desc: "Interactive learning for primary and secondary education.", gradient: "from-blue-500 to-blue-400" },
+              { icon: <BookOpen className="w-10 h-10" />, title: "K-12 Education Apps", desc: "Interactive learning for primary and secondary education.", gradient: "from-blue-600 to-blue-700" },
               { icon: <GraduationCap className="w-10 h-10" />, title: "Higher Education Platforms", desc: "Comprehensive solutions for colleges and universities.", gradient: "from-blue-600 to-blue-400" },
-              { icon: <Users className="w-10 h-10" />, title: "Corporate Training Apps", desc: "Employee skill development and certification tracking.", gradient: "from-blue-500 to-blue-400" }
+              { icon: <Users className="w-10 h-10" />, title: "Corporate Training Apps", desc: "Employee skill development and certification tracking.", gradient: "from-blue-600 to-blue-700" }
             ].map((service, index) => (
               <motion.div
                 key={index}
@@ -336,18 +336,18 @@ export default function Education({ darkMode = false }) {
                 whileHover={{ y: -10 }}
                 className={`relative rounded-2xl p-8 overflow-hidden transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-xl hover:shadow-blue-900/20'
-                    : 'bg-white border border-gray-200 shadow-lg hover:shadow-xl'
+                    ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800 shadow-xl hover:shadow-blue-900/20'
+                    : 'bg-white border border-slate-200 shadow-lg hover:shadow-xl'
                 }`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-5`} />
                 <div className={`relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${service.gradient} mb-6 shadow-lg text-white`}>
                   {service.icon}
                 </div>
-                <h3 className={`text-2xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-2xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {service.title}
                 </h3>
-                <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>
+                <p className={darkMode ? 'text-slate-400' : 'text-slate-600'}>
                   {service.desc}
                 </p>
               </motion.div>
@@ -357,7 +357,7 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* Benefits Section */}
-      <section className={`py-24 px-4 relative ${darkMode ? 'bg-gradient-to-b from-gray-900 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
+      <section className={`py-24 px-4 relative ${darkMode ? 'bg-gradient-to-b from-slate-950 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -367,12 +367,12 @@ export default function Education({ darkMode = false }) {
           >
             <motion.span
               className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
-                darkMode ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
+                darkMode ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
               }`}
             >
               Key Benefits
             </motion.span>
-            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Why Choose Our Services
             </h2>
           </motion.div>
@@ -391,17 +391,17 @@ export default function Education({ darkMode = false }) {
                 whileHover={{ y: -8 }}
                 className={`rounded-2xl p-8 transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-lg hover:shadow-blue-900/20'
-                    : 'bg-white border border-gray-200 shadow-md hover:shadow-xl'
+                    ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800 shadow-lg hover:shadow-blue-900/20'
+                    : 'bg-white border border-slate-200 shadow-md hover:shadow-xl'
                 }`}
               >
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${benefit.gradient} mb-6 shadow-lg text-white`}>
                   {benefit.icon}
                 </div>
-                <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {benefit.title}
                 </h3>
-                <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>
+                <p className={darkMode ? 'text-slate-400' : 'text-slate-600'}>
                   {benefit.description}
                 </p>
               </motion.div>
@@ -411,7 +411,7 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* Features Section */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-950' : 'bg-white'}`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-slate-950' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -421,12 +421,12 @@ export default function Education({ darkMode = false }) {
           >
             <motion.span
               className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
-                darkMode ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
+                darkMode ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
               }`}
             >
               Features
             </motion.span>
-            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Powerful App Features
             </h2>
           </motion.div>
@@ -445,17 +445,17 @@ export default function Education({ darkMode = false }) {
                 whileHover={{ scale: 1.05 }}
                 className={`rounded-xl p-6 transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800'
-                    : 'bg-gradient-to-br from-gray-50 to-white border border-gray-200 shadow-sm hover:shadow-md'
+                    ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800'
+                    : 'bg-gradient-to-br from-gray-50 to-white border border-slate-200 shadow-sm hover:shadow-md'
                 }`}
               >
                 <div className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} mb-4`}>
                   {feature.icon}
                 </div>
-                <h3 className={`text-lg font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-lg font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {feature.title}
                 </h3>
-                <p className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-600'}`}>
+                <p className={`text-sm ${darkMode ? 'text-slate-500' : 'text-slate-600'}`}>
                   {feature.description}
                 </p>
               </motion.div>
@@ -465,7 +465,7 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* Development Process */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-gray-900 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-slate-950 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -475,12 +475,12 @@ export default function Education({ darkMode = false }) {
           >
             <motion.span
               className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
-                darkMode ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
+                darkMode ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
               }`}
             >
               Our Process
             </motion.span>
-            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Development Journey
             </h2>
           </motion.div>
@@ -499,20 +499,20 @@ export default function Education({ darkMode = false }) {
                 whileHover={{ y: -10 }}
                 className={`relative rounded-2xl p-8 overflow-hidden transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-lg hover:shadow-blue-900/20'
-                    : 'bg-white border border-gray-200 shadow-md hover:shadow-xl'
+                    ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800 shadow-lg hover:shadow-blue-900/20'
+                    : 'bg-white border border-slate-200 shadow-md hover:shadow-xl'
                 }`}
               >
-                <div className={`absolute top-6 right-6 text-6xl font-bold ${darkMode ? 'text-gray-800' : 'text-gray-100'}`}>
+                <div className={`absolute top-6 right-6 text-6xl font-bold ${darkMode ? 'text-slate-800' : 'text-slate-100'}`}>
                   {step.number}
                 </div>
                 <div className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} mb-4 relative z-10`}>
                   {step.icon}
                 </div>
-                <h3 className={`text-xl font-bold mb-3 relative z-10 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-xl font-bold mb-3 relative z-10 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {step.title}
                 </h3>
-                <p className={`relative z-10 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                <p className={`relative z-10 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                   {step.description}
                 </p>
               </motion.div>
@@ -522,7 +522,7 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* Technologies */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-950' : 'bg-white'}`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-slate-950' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -532,12 +532,12 @@ export default function Education({ darkMode = false }) {
           >
             <motion.span
               className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
-                darkMode ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
+                darkMode ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
               }`}
             >
               Technology Stack
             </motion.span>
-            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Technologies We Use
             </h2>
           </motion.div>
@@ -556,11 +556,11 @@ export default function Education({ darkMode = false }) {
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 className={`rounded-xl p-6 flex items-center justify-center h-24 transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 hover:border-blue-700'
-                    : 'bg-white border border-gray-200 shadow-sm hover:shadow-md'
+                    ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800 hover:border-blue-700'
+                    : 'bg-white border border-slate-200 shadow-sm hover:shadow-md'
                 }`}
               >
-                <p className={`text-base font-bold text-center ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <p className={`text-base font-bold text-center ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
                   {tech}
                 </p>
               </motion.div>
@@ -570,7 +570,7 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* Case Studies */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-gray-900 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-slate-950 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -580,12 +580,12 @@ export default function Education({ darkMode = false }) {
           >
             <motion.span
               className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide mb-4 inline-block ${
-                darkMode ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
+                darkMode ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-300'
               }`}
             >
               Success Stories
             </motion.span>
-            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Case Studies
             </h2>
           </motion.div>
@@ -604,8 +604,8 @@ export default function Education({ darkMode = false }) {
                 whileHover={{ y: -10 }}
                 className={`group rounded-2xl overflow-hidden transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 shadow-lg hover:shadow-blue-900/20'
-                    : 'bg-white border border-gray-200 shadow-md hover:shadow-xl'
+                    ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800 shadow-lg hover:shadow-blue-900/20'
+                    : 'bg-white border border-slate-200 shadow-md hover:shadow-xl'
                 }`}
               >
                 <div className="relative h-56 w-full overflow-hidden">
@@ -618,21 +618,21 @@ export default function Education({ darkMode = false }) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4">
-                    <span className="text-xs font-bold uppercase tracking-wider bg-blue-500 text-white px-3 py-1.5 rounded-full">
+                    <span className="text-xs font-bold uppercase tracking-wider bg-blue-600 text-white px-3 py-1.5 rounded-full">
                       {study.category}
                     </span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     {study.title}
                   </h3>
-                  <p className={`mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <p className={`mb-4 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                     {study.description}
                   </p>
                   <motion.button
                     whileHover={{ x: 5 }}
-                    className="flex items-center gap-2 text-blue-500 font-semibold group"
+                    className="flex items-center gap-2 text-blue-600 font-semibold group"
                   >
                     Read Case Study
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -645,7 +645,7 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* Industries Served */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gray-950' : 'bg-white'}`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-slate-950' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -653,7 +653,7 @@ export default function Education({ darkMode = false }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Industries We Serve
             </h2>
           </motion.div>
@@ -672,11 +672,11 @@ export default function Education({ darkMode = false }) {
                 whileHover={{ scale: 1.05 }}
                 className={`rounded-xl p-6 transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 hover:border-blue-700'
+                    ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800 hover:border-blue-700'
                     : 'bg-gradient-to-br from-blue-50 to-blue-50 hover:from-blue-100 hover:to-blue-100 border border-blue-200'
                 }`}
               >
-                <h3 className={`text-lg font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-lg font-bold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {industry}
                 </h3>
               </motion.div>
@@ -686,7 +686,7 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* FAQ */}
-      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-gray-900 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
+      <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-slate-950 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
         <div className="max-w-4xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -694,7 +694,7 @@ export default function Education({ darkMode = false }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-4xl md:text-5xl font-extrabold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -712,14 +712,14 @@ export default function Education({ darkMode = false }) {
                 variants={fadeInUp}
                 className={`rounded-2xl p-8 transition-all duration-300 ${
                   darkMode
-                    ? 'bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800'
-                    : 'bg-white border border-gray-200 shadow-sm'
+                    ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800'
+                    : 'bg-white border border-slate-200 shadow-sm'
                 }`}
               >
-                <h3 className={`text-lg font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-lg font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {faq.question}
                 </h3>
-                <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>
+                <p className={darkMode ? 'text-slate-400' : 'text-slate-600'}>
                   {faq.answer}
                 </p>
               </motion.div>
@@ -732,7 +732,7 @@ export default function Education({ darkMode = false }) {
       <section className={`relative py-24 px-4 overflow-hidden ${
         darkMode
           ? 'bg-gradient-to-br from-blue-950 via-blue-950 to-blue-950'
-          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'
+          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'
       }`}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(6)].map((_, i) => (
@@ -761,13 +761,13 @@ export default function Education({ darkMode = false }) {
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6">
               Ready to Transform Education?
             </h2>
-            <p className={`text-lg md:text-xl mb-10 ${darkMode ? 'text-gray-300' : 'text-blue-50'}`}>
+            <p className={`text-lg md:text-xl mb-10 ${darkMode ? 'text-slate-300' : 'text-blue-50'}`}>
               Let's collaborate to create an education app that enhances learning experiences and drives better outcomes.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-100 transition shadow-2xl inline-flex items-center gap-2"
+              className="bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-slate-100 transition shadow-2xl inline-flex items-center gap-2"
             >
               <Send size={20} />
               Schedule Free Consultation

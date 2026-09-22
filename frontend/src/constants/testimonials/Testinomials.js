@@ -47,7 +47,7 @@ export default function Testimonials({ darkMode }) {
                   <span className="text-xl">{item.icon}</span>
                   <div>
                     <div className="text-black dark:text-white">{item.author}</div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">{item.org}</div>
+                    <div className="text-xs text-slate-600 dark:text-slate-400">{item.org}</div>
                   </div>
                 </div>
               </div>

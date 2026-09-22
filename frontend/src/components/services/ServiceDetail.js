@@ -23,12 +23,12 @@ const staggerContainer = {
 };
 
 const GRADIENT_COLORS = [
-  'from-blue-500 to-blue-400',
+  'from-blue-600 to-blue-700',
   'from-blue-600 to-blue-400',
   'from-blue-600 to-blue-400',
-  'from-blue-500 to-blue-400',
+  'from-blue-600 to-blue-700',
   'from-blue-400 to-blue-600',
-  'from-blue-500 to-blue-700',
+  'from-blue-600 to-blue-800',
 ];
 
 export default function ServiceDetail({ darkMode, service }) {
@@ -41,7 +41,7 @@ export default function ServiceDetail({ darkMode, service }) {
     }
   }, [darkMode]);
 
-  const gradient = service.gradient || 'from-blue-500 to-blue-400';
+  const gradient = service.gradient || 'from-blue-600 to-blue-700';
   const sections = service.sections || [];
   const processSteps = service.processSteps || [];
   const stats = service.stats || [];
@@ -60,10 +60,10 @@ export default function ServiceDetail({ darkMode, service }) {
   }, [techStack]);
 
   return (
-    <div className={`font-sans transition-colors duration-300 py-18 ${darkMode ? 'dark bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 text-white' : 'bg-gradient-to-br from-gray-50 via-white to-blue-50 text-gray-800'}`}>
+    <div className={`font-sans transition-colors duration-300 py-18 ${darkMode ? 'dark bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white' : 'bg-gradient-to-br from-gray-50 via-white to-blue-50 text-slate-800'}`}>
 
       {/* Hero Section */}
-      <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'} text-white py-20 px-4 relative overflow-hidden`}>
+      <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'} text-white py-20 px-4 relative overflow-hidden`}>
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(8)].map((_, i) => (
             <div
@@ -118,14 +118,14 @@ export default function ServiceDetail({ darkMode, service }) {
                   {service.title}
                 </span>
               </h1>
-              <p className="text-xl mb-8 text-gray-100 leading-relaxed">
+              <p className="text-xl mb-8 text-slate-100 leading-relaxed">
                 {service.description}
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Link
                     href={cta.buttonLink || '/get-started'}
-                    className="bg-white text-blue-700 font-bold py-4 px-8 rounded-xl hover:bg-gray-50 transition shadow-2xl flex items-center justify-center gap-2"
+                    className="bg-white text-blue-700 font-bold py-4 px-8 rounded-xl hover:bg-slate-50 transition shadow-2xl flex items-center justify-center gap-2"
                   >
                     <Rocket size={20} />
                     {cta.buttonText || 'Get Started'}
@@ -198,8 +198,8 @@ export default function ServiceDetail({ darkMode, service }) {
         <section
           key={sectionIdx}
           className={`py-24 px-4 ${sectionIdx % 2 === 0
-            ? (darkMode ? 'bg-gray-900' : 'bg-white')
-            : (darkMode ? 'bg-gradient-to-b from-gray-800 to-gray-900' : 'bg-gradient-to-b from-gray-50 to-white')
+            ? (darkMode ? 'bg-slate-950' : 'bg-white')
+            : (darkMode ? 'bg-gradient-to-b from-slate-800 to-slate-950' : 'bg-gradient-to-b from-gray-50 to-white')
           } relative`}
         >
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -221,16 +221,16 @@ export default function ServiceDetail({ darkMode, service }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
               >
-                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
+                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-600/20 text-blue-300 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
                   {section.title}
                 </span>
               </motion.div>
 
-              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 {section.title}
               </h2>
               {section.description && (
-                <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+                <p className={`text-lg ${darkMode ? 'text-slate-300' : 'text-slate-600'} max-w-3xl mx-auto leading-relaxed`}>
                   {section.description}
                 </p>
               )}
@@ -251,8 +251,8 @@ export default function ServiceDetail({ darkMode, service }) {
                       key={itemIdx}
                       className={`group relative rounded-2xl p-8 transition-all duration-300 ${
                         darkMode
-                          ? 'bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 hover:border-blue-500/50'
-                          : 'bg-white hover:bg-gray-50 border border-gray-200 hover:border-blue-300 shadow-lg hover:shadow-2xl'
+                          ? 'bg-gradient-to-br from-slate-800 to-slate-950 border border-slate-700 hover:border-blue-600/50'
+                          : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-blue-300 shadow-lg hover:shadow-2xl'
                       }`}
                       variants={fadeInUp}
                       whileHover={{ y: -12, transition: { duration: 0.3 } }}
@@ -260,17 +260,17 @@ export default function ServiceDetail({ darkMode, service }) {
                       <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${itemGradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-xl`} />
 
                       <div className={`relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${itemGradient} p-0.5 mb-6`}>
-                        <div className={`w-full h-full rounded-2xl flex items-center justify-center ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                        <div className={`w-full h-full rounded-2xl flex items-center justify-center ${darkMode ? 'bg-slate-800' : 'bg-white'}`}>
                           <div className={`bg-gradient-to-br ${itemGradient} bg-clip-text text-transparent`}>
                             <Layers size={40} />
                           </div>
                         </div>
                       </div>
 
-                      <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                      <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                         {item.title}
                       </h3>
-                      <p className={`text-base leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                      <p className={`text-base leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                         {item.description}
                       </p>
                     </motion.div>
@@ -284,7 +284,7 @@ export default function ServiceDetail({ darkMode, service }) {
 
       {/* Features (from service.features[]) — shown if no sections but features exist */}
       {sections.length === 0 && features.length > 0 && (
-        <section className={`py-24 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative`}>
+        <section className={`py-24 px-4 ${darkMode ? 'bg-slate-950' : 'bg-white'} relative`}>
           <div className="container mx-auto max-w-7xl relative z-10">
             <motion.div
               className="text-center mb-20"
@@ -292,7 +292,7 @@ export default function ServiceDetail({ darkMode, service }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 What We Offer
               </h2>
             </motion.div>
@@ -311,8 +311,8 @@ export default function ServiceDetail({ darkMode, service }) {
                     key={idx}
                     className={`group relative rounded-2xl p-8 transition-all duration-300 ${
                       darkMode
-                        ? 'bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 hover:border-blue-500/50'
-                        : 'bg-white hover:bg-gray-50 border border-gray-200 hover:border-blue-300 shadow-lg hover:shadow-2xl'
+                        ? 'bg-gradient-to-br from-slate-800 to-slate-950 border border-slate-700 hover:border-blue-600/50'
+                        : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-blue-300 shadow-lg hover:shadow-2xl'
                     }`}
                     variants={fadeInUp}
                     whileHover={{ y: -8 }}
@@ -320,7 +320,7 @@ export default function ServiceDetail({ darkMode, service }) {
                     <div className={`relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${itemGradient} shadow-lg mb-6`}>
                       <CheckCircle size={24} className="text-white" />
                     </div>
-                    <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                    <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                       {feature}
                     </h3>
                   </motion.div>
@@ -333,7 +333,7 @@ export default function ServiceDetail({ darkMode, service }) {
 
       {/* Process Section */}
       {processSteps.length > 0 && (
-        <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-gray-800 to-gray-900' : 'bg-gradient-to-b from-gray-50 to-white'} relative overflow-hidden`}>
+        <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-slate-800 to-slate-950' : 'bg-gradient-to-b from-gray-50 to-white'} relative overflow-hidden`}>
           <div className="absolute inset-0 opacity-30">
             <div className={`absolute top-0 left-1/4 w-64 h-64 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
             <div className={`absolute bottom-0 right-1/4 w-64 h-64 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
@@ -353,12 +353,12 @@ export default function ServiceDetail({ darkMode, service }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
               >
-                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
+                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-600/20 text-blue-300 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
                   Our Process
                 </span>
               </motion.div>
 
-              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 How We Build Your Success
               </h2>
             </motion.div>
@@ -370,7 +370,7 @@ export default function ServiceDetail({ darkMode, service }) {
               viewport={{ once: true }}
               variants={staggerContainer}
             >
-              <div className={`hidden lg:block absolute top-1/2 left-0 right-0 h-1 ${darkMode ? 'bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400' : 'bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200'} opacity-30`} />
+              <div className={`hidden lg:block absolute top-1/2 left-0 right-0 h-1 ${darkMode ? 'bg-gradient-to-r from-blue-700 via-blue-600 to-blue-600' : 'bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200'} opacity-30`} />
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {processSteps.map((step, index) => {
@@ -379,7 +379,7 @@ export default function ServiceDetail({ darkMode, service }) {
                   return (
                     <motion.div key={index} className="relative" variants={fadeInUp}>
                       <motion.div
-                        className={`group relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-white hover:bg-gray-50'} rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-gray-700 hover:border-blue-500/50' : 'border-gray-200 hover:border-blue-300'}`}
+                        className={`group relative ${darkMode ? 'bg-gradient-to-br from-slate-800 to-slate-950' : 'bg-white hover:bg-slate-50'} rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-slate-700 hover:border-blue-600/50' : 'border-slate-200 hover:border-blue-300'}`}
                         whileHover={{ y: -8, scale: 1.02 }}
                       >
                         <div className="flex items-start justify-between mb-6">
@@ -390,15 +390,15 @@ export default function ServiceDetail({ darkMode, service }) {
                           </div>
                         </div>
 
-                        <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                        <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                           {step.title}
                         </h3>
-                        <p className={`text-base leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                        <p className={`text-base leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                           {step.description}
                         </p>
 
                         <div className="mt-6">
-                          <div className={`h-1.5 rounded-full ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} overflow-hidden`}>
+                          <div className={`h-1.5 rounded-full ${darkMode ? 'bg-slate-700' : 'bg-slate-200'} overflow-hidden`}>
                             <motion.div
                               className={`h-full bg-gradient-to-r ${stepGradient} rounded-full`}
                               initial={{ width: '0%' }}
@@ -420,7 +420,7 @@ export default function ServiceDetail({ darkMode, service }) {
 
       {/* Stats Section */}
       {stats.length > 0 && (
-        <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500'} text-white py-20 px-4 relative overflow-hidden`}>
+        <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'} text-white py-20 px-4 relative overflow-hidden`}>
           <div className="absolute inset-0">
             {[...Array(20)].map((_, i) => (
               <div
@@ -498,7 +498,7 @@ export default function ServiceDetail({ darkMode, service }) {
                     </motion.h3>
                   </motion.div>
 
-                  <p className="text-base md:text-lg font-medium text-gray-100 group-hover:text-white transition-colors">
+                  <p className="text-base md:text-lg font-medium text-slate-100 group-hover:text-white transition-colors">
                     {stat.label}
                   </p>
                 </motion.div>
@@ -510,7 +510,7 @@ export default function ServiceDetail({ darkMode, service }) {
 
       {/* CTA Section */}
       {(cta.title || cta.description) && (
-        <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-gradient-to-br from-gray-50 to-white'} relative overflow-hidden`}>
+        <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-br from-slate-800 to-slate-950' : 'bg-gradient-to-br from-gray-50 to-white'} relative overflow-hidden`}>
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className={`absolute -top-24 -right-24 w-96 h-96 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
             <div className={`absolute -bottom-24 -left-24 w-96 h-96 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
@@ -552,7 +552,7 @@ export default function ServiceDetail({ darkMode, service }) {
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
                       {cta.title || 'Ready to Transform Your Digital Presence?'}
                     </h2>
-                    <p className="text-lg md:text-xl text-gray-100 mb-8 leading-relaxed">
+                    <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
                       {cta.description || "Let's discuss your project and create a tailored solution that exceeds your expectations."}
                     </p>
 
@@ -577,7 +577,7 @@ export default function ServiceDetail({ darkMode, service }) {
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full lg:w-auto">
                     <Link
                       href={cta.buttonLink || '/get-started'}
-                      className="w-full lg:w-auto bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-50 transition shadow-2xl flex items-center justify-center gap-3 group"
+                      className="w-full lg:w-auto bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-slate-50 transition shadow-2xl flex items-center justify-center gap-3 group"
                     >
                       <span>{cta.buttonText || 'Get Started Now'}</span>
                       <Rocket size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -602,7 +602,7 @@ export default function ServiceDetail({ darkMode, service }) {
 
       {/* Tech Stack Section */}
       {techByCategory.length > 0 && (
-        <section className={`py-24 px-4 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative`}>
+        <section className={`py-24 px-4 ${darkMode ? 'bg-slate-950' : 'bg-white'} relative`}>
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className={`absolute top-0 left-1/3 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/40'} rounded-full blur-3xl`} />
             <div className={`absolute bottom-0 right-1/3 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/40'} rounded-full blur-3xl`} />
@@ -622,12 +622,12 @@ export default function ServiceDetail({ darkMode, service }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
               >
-                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
+                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-600/20 text-blue-300 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
                   Tech Stack
                 </span>
               </motion.div>
 
-              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 Technologies We Use
               </h2>
             </motion.div>
@@ -660,7 +660,7 @@ export default function ServiceDetail({ darkMode, service }) {
                       {techs.map((tech, techIndex) => (
                         <motion.div
                           key={techIndex}
-                          className={`group relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700' : 'bg-white hover:bg-gray-50 border border-gray-200'} rounded-xl p-6 text-center transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden`}
+                          className={`group relative ${darkMode ? 'bg-gradient-to-br from-slate-800 to-slate-950 border border-slate-700' : 'bg-white hover:bg-slate-50 border border-slate-200'} rounded-xl p-6 text-center transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden`}
                           variants={fadeInUp}
                           whileHover={{ y: -8, scale: 1.05, transition: { duration: 0.3 } }}
                         >
@@ -670,7 +670,7 @@ export default function ServiceDetail({ darkMode, service }) {
                             {tech.charAt(0)}
                           </div>
 
-                          <span className={`relative font-semibold text-base ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                          <span className={`relative font-semibold text-base ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                             {tech}
                           </span>
                         </motion.div>

@@ -38,8 +38,8 @@ function Aboutus({ darkMode = false }) {
                   className="object-contain"
                 />
               </div>
-              <div className="absolute -top-3 -right-3 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-blue-500/20 rounded-full blur-2xl" />
-              <div className="absolute -bottom-3 -left-3 w-32 h-32 bg-gradient-to-br from-blue-500/15 to-blue-500/15 rounded-full blur-2xl" />
+              <div className="absolute -top-3 -right-3 w-24 h-24 bg-gradient-to-br from-blue-600/20 to-blue-600/20 rounded-full blur-2xl" />
+              <div className="absolute -bottom-3 -left-3 w-32 h-32 bg-gradient-to-br from-blue-600/15 to-blue-600/15 rounded-full blur-2xl" />
             </div>
           </motion.div>
 
@@ -50,21 +50,21 @@ function Aboutus({ darkMode = false }) {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 border bg-gradient-to-r from-blue-500/10 to-blue-500/10 border-blue-500/20 text-blue-400">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 border bg-gradient-to-r from-blue-600/10 to-blue-600/10 border-blue-600/20 text-blue-400">
               <Sparkles size={14} />
               About Us
             </div>
 
-            <h2 className={`text-3xl md:text-4xl font-bold mb-6 leading-tight ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-6 leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Building the Future of{' '}
               <span className="gradient-text">Intelligent Automation</span>
             </h2>
 
-            <p className={`text-base leading-relaxed mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            <p className={`text-base leading-relaxed mb-4 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
               Founded in 2023, BeonicX is a fast-growing AI and SaaS company building the next generation of intelligent automation. We design autonomous AI agents that think, adapt, and execute complex business tasks — helping enterprises operate faster, smarter, and at scale.
             </p>
 
-            <p className={`text-base leading-relaxed mb-8 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            <p className={`text-base leading-relaxed mb-8 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
               From customer support and lead qualification to data analysis and workflow orchestration, our AI agents handle it all. Built on advanced LLMs, RAG pipelines, and multi-agent architectures, our solutions deliver measurable impact from day one.
             </p>
 
@@ -74,11 +74,11 @@ function Aboutus({ darkMode = false }) {
                   key={item.label}
                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium ${
                     darkMode
-                      ? 'bg-white/[0.04] border border-white/[0.08] text-gray-300'
-                      : 'bg-gray-50 border border-gray-200 text-gray-700'
+                      ? 'bg-white/[0.04] border border-white/[0.08] text-slate-300'
+                      : 'bg-slate-50 border border-slate-200 text-slate-700'
                   }`}
                 >
-                  <item.icon size={16} className="text-blue-500" />
+                  <item.icon size={16} className="text-blue-600" />
                   {item.label}
                 </div>
               ))}
@@ -86,7 +86,7 @@ function Aboutus({ darkMode = false }) {
 
             <Link
               href="/aboutUs/about"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 hover:-translate-y-0.5"
             >
               Learn More <ArrowRight size={16} />
             </Link>

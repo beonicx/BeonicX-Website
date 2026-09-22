@@ -33,7 +33,7 @@ const defaultServices = [
     title: 'App Development (Android + iOS)',
     description: 'Native and cross-platform mobile apps for Android and iOS — built with Swift, Kotlin, React Native, and Flutter.',
     features: ['iOS (Swift & SwiftUI)', 'Android (Kotlin & Compose)', 'React Native & Flutter', 'App Store Optimization', 'Push Notifications', 'Offline-First Architecture'],
-    gradient: 'from-blue-500 to-blue-400',
+    gradient: 'from-blue-600 to-blue-700',
   },
   {
     slug: 'crm-development',
@@ -57,7 +57,7 @@ const defaultServices = [
     title: 'AI Agents Integration',
     description: 'Deploy autonomous AI agents into your business — from customer support bots and sales assistants to data analysis and workflow automation.',
     features: ['Custom AI Agents', 'RAG & Knowledge Bases', 'LLM Fine-Tuning', 'Multi-Agent Orchestration', 'CRM & ERP AI Integration', 'Predictive Analytics'],
-    gradient: 'from-blue-500 to-blue-700',
+    gradient: 'from-blue-600 to-blue-800',
   },
   {
     slug: 'voice-agents-integration',
@@ -111,8 +111,8 @@ const ServicesHub = () => {
     <div className={darkMode ? 'dark' : ''}>
       <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
 
-      <main className={`min-h-screen pt-24 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
-        <div className={`relative py-20 px-4 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900' : 'bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700'}`}>
+      <main className={`min-h-screen pt-24 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
+        <div className={`relative py-20 px-4 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950' : 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800'}`}>
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
               backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
@@ -140,7 +140,7 @@ const ServicesHub = () => {
                 BeonicX <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-600">Services</span>
               </h1>
 
-              <p className="text-xl mb-8 text-gray-100 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl mb-8 text-slate-100 max-w-3xl mx-auto leading-relaxed">
                 From AI-powered automation to cloud infrastructure, we deliver cutting-edge technology solutions that drive business growth and innovation.
               </p>
 
@@ -167,7 +167,7 @@ const ServicesHub = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 className={`group relative rounded-2xl p-8 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ${
-                  darkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white'
+                  darkMode ? 'bg-slate-800 border border-slate-700' : 'bg-white'
                 }`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
@@ -178,17 +178,17 @@ const ServicesHub = () => {
                   </div>
                 </div>
 
-                <h2 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h2 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {service.title}
                 </h2>
 
-                <p className={`text-base mb-6 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                <p className={`text-base mb-6 leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                   {service.description}
                 </p>
 
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature) => (
-                    <li key={feature} className={`flex items-start gap-2 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                    <li key={feature} className={`flex items-start gap-2 text-sm ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                       <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${service.gradient} mt-1.5 flex-shrink-0`} />
                       {feature}
                     </li>
@@ -208,12 +208,12 @@ const ServicesHub = () => {
           </div>
         </div>
 
-        <div className={`py-20 px-4 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+        <div className={`py-20 px-4 ${darkMode ? 'bg-slate-800' : 'bg-white'}`}>
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Ready to Transform Your Business?
             </h2>
-            <p className={`text-lg mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className={`text-lg mb-8 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
               Let's discuss your project and create a tailored solution that exceeds your expectations.
             </p>
             <Link

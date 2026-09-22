@@ -119,21 +119,21 @@ export default function FeatureSection({ darkMode = false }) {
           <span
             className={`inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 ${
               darkMode
-                ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
                 : 'bg-blue-50 text-blue-600 border border-blue-200/60'
             }`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
             Our Services
           </span>
 
           <h2
             className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-5 ${
-              darkMode ? 'text-white' : 'text-gray-900'
+              darkMode ? 'text-white' : 'text-slate-900'
             }`}
           >
             What We{' '}
-            <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-600 bg-clip-text text-transparent">
               Build
             </span>
           </h2>
@@ -162,18 +162,18 @@ export default function FeatureSection({ darkMode = false }) {
                 variants={cardVariant}
                 className={`group relative rounded-2xl p-7 transition-all duration-300 cursor-pointer h-full ${
                   darkMode
-                    ? 'bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.08)]'
-                    : 'bg-white backdrop-blur-xl border border-gray-100 shadow-[0_2px_20px_rgba(0,0,0,0.03)] hover:border-blue-200 hover:shadow-[0_8px_30px_rgba(59,130,246,0.08)]'
+                    ? 'bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-blue-600/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.08)]'
+                    : 'bg-white backdrop-blur-xl border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.03)] hover:border-blue-200 hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
                 } card-hover`}
               >
                 {/* Icon */}
-                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-white text-lg mb-5 shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/30 transition-shadow">
+                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 text-white text-lg mb-5 shadow-lg shadow-blue-600/20 group-hover:shadow-blue-600/30 transition-shadow">
                   {feature.icon}
                 </div>
 
                 <h3
                   className={`text-lg font-bold mb-2.5 tracking-tight ${
-                    darkMode ? 'text-white' : 'text-gray-900'
+                    darkMode ? 'text-white' : 'text-slate-900'
                   }`}
                 >
                   {feature.title}
@@ -188,7 +188,7 @@ export default function FeatureSection({ darkMode = false }) {
                 </p>
 
               {/* Hover gradient line at bottom */}
-              <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-blue-700 via-blue-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.article>
             </Link>
           ))}
