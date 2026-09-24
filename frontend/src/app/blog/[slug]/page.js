@@ -4,9 +4,11 @@ import React, { useState, useEffect, use } from 'react';
 import { getBlogBySlug, getBlogs } from '@/lib/api';
 import { marked } from 'marked';
 import BlogPostClient from './BlogPostClient';
+import { useTheme } from '@/context/ThemeContext';
 
 const BlogPost = ({ params }) => {
   const { slug } = use(params);
+  const { darkMode } = useTheme();
   const [post, setPost] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -61,18 +63,25 @@ const BlogPost = ({ params }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600" />
+      <div className={`min-h-[60vh] flex items-center justify-center ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-8 h-8 rounded-full border-2 border-blue-600 border-t-transparent animate-spin" />
+          <span className={`text-sm ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>Loading article...</span>
+        </div>
       </div>
     );
   }
 
   if (notFound) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className={`min-h-[60vh] flex items-center justify-center ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
-          <p className="text-slate-600">The blog post you're looking for doesn't exist.</p>
+          <h1 className={`text-3xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+            Post Not Found
+          </h1>
+          <p className={`text-sm ${darkMode ? 'text-slate-500' : 'text-slate-500'}`}>
+            The blog post you&apos;re looking for doesn&apos;t exist.
+          </p>
         </div>
       </div>
     );

@@ -30,7 +30,7 @@ const createSendToken = (user, statusCode, res) => {
 // Register new user
 exports.register = async (req, res, next) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, password } = req.body;
     
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -44,7 +44,7 @@ exports.register = async (req, res, next) => {
       name,
       email,
       password,
-      role: role || 'user'
+      role: 'user'
     });
     
     createSendToken(newUser, 201, res);
@@ -182,13 +182,17 @@ exports.forgotPassword = async (req, res, next) => {
       });
       */
       
-      res.status(200).json({
+      const response = {
         status: 'success',
-        message: 'Token sent to email!',
-        // Only include these in development
-        resetToken,
-        resetURL
-      });
+        message: 'Token sent to email!'
+      };
+
+      if (process.env.NODE_ENV === 'development') {
+        response.resetToken = resetToken;
+        response.resetURL = resetURL;
+      }
+
+      res.status(200).json(response);
     } catch (err) {
       user.passwordResetToken = undefined;
       user.passwordResetExpires = undefined;

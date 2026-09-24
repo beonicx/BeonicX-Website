@@ -1,12 +1,5 @@
-import React from 'react'
-import Home from '../app/home/page'
+import Home from './home/page';
 
-function page() {
-  return (
-    <main >
-      <Home/>
-    </main>
-  )
+export default function Page() {
+  return <Home />;
 }
-
-export default page

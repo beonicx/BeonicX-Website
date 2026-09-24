@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
+const config = require('./config/config');
 const errorHandler = require('./middleware/errorHandler');
 
 // Import routes
@@ -22,7 +23,11 @@ const app = express();
 
 // Security middleware
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+  origin: config.cors.origin,
+  methods: config.cors.methods,
+  allowedHeaders: config.cors.allowedHeaders
+}));
 
 // Rate limiting
 const limiter = rateLimit({

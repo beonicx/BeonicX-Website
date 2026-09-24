@@ -2,6 +2,7 @@ import "./globals.css";
 import { Raleway } from "next/font/google";
 import StructuredData from "@/components/seo/StructuredData";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import AppShell from "@/components/AppShell";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -128,7 +129,9 @@ export default function RootLayout({ children }) {
         <StructuredData />
         <BreadcrumbSchema />
       </head>
-      <body className={raleway.className}>{children}</body>
+      <body className={raleway.className}>
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }

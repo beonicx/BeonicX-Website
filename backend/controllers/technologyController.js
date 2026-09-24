@@ -9,10 +9,22 @@ exports.getAllCourses = async (req, res) => {
     const excludedFields = ['page', 'sort', 'limit', 'fields'];
     excludedFields.forEach(field => delete queryObj[field]);
 
-    // 2) Advanced filtering
+    // 2) Sanitize query - strip any keys containing MongoDB operators
+    const sanitizeObj = (obj) => {
+      for (const key of Object.keys(obj)) {
+        if (key.startsWith('$')) {
+          delete obj[key];
+        } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+          sanitizeObj(obj[key]);
+        }
+      }
+      return obj;
+    };
+    sanitizeObj(queryObj);
+
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`);
-    
+
     let query = Course.find(JSON.parse(queryStr));
 
     // 3) Sorting

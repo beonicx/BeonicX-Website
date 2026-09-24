@@ -1,81 +1,28 @@
-'use client'
+'use client';
 
-import { useState, useEffect, createContext } from "react";
-
-import WhatsAppButton from "../../constants/whatsapp/whatsapp";
-import Navbar from "../../layouts/navbar/Navbar";
-import Footer from "../../layouts/footer/Footer";
-import FeatureSection from "../../components/home/featureSection";
-import Testonomial from "../../components/home/testonomial";
-import Slider from "../../constants/slider1/Slider";
-import FreelamceBanner from "../../components/home/join";
-import IndustrySlider from "../../components/home/industrySlider";
-import Toppage from "../../components/home/top";
-import ChatWidget from "../../components/ai-agent/ChatWidget";
-
-// Create a context to share dark mode state across components
-export const ThemeContext = createContext({
-  darkMode: false,
-  toggleDarkMode: () => {}
-});
+import { useTheme } from '@/context/ThemeContext';
+import WhatsAppButton from '@/constants/whatsapp/whatsapp';
+import FeatureSection from '@/components/home/featureSection';
+import Testonomial from '@/components/home/testonomial';
+import Slider from '@/constants/slider1/Slider';
+import FreelamceBanner from '@/components/home/join';
+import IndustrySlider from '@/components/home/industrySlider';
+import Toppage from '@/components/home/top';
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Initialize theme based on user preference
-  useEffect(() => {
-    // Check for saved preference in localStorage first
-    const savedTheme = localStorage.getItem('darkMode');
-    if (savedTheme) {
-      setDarkMode(savedTheme === 'true');
-    } else if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      setDarkMode(true);
-    }
-  }, []);
-
-  // Toggle theme function
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    // Save preference to localStorage
-    localStorage.setItem('darkMode', newDarkMode.toString());
-  };
-
-  // Toggle mobile menu
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  // Theme context value
-  const themeContextValue = {
-    darkMode,
-    toggleDarkMode
-  };
+  const { darkMode } = useTheme();
 
   return (
-    <ThemeContext.Provider value={themeContextValue}>
-      <main className={darkMode ? "dark" : ""}>
-        <div className={`min-h-screen ${darkMode ? "bg-slate-950 text-white" : "bg-slate-50 text-slate-900"}`}>
-          <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
-          <div className="pt-16">
-            <Toppage darkMode={darkMode}/>
-            <FeatureSection darkMode={darkMode} />
-            <Slider darkMode={darkMode} />
-            <Testonomial darkMode={darkMode} />
-            <IndustrySlider darkMode={darkMode} />
-            <WhatsAppButton darkMode={darkMode} />
-            <div className="px-10">
-              <FreelamceBanner darkMode={darkMode} />
-            </div>
-          </div>
-          <ChatWidget darkMode={darkMode} />
-          <Footer darkMode={darkMode} />
-        </div>
-      </main>
-    </ThemeContext.Provider>
+    <>
+      <Toppage darkMode={darkMode} />
+      <FeatureSection darkMode={darkMode} />
+      <Slider darkMode={darkMode} />
+      <Testonomial darkMode={darkMode} />
+      <IndustrySlider darkMode={darkMode} />
+      <WhatsAppButton darkMode={darkMode} />
+      <div className="px-4 sm:px-10">
+        <FreelamceBanner darkMode={darkMode} />
+      </div>
+    </>
   );
 }

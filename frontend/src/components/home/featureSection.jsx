@@ -10,6 +10,7 @@ import {
   FaCogs,
   FaUserSecret,
 } from 'react-icons/fa';
+import { ArrowRight } from 'lucide-react';
 import { getServices } from '@/lib/api';
 
 const defaultFeatures = [
@@ -62,12 +63,12 @@ const iconMap = {
 
 const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const cardVariant = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export default function FeatureSection({ darkMode = false }) {
@@ -90,34 +91,28 @@ export default function FeatureSection({ darkMode = false }) {
   }, []);
 
   return (
-    <section
-      className={`relative py-24 overflow-hidden ${
-        darkMode ? 'bg-[#030712]' : 'bg-[#ffffff]'
-      }`}
-    >
-      {/* Background orbs */}
+    <section className={`relative py-28 overflow-hidden ${darkMode ? 'bg-[#030712]' : 'bg-[#ffffff]'}`}>
       {darkMode && (
         <>
-          <div className="absolute top-20 left-[10%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.07] blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-10 right-[5%] w-[400px] h-[400px] rounded-full bg-blue-600/[0.06] blur-[100px] pointer-events-none" />
+          <div className="absolute top-20 left-[10%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.05] blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-10 right-[5%] w-[400px] h-[400px] rounded-full bg-blue-600/[0.04] blur-[120px] pointer-events-none" />
         </>
       )}
       {!darkMode && (
-        <div className="absolute inset-0 dot-pattern-light pointer-events-none" />
+        <div className="absolute inset-0 dot-pattern-light pointer-events-none opacity-60" />
       )}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          {/* Badge */}
           <span
-            className={`inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 ${
+            className={`inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-6 ${
               darkMode
                 ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
                 : 'bg-blue-50 text-blue-600 border border-blue-200/60'
@@ -127,22 +122,18 @@ export default function FeatureSection({ darkMode = false }) {
             Our Services
           </span>
 
-          <h2
-            className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-5 ${
-              darkMode ? 'text-white' : 'text-slate-900'
-            }`}
-          >
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-5 ${
+            darkMode ? 'text-white' : 'text-slate-900'
+          }`}>
             What We{' '}
-            <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
               Build
             </span>
           </h2>
 
-          <p
-            className={`max-w-2xl mx-auto text-base sm:text-lg leading-relaxed ${
-              darkMode ? 'text-slate-400' : 'text-slate-600'
-            }`}
-          >
+          <p className={`max-w-2xl mx-auto text-base sm:text-lg leading-relaxed ${
+            darkMode ? 'text-slate-400' : 'text-slate-600'
+          }`}>
             End-to-end technology solutions — from web and app development to
             custom CRM, ERP, AI agents, and voice automation.
           </p>
@@ -150,11 +141,11 @@ export default function FeatureSection({ darkMode = false }) {
 
         {/* Cards grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {features.map((feature, index) => (
             <Link key={index} href={feature.slug ? `/services/${feature.slug}` : '/services'}>
@@ -162,34 +153,32 @@ export default function FeatureSection({ darkMode = false }) {
                 variants={cardVariant}
                 className={`group relative rounded-2xl p-7 transition-all duration-300 cursor-pointer h-full ${
                   darkMode
-                    ? 'bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] hover:border-blue-600/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.08)]'
-                    : 'bg-white backdrop-blur-xl border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.03)] hover:border-blue-200 hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
+                    ? 'bg-white/[0.02] border border-white/[0.06] hover:border-blue-600/30 hover:bg-white/[0.04] hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
+                    : 'bg-white border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:border-blue-200 hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
                 } card-hover`}
               >
                 {/* Icon */}
-                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 text-white text-lg mb-5 shadow-lg shadow-blue-600/20 group-hover:shadow-blue-600/30 transition-shadow">
+                <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 text-white text-lg mb-5 shadow-lg shadow-blue-600/20 group-hover:shadow-blue-600/30 transition-all duration-300 group-hover:scale-105">
                   {feature.icon}
                 </div>
 
-                <h3
-                  className={`text-lg font-bold mb-2.5 tracking-tight ${
-                    darkMode ? 'text-white' : 'text-slate-900'
-                  }`}
-                >
+                <h3 className={`text-lg font-bold mb-3 tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {feature.title}
                 </h3>
 
-                <p
-                  className={`text-sm leading-relaxed ${
-                    darkMode ? 'text-slate-400' : 'text-slate-600'
-                  }`}
-                >
+                <p className={`text-sm leading-relaxed mb-5 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                   {feature.description}
                 </p>
 
-              {/* Hover gradient line at bottom */}
-              <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-blue-700 via-blue-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.article>
+                <div className={`inline-flex items-center gap-1.5 text-sm font-medium transition-all duration-300 ${
+                  darkMode ? 'text-blue-400' : 'text-blue-600'
+                } opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0`}>
+                  Learn more <ArrowRight size={14} />
+                </div>
+
+                {/* Hover gradient line at bottom */}
+                <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.article>
             </Link>
           ))}
         </motion.div>

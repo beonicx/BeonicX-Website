@@ -61,7 +61,7 @@ export default function Toppage({ darkMode = false }) {
     }
   };
 
-  const inputCls = `w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200
+  const inputCls = `w-full px-4 py-3.5 rounded-xl text-sm outline-none transition-all duration-200
     focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600
     ${darkMode
       ? 'bg-white/[0.04] border border-white/[0.1] text-white placeholder:text-slate-500'
@@ -79,61 +79,72 @@ export default function Toppage({ darkMode = false }) {
 
   return (
     <>
-      <section
-        className={`relative overflow-hidden ${
-          darkMode ? 'bg-[#030712]' : 'bg-[#ffffff]'
-        }`}
-      >
-        {/* Background */}
+      <section className={`relative overflow-hidden ${darkMode ? 'bg-[#030712]' : 'bg-[#ffffff]'}`}>
+        {/* Background gradient orbs */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className={`absolute top-[-15%] left-[-8%] w-[700px] h-[700px] rounded-full blur-[140px] ${
-            darkMode ? 'bg-blue-600/[0.07]' : 'bg-blue-100/50'
+          <div className={`absolute top-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full blur-[160px] ${
+            darkMode ? 'bg-blue-600/[0.06]' : 'bg-blue-100/40'
           }`} />
-          <div className={`absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[120px] ${
-            darkMode ? 'bg-blue-700/[0.05]' : 'bg-blue-50/60'
+          <div className={`absolute bottom-[-15%] right-[-8%] w-[600px] h-[600px] rounded-full blur-[140px] ${
+            darkMode ? 'bg-blue-700/[0.04]' : 'bg-blue-50/50'
+          }`} />
+          <div className={`absolute top-[30%] right-[20%] w-[300px] h-[300px] rounded-full blur-[100px] ${
+            darkMode ? 'bg-blue-500/[0.03]' : 'bg-blue-100/30'
           }`} />
         </div>
 
+        {/* Grid pattern */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(${darkMode ? 'rgba(37,99,235,0.025)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(37,99,235,0.025)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.012)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.012)'} 1px, transparent 1px)`,
             backgroundSize: '72px 72px',
           }}
         />
 
+        {/* Radial fade */}
         <div className={`absolute inset-0 pointer-events-none ${
           darkMode
-            ? 'bg-[radial-gradient(ellipse_at_center,transparent_50%,#030712_100%)]'
-            : 'bg-[radial-gradient(ellipse_at_center,transparent_50%,#ffffff_100%)]'
+            ? 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#030712_100%)]'
+            : 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#ffffff_100%)]'
         }`} />
 
         {/* Hero content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-12 sm:pb-16">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 lg:pt-36 pb-16 sm:pb-20">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <p className={`text-sm font-medium tracking-wide uppercase mb-6 ${
-                darkMode ? 'text-blue-400' : 'text-blue-600'
-              }`}>
+              {/* Tag */}
+              <motion.p
+                className={`inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase mb-8 px-4 py-2 rounded-full border ${
+                  darkMode
+                    ? 'text-blue-400 bg-blue-600/10 border-blue-600/20'
+                    : 'text-blue-600 bg-blue-50 border-blue-200/60'
+                }`}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
                 SaaS Development & AI Engineering
-              </p>
+              </motion.p>
 
-              <h1 className={`text-4xl sm:text-5xl lg:text-[3.75rem] font-extrabold tracking-tight leading-[1.1] mb-4 ${
+              {/* Heading */}
+              <h1 className={`text-4xl sm:text-5xl lg:text-[3.75rem] font-extrabold tracking-tight leading-[1.1] mb-6 ${
                 darkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 We Build{' '}
-                <span className="relative inline-block">
+                <span className="relative inline-block min-w-[280px] sm:min-w-[340px]">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={wordIndex}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.35 }}
+                      initial={{ opacity: 0, y: 24, filter: 'blur(4px)' }}
+                      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                      exit={{ opacity: 0, y: -24, filter: 'blur(4px)' }}
+                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                       className="inline-block bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent"
                     >
                       {rotatingWords[wordIndex]}
@@ -144,23 +155,25 @@ export default function Toppage({ darkMode = false }) {
                 That Scale Your Business
               </h1>
 
-              <p className={`text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl mx-auto ${
+              {/* Subheading */}
+              <p className={`text-lg sm:text-xl leading-relaxed mb-12 max-w-2xl mx-auto ${
                 darkMode ? 'text-slate-400' : 'text-slate-500'
               }`}>
                 From custom SaaS platforms to autonomous AI agents — we engineer production-grade software that drives revenue, cuts costs, and gives you an unfair advantage.
               </p>
 
-              {/* CTA */}
-              <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 justify-center">
+              {/* CTA buttons */}
+              <div className="flex flex-col sm:flex-row items-center gap-4 mb-10 justify-center">
                 <Link
                   href="/get-started"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
+                  className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
                 >
-                  Get a Free Consultation <ArrowRight size={18} />
+                  Get a Free Consultation
+                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
                 </Link>
                 <button
                   onClick={() => { setShowModal(true); setSubmitMessage(''); }}
-                  className={`inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 border cursor-pointer ${
+                  className={`inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 border cursor-pointer ${
                     darkMode
                       ? 'border-white/10 text-slate-300 hover:border-white/20 hover:bg-white/[0.04]'
                       : 'border-slate-200 text-slate-700 hover:border-blue-200 hover:bg-blue-50/50'
@@ -172,9 +185,9 @@ export default function Toppage({ darkMode = false }) {
               </div>
 
               {/* Trust signals */}
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-3 justify-center">
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-3 justify-center">
                 {['No upfront cost', 'SOC 2 aligned', 'Dedicated team in 48h'].map((item) => (
-                  <div key={item} className={`flex items-center gap-1.5 text-xs font-medium ${
+                  <div key={item} className={`flex items-center gap-2 text-xs font-medium tracking-wide ${
                     darkMode ? 'text-slate-500' : 'text-slate-400'
                   }`}>
                     <CheckCircle size={14} className="text-blue-600" />
@@ -187,118 +200,125 @@ export default function Toppage({ darkMode = false }) {
 
           {/* Stats row */}
           <motion.div
-            className="mt-16 sm:mt-20"
-            initial={{ opacity: 0, y: 24 }}
+            className="mt-20 sm:mt-24"
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className={`grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl overflow-hidden ${
               darkMode ? 'bg-white/[0.06]' : 'bg-slate-200/60'
             }`}>
-              {stats.map((stat) => (
-                <div
+              {stats.map((stat, i) => (
+                <motion.div
                   key={stat.label}
-                  className={`px-6 py-6 text-center ${
-                    darkMode ? 'bg-[#030712]' : 'bg-white'
-                  }`}
+                  className={`px-6 py-8 text-center ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.35 + i * 0.08 }}
                 >
-                  <div className={`text-2xl sm:text-3xl font-extrabold tracking-tight mb-1 ${
+                  <div className={`text-3xl sm:text-4xl font-extrabold tracking-tight mb-1.5 ${
                     darkMode ? 'text-white' : 'text-slate-900'
                   }`}>
                     {stat.value}
                   </div>
-                  <div className={`text-xs font-medium ${
+                  <div className={`text-xs font-medium tracking-wide ${
                     darkMode ? 'text-slate-500' : 'text-slate-400'
                   }`}>
                     {stat.label}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
-
         </div>
       </section>
 
       {/* Query Modal */}
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            onClick={() => setShowModal(false)}
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className={`relative rounded-3xl p-8 w-full max-w-md shadow-2xl ${
-              darkMode
-                ? 'bg-[#030712] border border-white/[0.08]'
-                : 'bg-white border border-slate-200'
-            }`}
-          >
-            <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-              Let&apos;s Build Together
-            </h3>
-            <p className={`text-sm mb-6 ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
-              Tell us about your project and we&apos;ll get back within 24 hours.
-            </p>
-
-            {submitMessage && (
-              <div className={`mb-4 px-4 py-3 rounded-xl text-sm ${
-                submitMessage.includes('Thank you')
-                  ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                  : 'bg-red-50 text-red-800 border border-red-200'
-              }`}>
-                {submitMessage}
-              </div>
-            )}
-
-            <form onSubmit={handleSubmitQuery} className="flex flex-col gap-4">
-              <div>
-                <label className={labelCls}>Name *</label>
-                <input
-                  type="text" name="name" value={formData.name}
-                  onChange={handleInputChange} placeholder="Your name" required
-                  className={inputCls}
-                />
-              </div>
-              <div>
-                <label className={labelCls}>Email *</label>
-                <input
-                  type="email" name="email" value={formData.email}
-                  onChange={handleInputChange} placeholder="you@company.com" required
-                  className={inputCls}
-                />
-              </div>
-              <div>
-                <label className={labelCls}>Project Details *</label>
-                <textarea
-                  name="message" value={formData.message}
-                  onChange={handleInputChange} placeholder="Describe your SaaS idea, AI use case, or business challenge..."
-                  rows={3} required
-                  className={`${inputCls} resize-none`}
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-3 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-200 shadow-lg shadow-blue-600/20 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? 'Sending...' : 'Request Consultation'}
-              </button>
-            </form>
-
-            <button
-              className={`absolute top-4 right-5 text-2xl leading-none cursor-pointer transition-colors hover:text-blue-600 ${
-                darkMode ? 'text-slate-500' : 'text-slate-400'
-              }`}
+      <AnimatePresence>
+        {showModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setShowModal(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              className={`relative rounded-3xl p-8 w-full max-w-md shadow-2xl ${
+                darkMode
+                  ? 'bg-[#030712] border border-white/[0.08]'
+                  : 'bg-white border border-slate-200'
+              }`}
             >
-              &times;
-            </button>
-          </motion.div>
-        </div>
-      )}
+              <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                Let&apos;s Build Together
+              </h3>
+              <p className={`text-sm mb-6 ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                Tell us about your project and we&apos;ll get back within 24 hours.
+              </p>
+
+              {submitMessage && (
+                <div className={`mb-4 px-4 py-3 rounded-xl text-sm ${
+                  submitMessage.includes('Thank you')
+                    ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                    : 'bg-red-50 text-red-800 border border-red-200'
+                }`}>
+                  {submitMessage}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmitQuery} className="flex flex-col gap-4">
+                <div>
+                  <label className={labelCls}>Name *</label>
+                  <input
+                    type="text" name="name" value={formData.name}
+                    onChange={handleInputChange} placeholder="Your name" required
+                    className={inputCls}
+                  />
+                </div>
+                <div>
+                  <label className={labelCls}>Email *</label>
+                  <input
+                    type="email" name="email" value={formData.email}
+                    onChange={handleInputChange} placeholder="you@company.com" required
+                    className={inputCls}
+                  />
+                </div>
+                <div>
+                  <label className={labelCls}>Project Details *</label>
+                  <textarea
+                    name="message" value={formData.message}
+                    onChange={handleInputChange} placeholder="Describe your SaaS idea, AI use case, or business challenge..."
+                    rows={3} required
+                    className={`${inputCls} resize-none`}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-200 shadow-lg shadow-blue-600/20 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 hover:shadow-blue-600/30"
+                >
+                  {isSubmitting ? 'Sending...' : 'Request Consultation'}
+                </button>
+              </form>
+
+              <button
+                className={`absolute top-4 right-5 text-2xl leading-none cursor-pointer transition-colors hover:text-blue-600 ${
+                  darkMode ? 'text-slate-500' : 'text-slate-400'
+                }`}
+                onClick={() => setShowModal(false)}
+              >
+                &times;
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

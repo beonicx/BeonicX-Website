@@ -1,20 +1,17 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Navbar from "@/layouts/navbar/Navbar";
-import Footer from "@/layouts/footer/Footer";
 import {
   Sparkles, TrendingUp, Users, Clock, ArrowRight,
-  Filter, Search, Star, CheckCircle, Zap, Target,
+  Search, Star, CheckCircle, Zap, Target,
   Smartphone, Globe, ShoppingCart, Heart, Award,
   BookOpen, Activity, DollarSign, BarChart3
 } from 'lucide-react';
 import { getCaseStudies } from '@/lib/api';
 
-const CardList = ({ darkMode = false, toggleDarkMode }) => {
+const CardList = ({ darkMode = false }) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -60,24 +57,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "iOS", "Node.js", "Real-time"],
       client: "Papa John's International",
       duration: "8 months",
-      results: {
-        metric1: "300%",
-        label1: "Order Increase",
-        metric2: "4.8★",
-        label2: "App Rating",
-        metric3: "2M+",
-        label3: "Downloads"
-      },
-      challenges: [
-        "Real-time order tracking integration",
-        "High-traffic scalability",
-        "Multi-location inventory management"
-      ],
-      solutions: [
-        "Microservices architecture for scalability",
-        "WebSocket for real-time updates",
-        "Cloud-based inventory sync"
-      ],
+      results: { metric1: "300%", label1: "Order Increase", metric2: "4.8★", label2: "App Rating", metric3: "2M+", label3: "Downloads" },
+      challenges: ["Real-time order tracking integration", "High-traffic scalability", "Multi-location inventory management"],
+      solutions: ["Microservices architecture for scalability", "WebSocket for real-time updates", "Cloud-based inventory sync"],
       technologies: ["React Native", "Node.js", "MongoDB", "Redis", "AWS"],
       gradient: "from-blue-600 to-blue-400",
       icon: <ShoppingCart className="w-6 h-6" />
@@ -91,24 +73,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "Flutter", "Node.js", "iOS"],
       client: "Art of Living Foundation",
       duration: "10 months",
-      results: {
-        metric1: "5M+",
-        label1: "Active Users",
-        metric2: "92%",
-        label2: "Retention Rate",
-        metric3: "4.9★",
-        label3: "User Rating"
-      },
-      challenges: [
-        "Offline content accessibility",
-        "Multi-language support (20+ languages)",
-        "Personalized content recommendations"
-      ],
-      solutions: [
-        "Progressive download system",
-        "AI-powered recommendation engine",
-        "Adaptive streaming for videos"
-      ],
+      results: { metric1: "5M+", label1: "Active Users", metric2: "92%", label2: "Retention Rate", metric3: "4.9★", label3: "User Rating" },
+      challenges: ["Offline content accessibility", "Multi-language support (20+ languages)", "Personalized content recommendations"],
+      solutions: ["Progressive download system", "AI-powered recommendation engine", "Adaptive streaming for videos"],
       technologies: ["Flutter", "Firebase", "TensorFlow", "Cloud Storage"],
       gradient: "from-blue-600 to-blue-400",
       icon: <Heart className="w-6 h-6" />
@@ -122,24 +89,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "iOS", "React Native", "AI/ML"],
       client: "FitTrack Wellness Inc.",
       duration: "7 months",
-      results: {
-        metric1: "1.5M+",
-        label1: "Active Users",
-        metric2: "85%",
-        label2: "Goal Achievement",
-        metric3: "200K+",
-        label3: "Premium Subscribers"
-      },
-      challenges: [
-        "Real-time pose detection accuracy",
-        "Wearable device integration",
-        "Personalized workout algorithms"
-      ],
-      solutions: [
-        "Computer vision for form analysis",
-        "Multi-device sync protocol",
-        "ML-based adaptive training plans"
-      ],
+      results: { metric1: "1.5M+", label1: "Active Users", metric2: "85%", label2: "Goal Achievement", metric3: "200K+", label3: "Premium Subscribers" },
+      challenges: ["Real-time pose detection accuracy", "Wearable device integration", "Personalized workout algorithms"],
+      solutions: ["Computer vision for form analysis", "Multi-device sync protocol", "ML-based adaptive training plans"],
       technologies: ["React Native", "Python", "TensorFlow", "HealthKit", "Google Fit"],
       gradient: "from-blue-600 to-blue-700",
       icon: <Activity className="w-6 h-6" />
@@ -153,24 +105,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "iOS", "Node.js", "MongoDB", "WebRTC"],
       client: "EduLearn Technologies",
       duration: "12 months",
-      results: {
-        metric1: "500K+",
-        label1: "Students",
-        metric2: "95%",
-        label2: "Satisfaction Rate",
-        metric3: "10K+",
-        label3: "Courses"
-      },
-      challenges: [
-        "Low-latency video streaming",
-        "Interactive whiteboard functionality",
-        "Progress tracking across devices"
-      ],
-      solutions: [
-        "WebRTC for peer-to-peer streaming",
-        "Canvas-based collaborative tools",
-        "Real-time database synchronization"
-      ],
+      results: { metric1: "500K+", label1: "Students", metric2: "95%", label2: "Satisfaction Rate", metric3: "10K+", label3: "Courses" },
+      challenges: ["Low-latency video streaming", "Interactive whiteboard functionality", "Progress tracking across devices"],
+      solutions: ["WebRTC for peer-to-peer streaming", "Canvas-based collaborative tools", "Real-time database synchronization"],
       technologies: ["React Native", "WebRTC", "Node.js", "PostgreSQL", "Redis"],
       gradient: "from-blue-600 to-blue-700",
       icon: <BookOpen className="w-6 h-6" />
@@ -184,24 +121,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "iOS", "Flutter", "Firebase", "AR"],
       client: "ShopEasy Retail",
       duration: "9 months",
-      results: {
-        metric1: "400%",
-        label1: "Sales Growth",
-        metric2: "3M+",
-        label2: "Monthly Users",
-        metric3: "45%",
-        label3: "Conversion Rate"
-      },
-      challenges: [
-        "Visual search accuracy",
-        "AR try-on rendering speed",
-        "Payment gateway integration"
-      ],
-      solutions: [
-        "Custom CNN for image recognition",
-        "ARCore/ARKit optimization",
-        "Multi-gateway payment abstraction"
-      ],
+      results: { metric1: "400%", label1: "Sales Growth", metric2: "3M+", label2: "Monthly Users", metric3: "45%", label3: "Conversion Rate" },
+      challenges: ["Visual search accuracy", "AR try-on rendering speed", "Payment gateway integration"],
+      solutions: ["Custom CNN for image recognition", "ARCore/ARKit optimization", "Multi-gateway payment abstraction"],
       technologies: ["Flutter", "TensorFlow", "ARCore", "ARKit", "Stripe"],
       gradient: "from-blue-600 to-blue-800",
       icon: <ShoppingCart className="w-6 h-6" />
@@ -215,24 +137,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "iOS", "React Native", "Node.js", "HIPAA"],
       client: "HealthPlus Medical Group",
       duration: "14 months",
-      results: {
-        metric1: "100K+",
-        label1: "Consultations",
-        metric2: "98%",
-        label2: "Uptime",
-        metric3: "500+",
-        label3: "Doctors"
-      },
-      challenges: [
-        "HIPAA compliance requirements",
-        "Secure data transmission",
-        "EHR system integration"
-      ],
-      solutions: [
-        "End-to-end encryption",
-        "FHIR standard implementation",
-        "Blockchain for audit trails"
-      ],
+      results: { metric1: "100K+", label1: "Consultations", metric2: "98%", label2: "Uptime", metric3: "500+", label3: "Doctors" },
+      challenges: ["HIPAA compliance requirements", "Secure data transmission", "EHR system integration"],
+      solutions: ["End-to-end encryption", "FHIR standard implementation", "Blockchain for audit trails"],
       technologies: ["React Native", "Node.js", "PostgreSQL", "WebRTC", "Blockchain"],
       gradient: "from-blue-400 to-blue-600",
       icon: <Heart className="w-6 h-6" />
@@ -246,24 +153,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "iOS", "Node.js", "Security", "Blockchain"],
       client: "BankSecure Financial",
       duration: "16 months",
-      results: {
-        metric1: "2M+",
-        label1: "Users",
-        metric2: "99.9%",
-        label2: "Security Score",
-        metric3: "$50B+",
-        label3: "Transactions"
-      },
-      challenges: [
-        "Multi-factor authentication",
-        "Real-time fraud detection",
-        "Regulatory compliance"
-      ],
-      solutions: [
-        "Biometric + behavioral authentication",
-        "ML-based fraud detection",
-        "PCI-DSS compliant architecture"
-      ],
+      results: { metric1: "2M+", label1: "Users", metric2: "99.9%", label2: "Security Score", metric3: "$50B+", label3: "Transactions" },
+      challenges: ["Multi-factor authentication", "Real-time fraud detection", "Regulatory compliance"],
+      solutions: ["Biometric + behavioral authentication", "ML-based fraud detection", "PCI-DSS compliant architecture"],
       technologies: ["Native iOS/Android", "Node.js", "ML", "Blockchain", "AWS"],
       gradient: "from-blue-600 to-blue-700",
       icon: <DollarSign className="w-6 h-6" />
@@ -277,24 +169,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "iOS", "Flutter", "API", "ML"],
       client: "WeatherNow Inc.",
       duration: "5 months",
-      results: {
-        metric1: "10M+",
-        label1: "Downloads",
-        metric2: "4.7★",
-        label2: "Rating",
-        metric3: "95%",
-        label3: "Accuracy"
-      },
-      challenges: [
-        "Hyperlocal data accuracy",
-        "Low-latency data updates",
-        "Battery optimization"
-      ],
-      solutions: [
-        "Multi-source data aggregation",
-        "Edge caching strategy",
-        "Background sync optimization"
-      ],
+      results: { metric1: "10M+", label1: "Downloads", metric2: "4.7★", label2: "Rating", metric3: "95%", label3: "Accuracy" },
+      challenges: ["Hyperlocal data accuracy", "Low-latency data updates", "Battery optimization"],
+      solutions: ["Multi-source data aggregation", "Edge caching strategy", "Background sync optimization"],
       technologies: ["Flutter", "Python", "ML", "AWS", "OpenWeather API"],
       gradient: "from-sky-500 to-blue-600",
       icon: <Globe className="w-6 h-6" />
@@ -308,24 +185,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "iOS", "Firebase", "Real-time", "WebRTC"],
       client: "ChatConnect Communications",
       duration: "11 months",
-      results: {
-        metric1: "8M+",
-        label1: "Users",
-        metric2: "500M+",
-        label2: "Messages/Day",
-        metric3: "4.6★",
-        label3: "Rating"
-      },
-      challenges: [
-        "Message delivery guarantee",
-        "End-to-end encryption",
-        "Cross-platform synchronization"
-      ],
-      solutions: [
-        "Queue-based message system",
-        "Signal protocol implementation",
-        "Real-time database sync"
-      ],
+      results: { metric1: "8M+", label1: "Users", metric2: "500M+", label2: "Messages/Day", metric3: "4.6★", label3: "Rating" },
+      challenges: ["Message delivery guarantee", "End-to-end encryption", "Cross-platform synchronization"],
+      solutions: ["Queue-based message system", "Signal protocol implementation", "Real-time database sync"],
       technologies: ["React Native", "Firebase", "WebRTC", "Node.js", "Socket.io"],
       gradient: "from-blue-600 to-blue-800",
       icon: <Users className="w-6 h-6" />
@@ -339,24 +201,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "iOS", "React Native", "AI", "Maps"],
       client: "TravelMate Global",
       duration: "8 months",
-      results: {
-        metric1: "1M+",
-        label1: "Trips Planned",
-        metric2: "90%",
-        label2: "User Satisfaction",
-        metric3: "4.8★",
-        label3: "Rating"
-      },
-      challenges: [
-        "Multi-currency handling",
-        "Offline maps and content",
-        "Real-time price comparison"
-      ],
-      solutions: [
-        "Dynamic currency conversion API",
-        "Progressive map downloading",
-        "Price aggregation service"
-      ],
+      results: { metric1: "1M+", label1: "Trips Planned", metric2: "90%", label2: "User Satisfaction", metric3: "4.8★", label3: "Rating" },
+      challenges: ["Multi-currency handling", "Offline maps and content", "Real-time price comparison"],
+      solutions: ["Dynamic currency conversion API", "Progressive map downloading", "Price aggregation service"],
       technologies: ["React Native", "Google Maps API", "TensorFlow", "Node.js"],
       gradient: "from-blue-600 to-blue-400",
       icon: <Globe className="w-6 h-6" />
@@ -370,24 +217,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "iOS", "Flutter", "AR", "Maps"],
       client: "PropTech Realty",
       duration: "10 months",
-      results: {
-        metric1: "50K+",
-        label1: "Properties",
-        metric2: "200K+",
-        label2: "Users",
-        metric3: "$2B+",
-        label3: "Transactions"
-      },
-      challenges: [
-        "3D property visualization",
-        "Location-based search",
-        "Secure document handling"
-      ],
-      solutions: [
-        "360° virtual tour integration",
-        "Geospatial indexing",
-        "Blockchain-based document storage"
-      ],
+      results: { metric1: "50K+", label1: "Properties", metric2: "200K+", label2: "Users", metric3: "$2B+", label3: "Transactions" },
+      challenges: ["3D property visualization", "Location-based search", "Secure document handling"],
+      solutions: ["360° virtual tour integration", "Geospatial indexing", "Blockchain-based document storage"],
       technologies: ["Flutter", "ARCore", "ARKit", "Google Maps", "Blockchain"],
       gradient: "from-blue-600 to-blue-700",
       icon: <Target className="w-6 h-6" />
@@ -401,24 +233,9 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
       tags: ["Android", "iOS", "Node.js", "AI", "Maps"],
       client: "FoodHub Network",
       duration: "9 months",
-      results: {
-        metric1: "500K+",
-        label1: "Orders/Month",
-        metric2: "1000+",
-        label2: "Restaurants",
-        metric3: "4.5★",
-        label3: "Rating"
-      },
-      challenges: [
-        "Multi-vendor order management",
-        "Dynamic pricing optimization",
-        "Fleet management integration"
-      ],
-      solutions: [
-        "Microservices architecture",
-        "ML-based demand prediction",
-        "Real-time fleet tracking"
-      ],
+      results: { metric1: "500K+", label1: "Orders/Month", metric2: "1000+", label2: "Restaurants", metric3: "4.5★", label3: "Rating" },
+      challenges: ["Multi-vendor order management", "Dynamic pricing optimization", "Fleet management integration"],
+      solutions: ["Microservices architecture", "ML-based demand prediction", "Real-time fleet tracking"],
       technologies: ["React Native", "Node.js", "MongoDB", "Redis", "Google Maps"],
       gradient: "from-blue-400 to-blue-600",
       icon: <ShoppingCart className="w-6 h-6" />
@@ -428,34 +245,21 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
   const caseStudies = apiCaseStudies || defaultCaseStudies;
 
   const categories = [
-    "All",
-    "E-Commerce",
-    "Healthcare",
-    "Education",
-    "Food & Delivery",
-    "FinTech",
-    "Health & Wellness",
-    "Social & Communication",
-    "Travel & Tourism",
-    "Real Estate",
-    "Utilities"
+    "All", "E-Commerce", "Healthcare", "Education", "Food & Delivery",
+    "FinTech", "Health & Wellness", "Social & Communication",
+    "Travel & Tourism", "Real Estate", "Utilities"
   ];
 
-  // Animation variants
   const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
   };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.08 } }
   };
 
-  // Filter logic
   const filteredCaseStudies = caseStudies.filter(study => {
     const matchesCategory = selectedCategory === 'All' || study.category === selectedCategory;
     const matchesSearch = study.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -465,90 +269,83 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
   });
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
-      <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
+    <div className={`transition-colors duration-300 ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
 
-      {/* Hero Section */}
-      <section className={`relative overflow-hidden ${
-        darkMode
-          ? 'bg-gradient-to-br from-slate-950 via-blue-950 to-blue-950'
-          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'
-      } text-white py-24 md:py-32 px-4`}>
-        {/* Animated background */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className={`absolute rounded-full ${darkMode ? 'opacity-5' : 'opacity-10'}`}
-              style={{
-                width: `${Math.random() * 400 + 150}px`,
-                height: `${Math.random() * 400 + 150}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                background: `radial-gradient(circle, rgba(255, 255, 255, ${Math.random() * 0.4}) 0%, transparent 70%)`,
-                animation: `float ${Math.random() * 15 + 15}s ease-in-out infinite`,
-                filter: 'blur(40px)'
-              }}
-            />
-          ))}
-        </div>
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className={`absolute inset-0 ${darkMode ? 'bg-[#030712]' : 'bg-white'}`} />
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: `linear-gradient(${darkMode ? 'rgba(37,99,235,0.03)' : 'rgba(37,99,235,0.02)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(37,99,235,0.03)' : 'rgba(37,99,235,0.02)'} 1px, transparent 1px)`,
+          backgroundSize: '72px 72px'
+        }} />
+        {darkMode && (
+          <>
+            <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-blue-600/[0.06] blur-[140px] pointer-events-none" />
+            <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-blue-700/[0.04] blur-[120px] pointer-events-none" />
+          </>
+        )}
+        <div className={`absolute inset-0 pointer-events-none ${
+          darkMode
+            ? 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#030712_100%)]'
+            : 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#ffffff_100%)]'
+        }`} />
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-16">
           <motion.div
             className="text-center"
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
           >
-            <motion.div
+            <motion.span
               variants={fadeInUp}
-              className={`inline-flex items-center gap-2 backdrop-blur-md px-5 py-2.5 rounded-full mb-6 border ${
-                darkMode ? 'bg-blue-600/20 border-blue-400/40' : 'bg-white/25 border-white/40'
+              className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-8 ${
+                darkMode
+                  ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
+                  : 'bg-blue-50 text-blue-600 border border-blue-200/60'
               }`}
             >
-              <Sparkles className={darkMode ? 'text-blue-400' : 'text-blue-200'} size={18} />
-              <span className="text-sm font-semibold tracking-wide">Success Stories</span>
-            </motion.div>
+              <Sparkles size={14} />
+              Success Stories
+            </motion.span>
 
             <motion.h1
               variants={fadeInUp}
-              className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight"
+              className={`text-4xl sm:text-5xl lg:text-[3.75rem] font-extrabold tracking-tight leading-[1.1] mb-6 ${
+                darkMode ? 'text-white' : 'text-slate-900'
+              }`}
             >
               Our{' '}
-              <span className={`text-transparent bg-clip-text bg-gradient-to-r ${
-                darkMode ? 'from-blue-300 via-blue-400 to-blue-600' : 'from-white via-blue-100 to-blue-200'
-              }`}>
+              <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
                 Case Studies
               </span>
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
-              className={`text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed ${
-                darkMode ? 'text-slate-300' : 'text-blue-50'
+              className={`text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-12 ${
+                darkMode ? 'text-slate-400' : 'text-slate-500'
               }`}
             >
               Explore our portfolio of successful projects that have transformed businesses and delighted millions of users worldwide.
             </motion.p>
 
-            {/* Stats */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-wrap justify-center gap-12"
+              className={`grid grid-cols-3 max-w-lg mx-auto gap-px rounded-2xl overflow-hidden ${
+                darkMode ? 'bg-white/[0.06]' : 'bg-slate-200/60'
+              }`}
             >
               {[
-                { icon: <Award className="w-8 h-8" />, value: "150+", label: "Projects Delivered" },
-                { icon: <Users className="w-8 h-8" />, value: "50M+", label: "Users Reached" },
-                { icon: <Star className="w-8 h-8" />, value: "4.8★", label: "Average Rating" }
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className={`${darkMode ? 'text-blue-400' : 'text-blue-200'} mb-2 flex justify-center`}>
-                    {stat.icon}
-                  </div>
-                  <div className={`text-3xl md:text-4xl font-extrabold ${darkMode ? 'text-white' : 'text-white'}`}>
+                { icon: <Award size={20} />, value: "150+", label: "Projects Delivered" },
+                { icon: <Users size={20} />, value: "50M+", label: "Users Reached" },
+                { icon: <Star size={20} />, value: "4.8★", label: "Avg Rating" }
+              ].map((stat) => (
+                <div key={stat.label} className={`px-6 py-5 text-center ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+                  <div className={`text-2xl font-extrabold tracking-tight mb-0.5 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     {stat.value}
                   </div>
-                  <div className={`text-sm font-medium ${darkMode ? 'text-slate-400' : 'text-blue-100'}`}>
+                  <div className={`text-xs font-medium ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
                     {stat.label}
                   </div>
                 </div>
@@ -558,66 +355,56 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className={`sticky top-16 z-30 ${
-        darkMode ? 'bg-slate-950/95 border-b border-slate-800' : 'bg-white/95 border-b border-slate-200'
-      } backdrop-blur-md`}>
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          {/* Search Bar */}
-          <div className="mb-6">
-            <div className={`flex items-center gap-3 backdrop-blur-xl rounded-xl p-4 border transition-all ${
-              darkMode
-                ? 'bg-slate-800/60 border-slate-700/50 hover:border-slate-600'
-                : 'bg-white border-slate-300 hover:border-slate-400'
-            }`}>
-              <Search size={22} className={darkMode ? 'text-slate-400' : 'text-slate-600'} />
-              <input
-                type="text"
-                placeholder="Search by project name, technology, or category..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className={`flex-1 bg-transparent text-base ${
-                  darkMode ? 'text-white placeholder-gray-500' : 'text-slate-900 placeholder-gray-600'
-                } focus:outline-none`}
-              />
-            </div>
+      {/* Search & Filters */}
+      <section className={`sticky top-16 z-30 backdrop-blur-xl border-b ${
+        darkMode ? 'bg-[#030712]/90 border-white/[0.06]' : 'bg-white/90 border-slate-200/60'
+      }`}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className={`flex items-center gap-3 rounded-xl px-4 py-3 mb-4 border transition-all ${
+            darkMode
+              ? 'bg-white/[0.04] border-white/[0.08] focus-within:border-blue-600/40'
+              : 'bg-slate-50 border-slate-200 focus-within:border-blue-400'
+          }`}>
+            <Search size={18} className={darkMode ? 'text-slate-500' : 'text-slate-400'} />
+            <input
+              type="text"
+              placeholder="Search projects, technologies, or categories..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className={`flex-1 bg-transparent text-sm outline-none ${
+                darkMode ? 'text-white placeholder-slate-500' : 'text-slate-900 placeholder-slate-400'
+              }`}
+            />
           </div>
 
-          {/* Category Filters */}
-          <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
-            <Filter size={20} className={darkMode ? 'text-slate-400' : 'text-slate-600'} />
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
             {categories.map((category) => (
-              <motion.button
+              <button
                 key={category}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-5 py-2.5 rounded-xl font-semibold whitespace-nowrap transition-all ${
+                className={`px-4 py-2 rounded-lg font-medium text-xs whitespace-nowrap transition-all ${
                   selectedCategory === category
-                    ? darkMode
-                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
-                      : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20'
                     : darkMode
-                      ? 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                      ? 'bg-white/[0.04] text-slate-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.06]'
+                      : 'bg-slate-50 text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
                 {category}
-              </motion.button>
+              </button>
             ))}
           </div>
 
-          {/* Results Count */}
-          <div className={`mt-4 text-sm font-medium ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-            Showing {filteredCaseStudies.length} of {caseStudies.length} projects
+          <div className={`mt-3 text-xs font-medium ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+            {filteredCaseStudies.length} of {caseStudies.length} projects
           </div>
         </div>
       </section>
 
-      {/* Case Studies Grid */}
-      <section className="max-w-7xl mx-auto px-4 py-16">
+      {/* Cards Grid */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
@@ -626,55 +413,52 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
             <motion.div
               key={study.id}
               variants={fadeInUp}
-              whileHover={{ y: -10 }}
               onHoverStart={() => setHoveredCard(study.id)}
               onHoverEnd={() => setHoveredCard(null)}
-              className={`group rounded-2xl overflow-hidden transition-all duration-300 ${
+              className={`group relative rounded-2xl overflow-hidden transition-all duration-300 card-hover ${
                 darkMode
-                  ? 'bg-gradient-to-br from-slate-950 to-gray-950 border border-slate-800 shadow-xl hover:shadow-blue-900/20'
-                  : 'bg-white border border-slate-200 shadow-lg hover:shadow-2xl'
+                  ? 'bg-white/[0.03] border border-white/[0.08] hover:border-blue-600/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
+                  : 'bg-white border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.03)] hover:border-blue-200 hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
               }`}
             >
               {/* Image */}
-              <div className="relative h-64 w-full overflow-hidden">
+              <div className="relative h-56 w-full overflow-hidden">
                 <Image
                   src={study.image}
                   alt={study.title}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                   unoptimized
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-                {/* Category Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full bg-gradient-to-r ${study.gradient} text-white shadow-lg`}>
+                  <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full backdrop-blur-md ${
+                    darkMode ? 'bg-white/10 text-white border border-white/20' : 'bg-white/80 text-slate-700 border border-white/40'
+                  }`}>
                     {study.category}
                   </span>
                 </div>
 
-                {/* Icon */}
-                <div className={`absolute top-4 right-4 w-12 h-12 rounded-xl bg-gradient-to-r ${study.gradient} flex items-center justify-center text-white shadow-lg`}>
+                <div className={`absolute top-4 right-4 w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg bg-gradient-to-br from-blue-600 to-blue-700`}>
                   {study.icon}
                 </div>
 
-                {/* Hover Overlay */}
                 {hoveredCard === study.id && (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 flex items-center justify-center"
+                    className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center"
                   >
                     <Link href="/get-started">
-                      <motion.button
-                        initial={{ scale: 0.8, opacity: 0 }}
+                      <motion.span
+                        initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        transition={{ delay: 0.1 }}
-                        className="bg-white text-slate-900 font-bold py-3 px-6 rounded-xl hover:bg-slate-100 transition flex items-center gap-2"
+                        transition={{ delay: 0.05 }}
+                        className="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold py-3 px-6 rounded-xl text-sm hover:bg-slate-100 transition"
                       >
-                        View Details
-                        <ArrowRight size={18} />
-                      </motion.button>
+                        View Details <ArrowRight size={16} />
+                      </motion.span>
                     </Link>
                   </motion.div>
                 )}
@@ -682,128 +466,137 @@ const CardList = ({ darkMode = false, toggleDarkMode }) => {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className={`text-xl font-bold mb-3 line-clamp-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                <h3 className={`text-lg font-bold mb-2 line-clamp-2 tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                   {study.title}
                 </h3>
-                <p className={`text-sm mb-4 line-clamp-2 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                <p className={`text-sm mb-4 line-clamp-2 leading-relaxed ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                   {study.description}
                 </p>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1.5 mb-5">
                   {study.tags.slice(0, 3).map((tag, idx) => (
                     <span
                       key={idx}
-                      className={`text-xs font-semibold px-3 py-1 rounded-full ${
+                      className={`text-[10px] font-semibold px-2.5 py-1 rounded-md ${
                         darkMode
-                          ? 'bg-blue-600/20 text-blue-400 border border-blue-600/30'
-                          : 'bg-blue-100 text-blue-700 border border-blue-200'
+                          ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
+                          : 'bg-blue-50 text-blue-600 border border-blue-100'
                       }`}
                     >
                       {tag}
                     </span>
                   ))}
                   {study.tags.length > 3 && (
-                    <span className={`text-xs font-semibold px-3 py-1 rounded-full ${
-                      darkMode ? 'bg-slate-800 text-slate-400' : 'bg-slate-100 text-slate-600'
+                    <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-md ${
+                      darkMode ? 'bg-white/[0.04] text-slate-500 border border-white/[0.06]' : 'bg-slate-50 text-slate-400 border border-slate-200'
                     }`}>
                       +{study.tags.length - 3}
                     </span>
                   )}
                 </div>
 
-                {/* Results Metrics */}
-                <div className={`grid grid-cols-3 gap-4 pt-4 border-t ${darkMode ? 'border-slate-800' : 'border-slate-200'}`}>
-                  <div>
-                    <div className={`text-lg font-bold bg-gradient-to-r ${study.gradient} bg-clip-text text-transparent`}>
-                      {study.results.metric1}
+                {/* Metrics */}
+                <div className={`grid grid-cols-3 gap-3 pt-4 border-t ${darkMode ? 'border-white/[0.06]' : 'border-slate-100'}`}>
+                  {[
+                    { val: study.results.metric1, lbl: study.results.label1 },
+                    { val: study.results.metric2, lbl: study.results.label2 },
+                    { val: study.results.metric3, lbl: study.results.label3 },
+                  ].map((m, i) => (
+                    <div key={i}>
+                      <div className={`text-base font-bold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                        {m.val}
+                      </div>
+                      <div className={`text-[10px] font-medium ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                        {m.lbl}
+                      </div>
                     </div>
-                    <div className={`text-xs ${darkMode ? 'text-slate-500' : 'text-slate-600'}`}>
-                      {study.results.label1}
-                    </div>
-                  </div>
-                  <div>
-                    <div className={`text-lg font-bold bg-gradient-to-r ${study.gradient} bg-clip-text text-transparent`}>
-                      {study.results.metric2}
-                    </div>
-                    <div className={`text-xs ${darkMode ? 'text-slate-500' : 'text-slate-600'}`}>
-                      {study.results.label2}
-                    </div>
-                  </div>
-                  <div>
-                    <div className={`text-lg font-bold bg-gradient-to-r ${study.gradient} bg-clip-text text-transparent`}>
-                      {study.results.metric3}
-                    </div>
-                    <div className={`text-xs ${darkMode ? 'text-slate-500' : 'text-slate-600'}`}>
-                      {study.results.label3}
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
-                {/* Duration */}
-                <div className={`flex items-center gap-2 mt-4 text-sm ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-                  <Clock size={16} />
-                  <span>{study.duration} development</span>
-                </div>
+                {study.duration && (
+                  <div className={`flex items-center gap-1.5 mt-4 text-xs ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                    <Clock size={12} />
+                    <span>{study.duration} development</span>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* No Results */}
         {filteredCaseStudies.length === 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center py-20"
+            className="text-center py-24"
           >
-            <div className={`text-6xl mb-4 ${darkMode ? 'text-slate-700' : 'text-slate-300'}`}>
-              🔍
-            </div>
-            <h3 className={`text-2xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+            <Search size={48} className={`mx-auto mb-4 ${darkMode ? 'text-slate-700' : 'text-slate-300'}`} />
+            <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               No projects found
             </h3>
-            <p className={darkMode ? 'text-slate-400' : 'text-slate-600'}>
+            <p className={`text-sm ${darkMode ? 'text-slate-500' : 'text-slate-500'}`}>
               Try adjusting your search or filters
             </p>
           </motion.div>
         )}
       </section>
 
-      {/* CTA Section */}
-      <section className={`relative py-24 px-4 overflow-hidden ${
-        darkMode
-          ? 'bg-gradient-to-br from-blue-950 via-blue-950 to-blue-950'
-          : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'
-      }`}>
-        <div className="max-w-4xl mx-auto text-center text-white relative z-10">
+      {/* CTA */}
+      <section className={`relative py-24 px-4 overflow-hidden ${darkMode ? 'aurora-dark' : 'aurora-light'}`}>
+        <div className={`absolute inset-0 ${darkMode ? 'grid-pattern' : ''} pointer-events-none`} />
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-blue-600/10 rounded-full blur-[80px] pointer-events-none" />
+
+        <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            <Zap className="w-16 h-16 mx-auto mb-6 text-blue-300" />
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-6">
-              Ready to Start Your Success Story?
+            <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 bg-blue-600/10 border border-blue-600/20 ${
+              darkMode ? 'text-blue-400' : 'text-blue-600'
+            }`}>
+              <Zap size={14} />
+              Start Building
+            </span>
+
+            <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight tracking-tight ${
+              darkMode ? 'text-white' : 'text-slate-900'
+            }`}>
+              Ready to Start Your{' '}
+              <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
+                Success Story
+              </span>?
             </h2>
-            <p className={`text-lg md:text-xl mb-10 ${darkMode ? 'text-slate-300' : 'text-blue-50'}`}>
-              Let's collaborate to create an exceptional product that transforms your business.
+
+            <p className={`text-base sm:text-lg mb-10 max-w-xl mx-auto leading-relaxed ${
+              darkMode ? 'text-slate-400' : 'text-slate-600'
+            }`}>
+              Let&apos;s collaborate to create an exceptional product that transforms your business.
             </p>
-            <Link href="/get-started">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-slate-100 transition shadow-2xl inline-flex items-center gap-2"
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/get-started"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
               >
-                Start Your Project
-                <ArrowRight size={20} />
-              </motion.button>
-            </Link>
+                Start Your Project <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/services"
+                className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 border ${
+                  darkMode
+                    ? 'border-white/10 text-slate-300 hover:border-white/20 hover:bg-white/5'
+                    : 'border-slate-200 text-slate-700 hover:border-blue-200 hover:bg-blue-50/50'
+                }`}
+              >
+                Explore Services
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
-
-      <Footer darkMode={darkMode} />
     </div>
   );
 };

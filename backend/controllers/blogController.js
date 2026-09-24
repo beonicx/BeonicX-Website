@@ -13,10 +13,22 @@ exports.getAllBlogs = async (req, res) => {
       queryObj.published = true;
     }
 
-    // Advanced filtering
+    // Sanitize query - strip any keys containing MongoDB operators
+    const sanitizeObj = (obj) => {
+      for (const key of Object.keys(obj)) {
+        if (key.startsWith('$')) {
+          delete obj[key];
+        } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+          sanitizeObj(obj[key]);
+        }
+      }
+      return obj;
+    };
+    sanitizeObj(queryObj);
+
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`);
-    
+
     let query = Blog.find(JSON.parse(queryStr));
 
     // Sorting

@@ -1,5 +1,15 @@
 const nodemailer = require('nodemailer');
 
+const escapeHtml = (str) => {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+};
+
 // Create transporter
 const createTransporter = () => {
   return nodemailer.createTransport({
@@ -52,14 +62,14 @@ exports.sendContactNotification = async (data) => {
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb; border-radius: 8px;">
       <h2 style="color: #1f2937; border-bottom: 3px solid #3b82f6; padding-bottom: 10px;">New ${formTypeLabel} Submission</h2>
       <div style="background-color: white; padding: 20px; border-radius: 8px; margin-top: 20px;">
-        <p style="margin: 10px 0;"><strong style="color: #374151;">Name:</strong> <span style="color: #6b7280;">${data.name}</span></p>
-        <p style="margin: 10px 0;"><strong style="color: #374151;">Email:</strong> <span style="color: #3b82f6;">${data.email}</span></p>
-        ${data.phone ? `<p style="margin: 10px 0;"><strong style="color: #374151;">Phone:</strong> <span style="color: #6b7280;">${data.phone}</span></p>` : ''}
-        ${data.skype ? `<p style="margin: 10px 0;"><strong style="color: #374151;">Skype ID:</strong> <span style="color: #6b7280;">${data.skype}</span></p>` : ''}
-        <p style="margin: 10px 0;"><strong style="color: #374151;">Subject:</strong> <span style="color: #6b7280;">${data.subject}</span></p>
+        <p style="margin: 10px 0;"><strong style="color: #374151;">Name:</strong> <span style="color: #6b7280;">${escapeHtml(data.name)}</span></p>
+        <p style="margin: 10px 0;"><strong style="color: #374151;">Email:</strong> <span style="color: #3b82f6;">${escapeHtml(data.email)}</span></p>
+        ${data.phone ? `<p style="margin: 10px 0;"><strong style="color: #374151;">Phone:</strong> <span style="color: #6b7280;">${escapeHtml(data.phone)}</span></p>` : ''}
+        ${data.skype ? `<p style="margin: 10px 0;"><strong style="color: #374151;">Skype ID:</strong> <span style="color: #6b7280;">${escapeHtml(data.skype)}</span></p>` : ''}
+        <p style="margin: 10px 0;"><strong style="color: #374151;">Subject:</strong> <span style="color: #6b7280;">${escapeHtml(data.subject)}</span></p>
         <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 20px 0;">
         <h3 style="color: #374151; margin-bottom: 10px;">Message:</h3>
-        <p style="color: #6b7280; line-height: 1.6; white-space: pre-wrap;">${data.message}</p>
+        <p style="color: #6b7280; line-height: 1.6; white-space: pre-wrap;">${escapeHtml(data.message)}</p>
       </div>
       <p style="color: #9ca3af; font-size: 12px; margin-top: 20px; text-align: center;">This email was sent from BeonicX Website ${formTypeLabel}</p>
     </div>
@@ -83,8 +93,8 @@ exports.sendContactConfirmation = async (data) => {
           <p style="color: #6b7280; margin-top: 5px;">AI-Powered SaaS Solutions</p>
         </div>
         <h2 style="color: #1f2937; margin-bottom: 20px;">Thank you for contacting us!</h2>
-        <p style="color: #374151; line-height: 1.6;">Dear ${data.name},</p>
-        <p style="color: #374151; line-height: 1.6;">We have received your message regarding <strong>"${data.subject}"</strong>.</p>
+        <p style="color: #374151; line-height: 1.6;">Dear ${escapeHtml(data.name)},</p>
+        <p style="color: #374151; line-height: 1.6;">We have received your message regarding <strong>"${escapeHtml(data.subject)}"</strong>.</p>
         <p style="color: #374151; line-height: 1.6;">Our team will review your inquiry and get back to you as soon as possible, typically within 24-48 hours.</p>
         <p style="color: #374151; line-height: 1.6;">Thank you for your interest in our services.</p>
         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
@@ -118,14 +128,14 @@ exports.sendContactResponse = async (data) => {
           <p style="color: #6b7280; margin-top: 5px;">AI-Powered SaaS Solutions</p>
         </div>
         <h2 style="color: #1f2937; margin-bottom: 20px;">Response to Your Inquiry</h2>
-        <p style="color: #374151; line-height: 1.6;">Dear ${data.name},</p>
-        <p style="color: #374151; line-height: 1.6;">Thank you for reaching out to us. Here is our response regarding <strong>"${data.subject}"</strong>:</p>
+        <p style="color: #374151; line-height: 1.6;">Dear ${escapeHtml(data.name)},</p>
+        <p style="color: #374151; line-height: 1.6;">Thank you for reaching out to us. Here is our response regarding <strong>"${escapeHtml(data.subject)}"</strong>:</p>
         <div style="background-color: #f9fafb; padding: 20px; border-left: 4px solid #3b82f6; margin: 20px 0; border-radius: 4px;">
-          <p style="color: #374151; line-height: 1.6; white-space: pre-wrap; margin: 0;">${data.responseMessage}</p>
+          <p style="color: #374151; line-height: 1.6; white-space: pre-wrap; margin: 0;">${escapeHtml(data.responseMessage)}</p>
         </div>
         <p style="color: #6b7280; font-size: 14px; margin-top: 20px;"><strong>Your Original Message:</strong></p>
         <div style="background-color: #f3f4f6; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
-          <p style="color: #6b7280; line-height: 1.6; white-space: pre-wrap; margin: 0;">${data.originalMessage}</p>
+          <p style="color: #6b7280; line-height: 1.6; white-space: pre-wrap; margin: 0;">${escapeHtml(data.originalMessage)}</p>
         </div>
         <p style="color: #374151; line-height: 1.6;">If you have any further questions, please don't hesitate to contact us.</p>
         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
