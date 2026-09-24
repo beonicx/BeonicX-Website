@@ -1,47 +1,33 @@
 'use client'
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  CheckCircle, Sparkles, Rocket, MessageSquare,
-  Code, Shield, Zap, Target, Layers, TrendingUp,
-  Award, Users, Globe, Server, Activity, Brain
+  CheckCircle2, Sparkles, Rocket, MessageSquare,
+  Code, Layers, TrendingUp, Award, Users, ArrowRight, Lightbulb
 } from 'lucide-react';
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 }
-  }
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const GRADIENT_COLORS = [
+  'from-blue-600 to-blue-500',
+  'from-blue-500 to-indigo-500',
+  'from-indigo-500 to-blue-600',
   'from-blue-600 to-blue-700',
-  'from-blue-600 to-blue-400',
-  'from-blue-600 to-blue-400',
-  'from-blue-600 to-blue-700',
-  'from-blue-400 to-blue-600',
-  'from-blue-600 to-blue-800',
+  'from-blue-500 to-blue-600',
+  'from-indigo-600 to-blue-600',
 ];
 
 export default function ServiceDetail({ darkMode, service }) {
-  useEffect(() => {
-    const root = document.documentElement;
-    if (darkMode) {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-  }, [darkMode]);
-
-  const gradient = service.gradient || 'from-blue-600 to-blue-700';
   const sections = service.sections || [];
   const processSteps = service.processSteps || [];
   const stats = service.stats || [];
@@ -60,132 +46,132 @@ export default function ServiceDetail({ darkMode, service }) {
   }, [techStack]);
 
   return (
-    <div className={`font-sans transition-colors duration-300 py-18 ${darkMode ? 'dark bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white' : 'bg-gradient-to-br from-gray-50 via-white to-blue-50 text-slate-800'}`}>
+    <div className={darkMode ? 'bg-[#030712]' : 'bg-white'}>
 
-      {/* Hero Section */}
-      <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'} text-white py-20 px-4 relative overflow-hidden`}>
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={i}
-              className={`absolute rounded-full ${darkMode ? 'opacity-10' : 'opacity-20'}`}
-              style={{
-                width: `${150 + (i * 50)}px`,
-                height: `${150 + (i * 50)}px`,
-                left: `${(i * 13) % 100}%`,
-                top: `${(i * 17) % 100}%`,
-                background: `radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%)`,
-                animation: `float ${15 + i * 2}s ease-in-out infinite`,
-                animationDelay: `${i * 0.7}s`,
-                filter: 'blur(40px)'
-              }}
-            />
-          ))}
+      {/* ═══════════ HERO ═══════════ */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className={`absolute top-[-15%] left-[-5%] w-[600px] h-[600px] rounded-full blur-[150px] ${
+            darkMode ? 'bg-blue-600/[0.08]' : 'bg-blue-100/70'
+          }`} />
+          <div className={`absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[120px] ${
+            darkMode ? 'bg-indigo-600/[0.06]' : 'bg-indigo-50/60'
+          }`} />
         </div>
 
-        <div className="absolute inset-0 opacity-10"
+        <div
+          className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
+            backgroundImage: `linear-gradient(${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px)`,
+            backgroundSize: '80px 80px',
           }}
         />
 
-        <div className="container mx-auto max-w-6xl relative z-10">
+        <div className={`absolute inset-0 pointer-events-none ${
+          darkMode
+            ? 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#030712_80%)]'
+            : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
+        }`} />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-24 sm:pb-32">
           <motion.div
-            className="flex flex-col md:flex-row items-center"
+            className={service.image ? 'flex flex-col lg:flex-row items-center gap-12' : 'text-center max-w-4xl mx-auto'}
             initial="hidden"
             animate="visible"
-            variants={staggerContainer}
+            variants={stagger}
           >
-            <motion.div
-              className={service.image ? 'md:w-1/2 mb-12 md:mb-0' : 'w-full text-center'}
-              variants={fadeInUp}
-            >
+            <div className={service.image ? 'lg:w-1/2' : ''}>
               {service.heroSubtitle && (
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/30"
+                <motion.span
+                  variants={fadeUp}
+                  className={`inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-8 ${
+                    darkMode
+                      ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                      : 'bg-blue-50 text-blue-600 border border-blue-100'
+                  }`}
                 >
-                  <Sparkles size={18} className="text-blue-300" />
-                  <span className="text-sm font-medium">{service.heroSubtitle}</span>
-                </motion.div>
+                  <Sparkles size={13} />
+                  {service.heroSubtitle}
+                </motion.span>
               )}
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600">
+              <motion.h1
+                variants={fadeUp}
+                className={`text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-7 ${
+                  darkMode ? 'text-white' : 'text-slate-900'
+                }`}
+              >
+                <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
                   {service.title}
                 </span>
-              </h1>
-              <p className="text-xl mb-8 text-slate-100 leading-relaxed">
+              </motion.h1>
+
+              <motion.p
+                variants={fadeUp}
+                className={`text-lg sm:text-xl leading-relaxed mb-12 ${service.image ? '' : 'max-w-2xl mx-auto'} ${
+                  darkMode ? 'text-slate-400' : 'text-slate-500'
+                }`}
+              >
                 {service.description}
-              </p>
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link
-                    href={cta.buttonLink || '/get-started'}
-                    className="bg-white text-blue-700 font-bold py-4 px-8 rounded-xl hover:bg-slate-50 transition shadow-2xl flex items-center justify-center gap-2"
-                  >
-                    <Rocket size={20} />
-                    {cta.buttonText || 'Get Started'}
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link
-                    href="/get-started"
-                    className="border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-blue-700 transition backdrop-blur-md bg-white/10 flex items-center justify-center"
-                  >
-                    View Our Work
-                  </Link>
-                </motion.div>
-              </div>
+              </motion.p>
+
+              <motion.div variants={fadeUp} className={`flex flex-col sm:flex-row items-center gap-4 ${service.image ? '' : 'justify-center'}`}>
+                <Link
+                  href={cta.buttonLink || '/get-started'}
+                  className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
+                >
+                  <Rocket size={18} />
+                  {cta.buttonText || 'Get Started'}
+                  <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+                <Link
+                  href="/get-started"
+                  className={`inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 ${
+                    darkMode
+                      ? 'text-slate-300 border border-white/[0.1] hover:border-white/[0.2] hover:bg-white/[0.04]'
+                      : 'text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                  }`}
+                >
+                  View Our Work
+                </Link>
+              </motion.div>
 
               {stats.length > 0 && (
                 <motion.div
-                  className="flex items-center gap-6 mt-8 flex-wrap"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8 }}
+                  variants={fadeUp}
+                  className={`flex items-center gap-6 mt-10 flex-wrap ${service.image ? '' : 'justify-center'}`}
                 >
                   {stats.slice(0, 3).map((stat, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <CheckCircle size={20} className="text-blue-300" />
-                      <span className="text-sm">{stat.value} {stat.label}</span>
+                    <div key={idx} className={`flex items-center gap-2 text-sm ${
+                      darkMode ? 'text-slate-500' : 'text-slate-500'
+                    }`}>
+                      <CheckCircle2 size={15} className="text-blue-500" />
+                      <span>{stat.value} {stat.label}</span>
                     </div>
                   ))}
                 </motion.div>
               )}
-            </motion.div>
+            </div>
 
             {service.image && (
               <motion.div
-                className="md:w-1/2 flex justify-center items-center"
-                variants={fadeInUp}
-                initial={{ opacity: 0, y: 40, rotateY: 20 }}
-                animate={{ opacity: 1, y: 0, rotateY: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                className="lg:w-1/2 flex justify-center"
+                variants={fadeUp}
               >
-                <div className="relative w-full max-w-lg">
-                  <div className={`absolute -inset-4 bg-gradient-to-r ${gradient} rounded-3xl blur-2xl opacity-30 animate-pulse`} />
-                  <div className="relative perspective-container">
-                    <motion.div
-                      className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm"
-                      whileHover={{ scale: 1.05, rotateY: 5, rotateX: 5 }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        width={500}
-                        height={400}
-                        className="object-cover w-full h-auto"
-                        unoptimized
-                        priority
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
-                    </motion.div>
-                  </div>
+                <div className={`relative rounded-2xl overflow-hidden ${
+                  darkMode
+                    ? 'border border-white/[0.06] shadow-[0_0_60px_rgba(37,99,235,0.08)]'
+                    : 'border border-slate-200/80 shadow-[0_20px_60px_rgba(37,99,235,0.12)]'
+                }`}>
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={500}
+                    height={400}
+                    className="object-cover w-full h-auto"
+                    unoptimized
+                    priority
+                  />
                 </div>
               </motion.div>
             )}
@@ -193,136 +179,250 @@ export default function ServiceDetail({ darkMode, service }) {
         </div>
       </section>
 
-      {/* Sections (services/capabilities) */}
+      {/* ═══════════ SECTIONS ═══════════ */}
       {sections.map((section, sectionIdx) => (
         <section
           key={sectionIdx}
-          className={`py-24 px-4 ${sectionIdx % 2 === 0
-            ? (darkMode ? 'bg-slate-950' : 'bg-white')
-            : (darkMode ? 'bg-gradient-to-b from-slate-800 to-slate-950' : 'bg-gradient-to-b from-gray-50 to-white')
-          } relative`}
+          className={`relative py-24 sm:py-32 ${
+            sectionIdx % 2 === 0
+              ? ''
+              : (darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70')
+          }`}
         >
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className={`absolute top-20 right-0 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/50'} rounded-full blur-3xl`} />
-            <div className={`absolute bottom-20 left-0 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/50'} rounded-full blur-3xl`} />
-          </div>
+          {darkMode && (
+            <div className={`absolute ${sectionIdx % 2 === 0 ? 'top-40 right-[5%]' : 'bottom-0 left-[10%]'} w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[130px] pointer-events-none`} />
+          )}
 
-          <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="text-center mb-16 lg:mb-20"
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              variants={stagger}
             >
-              <motion.div
-                className="inline-block mb-4"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+              <motion.span
+                variants={fadeUp}
+                className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
+                  darkMode ? 'text-blue-400' : 'text-blue-600'
+                }`}
               >
-                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-600/20 text-blue-300 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
-                  {section.title}
-                </span>
-              </motion.div>
-
-              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 {section.title}
-              </h2>
+              </motion.span>
+              <motion.h2
+                variants={fadeUp}
+                className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
+                  darkMode ? 'text-white' : 'text-slate-900'
+                }`}
+              >
+                {section.title}
+              </motion.h2>
               {section.description && (
-                <p className={`text-lg ${darkMode ? 'text-slate-300' : 'text-slate-600'} max-w-3xl mx-auto leading-relaxed`}>
+                <motion.p
+                  variants={fadeUp}
+                  className={`text-base sm:text-lg mt-5 max-w-2xl mx-auto leading-relaxed ${
+                    darkMode ? 'text-slate-400' : 'text-slate-500'
+                  }`}
+                >
                   {section.description}
-                </p>
+                </motion.p>
               )}
             </motion.div>
 
             {section.items && section.items.length > 0 && (
               <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+                variants={stagger}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
-                variants={staggerContainer}
+                viewport={{ once: true, amount: 0.05 }}
               >
-                {section.items.map((item, itemIdx) => {
-                  const itemGradient = GRADIENT_COLORS[itemIdx % GRADIENT_COLORS.length];
-                  return (
-                    <motion.div
-                      key={itemIdx}
-                      className={`group relative rounded-2xl p-8 transition-all duration-300 ${
-                        darkMode
-                          ? 'bg-gradient-to-br from-slate-800 to-slate-950 border border-slate-700 hover:border-blue-600/50'
-                          : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-blue-300 shadow-lg hover:shadow-2xl'
-                      }`}
-                      variants={fadeInUp}
-                      whileHover={{ y: -12, transition: { duration: 0.3 } }}
-                    >
-                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${itemGradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-xl`} />
+                {section.items.map((item, itemIdx) => (
+                  <motion.div key={itemIdx} variants={fadeUp}>
+                    <div className={`relative rounded-2xl p-8 h-full transition-all duration-300 overflow-hidden ${
+                      darkMode
+                        ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
+                        : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                    } card-hover`}>
+                      <span className={`absolute top-5 right-6 text-[5rem] font-black leading-none select-none pointer-events-none ${
+                        darkMode ? 'text-white/[0.02]' : 'text-slate-900/[0.03]'
+                      }`}>
+                        {String(itemIdx + 1).padStart(2, '0')}
+                      </span>
 
-                      <div className={`relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${itemGradient} p-0.5 mb-6`}>
-                        <div className={`w-full h-full rounded-2xl flex items-center justify-center ${darkMode ? 'bg-slate-800' : 'bg-white'}`}>
-                          <div className={`bg-gradient-to-br ${itemGradient} bg-clip-text text-transparent`}>
-                            <Layers size={40} />
-                          </div>
-                        </div>
+                      <div className={`relative w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${GRADIENT_COLORS[itemIdx % GRADIENT_COLORS.length]} text-white mb-6 shadow-lg shadow-blue-600/20`}>
+                        <Layers size={24} />
                       </div>
 
-                      <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                      <h3 className={`text-xl font-bold mb-3 tracking-tight ${
+                        darkMode ? 'text-white' : 'text-slate-900'
+                      }`}>
                         {item.title}
                       </h3>
-                      <p className={`text-base leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+                      <p className={`text-sm leading-relaxed ${
+                        darkMode ? 'text-slate-400' : 'text-slate-500'
+                      }`}>
                         {item.description}
                       </p>
-                    </motion.div>
-                  );
-                })}
+                    </div>
+                  </motion.div>
+                ))}
               </motion.div>
             )}
           </div>
         </section>
       ))}
 
-      {/* Features (from service.features[]) — shown if no sections but features exist */}
+      {/* ═══════════ FEATURES (fallback when no sections) ═══════════ */}
       {sections.length === 0 && features.length > 0 && (
-        <section className={`py-24 px-4 ${darkMode ? 'bg-slate-950' : 'bg-white'} relative`}>
-          <div className="container mx-auto max-w-7xl relative z-10">
-            <motion.div
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                What We Offer
-              </h2>
-            </motion.div>
+        <section className="relative py-24 sm:py-32">
+          {darkMode && (
+            <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[130px] pointer-events-none" />
+          )}
 
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="text-center mb-16 lg:mb-20"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
+              variants={stagger}
             >
-              {features.map((feature, idx) => {
-                const itemGradient = GRADIENT_COLORS[idx % GRADIENT_COLORS.length];
-                return (
-                  <motion.div
-                    key={idx}
-                    className={`group relative rounded-2xl p-8 transition-all duration-300 ${
+              <motion.span
+                variants={fadeUp}
+                className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
+                  darkMode ? 'text-blue-400' : 'text-blue-600'
+                }`}
+              >
+                What We Offer
+              </motion.span>
+              <motion.h2
+                variants={fadeUp}
+                className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
+                  darkMode ? 'text-white' : 'text-slate-900'
+                }`}
+              >
+                Key{' '}
+                <span className={darkMode ? 'text-slate-500' : 'text-slate-400'}>
+                  Features
+                </span>
+              </motion.h2>
+            </motion.div>
+
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.05 }}
+            >
+              {features.map((feature, idx) => (
+                <motion.div key={idx} variants={fadeUp}>
+                  <div className={`relative rounded-2xl p-8 h-full transition-all duration-300 ${
+                    darkMode
+                      ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
+                      : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                  } card-hover`}>
+                    <div className={`w-12 h-12 flex items-center justify-center rounded-xl mb-6 ${
                       darkMode
-                        ? 'bg-gradient-to-br from-slate-800 to-slate-950 border border-slate-700 hover:border-blue-600/50'
-                        : 'bg-white hover:bg-slate-50 border border-slate-200 hover:border-blue-300 shadow-lg hover:shadow-2xl'
-                    }`}
-                    variants={fadeInUp}
-                    whileHover={{ y: -8 }}
-                  >
-                    <div className={`relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${itemGradient} shadow-lg mb-6`}>
-                      <CheckCircle size={24} className="text-white" />
+                        ? 'bg-blue-500/10 border border-blue-500/20'
+                        : 'bg-blue-50 border border-blue-100'
+                    }`}>
+                      <CheckCircle2 size={22} className="text-blue-500" />
                     </div>
-                    <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                    <h3 className={`text-lg font-bold tracking-tight ${
+                      darkMode ? 'text-white' : 'text-slate-900'
+                    }`}>
                       {feature}
                     </h3>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* ═══════════ PROCESS STEPS ═══════════ */}
+      {processSteps.length > 0 && (
+        <section className={`relative py-24 sm:py-32 overflow-hidden ${
+          darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'
+        }`}>
+          {darkMode && (
+            <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[130px] pointer-events-none" />
+          )}
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              className="text-center mb-16 lg:mb-20"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={stagger}
+            >
+              <motion.span
+                variants={fadeUp}
+                className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
+                  darkMode ? 'text-blue-400' : 'text-blue-600'
+                }`}
+              >
+                Our Process
+              </motion.span>
+              <motion.h2
+                variants={fadeUp}
+                className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
+                  darkMode ? 'text-white' : 'text-slate-900'
+                }`}
+              >
+                How We Build Your{' '}
+                <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+                  Success
+                </span>
+              </motion.h2>
+            </motion.div>
+
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {processSteps.map((step, index) => {
+                const stepNum = step.step || (index + 1);
+                return (
+                  <motion.div key={index} variants={fadeUp}>
+                    <div className={`relative rounded-2xl p-8 h-full transition-all duration-300 ${
+                      darkMode
+                        ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
+                        : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                    } card-hover`}>
+                      <div className="flex items-center justify-between mb-6">
+                        <div className={`w-12 h-12 flex items-center justify-center rounded-xl ${
+                          darkMode
+                            ? 'bg-blue-500/10 border border-blue-500/20'
+                            : 'bg-blue-50 border border-blue-100'
+                        }`}>
+                          <Code size={22} className="text-blue-500" />
+                        </div>
+                        <span className={`text-[11px] font-bold tracking-[0.2em] uppercase ${
+                          darkMode ? 'text-blue-400/40' : 'text-blue-500/40'
+                        }`}>
+                          {String(stepNum).padStart(2, '0')}
+                        </span>
+                      </div>
+
+                      <h3 className={`text-lg font-bold mb-2 tracking-tight ${
+                        darkMode ? 'text-white' : 'text-slate-900'
+                      }`}>
+                        {step.title}
+                      </h3>
+                      <p className={`text-sm leading-relaxed ${
+                        darkMode ? 'text-slate-400' : 'text-slate-500'
+                      }`}>
+                        {step.description}
+                      </p>
+                    </div>
                   </motion.div>
                 );
               })}
@@ -331,132 +431,36 @@ export default function ServiceDetail({ darkMode, service }) {
         </section>
       )}
 
-      {/* Process Section */}
-      {processSteps.length > 0 && (
-        <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-b from-slate-800 to-slate-950' : 'bg-gradient-to-b from-gray-50 to-white'} relative overflow-hidden`}>
-          <div className="absolute inset-0 opacity-30">
-            <div className={`absolute top-0 left-1/4 w-64 h-64 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
-            <div className={`absolute bottom-0 right-1/4 w-64 h-64 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
-          </div>
-
-          <div className="container mx-auto max-w-7xl relative z-10">
+      {/* ═══════════ STATS ═══════════ */}
+      {stats.length > 0 && (
+        <section className={darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}>
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
             <motion.div
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <motion.div
-                className="inline-block mb-4"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-              >
-                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-600/20 text-blue-300 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
-                  Our Process
-                </span>
-              </motion.div>
-
-              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                How We Build Your Success
-              </h2>
-            </motion.div>
-
-            <motion.div
-              className="relative"
+              className="text-center mb-14"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
+              variants={stagger}
             >
-              <div className={`hidden lg:block absolute top-1/2 left-0 right-0 h-1 ${darkMode ? 'bg-gradient-to-r from-blue-700 via-blue-600 to-blue-600' : 'bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200'} opacity-30`} />
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {processSteps.map((step, index) => {
-                  const stepGradient = GRADIENT_COLORS[index % GRADIENT_COLORS.length];
-                  const stepNum = step.step || (index + 1);
-                  return (
-                    <motion.div key={index} className="relative" variants={fadeInUp}>
-                      <motion.div
-                        className={`group relative ${darkMode ? 'bg-gradient-to-br from-slate-800 to-slate-950' : 'bg-white hover:bg-slate-50'} rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 border ${darkMode ? 'border-slate-700 hover:border-blue-600/50' : 'border-slate-200 hover:border-blue-300'}`}
-                        whileHover={{ y: -8, scale: 1.02 }}
-                      >
-                        <div className="flex items-start justify-between mb-6">
-                          <div className={`relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${stepGradient} shadow-lg`}>
-                            <span className="text-white font-bold text-lg">
-                              {String(stepNum).padStart(2, '0')}
-                            </span>
-                          </div>
-                        </div>
-
-                        <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                          {step.title}
-                        </h3>
-                        <p className={`text-base leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-                          {step.description}
-                        </p>
-
-                        <div className="mt-6">
-                          <div className={`h-1.5 rounded-full ${darkMode ? 'bg-slate-700' : 'bg-slate-200'} overflow-hidden`}>
-                            <motion.div
-                              className={`h-full bg-gradient-to-r ${stepGradient} rounded-full`}
-                              initial={{ width: '0%' }}
-                              whileInView={{ width: '100%' }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 1, delay: index * 0.2 }}
-                            />
-                          </div>
-                        </div>
-                      </motion.div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </div>
-        </section>
-      )}
-
-      {/* Stats Section */}
-      {stats.length > 0 && (
-        <section className={`${darkMode ? 'bg-gradient-to-br from-blue-900 via-blue-900 to-blue-900' : 'bg-gradient-to-br from-blue-700 via-blue-600 to-blue-600'} text-white py-20 px-4 relative overflow-hidden`}>
-          <div className="absolute inset-0">
-            {[...Array(20)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute rounded-full bg-white"
-                style={{
-                  width: `${3 + (i % 8)}px`,
-                  height: `${3 + (i % 8)}px`,
-                  left: `${(i * 5) % 100}%`,
-                  top: `${(i * 7) % 100}%`,
-                  opacity: 0.1 + (i % 3) * 0.1,
-                  animation: `floatParticle ${15 + i}s linear infinite`,
-                  animationDelay: `${i * 0.3}s`
-                }}
-              />
-            ))}
-          </div>
-
-          <div className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-              backgroundSize: '60px 60px'
-            }}
-          />
-
-          <div className="container mx-auto max-w-7xl relative z-10">
-            <motion.div
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Trusted by Industry Leaders
-              </h2>
+              <motion.span
+                variants={fadeUp}
+                className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
+                  darkMode ? 'text-blue-400' : 'text-blue-600'
+                }`}
+              >
+                Our Impact
+              </motion.span>
+              <motion.h2
+                variants={fadeUp}
+                className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
+                  darkMode ? 'text-white' : 'text-slate-900'
+                }`}
+              >
+                Trusted by{' '}
+                <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+                  Industry Leaders
+                </span>
+              </motion.h2>
             </motion.div>
 
             <motion.div
@@ -465,42 +469,26 @@ export default function ServiceDetail({ darkMode, service }) {
                 stats.length === 3 ? 'grid-cols-3 max-w-4xl mx-auto' :
                 'grid-cols-2 md:grid-cols-4'
               }`}
+              variants={stagger}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
             >
               {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center group"
-                  variants={fadeInUp}
-                >
-                  <motion.div
-                    className="relative inline-block mb-4"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1, type: 'spring', stiffness: 200 }}
-                  >
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm border border-white/30 mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Award size={28} />
-                    </div>
-
-                    <motion.h3
-                      className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.15 }}
-                    >
-                      {stat.value}
-                    </motion.h3>
-                  </motion.div>
-
-                  <p className="text-base md:text-lg font-medium text-slate-100 group-hover:text-white transition-colors">
+                <motion.div key={index} variants={fadeUp} className="text-center">
+                  <div className={`w-11 h-11 mx-auto mb-4 flex items-center justify-center rounded-xl ${
+                    darkMode ? 'bg-blue-500/10' : 'bg-blue-50'
+                  }`}>
+                    <Award size={20} className="text-blue-500" />
+                  </div>
+                  <div className={`text-3xl sm:text-4xl font-extrabold tracking-tight mb-1 ${
+                    darkMode ? 'text-white' : 'text-slate-900'
+                  }`}>
+                    {stat.value}
+                  </div>
+                  <div className={`text-sm ${darkMode ? 'text-slate-500' : 'text-slate-500'}`}>
                     {stat.label}
-                  </p>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -508,206 +496,164 @@ export default function ServiceDetail({ darkMode, service }) {
         </section>
       )}
 
-      {/* CTA Section */}
-      {(cta.title || cta.description) && (
-        <section className={`py-24 px-4 ${darkMode ? 'bg-gradient-to-br from-slate-800 to-slate-950' : 'bg-gradient-to-br from-gray-50 to-white'} relative overflow-hidden`}>
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className={`absolute -top-24 -right-24 w-96 h-96 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
-            <div className={`absolute -bottom-24 -left-24 w-96 h-96 ${darkMode ? 'bg-blue-600/20' : 'bg-blue-200/40'} rounded-full blur-3xl`} />
-          </div>
-
-          <div className="container mx-auto max-w-6xl relative z-10">
-            <motion.div
-              className={`relative ${darkMode ? 'bg-gradient-to-br from-blue-900 to-blue-950' : 'bg-gradient-to-br from-blue-600 to-blue-700'} rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16 overflow-hidden`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0"
-                  style={{
-                    backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 2px)`,
-                    backgroundSize: '50px 50px'
-                  }}
-                />
-              </div>
-
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-
-              <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
-                <div className="lg:w-2/3 text-center lg:text-left">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/30">
-                      <Sparkles size={18} className="text-blue-300" />
-                      <span className="text-sm font-medium text-white">{"Let's Build Something Amazing"}</span>
-                    </div>
-
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
-                      {cta.title || 'Ready to Transform Your Digital Presence?'}
-                    </h2>
-                    <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
-                      {cta.description || "Let's discuss your project and create a tailored solution that exceeds your expectations."}
-                    </p>
-
-                    <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                      {['Free Consultation', 'No Obligation Quote', '24h Response Time'].map((feature, index) => (
-                        <div key={index} className="flex items-center gap-2 text-white">
-                          <CheckCircle size={18} className="text-blue-300" />
-                          <span className="text-sm font-medium">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                </div>
-
-                <motion.div
-                  className="lg:w-1/3 flex flex-col gap-4 w-full lg:items-end"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full lg:w-auto">
-                    <Link
-                      href={cta.buttonLink || '/get-started'}
-                      className="w-full lg:w-auto bg-white text-blue-700 font-bold py-4 px-10 rounded-xl hover:bg-slate-50 transition shadow-2xl flex items-center justify-center gap-3 group"
-                    >
-                      <span>{cta.buttonText || 'Get Started Now'}</span>
-                      <Rocket size={20} className="group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </motion.div>
-
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full lg:w-auto">
-                    <Link
-                      href="/get-started"
-                      className="w-full lg:w-auto border-2 border-white text-white font-bold py-4 px-10 rounded-xl hover:bg-white hover:text-blue-700 transition backdrop-blur-md bg-white/10 flex items-center justify-center gap-3"
-                    >
-                      <MessageSquare size={20} />
-                      <span>Schedule a Call</span>
-                    </Link>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-      )}
-
-      {/* Tech Stack Section */}
+      {/* ═══════════ TECH STACK ═══════════ */}
       {techByCategory.length > 0 && (
-        <section className={`py-24 px-4 ${darkMode ? 'bg-slate-950' : 'bg-white'} relative`}>
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className={`absolute top-0 left-1/3 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/40'} rounded-full blur-3xl`} />
-            <div className={`absolute bottom-0 right-1/3 w-96 h-96 ${darkMode ? 'bg-blue-900/20' : 'bg-blue-100/40'} rounded-full blur-3xl`} />
-          </div>
+        <section className="relative py-24 sm:py-32">
+          {darkMode && (
+            <div className="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[130px] pointer-events-none" />
+          )}
 
-          <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="text-center mb-16 lg:mb-20"
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              variants={stagger}
             >
-              <motion.div
-                className="inline-block mb-4"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+              <motion.span
+                variants={fadeUp}
+                className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
+                  darkMode ? 'text-blue-400' : 'text-blue-600'
+                }`}
               >
-                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-blue-600/20 text-blue-300 border border-blue-600/30' : 'bg-blue-100 text-blue-700 border border-blue-200'}`}>
-                  Tech Stack
+                Tech Stack
+              </motion.span>
+              <motion.h2
+                variants={fadeUp}
+                className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${
+                  darkMode ? 'text-white' : 'text-slate-900'
+                }`}
+              >
+                Technologies{' '}
+                <span className={darkMode ? 'text-slate-500' : 'text-slate-400'}>
+                  We Use
                 </span>
-              </motion.div>
-
-              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                Technologies We Use
-              </h2>
+              </motion.h2>
             </motion.div>
 
             <div className="space-y-12">
-              {techByCategory.map(([category, techs], stackIndex) => {
-                const stackGradient = GRADIENT_COLORS[stackIndex % GRADIENT_COLORS.length];
-                return (
-                  <motion.div
-                    key={stackIndex}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: stackIndex * 0.1 }}
-                  >
-                    <div className="mb-6">
-                      <h3 className={`text-2xl font-bold mb-2 bg-gradient-to-r ${stackGradient} bg-clip-text text-transparent inline-block`}>
-                        {category}
-                      </h3>
-                      <div className={`h-1 w-20 bg-gradient-to-r ${stackGradient} rounded-full`} />
-                    </div>
+              {techByCategory.map(([category, techs], stackIdx) => (
+                <motion.div
+                  key={stackIdx}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: stackIdx * 0.08 }}
+                >
+                  <div className="mb-5 flex items-center gap-3">
+                    <h3 className={`text-lg font-bold tracking-tight ${
+                      darkMode ? 'text-white' : 'text-slate-900'
+                    }`}>
+                      {category}
+                    </h3>
+                    <div className={`flex-1 h-px ${
+                      darkMode ? 'bg-white/[0.06]' : 'bg-slate-200'
+                    }`} />
+                  </div>
 
-                    <motion.div
-                      className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4"
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      variants={staggerContainer}
-                    >
-                      {techs.map((tech, techIndex) => (
-                        <motion.div
-                          key={techIndex}
-                          className={`group relative ${darkMode ? 'bg-gradient-to-br from-slate-800 to-slate-950 border border-slate-700' : 'bg-white hover:bg-slate-50 border border-slate-200'} rounded-xl p-6 text-center transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden`}
-                          variants={fadeInUp}
-                          whileHover={{ y: -8, scale: 1.05, transition: { duration: 0.3 } }}
-                        >
-                          <div className={`absolute inset-0 bg-gradient-to-br ${stackGradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-xl`} />
-
-                          <div className={`relative w-12 h-12 mx-auto mb-4 rounded-lg bg-gradient-to-br ${stackGradient} flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
-                            {tech.charAt(0)}
-                          </div>
-
-                          <span className={`relative font-semibold text-base ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                            {tech}
-                          </span>
-                        </motion.div>
-                      ))}
-                    </motion.div>
-                  </motion.div>
-                );
-              })}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+                    {techs.map((tech, techIdx) => (
+                      <div
+                        key={techIdx}
+                        className={`relative rounded-xl p-5 text-center transition-all duration-300 ${
+                          darkMode
+                            ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(37,99,235,0.06)]'
+                            : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
+                        } card-hover`}
+                      >
+                        <div className={`w-10 h-10 mx-auto mb-3 flex items-center justify-center rounded-lg text-base font-bold ${
+                          darkMode
+                            ? 'bg-blue-500/10 text-blue-400'
+                            : 'bg-blue-50 text-blue-600'
+                        }`}>
+                          {tech.charAt(0)}
+                        </div>
+                        <span className={`text-sm font-semibold ${
+                          darkMode ? 'text-slate-300' : 'text-slate-700'
+                        }`}>
+                          {tech}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
       )}
 
-      <style jsx global>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0) translateX(0); }
-          25% { transform: translateY(-20px) translateX(10px); }
-          50% { transform: translateY(-10px) translateX(-10px); }
-          75% { transform: translateY(-30px) translateX(5px); }
-        }
+      {/* ═══════════ CTA ═══════════ */}
+      {(cta.title || cta.description) && (
+        <section className="py-20 sm:py-28 px-4">
+          <motion.div
+            className={`relative max-w-5xl mx-auto rounded-3xl overflow-hidden px-8 sm:px-16 py-16 sm:py-20 ${
+              darkMode ? 'aurora-dark' : 'aurora-light'
+            }`}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className={`absolute inset-0 ${darkMode ? 'grid-pattern' : ''} pointer-events-none`} />
+            <div className="absolute top-0 left-1/4 w-72 h-72 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-56 h-56 bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none" />
 
-        @keyframes floatParticle {
-          0% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
-          25% { transform: translate(15px, -15px) rotate(90deg); opacity: 0.5; }
-          50% { transform: translate(0, -30px) rotate(180deg); opacity: 0.3; }
-          75% { transform: translate(-15px, -15px) rotate(270deg); opacity: 0.5; }
-          100% { transform: translate(0, 0) rotate(360deg); opacity: 0.3; }
-        }
+            <div className="relative z-10 text-center max-w-2xl mx-auto">
+              <h2 className={`text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold mb-5 tracking-tight leading-tight ${
+                darkMode ? 'text-white' : 'text-slate-900'
+              }`}>
+                {cta.title || 'Ready to Transform Your'}{' '}
+                <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                  Digital Presence?
+                </span>
+              </h2>
+              <p className={`text-base sm:text-lg mb-6 leading-relaxed ${
+                darkMode ? 'text-slate-400' : 'text-slate-600'
+              }`}>
+                {cta.description || "Let's discuss your project and create a tailored solution that exceeds your expectations."}
+              </p>
 
-        .perspective-container {
-          perspective: 1500px;
-          transform-style: preserve-3d;
-        }
+              <div className="flex flex-wrap gap-4 justify-center mb-10">
+                {['Free Consultation', 'No Obligation Quote', '24h Response Time'].map((item) => (
+                  <span key={item} className={`inline-flex items-center gap-1.5 text-xs font-medium ${
+                    darkMode ? 'text-slate-400' : 'text-slate-500'
+                  }`}>
+                    <CheckCircle2 size={13} className="text-blue-500" />
+                    {item}
+                  </span>
+                ))}
+              </div>
 
-        .dark { color-scheme: dark; }
-        html { scroll-behavior: smooth; }
-      `}</style>
+              <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
+                <Link
+                  href={cta.buttonLink || '/get-started'}
+                  className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
+                >
+                  {cta.buttonText || 'Get Started Now'}
+                  <Rocket size={18} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+                <Link
+                  href="/get-started"
+                  className={`inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 ${
+                    darkMode
+                      ? 'text-white/80 bg-white/10 hover:bg-white/[0.15]'
+                      : 'text-slate-700 bg-white/80 border border-slate-200/50 hover:bg-white'
+                  }`}
+                >
+                  <MessageSquare size={18} />
+                  Schedule a Call
+                </Link>
+              </div>
+
+              <p className={`text-xs mt-6 ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                Join 250+ satisfied clients worldwide
+              </p>
+            </div>
+          </motion.div>
+        </section>
+      )}
     </div>
   );
 }
