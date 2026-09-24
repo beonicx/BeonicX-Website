@@ -96,7 +96,7 @@ const Page = () => {
     <main className={darkMode ? "dark" : ""}>
       <div className={`min-h-screen ${darkMode ? "bg-slate-950 text-white" : "bg-slate-50 text-slate-900"}`}>
         <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
-        <div className="pt-16">
+        <div>
           {renderContent()}
         </div>
         <Footer darkMode={darkMode} />

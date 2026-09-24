@@ -1,138 +1,103 @@
-// pages/contact.js
 'use client'
 import { useState } from 'react';
-import Head from 'next/head';
+import { motion } from 'framer-motion';
+import {
+  Sparkles, Send, MapPin, Mail, Phone, CheckCircle2, ArrowRight, Loader2
+} from 'lucide-react';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const contactDetails = [
+  {
+    icon: MapPin,
+    label: 'India (Headquarters)',
+    lines: ['One World Trade Center, Suite 8500', 'Greater Noida, Haryana, India'],
+  },
+  {
+    icon: MapPin,
+    label: 'India',
+    lines: ['14th Floor, Titanium City Center', 'Chandigarh, Chandigarh, India'],
+  },
+  {
+    icon: Mail,
+    label: 'Email',
+    lines: ['beonicxgroup@gmail.com'],
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    lines: ['+91-9129842706'],
+  },
+];
+
+const validateField = (name, value) => {
+  switch (name) {
+    case 'name':
+      if (!value.trim()) return 'Name is required';
+      if (value.trim().length < 3) return 'Name must be at least 3 characters';
+      if (value.trim().length > 50) return 'Name must not exceed 50 characters';
+      if (!/^[a-zA-Z\s]+$/.test(value)) return 'Name can only contain letters and spaces';
+      return '';
+    case 'email':
+      if (!value.trim()) return 'Email is required';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Please enter a valid email address';
+      return '';
+    case 'phone':
+      if (value.trim() && !/^\d{10}$/.test(value.replace(/\D/g, ''))) return 'Phone number must be exactly 10 digits';
+      return '';
+    case 'message':
+      if (!value.trim()) return 'Message is required';
+      if (value.trim().length < 20) return 'Message must be at least 20 characters';
+      if (value.trim().length > 1000) return 'Message must not exceed 1000 characters';
+      return '';
+    default:
+      return '';
+  }
+};
 
 export default function ContactUs({ darkMode = false }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    skype: '',
-    message: '',
-  });
-
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', skype: '', message: '' });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [touched, setTouched] = useState({});
 
-  // Validation rules
-  const validateField = (name, value) => {
-    let error = '';
-
-    switch (name) {
-      case 'name':
-        if (!value.trim()) {
-          error = 'Name is required';
-        } else if (value.trim().length < 3) {
-          error = 'Name must be at least 3 characters';
-        } else if (value.trim().length > 50) {
-          error = 'Name must not exceed 50 characters';
-        } else if (!/^[a-zA-Z\s]+$/.test(value)) {
-          error = 'Name can only contain letters and spaces';
-        }
-        break;
-
-      case 'email':
-        if (!value.trim()) {
-          error = 'Email is required';
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-          error = 'Please enter a valid email address';
-        }
-        break;
-
-      case 'phone':
-        if (value.trim() && !/^\d{10}$/.test(value.replace(/\D/g, ''))) {
-          error = 'Phone number must be exactly 10 digits';
-        }
-        break;
-
-      case 'message':
-        if (!value.trim()) {
-          error = 'Message is required';
-        } else if (value.trim().length < 20) {
-          error = 'Message must be at least 20 characters';
-        } else if (value.trim().length > 1000) {
-          error = 'Message must not exceed 1000 characters';
-        }
-        break;
-
-      default:
-        break;
-    }
-
-    return error;
-  };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-
-    // Validate on change if field was already touched
+    setFormData((prev) => ({ ...prev, [name]: value }));
     if (touched[name]) {
-      const error = validateField(name, value);
-      setErrors({
-        ...errors,
-        [name]: error
-      });
+      setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
     }
   };
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
-
-    setTouched({
-      ...touched,
-      [name]: true
-    });
-
-    const error = validateField(name, value);
-    setErrors({
-      ...errors,
-      [name]: error
-    });
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-
-    // Validate all required fields
-    Object.keys(formData).forEach(key => {
-      if (['name', 'email', 'message'].includes(key) || (key === 'phone' && formData.phone)) {
-        const error = validateField(key, formData[key]);
-        if (error) {
-          newErrors[key] = error;
-        }
-      }
-    });
-
-    setErrors(newErrors);
-
-    // Mark all fields as touched
-    setTouched({
-      name: true,
-      email: true,
-      phone: true,
-      message: true
-    });
-
-    return Object.keys(newErrors).length === 0;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newErrors = {};
+    Object.keys(formData).forEach((key) => {
+      if (['name', 'email', 'message'].includes(key) || (key === 'phone' && formData.phone)) {
+        const error = validateField(key, formData[key]);
+        if (error) newErrors[key] = error;
+      }
+    });
+    setErrors(newErrors);
+    setTouched({ name: true, email: true, phone: true, message: true });
 
-    console.log('=== FORM SUBMISSION STARTED ===');
-    console.log('Form Data:', formData);
-
-    if (!validateForm()) {
-      console.log('❌ Validation failed:', errors);
-      setSubmitMessage('❌ Please fix all validation errors before submitting.');
+    if (Object.keys(newErrors).length > 0) {
+      setSubmitMessage('error:Please fix all validation errors before submitting.');
       setTimeout(() => setSubmitMessage(''), 5000);
       return;
     }
@@ -142,24 +107,9 @@ export default function ContactUs({ darkMode = false }) {
 
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5002/api';
-      const endpoint = `${apiUrl}/contact`;
-
-      console.log('📤 API Endpoint:', endpoint);
-      console.log('📦 Payload:', {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        skype: formData.skype,
-        subject: 'Contact Form Submission',
-        message: formData.message,
-        formType: 'contact'
-      });
-
-      const response = await fetch(endpoint, {
+      const response = await fetch(`${apiUrl}/contact`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name.trim(),
           email: formData.email.trim(),
@@ -167,299 +117,291 @@ export default function ContactUs({ darkMode = false }) {
           skype: formData.skype.trim(),
           subject: 'Contact Form Submission',
           message: formData.message.trim(),
-          formType: 'contact'
+          formType: 'contact',
         }),
       });
 
-      console.log('📥 Response Status:', response.status);
-      console.log('📥 Response OK:', response.ok);
-
-      let data;
       const contentType = response.headers.get('content-type');
-
-      if (contentType && contentType.includes('application/json')) {
-        data = await response.json();
-        console.log('📥 Response Data:', data);
-      } else {
-        const text = await response.text();
-        console.log('📥 Response Text:', text);
+      if (!contentType || !contentType.includes('application/json')) {
         throw new Error('Server did not return JSON response');
       }
 
+      const data = await response.json();
       if (response.ok && data.status === 'success') {
-        console.log('✅ Form submitted successfully!');
-        setSubmitMessage('✅ Thanks for your message! We will get back to you soon.');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          skype: '',
-          message: '',
-        });
+        setSubmitMessage('success:Thanks for your message! We will get back to you soon.');
+        setFormData({ name: '', email: '', phone: '', skype: '', message: '' });
         setErrors({});
         setTouched({});
       } else {
-        const errorMsg = data.message || 'Failed to send message. Please try again later.';
-        console.log('❌ Submission failed:', errorMsg);
-        setSubmitMessage(`❌ ${errorMsg}`);
+        setSubmitMessage(`error:${data.message || 'Failed to send message. Please try again later.'}`);
       }
     } catch (error) {
-      console.error('💥 ERROR submitting form:', error);
-      console.error('Error name:', error.name);
-      console.error('Error message:', error.message);
-      console.error('Error stack:', error.stack);
-
-      let errorMessage = 'Failed to send message. ';
-
-      if (error.message.includes('fetch')) {
-        errorMessage += 'Cannot connect to server. Please ensure the backend is running.';
-      } else if (error.message.includes('JSON')) {
-        errorMessage += 'Server returned invalid response. Please try again.';
-      } else {
-        errorMessage += error.message || 'Please check your connection and try again.';
-      }
-
-      setSubmitMessage(`❌ ${errorMessage}`);
+      let msg = 'Failed to send message. ';
+      if (error.message.includes('fetch')) msg += 'Cannot connect to server.';
+      else if (error.message.includes('JSON')) msg += 'Server returned invalid response.';
+      else msg += error.message || 'Please check your connection and try again.';
+      setSubmitMessage(`error:${msg}`);
     } finally {
       setIsSubmitting(false);
-      console.log('=== FORM SUBMISSION ENDED ===');
-
-      // Auto-hide message after 8 seconds
-      setTimeout(() => {
-        setSubmitMessage('');
-      }, 8000);
+      setTimeout(() => setSubmitMessage(''), 8000);
     }
   };
 
-  const getInputClassName = (fieldName) => {
-    const baseClass = `w-full px-4 py-2 border rounded-md focus:ring-blue-600 focus:border-blue-600 transition-colors duration-200 ${
-      darkMode ? 'bg-slate-700 text-white' : 'bg-white text-slate-900'
+  const inputCls = (field) => {
+    const hasError = errors[field] && touched[field];
+    return `w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/40 ${
+      darkMode
+        ? `bg-white/[0.04] border ${hasError ? 'border-red-500/50' : 'border-white/[0.08]'} text-white placeholder-slate-500 focus:border-blue-500/40`
+        : `bg-white border ${hasError ? 'border-red-400' : 'border-slate-200'} text-slate-900 placeholder-slate-400 focus:border-blue-300`
     }`;
-
-    const errorClass = errors[fieldName] && touched[fieldName]
-      ? darkMode ? 'border-red-400' : 'border-red-500'
-      : darkMode ? 'border-slate-600' : 'border-slate-300';
-
-    return `${baseClass} ${errorClass}`;
   };
 
+  const isSuccess = submitMessage.startsWith('success:');
+  const messageText = submitMessage.replace(/^(success|error):/, '');
+
   return (
-    <>
-      <Head>
-        <title>Contact Us | BeonicX</title>
-        <meta name="description" content="Get in touch with our team" />
-      </Head>
+    <main className={darkMode ? 'bg-[#030712]' : 'bg-white'}>
 
-      <div className={`py-48 transition-colors duration-200 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className={`text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>Get in Touch</h1>
-            <p className={`text-lg max-w-3xl mx-auto ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-              Let us know how we can help you. Fill out the form and our team will get back to you shortly.
-            </p>
-          </div>
+      {/* ═══════════ HERO ═══════════ */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className={`absolute top-[-15%] left-[-5%] w-[600px] h-[600px] rounded-full blur-[150px] ${
+            darkMode ? 'bg-blue-600/[0.08]' : 'bg-blue-100/70'
+          }`} />
+          <div className={`absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[120px] ${
+            darkMode ? 'bg-indigo-600/[0.06]' : 'bg-indigo-50/60'
+          }`} />
+        </div>
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px)`,
+            backgroundSize: '80px 80px',
+          }}
+        />
+        <div className={`absolute inset-0 pointer-events-none ${
+          darkMode
+            ? 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#030712_80%)]'
+            : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
+        }`} />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Contact Info */}
-            <div className="col-span-1">
-              <div className={`rounded-lg shadow-lg p-8 h-full transition-colors duration-200 ${darkMode ? 'bg-slate-800' : 'bg-white'}`}>
-                <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-slate-800'}`}>Contact Information</h2>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-16 sm:pb-20">
+          <motion.div
+            className="text-center max-w-3xl mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+          >
+            <motion.span
+              variants={fadeUp}
+              className={`inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-8 ${
+                darkMode
+                  ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                  : 'bg-blue-50 text-blue-600 border border-blue-100'
+              }`}
+            >
+              <Sparkles size={13} />
+              Get Started
+            </motion.span>
 
-                <div className="space-y-6">
-                  <div>
-                    <h3 className={`text-lg font-medium ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>India (Headquarters)</h3>
-                    <p className={`mt-2 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-                      One World Trade Center, Suite 8500<br />
-                      Greater Noida, Haryana , India
-                    </p>
+            <motion.h1
+              variants={fadeUp}
+              className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 ${
+                darkMode ? 'text-white' : 'text-slate-900'
+              }`}
+            >
+              Let&apos;s Build Something{' '}
+              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
+                Remarkable
+              </span>
+            </motion.h1>
+
+            <motion.p
+              variants={fadeUp}
+              className={`text-base sm:text-lg leading-relaxed max-w-xl mx-auto ${
+                darkMode ? 'text-slate-400' : 'text-slate-500'
+              }`}
+            >
+              Fill out the form and our team will get back to you within 24 hours.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════ FORM + CONTACT INFO ═══════════ */}
+      <section className="relative pb-24 sm:pb-32">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            {/* Contact Info Sidebar */}
+            <motion.div
+              className="col-span-1 space-y-4"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={stagger}
+            >
+              {contactDetails.map((c) => (
+                <motion.div key={c.label} variants={fadeUp}>
+                  <div className={`rounded-2xl p-6 transition-all duration-300 ${
+                    darkMode
+                      ? 'bg-[#0a0f1e] border border-white/[0.06]'
+                      : 'bg-white border border-slate-200/80 shadow-[0_4px_20px_rgba(37,99,235,0.04)]'
+                  }`}>
+                    <div className="flex items-start gap-4">
+                      <div className={`w-10 h-10 shrink-0 flex items-center justify-center rounded-xl ${
+                        darkMode ? 'bg-blue-500/10' : 'bg-blue-50'
+                      }`}>
+                        <c.icon size={18} className="text-blue-500" />
+                      </div>
+                      <div>
+                        <h3 className={`text-sm font-bold mb-1 ${darkMode ? 'text-white' : 'text-slate-900'}`}>{c.label}</h3>
+                        {c.lines.map((line) => (
+                          <p key={line} className={`text-sm leading-relaxed ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>{line}</p>
+                        ))}
+                      </div>
+                    </div>
                   </div>
+                </motion.div>
+              ))}
 
-                  <div>
-                    <h3 className={`text-lg font-medium ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>India</h3>
-                    <p className={`mt-2 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-                      14th Floor, Titanium City Center<br />
-                      Chandigarh, Chandigarh, India
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className={`text-lg font-medium ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Contact Details</h3>
-                    <p className={`mt-2 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-                      Email: beonicxgroup@gmail.com<br />
-                      Phone: +91-9129842706
-                    </p>
+              <motion.div variants={fadeUp}>
+                <div className={`rounded-2xl p-6 ${
+                  darkMode
+                    ? 'bg-[#0a0f1e] border border-white/[0.06]'
+                    : 'bg-white border border-slate-200/80 shadow-[0_4px_20px_rgba(37,99,235,0.04)]'
+                }`}>
+                  <div className="flex flex-wrap gap-3">
+                    {['Free Consultation', 'No Obligation', '24h Response'].map((item) => (
+                      <span key={item} className={`inline-flex items-center gap-1.5 text-xs font-medium ${
+                        darkMode ? 'text-slate-400' : 'text-slate-500'
+                      }`}>
+                        <CheckCircle2 size={12} className="text-blue-500" />
+                        {item}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            {/* Contact Form */}
-            <div className="col-span-1 lg:col-span-2">
-              <div className={`rounded-lg shadow-lg p-8 transition-colors duration-200 ${darkMode ? 'bg-slate-800' : 'bg-white'}`}>
-                <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-slate-800'}`}>Send Us a Message</h2>
+            {/* Form */}
+            <motion.div
+              className="col-span-1 lg:col-span-2"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className={`rounded-2xl p-8 sm:p-10 ${
+                darkMode
+                  ? 'bg-[#0a0f1e] border border-white/[0.06]'
+                  : 'bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(37,99,235,0.06)]'
+              }`}>
+                <h2 className={`text-xl font-bold mb-6 tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                  Send Us a Message
+                </h2>
 
                 {submitMessage && (
-                  <div className={`p-4 rounded-lg mb-6 ${
-                    submitMessage.includes('✅')
-                      ? darkMode
-                        ? 'bg-green-900/30 text-green-300 border border-green-700'
-                        : 'bg-green-100 text-green-700 border border-green-300'
-                      : darkMode
-                        ? 'bg-red-900/30 text-red-300 border border-red-700'
-                        : 'bg-red-100 text-red-700 border border-red-300'
+                  <div className={`rounded-xl px-5 py-4 mb-6 text-sm font-medium ${
+                    isSuccess
+                      ? darkMode ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                      : darkMode ? 'bg-red-500/10 text-red-400 border border-red-500/20' : 'bg-red-50 text-red-600 border border-red-200'
                   }`}>
-                    {submitMessage}
+                    {messageText}
                   </div>
                 )}
 
                 <form onSubmit={handleSubmit} noValidate>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                    {/* Name */}
                     <div>
-                      <label htmlFor="name" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                        Name* <span className="text-xs text-slate-500">(3-50 characters, letters only)</span>
+                      <label htmlFor="name" className={`block text-xs font-semibold mb-2 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                        Name <span className="text-blue-500">*</span>
                       </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={getInputClassName('name')}
-                        disabled={isSubmitting}
-                        placeholder="John Doe"
-                      />
-                      {errors.name && touched.name && (
-                        <p className={`mt-1 text-sm ${darkMode ? 'text-red-400' : 'text-red-600'}`}>
-                          {errors.name}
-                        </p>
-                      )}
+                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} onBlur={handleBlur} className={inputCls('name')} disabled={isSubmitting} placeholder="John Doe" />
+                      {errors.name && touched.name && <p className={`mt-1.5 text-xs ${darkMode ? 'text-red-400' : 'text-red-500'}`}>{errors.name}</p>}
                     </div>
 
+                    {/* Email */}
                     <div>
-                      <label htmlFor="email" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                        Email*
+                      <label htmlFor="email" className={`block text-xs font-semibold mb-2 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                        Email <span className="text-blue-500">*</span>
                       </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={getInputClassName('email')}
-                        disabled={isSubmitting}
-                        placeholder="john@example.com"
-                      />
-                      {errors.email && touched.email && (
-                        <p className={`mt-1 text-sm ${darkMode ? 'text-red-400' : 'text-red-600'}`}>
-                          {errors.email}
-                        </p>
-                      )}
+                      <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} onBlur={handleBlur} className={inputCls('email')} disabled={isSubmitting} placeholder="john@example.com" />
+                      {errors.email && touched.email && <p className={`mt-1.5 text-xs ${darkMode ? 'text-red-400' : 'text-red-500'}`}>{errors.email}</p>}
                     </div>
 
+                    {/* Phone */}
                     <div>
-                      <label htmlFor="phone" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                        Phone Number <span className="text-xs text-slate-500">(10 digits, optional)</span>
+                      <label htmlFor="phone" className={`block text-xs font-semibold mb-2 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                        Phone <span className={`text-xs font-normal ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>(optional)</span>
                       </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={getInputClassName('phone')}
-                        disabled={isSubmitting}
-                        placeholder="9876543210"
-                      />
-                      {errors.phone && touched.phone && (
-                        <p className={`mt-1 text-sm ${darkMode ? 'text-red-400' : 'text-red-600'}`}>
-                          {errors.phone}
-                        </p>
-                      )}
+                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} onBlur={handleBlur} className={inputCls('phone')} disabled={isSubmitting} placeholder="9876543210" />
+                      {errors.phone && touched.phone && <p className={`mt-1.5 text-xs ${darkMode ? 'text-red-400' : 'text-red-500'}`}>{errors.phone}</p>}
                     </div>
 
+                    {/* Skype */}
                     <div>
-                      <label htmlFor="skype" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                        Skype ID <span className="text-xs text-slate-500">(optional)</span>
+                      <label htmlFor="skype" className={`block text-xs font-semibold mb-2 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                        Skype ID <span className={`text-xs font-normal ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>(optional)</span>
                       </label>
-                      <input
-                        type="text"
-                        id="skype"
-                        name="skype"
-                        value={formData.skype}
-                        onChange={handleChange}
-                        className={`w-full px-4 py-2 border rounded-md focus:ring-blue-600 focus:border-blue-600 transition-colors duration-200 ${
-                          darkMode ? 'bg-slate-700 text-white border-slate-600' : 'bg-white text-slate-900 border-slate-300'
-                        }`}
-                        disabled={isSubmitting}
-                        placeholder="john.doe"
-                      />
+                      <input type="text" id="skype" name="skype" value={formData.skype} onChange={handleChange} className={inputCls('skype')} disabled={isSubmitting} placeholder="john.doe" />
                     </div>
                   </div>
 
+                  {/* Message */}
                   <div className="mb-6">
-                    <label htmlFor="message" className={`block text-sm font-medium mb-1 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                      Message* <span className="text-xs text-slate-500">(20-1000 characters)</span>
+                    <label htmlFor="message" className={`block text-xs font-semibold mb-2 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                      Message <span className="text-blue-500">*</span>
                     </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="4"
-                      value={formData.message}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={getInputClassName('message')}
-                      disabled={isSubmitting}
-                      placeholder="Tell us about your project or inquiry..."
-                    ></textarea>
-                    <div className="flex justify-between mt-1">
-                      {errors.message && touched.message && (
-                        <p className={`text-sm ${darkMode ? 'text-red-400' : 'text-red-600'}`}>
-                          {errors.message}
-                        </p>
-                      )}
-                      <p className={`text-xs ml-auto ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
-                        {formData.message.length}/1000
-                      </p>
+                    <textarea id="message" name="message" rows="5" value={formData.message} onChange={handleChange} onBlur={handleBlur} className={inputCls('message')} disabled={isSubmitting} placeholder="Tell us about your project or inquiry..." />
+                    <div className="flex justify-between mt-1.5">
+                      {errors.message && touched.message && <p className={`text-xs ${darkMode ? 'text-red-400' : 'text-red-500'}`}>{errors.message}</p>}
+                      <p className={`text-[10px] ml-auto ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>{formData.message.length}/1000</p>
                     </div>
                   </div>
 
-                  <div className="flex justify-end">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className={`px-6 py-3 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 ${
-                        darkMode
-                          ? 'bg-blue-600 hover:bg-blue-600 focus:ring-offset-slate-800'
-                          : 'bg-blue-600 hover:bg-blue-700 focus:ring-offset-2'
-                      } ${isSubmitting ? 'cursor-wait' : 'cursor-pointer'}`}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          Sending...
-                        </>
-                      ) : (
-                        'Send Message'
-                      )}
-                    </button>
-                  </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 size={18} className="animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send size={18} />
+                        Send Message
+                        <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+                      </>
+                    )}
+                  </button>
                 </form>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Map Section */}
-          <div className="mt-12">
-            <div className={`rounded-lg shadow-lg p-8 transition-colors duration-200 ${darkMode ? 'bg-slate-800' : 'bg-white'}`}>
-              <h2 className={`text-2xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-slate-800'}`}>Our Location - Noida</h2>
-
-              <div className={`w-full h-96 rounded-lg overflow-hidden border ${darkMode ? 'border-slate-700' : 'border-slate-200'}`}>
+          {/* Map */}
+          <motion.div
+            className="mt-8"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className={`rounded-2xl overflow-hidden ${
+              darkMode
+                ? 'bg-[#0a0f1e] border border-white/[0.06]'
+                : 'bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(37,99,235,0.06)]'
+            }`}>
+              <div className="p-6 sm:p-8">
+                <h2 className={`text-lg font-bold mb-1 tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>Our Location</h2>
+                <p className={`text-sm mb-5 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>One World Trade Center, Suite 8500, Greater Noida, Haryana, India</p>
+              </div>
+              <div className={`w-full h-80 ${darkMode ? 'border-t border-white/[0.06]' : 'border-t border-slate-200/80'}`}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224346.5398039306!2d77.22652749999999!3d28.527554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1704000000000!5m2!1sen!2sin"
                   width="100%"
@@ -468,24 +410,14 @@ export default function ContactUs({ darkMode = false }) {
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className={darkMode ? 'brightness-90 contrast-125 invert-[0.85] hue-rotate-180' : ''}
-                  title="Noida Office Location"
-                ></iframe>
-              </div>
-
-              <div className={`mt-4 text-sm ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-                <p className="flex items-center gap-2">
-                  <svg className={`w-5 h-5 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span className="font-medium">One World Trade Center, Suite 8500, Greater Noida, Haryana, India</span>
-                </p>
+                  className={darkMode ? 'brightness-[0.85] contrast-110 invert-[0.9] hue-rotate-180' : ''}
+                  title="Office Location"
+                />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
-    </>
+      </section>
+    </main>
   );
 }
