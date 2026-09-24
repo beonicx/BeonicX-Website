@@ -110,7 +110,7 @@ export default function Toppage({ darkMode = false }) {
         }`} />
 
         {/* Hero content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-16 lg:pt-24 pb-16 sm:pb-20">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
