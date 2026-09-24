@@ -1,28 +1,26 @@
 export const metadata = {
-  title: 'Services | AI, Web & Mobile Development | BeonicX',
-  description: 'Comprehensive technology services including AI solutions, web development, mobile app development, and cloud infrastructure. Transform your business with BeonicX expertise.',
+  title: 'Software Development Services | AI, Web, Mobile & Cloud | BeonicX',
+  description: 'Full-spectrum technology services — AI agents, custom web development, mobile app development, CRM, ERP, cloud infrastructure, and voice AI solutions. From startups to enterprise.',
   keywords: [
-    'AI solutions',
-    'web development',
-    'mobile app development',
-    'cloud services',
-    'software development',
-    'enterprise AI',
-    'custom development',
+    'software development services', 'AI solutions', 'web development company',
+    'mobile app development', 'cloud services', 'CRM development', 'ERP solutions',
+    'voice AI agents', 'custom software', 'enterprise development', 'BeonicX services',
+    'hire developers India', 'IT consulting'
   ],
   alternates: {
     canonical: 'https://beonicx.com/services',
   },
   openGraph: {
-    title: 'Services | AI, Web & Mobile Development | BeonicX',
-    description: 'Comprehensive technology services including AI solutions, web development, mobile app development, and cloud infrastructure.',
+    title: 'Software Development Services | AI, Web, Mobile & Cloud | BeonicX',
+    description: 'Full-spectrum technology services — AI agents, web development, mobile apps, CRM, ERP, cloud, and voice AI solutions.',
     url: 'https://beonicx.com/services',
     type: 'website',
+    images: [{ url: 'https://i.postimg.cc/Pxd5LK34/Whats-App-Image-2025-04-09-at-00-27-19-removebg-preview.png', width: 1200, height: 630, alt: 'BeonicX Services' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Services | AI, Web & Mobile Development | BeonicX',
-    description: 'Comprehensive technology services including AI solutions, web development, mobile app development, and cloud infrastructure.',
+    title: 'Software Development Services | AI, Web, Mobile & Cloud | BeonicX',
+    description: 'Full-spectrum technology services — AI agents, web development, mobile apps, CRM, ERP, cloud, and voice AI.',
   },
 };
 
