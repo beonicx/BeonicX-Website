@@ -7,8 +7,8 @@ export default function StructuredData() {
     "alternateName": ["BeonicX AI", "BeonicX Automation"],
     "url": "https://beonicx.com",
     "logo": "https://i.postimg.cc/Pxd5LK34/Whats-App-Image-2025-04-09-at-00-27-19-removebg-preview.png",
-    "description": "BeonicX provides cutting-edge AI agents, intelligent automation, web development, mobile app development, CRM, ERP, and cloud solutions for businesses worldwide.",
-    "slogan": "AI-Powered Autonomous Agents for Enterprise Automation",
+    "description": "BeonicX engineers production-grade SaaS products, AI & voice agents, workflow automation, and intelligent CRMs that scale your business.",
+    "slogan": "We Build Software That Scales Your Business",
     "foundingDate": "2025",
     "founders": [
       { "@type": "Person", "name": "Nitish Yadav" },

@@ -12,33 +12,29 @@ const raleway = Raleway({
 
 export const metadata = {
   title: {
-    default: "BeonicX - AI-Powered Autonomous Agents & Intelligent Automation Solutions",
+    default: "BeonicX - We Build SaaS Products, AI Agents & Workflow Automation",
     template: "%s | BeonicX"
   },
-  description: "Transform your business with BeonicX's cutting-edge AI agents and intelligent automation. We build autonomous AI agents, customer service bots, sales & marketing agents, and workflow automation solutions tailored for healthcare, finance, e-commerce, and SaaS industries.",
+  description: "From custom SaaS platforms to autonomous AI agents — BeonicX engineers production-grade software that scales your business. We build SaaS products, AI & voice agents, workflow automation, and intelligent CRMs.",
   alternates: {
     canonical: 'https://beonicx.com',
   },
   keywords: [
+    "SaaS development",
     "AI agents",
-    "autonomous AI agents",
-    "intelligent automation",
-    "AI chatbots",
-    "customer service AI",
-    "sales automation",
-    "marketing automation",
+    "voice agents",
     "workflow automation",
-    "AI solutions",
-    "machine learning",
-    "predictive analytics",
-    "AI integration",
-    "custom AI models",
+    "CRM development",
+    "custom SaaS platform",
+    "AI voice agents",
+    "intelligent CRM",
+    "SaaS products",
+    "AI engineering",
+    "business automation",
     "BeonicX",
-    "enterprise AI",
-    "AI for healthcare",
-    "AI for finance",
-    "AI for e-commerce",
-    "process automation"
+    "software development company",
+    "enterprise software",
+    "production-grade software"
   ],
   icons: {
     icon: '/favicon.png',
@@ -51,22 +47,22 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: "https://beonicx.com",
-    title: "BeonicX - AI-Powered Autonomous Agents & Intelligent Automation",
-    description: "Transform your business with BeonicX's cutting-edge AI agents and intelligent automation. Custom solutions for healthcare, finance, e-commerce, and SaaS.",
+    title: "BeonicX - We Build SaaS Products, AI Agents & Workflow Automation",
+    description: "From custom SaaS platforms to autonomous AI agents — BeonicX engineers production-grade software that scales your business.",
     siteName: "BeonicX",
     images: [
       {
         url: "https://i.postimg.cc/Pxd5LK34/Whats-App-Image-2025-04-09-at-00-27-19-removebg-preview.png",
         width: 1200,
         height: 630,
-        alt: "BeonicX - AI Agents & Automation Solutions"
+        alt: "BeonicX - SaaS Development & AI Engineering"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "BeonicX - AI-Powered Autonomous Agents & Intelligent Automation",
-    description: "Transform your business with BeonicX's cutting-edge AI agents and intelligent automation solutions.",
+    title: "BeonicX - We Build SaaS Products, AI Agents & Workflow Automation",
+    description: "From custom SaaS platforms to autonomous AI agents — BeonicX engineers production-grade software that scales your business.",
     images: ["https://i.postimg.cc/Pxd5LK34/Whats-App-Image-2025-04-09-at-00-27-19-removebg-preview.png"],
   },
   robots: {
@@ -113,7 +109,7 @@ export default function RootLayout({ children }) {
               "name": "BeonicX",
               "alternateName": "BeonicX AI",
               "url": "https://beonicx.com",
-              "description": "AI-Powered Autonomous Agents & Intelligent Automation Solutions",
+              "description": "We build SaaS products, AI & voice agents, workflow automation, and intelligent CRMs that scale your business.",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": {
