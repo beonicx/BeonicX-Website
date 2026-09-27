@@ -137,7 +137,7 @@ export default function Toppage({ darkMode = false }) {
                 darkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 We Build{' '}
-                <span className="relative block sm:inline-block">
+                <span className="relative inline-block">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={wordIndex}
@@ -151,7 +151,8 @@ export default function Toppage({ darkMode = false }) {
                     </motion.span>
                   </AnimatePresence>
                 </span>
-                {' '}That Scale Your Business
+                <br />
+                That Scale Your Business
               </h1>
 
               {/* Subheading */}
