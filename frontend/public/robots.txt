@@ -9,4 +9,4 @@ Disallow: /admin/
 Disallow: /api/
 
 # Sitemaps
-Sitemap: https://beonicx.com/sitemap.xml
+Sitemap: https://www.beonicx.com/sitemap.xml
