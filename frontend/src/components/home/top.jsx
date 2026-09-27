@@ -137,7 +137,7 @@ export default function Toppage({ darkMode = false }) {
                 darkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 We Build{' '}
-                <span className="relative inline-block">
+                <span className="relative block sm:inline-block">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={wordIndex}
