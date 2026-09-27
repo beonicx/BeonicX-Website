@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Play, CheckCircle } from 'lucide-react';
 
-const rotatingWords = ['SaaS Products', 'AI Agents', 'Workflow Automation', 'Intelligent CRMs'];
+const rotatingWords = ['SaaS Products', 'AI & Voice Agents', 'Workflow Automation', 'Intelligent CRMs'];
 
 export default function Toppage({ darkMode = false }) {
   const [wordIndex, setWordIndex] = useState(0);
