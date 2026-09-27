@@ -52,7 +52,7 @@ const Page = ({ params }) => {
     return (
       <div className="flex items-center justify-center py-40">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-10 h-10 border-2 border-blue-600/30 border-t-blue-600 rounded-full animate-spin" />
+          <div className="w-10 h-10 border-2 border-neutral-600/30 border-t-neutral-700 rounded-full animate-spin" />
           <p className={`text-sm font-medium ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>Loading service...</p>
         </div>
       </div>

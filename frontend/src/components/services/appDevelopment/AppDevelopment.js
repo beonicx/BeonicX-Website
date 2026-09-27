@@ -9,37 +9,37 @@ const services = [
     icon: Globe,
     title: 'iOS App Development',
     desc: 'Native iOS applications built with Swift and SwiftUI. Optimized for performance, following Apple\'s Human Interface Guidelines.',
-    gradient: 'from-blue-600 to-blue-500',
+    gradient: 'from-neutral-700 to-neutral-600',
   },
   {
     icon: Layers,
     title: 'Android App Development',
     desc: 'Native Android apps with Kotlin and Jetpack Compose. Material Design 3, optimized for the full spectrum of Android devices.',
-    gradient: 'from-blue-500 to-indigo-500',
+    gradient: 'from-neutral-600 to-neutral-600',
   },
   {
     icon: Code,
     title: 'Cross-Platform Apps',
     desc: 'Build once, deploy everywhere with React Native and Flutter. Shared codebase with near-native performance on iOS and Android.',
-    gradient: 'from-indigo-500 to-blue-600',
+    gradient: 'from-neutral-600 to-neutral-700',
   },
   {
     icon: Server,
     title: 'Backend & API Development',
     desc: 'Scalable mobile backends with real-time sync, push notifications, authentication, and cloud-native microservices architecture.',
-    gradient: 'from-blue-600 to-blue-700',
+    gradient: 'from-neutral-700 to-neutral-800',
   },
   {
     icon: Shield,
     title: 'App Security & Compliance',
     desc: 'Enterprise-grade mobile security — encryption, biometric auth, certificate pinning, and compliance with GDPR, HIPAA, and SOC 2.',
-    gradient: 'from-blue-500 to-blue-600',
+    gradient: 'from-neutral-600 to-neutral-700',
   },
   {
     icon: TrendingUp,
     title: 'App Store Optimization',
     desc: 'Launch strategy, ASO, analytics integration, and post-launch iteration to maximize downloads, retention, and user engagement.',
-    gradient: 'from-indigo-600 to-blue-600',
+    gradient: 'from-neutral-700 to-neutral-700',
   },
 ];
 

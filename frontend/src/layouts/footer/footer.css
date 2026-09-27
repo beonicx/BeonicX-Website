@@ -1,5 +1,5 @@
 .footer {
-    background-color: #030712;
+    background-color: #000000;
     color: white;
     padding: 2rem 0;
     font-family: Arial, sans-serif;
@@ -54,15 +54,15 @@
   
   .subscribe-btn {
     padding: 0.5rem 1rem;
-    background-color: #2563eb;
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
   }
-  
+
   .subscribe-btn:hover {
-    background-color: #1d4ed8;
+    background-color: #262626;
   }
   
   .checkbox-container {

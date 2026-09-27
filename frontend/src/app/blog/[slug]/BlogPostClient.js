@@ -1,26 +1,12 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Calendar, Clock, Tag, ArrowLeft, Facebook, Twitter, Linkedin, Share2 } from 'lucide-react';
-import Navbar from '@/layouts/navbar/Navbar';
-import Footer from '@/layouts/footer/Footer';
+import { useTheme } from '@/context/ThemeContext';
 
 const BlogPostClient = ({ post, relatedPosts, slug }) => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('darkMode');
-    if (savedTheme) {
-      setDarkMode(savedTheme === 'true');
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newMode = !darkMode;
-    setDarkMode(newMode);
-    localStorage.setItem('darkMode', newMode.toString());
-  };
+  const { darkMode } = useTheme();
 
   const sharePost = (platform) => {
     const url = `https://beonicx.com/blog/${slug}`;
@@ -38,10 +24,7 @@ const BlogPostClient = ({ post, relatedPosts, slug }) => {
   };
 
   return (
-    <div className={darkMode ? 'dark' : ''}>
-      <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
-
-      <article className={`min-h-screen pt-24 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
+      <article className={`min-h-screen ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
         <div className={`relative py-12 px-4 ${darkMode ? 'bg-slate-800' : 'bg-white'} border-b ${darkMode ? 'border-slate-700' : 'border-slate-200'}`}>
           <div className="container mx-auto max-w-4xl">
             <Link
@@ -53,7 +36,7 @@ const BlogPostClient = ({ post, relatedPosts, slug }) => {
             </Link>
 
             {post.category && (
-              <div className="inline-block bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-4">
+              <div className="inline-block bg-neutral-800 text-white px-4 py-1 rounded-full text-sm font-bold mb-4">
                 {post.category}
               </div>
             )}
@@ -109,8 +92,8 @@ const BlogPostClient = ({ post, relatedPosts, slug }) => {
         <div className="container mx-auto max-w-4xl px-4 py-12">
           <div className={`prose pblue-lg max-w-none ${
             darkMode
-              ? 'pblue-invert pblue-headings:text-white pblue-p:text-slate-300 pblue-a:text-blue-400 pblue-strong:text-white pblue-code:text-blue-400'
-              : 'pblue-headings:text-slate-900 pblue-p:text-slate-700 pblue-a:text-blue-600 pblue-strong:text-slate-900 pblue-code:text-blue-600'
+              ? 'pblue-invert pblue-headings:text-white pblue-p:text-slate-300 pblue-a:text-neutral-300 pblue-strong:text-white pblue-code:text-neutral-300'
+              : 'pblue-headings:text-slate-900 pblue-p:text-slate-700 pblue-a:text-neutral-700 pblue-strong:text-slate-900 pblue-code:text-neutral-700'
           }`}>
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </div>
@@ -123,21 +106,21 @@ const BlogPostClient = ({ post, relatedPosts, slug }) => {
             <div className="flex gap-3">
               <button
                 onClick={() => sharePost('twitter')}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-600 transition"
+                className="flex items-center gap-2 px-4 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-800 transition"
               >
                 <Twitter size={18} />
                 Twitter
               </button>
               <button
                 onClick={() => sharePost('facebook')}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition"
+                className="flex items-center gap-2 px-4 py-2 bg-neutral-900 text-white rounded-lg hover:bg-neutral-900 transition"
               >
                 <Facebook size={18} />
                 Facebook
               </button>
               <button
                 onClick={() => sharePost('linkedin')}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                className="flex items-center gap-2 px-4 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-900 transition"
               >
                 <Linkedin size={18} />
                 LinkedIn
@@ -172,11 +155,11 @@ const BlogPostClient = ({ post, relatedPosts, slug }) => {
                     )}
                     <div className="p-6">
                       {relatedPost.category && (
-                        <div className="inline-block bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">
+                        <div className="inline-block bg-neutral-800 text-white px-3 py-1 rounded-full text-xs font-bold mb-3">
                           {relatedPost.category}
                         </div>
                       )}
-                      <h3 className={`text-xl font-bold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors ${
+                      <h3 className={`text-xl font-bold mb-2 line-clamp-2 group-hover:text-neutral-700 transition-colors ${
                         darkMode ? 'text-white' : 'text-slate-900'
                       }`}>
                         {relatedPost.title}
@@ -194,9 +177,6 @@ const BlogPostClient = ({ post, relatedPosts, slug }) => {
           </div>
         )}
       </article>
-
-      <Footer darkMode={darkMode} />
-    </div>
   );
 };
 

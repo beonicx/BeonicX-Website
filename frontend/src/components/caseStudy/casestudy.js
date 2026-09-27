@@ -38,7 +38,7 @@ const CardList = ({ darkMode = false }) => {
           challenges: cs.challenge ? [cs.challenge] : [],
           solutions: cs.solution ? [cs.solution] : [],
           technologies: cs.technologies || [],
-          gradient: 'from-blue-600 to-blue-700',
+          gradient: 'from-neutral-700 to-neutral-800',
           icon: <Globe className="w-6 h-6" />,
         }));
         setApiCaseStudies(mapped);
@@ -61,7 +61,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["Real-time order tracking integration", "High-traffic scalability", "Multi-location inventory management"],
       solutions: ["Microservices architecture for scalability", "WebSocket for real-time updates", "Cloud-based inventory sync"],
       technologies: ["React Native", "Node.js", "MongoDB", "Redis", "AWS"],
-      gradient: "from-blue-600 to-blue-400",
+      gradient: "from-neutral-700 to-neutral-500",
       icon: <ShoppingCart className="w-6 h-6" />
     },
     {
@@ -77,7 +77,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["Offline content accessibility", "Multi-language support (20+ languages)", "Personalized content recommendations"],
       solutions: ["Progressive download system", "AI-powered recommendation engine", "Adaptive streaming for videos"],
       technologies: ["Flutter", "Firebase", "TensorFlow", "Cloud Storage"],
-      gradient: "from-blue-600 to-blue-400",
+      gradient: "from-neutral-700 to-neutral-500",
       icon: <Heart className="w-6 h-6" />
     },
     {
@@ -93,7 +93,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["Real-time pose detection accuracy", "Wearable device integration", "Personalized workout algorithms"],
       solutions: ["Computer vision for form analysis", "Multi-device sync protocol", "ML-based adaptive training plans"],
       technologies: ["React Native", "Python", "TensorFlow", "HealthKit", "Google Fit"],
-      gradient: "from-blue-600 to-blue-700",
+      gradient: "from-neutral-700 to-neutral-800",
       icon: <Activity className="w-6 h-6" />
     },
     {
@@ -109,7 +109,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["Low-latency video streaming", "Interactive whiteboard functionality", "Progress tracking across devices"],
       solutions: ["WebRTC for peer-to-peer streaming", "Canvas-based collaborative tools", "Real-time database synchronization"],
       technologies: ["React Native", "WebRTC", "Node.js", "PostgreSQL", "Redis"],
-      gradient: "from-blue-600 to-blue-700",
+      gradient: "from-neutral-700 to-neutral-800",
       icon: <BookOpen className="w-6 h-6" />
     },
     {
@@ -125,7 +125,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["Visual search accuracy", "AR try-on rendering speed", "Payment gateway integration"],
       solutions: ["Custom CNN for image recognition", "ARCore/ARKit optimization", "Multi-gateway payment abstraction"],
       technologies: ["Flutter", "TensorFlow", "ARCore", "ARKit", "Stripe"],
-      gradient: "from-blue-600 to-blue-800",
+      gradient: "from-neutral-700 to-neutral-900",
       icon: <ShoppingCart className="w-6 h-6" />
     },
     {
@@ -141,7 +141,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["HIPAA compliance requirements", "Secure data transmission", "EHR system integration"],
       solutions: ["End-to-end encryption", "FHIR standard implementation", "Blockchain for audit trails"],
       technologies: ["React Native", "Node.js", "PostgreSQL", "WebRTC", "Blockchain"],
-      gradient: "from-blue-400 to-blue-600",
+      gradient: "from-neutral-500 to-neutral-700",
       icon: <Heart className="w-6 h-6" />
     },
     {
@@ -157,7 +157,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["Multi-factor authentication", "Real-time fraud detection", "Regulatory compliance"],
       solutions: ["Biometric + behavioral authentication", "ML-based fraud detection", "PCI-DSS compliant architecture"],
       technologies: ["Native iOS/Android", "Node.js", "ML", "Blockchain", "AWS"],
-      gradient: "from-blue-600 to-blue-700",
+      gradient: "from-neutral-700 to-neutral-800",
       icon: <DollarSign className="w-6 h-6" />
     },
     {
@@ -173,7 +173,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["Hyperlocal data accuracy", "Low-latency data updates", "Battery optimization"],
       solutions: ["Multi-source data aggregation", "Edge caching strategy", "Background sync optimization"],
       technologies: ["Flutter", "Python", "ML", "AWS", "OpenWeather API"],
-      gradient: "from-sky-500 to-blue-600",
+      gradient: "from-sky-500 to-neutral-700",
       icon: <Globe className="w-6 h-6" />
     },
     {
@@ -189,7 +189,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["Message delivery guarantee", "End-to-end encryption", "Cross-platform synchronization"],
       solutions: ["Queue-based message system", "Signal protocol implementation", "Real-time database sync"],
       technologies: ["React Native", "Firebase", "WebRTC", "Node.js", "Socket.io"],
-      gradient: "from-blue-600 to-blue-800",
+      gradient: "from-neutral-700 to-neutral-900",
       icon: <Users className="w-6 h-6" />
     },
     {
@@ -205,7 +205,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["Multi-currency handling", "Offline maps and content", "Real-time price comparison"],
       solutions: ["Dynamic currency conversion API", "Progressive map downloading", "Price aggregation service"],
       technologies: ["React Native", "Google Maps API", "TensorFlow", "Node.js"],
-      gradient: "from-blue-600 to-blue-400",
+      gradient: "from-neutral-700 to-neutral-500",
       icon: <Globe className="w-6 h-6" />
     },
     {
@@ -221,7 +221,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["3D property visualization", "Location-based search", "Secure document handling"],
       solutions: ["360° virtual tour integration", "Geospatial indexing", "Blockchain-based document storage"],
       technologies: ["Flutter", "ARCore", "ARKit", "Google Maps", "Blockchain"],
-      gradient: "from-blue-600 to-blue-700",
+      gradient: "from-neutral-700 to-neutral-800",
       icon: <Target className="w-6 h-6" />
     },
     {
@@ -237,7 +237,7 @@ const CardList = ({ darkMode = false }) => {
       challenges: ["Multi-vendor order management", "Dynamic pricing optimization", "Fleet management integration"],
       solutions: ["Microservices architecture", "ML-based demand prediction", "Real-time fleet tracking"],
       technologies: ["React Native", "Node.js", "MongoDB", "Redis", "Google Maps"],
-      gradient: "from-blue-400 to-blue-600",
+      gradient: "from-neutral-500 to-neutral-700",
       icon: <ShoppingCart className="w-6 h-6" />
     }
   ];
@@ -269,24 +269,24 @@ const CardList = ({ darkMode = false }) => {
   });
 
   return (
-    <div className={`transition-colors duration-300 ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+    <div className={`transition-colors duration-300 ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className={`absolute inset-0 ${darkMode ? 'bg-[#030712]' : 'bg-white'}`} />
+        <div className={`absolute inset-0 ${darkMode ? 'bg-[#000000]' : 'bg-white'}`} />
         <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: `linear-gradient(${darkMode ? 'rgba(37,99,235,0.03)' : 'rgba(37,99,235,0.02)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(37,99,235,0.03)' : 'rgba(37,99,235,0.02)'} 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(${darkMode ? 'rgba(128,128,128,0.03)' : 'rgba(128,128,128,0.02)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(128,128,128,0.03)' : 'rgba(128,128,128,0.02)'} 1px, transparent 1px)`,
           backgroundSize: '72px 72px'
         }} />
         {darkMode && (
           <>
-            <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-blue-600/[0.06] blur-[140px] pointer-events-none" />
-            <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-blue-700/[0.04] blur-[120px] pointer-events-none" />
+            <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-neutral-800/[0.06] blur-[140px] pointer-events-none" />
+            <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-neutral-900/[0.04] blur-[120px] pointer-events-none" />
           </>
         )}
         <div className={`absolute inset-0 pointer-events-none ${
           darkMode
-            ? 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#030712_100%)]'
+            ? 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#000000_100%)]'
             : 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#ffffff_100%)]'
         }`} />
 
@@ -301,8 +301,8 @@ const CardList = ({ darkMode = false }) => {
               variants={fadeInUp}
               className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-8 ${
                 darkMode
-                  ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
-                  : 'bg-blue-50 text-blue-600 border border-blue-200/60'
+                  ? 'bg-neutral-800/10 text-neutral-300 border border-neutral-600/20'
+                  : 'bg-neutral-100 text-neutral-700 border border-neutral-300/60'
               }`}
             >
               <Sparkles size={14} />
@@ -316,7 +316,7 @@ const CardList = ({ darkMode = false }) => {
               }`}
             >
               Our{' '}
-              <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-600 bg-clip-text text-transparent">
                 Case Studies
               </span>
             </motion.h1>
@@ -341,7 +341,7 @@ const CardList = ({ darkMode = false }) => {
                 { icon: <Users size={20} />, value: "50M+", label: "Users Reached" },
                 { icon: <Star size={20} />, value: "4.8★", label: "Avg Rating" }
               ].map((stat) => (
-                <div key={stat.label} className={`px-6 py-5 text-center ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+                <div key={stat.label} className={`px-6 py-5 text-center ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
                   <div className={`text-2xl font-extrabold tracking-tight mb-0.5 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     {stat.value}
                   </div>
@@ -357,13 +357,13 @@ const CardList = ({ darkMode = false }) => {
 
       {/* Search & Filters */}
       <section className={`sticky top-16 z-30 backdrop-blur-xl border-b ${
-        darkMode ? 'bg-[#030712]/90 border-white/[0.06]' : 'bg-white/90 border-slate-200/60'
+        darkMode ? 'bg-[#000000]/90 border-white/[0.06]' : 'bg-white/90 border-slate-200/60'
       }`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className={`flex items-center gap-3 rounded-xl px-4 py-3 mb-4 border transition-all ${
             darkMode
-              ? 'bg-white/[0.04] border-white/[0.08] focus-within:border-blue-600/40'
-              : 'bg-slate-50 border-slate-200 focus-within:border-blue-400'
+              ? 'bg-white/[0.04] border-white/[0.08] focus-within:border-neutral-600/40'
+              : 'bg-slate-50 border-slate-200 focus-within:border-neutral-400'
           }`}>
             <Search size={18} className={darkMode ? 'text-slate-500' : 'text-slate-400'} />
             <input
@@ -384,7 +384,7 @@ const CardList = ({ darkMode = false }) => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-lg font-medium text-xs whitespace-nowrap transition-all ${
                   selectedCategory === category
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20'
+                    ? 'bg-neutral-800 text-white shadow-lg shadow-black/20'
                     : darkMode
                       ? 'bg-white/[0.04] text-slate-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.06]'
                       : 'bg-slate-50 text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200'
@@ -417,8 +417,8 @@ const CardList = ({ darkMode = false }) => {
               onHoverEnd={() => setHoveredCard(null)}
               className={`group relative rounded-2xl overflow-hidden transition-all duration-300 card-hover ${
                 darkMode
-                  ? 'bg-white/[0.03] border border-white/[0.08] hover:border-blue-600/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
-                  : 'bg-white border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.03)] hover:border-blue-200 hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
+                  ? 'bg-white/[0.03] border border-white/[0.08] hover:border-neutral-600/30 hover:shadow-[0_0_40px_rgba(128,128,128,0.06)]'
+                  : 'bg-white border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.03)] hover:border-neutral-300 hover:shadow-[0_8px_30px_rgba(128,128,128,0.08)]'
               }`}
             >
               {/* Image */}
@@ -440,7 +440,7 @@ const CardList = ({ darkMode = false }) => {
                   </span>
                 </div>
 
-                <div className={`absolute top-4 right-4 w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg bg-gradient-to-br from-blue-600 to-blue-700`}>
+                <div className={`absolute top-4 right-4 w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg bg-gradient-to-br from-neutral-700 to-neutral-800`}>
                   {study.icon}
                 </div>
 
@@ -479,8 +479,8 @@ const CardList = ({ darkMode = false }) => {
                       key={idx}
                       className={`text-[10px] font-semibold px-2.5 py-1 rounded-md ${
                         darkMode
-                          ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
-                          : 'bg-blue-50 text-blue-600 border border-blue-100'
+                          ? 'bg-neutral-800/10 text-neutral-300 border border-neutral-600/20'
+                          : 'bg-neutral-100 text-neutral-700 border border-neutral-200'
                       }`}
                     >
                       {tag}
@@ -544,8 +544,8 @@ const CardList = ({ darkMode = false }) => {
       {/* CTA */}
       <section className={`relative py-24 px-4 overflow-hidden ${darkMode ? 'aurora-dark' : 'aurora-light'}`}>
         <div className={`absolute inset-0 ${darkMode ? 'grid-pattern' : ''} pointer-events-none`} />
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-blue-600/10 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-neutral-800/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-neutral-800/10 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.div
@@ -554,8 +554,8 @@ const CardList = ({ darkMode = false }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 bg-blue-600/10 border border-blue-600/20 ${
-              darkMode ? 'text-blue-400' : 'text-blue-600'
+            <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 bg-neutral-800/10 border border-neutral-600/20 ${
+              darkMode ? 'text-neutral-300' : 'text-neutral-700'
             }`}>
               <Zap size={14} />
               Start Building
@@ -565,7 +565,7 @@ const CardList = ({ darkMode = false }) => {
               darkMode ? 'text-white' : 'text-slate-900'
             }`}>
               Ready to Start Your{' '}
-              <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-600 bg-clip-text text-transparent">
                 Success Story
               </span>?
             </h2>
@@ -579,7 +579,7 @@ const CardList = ({ darkMode = false }) => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/get-started"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-neutral-700 to-neutral-800 transition-all duration-300 shadow-lg shadow-black/25 hover:shadow-black/40 hover:-translate-y-0.5"
               >
                 Start Your Project <ArrowRight size={16} />
               </Link>
@@ -588,7 +588,7 @@ const CardList = ({ darkMode = false }) => {
                 className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 border ${
                   darkMode
                     ? 'border-white/10 text-slate-300 hover:border-white/20 hover:bg-white/5'
-                    : 'border-slate-200 text-slate-700 hover:border-blue-200 hover:bg-blue-50/50'
+                    : 'border-slate-200 text-slate-700 hover:border-neutral-300 hover:bg-neutral-100/50'
                 }`}
               >
                 Explore Services

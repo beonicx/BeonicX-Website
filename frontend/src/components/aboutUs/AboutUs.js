@@ -38,12 +38,12 @@ const team = [
 ];
 
 const services = [
-  { icon: Brain, title: 'AI & Machine Learning', desc: 'Custom AI solutions, ML models, NLP, computer vision, and intelligent automation.', gradient: 'from-blue-600 to-blue-500' },
-  { icon: Smartphone, title: 'Mobile Development', desc: 'Native and cross-platform mobile apps for iOS and Android with exceptional UX.', gradient: 'from-blue-500 to-indigo-500' },
-  { icon: Globe, title: 'Web Development', desc: 'Modern web applications using React, Next.js, and scalable backend architectures.', gradient: 'from-indigo-500 to-blue-600' },
-  { icon: Cloud, title: 'Cloud Solutions', desc: 'Cloud migration, DevOps, microservices, and infrastructure optimization.', gradient: 'from-blue-600 to-blue-700' },
-  { icon: Briefcase, title: 'Enterprise Software', desc: 'Custom enterprise solutions, ERP, CRM, and business process automation.', gradient: 'from-blue-500 to-blue-600' },
-  { icon: Palette, title: 'UI/UX Design', desc: 'User-centered design creating intuitive and engaging digital experiences.', gradient: 'from-indigo-600 to-blue-600' },
+  { icon: Brain, title: 'AI & Machine Learning', desc: 'Custom AI solutions, ML models, NLP, computer vision, and intelligent automation.', gradient: 'from-neutral-700 to-neutral-600' },
+  { icon: Smartphone, title: 'Mobile Development', desc: 'Native and cross-platform mobile apps for iOS and Android with exceptional UX.', gradient: 'from-neutral-600 to-neutral-600' },
+  { icon: Globe, title: 'Web Development', desc: 'Modern web applications using React, Next.js, and scalable backend architectures.', gradient: 'from-neutral-600 to-neutral-700' },
+  { icon: Cloud, title: 'Cloud Solutions', desc: 'Cloud migration, DevOps, microservices, and infrastructure optimization.', gradient: 'from-neutral-700 to-neutral-800' },
+  { icon: Briefcase, title: 'Enterprise Software', desc: 'Custom enterprise solutions, ERP, CRM, and business process automation.', gradient: 'from-neutral-600 to-neutral-700' },
+  { icon: Palette, title: 'UI/UX Design', desc: 'User-centered design creating intuitive and engaging digital experiences.', gradient: 'from-neutral-700 to-neutral-700' },
 ];
 
 const milestones = [
@@ -63,13 +63,13 @@ const contactInfo = [
 
 export default function AboutUs({ darkMode = false }) {
   return (
-    <main className={darkMode ? 'bg-[#030712]' : 'bg-white'}>
+    <main className={darkMode ? 'bg-[#000000]' : 'bg-white'}>
 
       {/* ═══════════ HERO ═══════════ */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className={`absolute top-[-15%] left-[-5%] w-[600px] h-[600px] rounded-full blur-[150px] ${
-            darkMode ? 'bg-blue-600/[0.08]' : 'bg-blue-100/70'
+            darkMode ? 'bg-neutral-800/[0.08]' : 'bg-neutral-200/70'
           }`} />
           <div className={`absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[120px] ${
             darkMode ? 'bg-indigo-600/[0.06]' : 'bg-indigo-50/60'
@@ -78,13 +78,13 @@ export default function AboutUs({ darkMode = false }) {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(${darkMode ? 'rgba(128,128,128,0.02)' : 'rgba(128,128,128,0.015)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(128,128,128,0.02)' : 'rgba(128,128,128,0.015)'} 1px, transparent 1px)`,
             backgroundSize: '80px 80px',
           }}
         />
         <div className={`absolute inset-0 pointer-events-none ${
           darkMode
-            ? 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#030712_80%)]'
+            ? 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#000000_80%)]'
             : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
         }`} />
 
@@ -99,8 +99,8 @@ export default function AboutUs({ darkMode = false }) {
               variants={fadeUp}
               className={`inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-8 ${
                 darkMode
-                  ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                  : 'bg-blue-50 text-blue-600 border border-blue-100'
+                  ? 'bg-neutral-700/10 text-neutral-300 border border-neutral-500/20'
+                  : 'bg-neutral-100 text-neutral-700 border border-neutral-200'
               }`}
             >
               <Sparkles size={13} />
@@ -114,7 +114,7 @@ export default function AboutUs({ darkMode = false }) {
               }`}
             >
               About{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-700 via-neutral-600 to-neutral-600 bg-clip-text text-transparent">
                 BeonicX
               </span>
             </motion.h1>
@@ -144,9 +144,9 @@ export default function AboutUs({ darkMode = false }) {
             {stats.map((stat) => (
               <motion.div key={stat.label} variants={fadeUp} className="text-center">
                 <div className={`w-11 h-11 mx-auto mb-4 flex items-center justify-center rounded-xl ${
-                  darkMode ? 'bg-blue-500/10' : 'bg-blue-50'
+                  darkMode ? 'bg-neutral-700/10' : 'bg-neutral-100'
                 }`}>
-                  <stat.icon size={20} className="text-blue-500" />
+                  <stat.icon size={20} className="text-neutral-500" />
                 </div>
                 <div className={`text-3xl sm:text-4xl font-extrabold tracking-tight mb-1 ${
                   darkMode ? 'text-white' : 'text-slate-900'
@@ -161,12 +161,12 @@ export default function AboutUs({ darkMode = false }) {
       {/* ═══════════ OUR STORY ═══════════ */}
       <section className="relative py-24 sm:py-32">
         {darkMode && (
-          <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[130px] pointer-events-none" />
+          <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
         )}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-              <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Our Story</motion.span>
+              <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Our Story</motion.span>
               <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-8 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 Building the future,{' '}
                 <span className={darkMode ? 'text-slate-500' : 'text-slate-400'}>one product at a time.</span>
@@ -187,8 +187,8 @@ export default function AboutUs({ darkMode = false }) {
             >
               <div className={`rounded-2xl p-8 ${
                 darkMode
-                  ? 'bg-[#0a0f1e] border border-white/[0.06]'
-                  : 'bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(37,99,235,0.06)]'
+                  ? 'bg-[#0a0a0a] border border-white/[0.06]'
+                  : 'bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(128,128,128,0.06)]'
               }`}>
                 <h3 className={`text-lg font-bold mb-3 tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>Our Mission</h3>
                 <p className={`text-sm leading-relaxed ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
@@ -197,8 +197,8 @@ export default function AboutUs({ darkMode = false }) {
               </div>
               <div className={`rounded-2xl p-8 ${
                 darkMode
-                  ? 'bg-[#0a0f1e] border border-white/[0.06]'
-                  : 'bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(37,99,235,0.06)]'
+                  ? 'bg-[#0a0a0a] border border-white/[0.06]'
+                  : 'bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(128,128,128,0.06)]'
               }`}>
                 <h3 className={`text-lg font-bold mb-3 tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>Our Vision</h3>
                 <p className={`text-sm leading-relaxed ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
@@ -214,10 +214,10 @@ export default function AboutUs({ darkMode = false }) {
       <section className={`relative py-24 sm:py-32 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-            <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Our Values</motion.span>
+            <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Our Values</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Core{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">Principles</span>
+              <span className="bg-gradient-to-r from-neutral-700 to-neutral-600 bg-clip-text text-transparent">Principles</span>
             </motion.h2>
             <motion.p variants={fadeUp} className={`text-base sm:text-lg mt-5 max-w-2xl mx-auto leading-relaxed ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
               The principles that guide everything we do
@@ -229,13 +229,13 @@ export default function AboutUs({ darkMode = false }) {
               <motion.div key={v.title} variants={fadeUp}>
                 <div className={`relative rounded-2xl p-8 h-full transition-all duration-300 ${
                   darkMode
-                    ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
-                    : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                    ? 'bg-[#0a0a0a] border border-white/[0.06] hover:border-neutral-500/30 hover:shadow-[0_0_40px_rgba(128,128,128,0.06)]'
+                    : 'bg-white border border-slate-200/80 hover:border-neutral-400 hover:shadow-[0_12px_40px_rgba(128,128,128,0.1)]'
                 } card-hover`}>
                   <div className={`w-12 h-12 flex items-center justify-center rounded-xl mb-6 ${
-                    darkMode ? 'bg-blue-500/10 border border-blue-500/20' : 'bg-blue-50 border border-blue-100'
+                    darkMode ? 'bg-neutral-700/10 border border-neutral-500/20' : 'bg-neutral-100 border border-neutral-200'
                   }`}>
-                    <v.icon size={22} className="text-blue-500" />
+                    <v.icon size={22} className="text-neutral-500" />
                   </div>
                   <h3 className={`text-lg font-bold mb-2 tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>{v.title}</h3>
                   <p className={`text-sm leading-relaxed ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>{v.desc}</p>
@@ -249,11 +249,11 @@ export default function AboutUs({ darkMode = false }) {
       {/* ═══════════ SERVICES ═══════════ */}
       <section className="relative py-24 sm:py-32">
         {darkMode && (
-          <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[130px] pointer-events-none" />
+          <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
         )}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div className="max-w-3xl mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-            <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>What We Do</motion.span>
+            <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>What We Do</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Comprehensive solutions,{' '}
               <span className={darkMode ? 'text-slate-500' : 'text-slate-400'}>one partner.</span>
@@ -265,11 +265,11 @@ export default function AboutUs({ darkMode = false }) {
               <motion.div key={s.title} variants={fadeUp}>
                 <div className={`relative rounded-2xl p-8 h-full transition-all duration-300 overflow-hidden ${
                   darkMode
-                    ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
-                    : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                    ? 'bg-[#0a0a0a] border border-white/[0.06] hover:border-neutral-500/30 hover:shadow-[0_0_40px_rgba(128,128,128,0.06)]'
+                    : 'bg-white border border-slate-200/80 hover:border-neutral-400 hover:shadow-[0_12px_40px_rgba(128,128,128,0.1)]'
                 } card-hover`}>
                   <span className={`absolute top-5 right-6 text-[5rem] font-black leading-none select-none pointer-events-none ${darkMode ? 'text-white/[0.02]' : 'text-slate-900/[0.03]'}`}>{String(i + 1).padStart(2, '0')}</span>
-                  <div className={`relative w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${s.gradient} text-white mb-6 shadow-lg shadow-blue-600/20`}>
+                  <div className={`relative w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${s.gradient} text-white mb-6 shadow-lg shadow-black/20`}>
                     <s.icon size={24} />
                   </div>
                   <h3 className={`text-xl font-bold mb-3 tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>{s.title}</h3>
@@ -285,7 +285,7 @@ export default function AboutUs({ darkMode = false }) {
       <section className={`relative py-24 sm:py-32 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-            <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Leadership</motion.span>
+            <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Leadership</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Meet Our{' '}
               <span className={darkMode ? 'text-slate-500' : 'text-slate-400'}>Founders</span>
@@ -297,14 +297,14 @@ export default function AboutUs({ darkMode = false }) {
               <motion.div key={m.name} variants={fadeUp}>
                 <div className={`text-center rounded-2xl p-8 h-full transition-all duration-300 ${
                   darkMode
-                    ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30'
-                    : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                    ? 'bg-[#0a0a0a] border border-white/[0.06] hover:border-neutral-500/30'
+                    : 'bg-white border border-slate-200/80 hover:border-neutral-400 hover:shadow-[0_12px_40px_rgba(128,128,128,0.1)]'
                 } card-hover`}>
                   <div className={`w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-2xl text-xl font-bold ${
-                    darkMode ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : 'bg-blue-50 text-blue-600 border border-blue-100'
+                    darkMode ? 'bg-neutral-700/10 text-neutral-300 border border-neutral-500/20' : 'bg-neutral-100 text-neutral-700 border border-neutral-200'
                   }`}>{m.initials}</div>
                   <h3 className={`text-lg font-bold mb-1 tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>{m.name}</h3>
-                  <p className={`text-xs font-semibold mb-3 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>{m.role}</p>
+                  <p className={`text-xs font-semibold mb-3 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>{m.role}</p>
                   <p className={`text-sm leading-relaxed ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>{m.desc}</p>
                 </div>
               </motion.div>
@@ -316,14 +316,14 @@ export default function AboutUs({ darkMode = false }) {
       {/* ═══════════ TIMELINE ═══════════ */}
       <section className="relative py-24 sm:py-32">
         {darkMode && (
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-600/[0.04] blur-[150px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-neutral-800/[0.04] blur-[150px] pointer-events-none" />
         )}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-            <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Milestones</motion.span>
+            <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Milestones</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Our{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">Journey</span>
+              <span className="bg-gradient-to-r from-neutral-700 to-neutral-600 bg-clip-text text-transparent">Journey</span>
             </motion.h2>
           </motion.div>
 
@@ -332,11 +332,11 @@ export default function AboutUs({ darkMode = false }) {
               <motion.div key={m.event} variants={fadeUp}>
                 <div className={`flex gap-6 items-start rounded-2xl p-6 transition-all duration-300 ${
                   darkMode
-                    ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30'
-                    : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
+                    ? 'bg-[#0a0a0a] border border-white/[0.06] hover:border-neutral-500/30'
+                    : 'bg-white border border-slate-200/80 hover:border-neutral-400 hover:shadow-[0_8px_30px_rgba(128,128,128,0.08)]'
                 } card-hover`}>
                   <div className={`shrink-0 w-14 h-14 flex items-center justify-center rounded-xl text-sm font-bold ${
-                    darkMode ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : 'bg-blue-50 text-blue-600 border border-blue-100'
+                    darkMode ? 'bg-neutral-700/10 text-neutral-300 border border-neutral-500/20' : 'bg-neutral-100 text-neutral-700 border border-neutral-200'
                   }`}>{String(i + 1).padStart(2, '0')}</div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-1">
@@ -368,13 +368,13 @@ export default function AboutUs({ darkMode = false }) {
               <motion.div key={c.label} variants={fadeUp}>
                 <div className={`text-center rounded-2xl p-7 transition-all duration-300 ${
                   darkMode
-                    ? 'bg-[#0a0f1e] border border-white/[0.06]'
+                    ? 'bg-[#0a0a0a] border border-white/[0.06]'
                     : 'bg-white border border-slate-200/80'
                 }`}>
                   <div className={`w-11 h-11 mx-auto mb-4 flex items-center justify-center rounded-xl ${
-                    darkMode ? 'bg-blue-500/10' : 'bg-blue-50'
+                    darkMode ? 'bg-neutral-700/10' : 'bg-neutral-100'
                   }`}>
-                    <c.icon size={20} className="text-blue-500" />
+                    <c.icon size={20} className="text-neutral-500" />
                   </div>
                   <h3 className={`text-sm font-bold mb-1 ${darkMode ? 'text-white' : 'text-slate-900'}`}>{c.label}</h3>
                   <p className={`text-sm ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>{c.value}</p>
@@ -397,7 +397,7 @@ export default function AboutUs({ darkMode = false }) {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className={`absolute inset-0 ${darkMode ? 'grid-pattern' : ''} pointer-events-none`} />
-          <div className="absolute top-0 left-1/4 w-72 h-72 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute top-0 left-1/4 w-72 h-72 bg-neutral-800/10 rounded-full blur-[100px] pointer-events-none" />
           <div className="absolute bottom-0 right-1/4 w-56 h-56 bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none" />
 
           <div className="relative z-10 text-center max-w-2xl mx-auto">
@@ -405,7 +405,7 @@ export default function AboutUs({ darkMode = false }) {
               darkMode ? 'text-white' : 'text-slate-900'
             }`}>
               Ready to Transform Your{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Business?</span>
+              <span className="bg-gradient-to-r from-neutral-500 to-neutral-500 bg-clip-text text-transparent">Business?</span>
             </h2>
             <p className={`text-base sm:text-lg mb-10 leading-relaxed ${
               darkMode ? 'text-slate-400' : 'text-slate-600'
@@ -415,7 +415,7 @@ export default function AboutUs({ darkMode = false }) {
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
               <Link
                 href="/get-started"
-                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-neutral-700 to-neutral-800 transition-all duration-300 shadow-lg shadow-black/25 hover:shadow-black/40 hover:-translate-y-0.5"
               >
                 Get Started
                 <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />

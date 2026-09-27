@@ -60,30 +60,30 @@ export default function ServicePageLayout({
   ctaDescription,
 }) {
   return (
-    <div className={darkMode ? 'bg-[#030712]' : 'bg-white'}>
+    <div className={darkMode ? 'bg-[#000000]' : 'bg-white'}>
 
       {/* ═══════════ HERO ═══════════ */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className={`absolute top-[-15%] left-[-5%] w-[600px] h-[600px] rounded-full blur-[150px] ${
-            darkMode ? 'bg-blue-600/[0.08]' : 'bg-blue-100/70'
+            darkMode ? 'bg-white/[0.06]' : 'bg-neutral-200/50'
           }`} />
           <div className={`absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[120px] ${
-            darkMode ? 'bg-indigo-600/[0.06]' : 'bg-indigo-50/60'
+            darkMode ? 'bg-neutral-400/[0.04]' : 'bg-neutral-100/50'
           }`} />
         </div>
 
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(${darkMode ? 'rgba(128,128,128,0.03)' : 'rgba(128,128,128,0.02)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(128,128,128,0.03)' : 'rgba(128,128,128,0.02)'} 1px, transparent 1px)`,
             backgroundSize: '80px 80px',
           }}
         />
 
         <div className={`absolute inset-0 pointer-events-none ${
           darkMode
-            ? 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#030712_80%)]'
+            ? 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#000000_80%)]'
             : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
         }`} />
 
@@ -98,8 +98,8 @@ export default function ServicePageLayout({
               variants={fadeUp}
               className={`inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-8 ${
                 darkMode
-                  ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                  : 'bg-blue-50 text-blue-600 border border-blue-100'
+                  ? 'bg-white/10 text-neutral-300 border border-white/20'
+                  : 'bg-neutral-100 text-neutral-700 border border-neutral-200'
               }`}
             >
               <Sparkles size={13} />
@@ -114,7 +114,7 @@ export default function ServicePageLayout({
             >
               {heroTitle}{' '}
               <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-400 via-neutral-500 to-neutral-600 bg-clip-text text-transparent">
                 {heroHighlight}
               </span>
             </motion.h1>
@@ -131,7 +131,7 @@ export default function ServicePageLayout({
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 justify-center">
               <Link
                 href="/get-started"
-                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-black transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-black/30 hover:-translate-y-0.5"
               >
                 <Rocket size={18} />
                 Get Started
@@ -157,7 +157,7 @@ export default function ServicePageLayout({
                 <div key={item} className={`flex items-center gap-2 text-sm ${
                   darkMode ? 'text-slate-500' : 'text-slate-500'
                 }`}>
-                  <CheckCircle2 size={15} className="text-blue-500" />
+                  <CheckCircle2 size={15} className="text-neutral-500" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -169,7 +169,7 @@ export default function ServicePageLayout({
       {/* ═══════════ SERVICES GRID ═══════════ */}
       <section className="relative py-24 sm:py-32">
         {darkMode && (
-          <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[130px] pointer-events-none" />
+          <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-white/[0.03] blur-[130px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -183,7 +183,7 @@ export default function ServicePageLayout({
             <motion.span
               variants={fadeUp}
               className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
-                darkMode ? 'text-blue-400' : 'text-blue-600'
+                darkMode ? 'text-neutral-400' : 'text-neutral-600'
               }`}
             >
               Our Services
@@ -212,8 +212,8 @@ export default function ServicePageLayout({
               <motion.div key={service.title} variants={fadeUp}>
                 <div className={`relative rounded-2xl p-8 h-full transition-all duration-300 overflow-hidden ${
                   darkMode
-                    ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
-                    : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                    ? 'bg-[#0a0a0a] border border-white/[0.06] hover:border-white/15 hover:shadow-[0_0_40px_rgba(255,255,255,0.03)]'
+                    : 'bg-white border border-slate-200/80 hover:border-neutral-400 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]'
                 } card-hover`}>
                   <span className={`absolute top-5 right-6 text-[5rem] font-black leading-none select-none pointer-events-none ${
                     darkMode ? 'text-white/[0.02]' : 'text-slate-900/[0.03]'
@@ -221,7 +221,7 @@ export default function ServicePageLayout({
                     {String(index + 1).padStart(2, '0')}
                   </span>
 
-                  <div className={`relative w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${service.gradient} text-white mb-6 shadow-lg shadow-blue-600/20`}>
+                  <div className={`relative w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${service.gradient} text-white mb-6 shadow-lg shadow-black/15`}>
                     <service.icon size={24} />
                   </div>
 
@@ -250,7 +250,7 @@ export default function ServicePageLayout({
         darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'
       }`}>
         {darkMode && (
-          <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[130px] pointer-events-none" />
+          <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] rounded-full bg-white/[0.03] blur-[130px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -264,7 +264,7 @@ export default function ServicePageLayout({
             <motion.span
               variants={fadeUp}
               className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
-                darkMode ? 'text-blue-400' : 'text-blue-600'
+                darkMode ? 'text-neutral-400' : 'text-neutral-600'
               }`}
             >
               Our Process
@@ -276,7 +276,7 @@ export default function ServicePageLayout({
               }`}
             >
               How We Build Your{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-400 via-neutral-500 to-neutral-600 bg-clip-text text-transparent">
                 Success
               </span>
             </motion.h2>
@@ -301,19 +301,19 @@ export default function ServicePageLayout({
               <motion.div key={step.title} variants={fadeUp}>
                 <div className={`relative rounded-2xl p-8 h-full transition-all duration-300 ${
                   darkMode
-                    ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
-                    : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                    ? 'bg-[#0a0a0a] border border-white/[0.06] hover:border-white/15 hover:shadow-[0_0_40px_rgba(255,255,255,0.03)]'
+                    : 'bg-white border border-slate-200/80 hover:border-neutral-400 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]'
                 } card-hover`}>
                   <div className="flex items-center justify-between mb-6">
                     <div className={`w-12 h-12 flex items-center justify-center rounded-xl ${
                       darkMode
-                        ? 'bg-blue-500/10 border border-blue-500/20'
-                        : 'bg-blue-50 border border-blue-100'
+                        ? 'bg-white/[0.06] border border-white/[0.1]'
+                        : 'bg-neutral-100 border border-neutral-200'
                     }`}>
-                      <step.icon size={22} className="text-blue-500" />
+                      <step.icon size={22} className="text-neutral-500" />
                     </div>
                     <span className={`text-[11px] font-bold tracking-[0.2em] uppercase ${
-                      darkMode ? 'text-blue-400/40' : 'text-blue-500/40'
+                      darkMode ? 'text-neutral-400/40' : 'text-neutral-500/40'
                     }`}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
@@ -339,7 +339,7 @@ export default function ServicePageLayout({
       {/* ═══════════ WHY CHOOSE US ═══════════ */}
       <section className="relative py-24 sm:py-32">
         {darkMode && (
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-600/[0.04] blur-[150px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/[0.03] blur-[150px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -353,7 +353,7 @@ export default function ServicePageLayout({
             <motion.span
               variants={fadeUp}
               className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
-                darkMode ? 'text-blue-400' : 'text-blue-600'
+                darkMode ? 'text-neutral-400' : 'text-neutral-600'
               }`}
             >
               Why Choose Us
@@ -382,15 +382,15 @@ export default function ServicePageLayout({
               <motion.div key={feature.title} variants={fadeUp}>
                 <div className={`relative rounded-2xl p-8 h-full transition-all duration-300 overflow-hidden ${
                   darkMode
-                    ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
-                    : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                    ? 'bg-[#0a0a0a] border border-white/[0.06] hover:border-white/15 hover:shadow-[0_0_40px_rgba(255,255,255,0.03)]'
+                    : 'bg-white border border-slate-200/80 hover:border-neutral-400 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]'
                 } card-hover`}>
                   <div className={`w-14 h-14 flex items-center justify-center rounded-2xl mb-6 ${
                     darkMode
-                      ? 'bg-blue-500/10 border border-blue-500/20'
-                      : 'bg-blue-50 border border-blue-100'
+                      ? 'bg-white/[0.06] border border-white/[0.1]'
+                      : 'bg-neutral-100 border border-neutral-200'
                   }`}>
-                    <feature.icon size={26} className="text-blue-500" />
+                    <feature.icon size={26} className="text-neutral-500" />
                   </div>
 
                   <span className={`inline-block text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-4 ${
@@ -431,7 +431,7 @@ export default function ServicePageLayout({
             <motion.span
               variants={fadeUp}
               className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
-                darkMode ? 'text-blue-400' : 'text-blue-600'
+                darkMode ? 'text-neutral-400' : 'text-neutral-600'
               }`}
             >
               Our Impact
@@ -443,7 +443,7 @@ export default function ServicePageLayout({
               }`}
             >
               Trusted by{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-400 via-neutral-500 to-neutral-600 bg-clip-text text-transparent">
                 Industry Leaders
               </span>
             </motion.h2>
@@ -459,9 +459,9 @@ export default function ServicePageLayout({
             {stats.map((stat) => (
               <motion.div key={stat.label} variants={fadeUp} className="text-center">
                 <div className={`w-11 h-11 mx-auto mb-4 flex items-center justify-center rounded-xl ${
-                  darkMode ? 'bg-blue-500/10' : 'bg-blue-50'
+                  darkMode ? 'bg-white/[0.06]' : 'bg-neutral-100'
                 }`}>
-                  <stat.icon size={20} className="text-blue-500" />
+                  <stat.icon size={20} className="text-neutral-500" />
                 </div>
                 <div className={`text-3xl sm:text-4xl font-extrabold tracking-tight mb-1 ${
                   darkMode ? 'text-white' : 'text-slate-900'
@@ -491,7 +491,7 @@ export default function ServicePageLayout({
                     : 'bg-white text-slate-500 border border-slate-200'
                 }`}
               >
-                <CheckCircle2 size={13} className="text-blue-500" />
+                <CheckCircle2 size={13} className="text-neutral-500" />
                 {badge}
               </span>
             ))}
@@ -503,7 +503,7 @@ export default function ServicePageLayout({
       {techStacks && techStacks.length > 0 && (
         <section className="relative py-24 sm:py-32">
           {darkMode && (
-            <div className="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[130px] pointer-events-none" />
+            <div className="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-white/[0.03] blur-[130px] pointer-events-none" />
           )}
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -517,7 +517,7 @@ export default function ServicePageLayout({
               <motion.span
                 variants={fadeUp}
                 className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
-                  darkMode ? 'text-blue-400' : 'text-blue-600'
+                  darkMode ? 'text-neutral-400' : 'text-neutral-600'
                 }`}
               >
                 Tech Stack
@@ -571,14 +571,14 @@ export default function ServicePageLayout({
                         key={tech}
                         className={`relative rounded-xl p-5 text-center transition-all duration-300 ${
                           darkMode
-                            ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(37,99,235,0.06)]'
-                            : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
+                            ? 'bg-[#0a0a0a] border border-white/[0.06] hover:border-white/15 hover:shadow-[0_0_30px_rgba(255,255,255,0.03)]'
+                            : 'bg-white border border-slate-200/80 hover:border-neutral-400 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)]'
                         } card-hover`}
                       >
                         <div className={`w-10 h-10 mx-auto mb-3 flex items-center justify-center rounded-lg text-base font-bold ${
                           darkMode
-                            ? 'bg-blue-500/10 text-blue-400'
-                            : 'bg-blue-50 text-blue-600'
+                            ? 'bg-white/[0.06] text-neutral-300'
+                            : 'bg-neutral-100 text-neutral-700'
                         }`}>
                           {tech.charAt(0)}
                         </div>
@@ -609,15 +609,15 @@ export default function ServicePageLayout({
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className={`absolute inset-0 ${darkMode ? 'grid-pattern' : ''} pointer-events-none`} />
-          <div className="absolute top-0 left-1/4 w-72 h-72 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-56 h-56 bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute top-0 left-1/4 w-72 h-72 bg-white/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-56 h-56 bg-neutral-400/10 rounded-full blur-[80px] pointer-events-none" />
 
           <div className="relative z-10 text-center max-w-2xl mx-auto">
             <h2 className={`text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold mb-5 tracking-tight leading-tight ${
               darkMode ? 'text-white' : 'text-slate-900'
             }`}>
               {ctaTitle || 'Ready to Transform Your'}{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-400 to-neutral-500 bg-clip-text text-transparent">
                 {ctaHighlight || 'Digital Presence?'}
               </span>
             </h2>
@@ -632,7 +632,7 @@ export default function ServicePageLayout({
                 <span key={item} className={`inline-flex items-center gap-1.5 text-xs font-medium ${
                   darkMode ? 'text-slate-400' : 'text-slate-500'
                 }`}>
-                  <CheckCircle2 size={13} className="text-blue-500" />
+                  <CheckCircle2 size={13} className="text-neutral-500" />
                   {item}
                 </span>
               ))}
@@ -641,7 +641,7 @@ export default function ServicePageLayout({
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
               <Link
                 href="/get-started"
-                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-black transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-black/30 hover:-translate-y-0.5"
               >
                 Get Started Now
                 <Rocket size={18} className="group-hover:translate-x-0.5 transition-transform" />

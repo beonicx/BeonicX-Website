@@ -1,46 +1,21 @@
 'use client'
 
-import Footer from '@/layouts/footer/Footer'
-import Navbar from '@/layouts/navbar/Navbar'
 import Nextjs from '@/components/technologies/nextjs/Nextjs'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import { useTheme } from '@/context/ThemeContext'
 
 const Page = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode } = useTheme();
   const params = useParams();
   const { section, subsection } = params;
 
-  // Initialize theme based on user preference
-  useEffect(() => {
-    // Check for saved preference in localStorage first
-    const savedTheme = localStorage.getItem('darkMode');
-    if (savedTheme) {
-      setDarkMode(savedTheme === 'true');
-    } else if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      setDarkMode(true);
-    }
-  }, []);
-
-  // Toggle theme function
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    // Save preference to localStorage
-    localStorage.setItem('darkMode', newDarkMode.toString());
-  };
-
-  // Update document head for SEO
   useEffect(() => {
     const title = `${subsection?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} | ${section?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} Technology | BeonicX`;
     const description = `Explore our expertise in ${subsection?.replace(/-/g, ' ')} for ${section?.replace(/-/g, ' ')} development. Professional development services using cutting-edge ${subsection?.replace(/-/g, ' ')} technology.`;
 
     document.title = title;
 
-    // Update meta description
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
       metaDesc = document.createElement('meta');
@@ -49,7 +24,6 @@ const Page = () => {
     }
     metaDesc.content = description;
 
-    // Update OG tags
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (!ogTitle) {
       ogTitle = document.createElement('meta');
@@ -59,14 +33,11 @@ const Page = () => {
     ogTitle.content = title;
   }, [section, subsection]);
 
-  // Render content based on section and subsection
   const renderContent = () => {
-    // Map specific technologies to their components
     if (section === 'frontend' && subsection === 'nextjs') {
       return <Nextjs darkMode={darkMode} />;
     }
 
-    // Default placeholder content for technologies without specific components
     return (
       <div className="pt-32 pb-16 px-4 max-w-7xl mx-auto">
         <div className={`rounded-lg p-8 ${darkMode ? 'bg-slate-800' : 'bg-white'} shadow-lg`}>
@@ -82,7 +53,7 @@ const Page = () => {
             <p>
               This is the {subsection?.replace(/-/g, ' ')} technology page. Content for this technology will be added soon.
             </p>
-            <div className="mt-8 p-6 rounded-lg bg-blue-600/10 border border-blue-600/20">
+            <div className="mt-8 p-6 rounded-lg bg-neutral-800/10 border border-neutral-600/20">
               <h3 className="text-xl font-semibold mb-2">Coming Soon</h3>
               <p>Detailed information about {subsection?.replace(/-/g, ' ')} will be available here.</p>
             </div>
@@ -92,17 +63,7 @@ const Page = () => {
     );
   };
 
-  return (
-    <main className={darkMode ? "dark" : ""}>
-      <div className={`min-h-screen ${darkMode ? "bg-slate-950 text-white" : "bg-slate-50 text-slate-900"}`}>
-        <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
-        <div>
-          {renderContent()}
-        </div>
-        <Footer darkMode={darkMode} />
-      </div>
-    </main>
-  )
+  return renderContent();
 }
 
 export default Page;

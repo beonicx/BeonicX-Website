@@ -22,24 +22,24 @@ const IndustryDetail = ({ industry, darkMode }) => {
   if (!industry) return null;
 
   return (
-    <div className={`transition-colors duration-300 ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+    <div className={`transition-colors duration-300 ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className={`absolute inset-0 ${darkMode ? 'bg-[#030712]' : 'bg-white'}`} />
+        <div className={`absolute inset-0 ${darkMode ? 'bg-[#000000]' : 'bg-white'}`} />
         <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: `linear-gradient(${darkMode ? 'rgba(37,99,235,0.03)' : 'rgba(37,99,235,0.02)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(37,99,235,0.03)' : 'rgba(37,99,235,0.02)'} 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(${darkMode ? 'rgba(128,128,128,0.03)' : 'rgba(128,128,128,0.02)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(128,128,128,0.03)' : 'rgba(128,128,128,0.02)'} 1px, transparent 1px)`,
           backgroundSize: '72px 72px'
         }} />
         {darkMode && (
           <>
-            <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-blue-600/[0.06] blur-[140px] pointer-events-none" />
-            <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-blue-700/[0.04] blur-[120px] pointer-events-none" />
+            <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-neutral-800/[0.06] blur-[140px] pointer-events-none" />
+            <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-neutral-900/[0.04] blur-[120px] pointer-events-none" />
           </>
         )}
         <div className={`absolute inset-0 pointer-events-none ${
           darkMode
-            ? 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#030712_100%)]'
+            ? 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#000000_100%)]'
             : 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#ffffff_100%)]'
         }`} />
 
@@ -49,8 +49,8 @@ const IndustryDetail = ({ industry, darkMode }) => {
               variants={fadeInUp}
               className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-8 ${
                 darkMode
-                  ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
-                  : 'bg-blue-50 text-blue-600 border border-blue-200/60'
+                  ? 'bg-neutral-800/10 text-neutral-300 border border-neutral-600/20'
+                  : 'bg-neutral-100 text-neutral-700 border border-neutral-300/60'
               }`}
             >
               <TrendingUp size={14} />
@@ -80,7 +80,7 @@ const IndustryDetail = ({ industry, darkMode }) => {
 
       {/* Stats */}
       {industry.stats && industry.stats.length > 0 && (
-        <section className={`py-2 ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+        <section className={`py-2 ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className={`grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl overflow-hidden ${
               darkMode ? 'bg-white/[0.06]' : 'bg-slate-200/60'
@@ -92,7 +92,7 @@ const IndustryDetail = ({ industry, darkMode }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`px-6 py-8 text-center ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}
+                  className={`px-6 py-8 text-center ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}
                 >
                   <p className={`text-3xl sm:text-4xl font-extrabold tracking-tight mb-1 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     {stat.value}
@@ -109,7 +109,7 @@ const IndustryDetail = ({ industry, darkMode }) => {
 
       {/* Features */}
       {industry.features && industry.features.length > 0 && (
-        <section className={`py-24 ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+        <section className={`py-24 ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               className="text-center mb-16"
@@ -119,10 +119,10 @@ const IndustryDetail = ({ industry, darkMode }) => {
             >
               <span className={`inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 ${
                 darkMode
-                  ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
-                  : 'bg-blue-50 text-blue-600 border border-blue-200/60'
+                  ? 'bg-neutral-800/10 text-neutral-300 border border-neutral-600/20'
+                  : 'bg-neutral-100 text-neutral-700 border border-neutral-300/60'
               }`}>
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                <span className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
                 Key Solutions
               </span>
 
@@ -130,7 +130,7 @@ const IndustryDetail = ({ industry, darkMode }) => {
                 darkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 What We{' '}
-                <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-600 bg-clip-text text-transparent">
                   Deliver
                 </span>
               </h2>
@@ -149,19 +149,19 @@ const IndustryDetail = ({ industry, darkMode }) => {
                   variants={fadeInUp}
                   className={`group relative rounded-2xl p-6 transition-all duration-300 card-hover ${
                     darkMode
-                      ? 'bg-white/[0.03] border border-white/[0.08] hover:border-blue-600/30'
-                      : 'bg-white border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.03)] hover:border-blue-200 hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
+                      ? 'bg-white/[0.03] border border-white/[0.08] hover:border-neutral-600/30'
+                      : 'bg-white border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.03)] hover:border-neutral-300 hover:shadow-[0_8px_30px_rgba(128,128,128,0.08)]'
                   }`}
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 text-white flex-shrink-0 shadow-lg shadow-blue-600/20">
+                    <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-neutral-700 to-neutral-800 text-white flex-shrink-0 shadow-lg shadow-black/20">
                       <CheckCircle size={16} />
                     </div>
                     <p className={`text-sm leading-relaxed font-medium ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
                       {feature}
                     </p>
                   </div>
-                  <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
               ))}
             </motion.div>
@@ -172,8 +172,8 @@ const IndustryDetail = ({ industry, darkMode }) => {
       {/* CTA */}
       <section className={`relative py-24 px-4 overflow-hidden ${darkMode ? 'aurora-dark' : 'aurora-light'}`}>
         <div className={`absolute inset-0 ${darkMode ? 'grid-pattern' : ''} pointer-events-none`} />
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-blue-600/10 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-neutral-800/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-neutral-800/10 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.div
@@ -181,8 +181,8 @@ const IndustryDetail = ({ industry, darkMode }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 bg-blue-600/10 border border-blue-600/20 ${
-              darkMode ? 'text-blue-400' : 'text-blue-600'
+            <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 bg-neutral-800/10 border border-neutral-600/20 ${
+              darkMode ? 'text-neutral-300' : 'text-neutral-700'
             }`}>
               <Sparkles size={14} />
               Get Started
@@ -192,7 +192,7 @@ const IndustryDetail = ({ industry, darkMode }) => {
               darkMode ? 'text-white' : 'text-slate-900'
             }`}>
               Ready to Transform Your{' '}
-              <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-600 bg-clip-text text-transparent">
                 Business
               </span>?
             </h2>
@@ -205,7 +205,7 @@ const IndustryDetail = ({ industry, darkMode }) => {
 
             <Link
               href="/get-started"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-neutral-700 to-neutral-800 transition-all duration-300 shadow-lg shadow-black/25 hover:shadow-black/40 hover:-translate-y-0.5"
             >
               Get Started <ArrowRight size={16} />
             </Link>
@@ -235,8 +235,8 @@ const Page = ({ params }) => {
 
   if (loading) {
     return (
-      <div className={`flex items-center justify-center py-40 ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
-        <div className="animate-spin rounded-full h-10 w-10 border-2 border-blue-600 border-t-transparent" />
+      <div className={`flex items-center justify-center py-40 ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
+        <div className="animate-spin rounded-full h-10 w-10 border-2 border-neutral-600 border-t-transparent" />
       </div>
     );
   }

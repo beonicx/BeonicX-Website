@@ -90,7 +90,7 @@ export const viewport = {
   maximumScale: 5,
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#030712' }
+    { media: '(prefers-color-scheme: dark)', color: '#000000' }
   ],
 };
 
@@ -101,7 +101,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#2563EB" />
+        <meta name="theme-color" content="#000000" />
 
         {/* WebSite Structured Data — tells Google to show "BeonicX" instead of "beonicx.com" */}
         <script

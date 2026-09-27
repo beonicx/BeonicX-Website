@@ -91,11 +91,11 @@ export default function FeatureSection({ darkMode = false }) {
   }, []);
 
   return (
-    <section className={`relative py-28 overflow-hidden ${darkMode ? 'bg-[#030712]' : 'bg-[#ffffff]'}`}>
+    <section className={`relative py-28 overflow-hidden ${darkMode ? 'bg-[#000000]' : 'bg-[#ffffff]'}`}>
       {darkMode && (
         <>
-          <div className="absolute top-20 left-[10%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.05] blur-[140px] pointer-events-none" />
-          <div className="absolute bottom-10 right-[5%] w-[400px] h-[400px] rounded-full bg-blue-600/[0.04] blur-[120px] pointer-events-none" />
+          <div className="absolute top-20 left-[10%] w-[500px] h-[500px] rounded-full bg-white/[0.04] blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-10 right-[5%] w-[400px] h-[400px] rounded-full bg-white/[0.03] blur-[120px] pointer-events-none" />
         </>
       )}
       {!darkMode && (
@@ -114,11 +114,11 @@ export default function FeatureSection({ darkMode = false }) {
           <span
             className={`inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-6 ${
               darkMode
-                ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
-                : 'bg-blue-50 text-blue-600 border border-blue-200/60'
+                ? 'bg-white/10 text-neutral-300 border border-white/20'
+                : 'bg-neutral-100 text-neutral-700 border border-neutral-200'
             }`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+            <span className="w-1.5 h-1.5 rounded-full bg-neutral-500" />
             Our Services
           </span>
 
@@ -126,7 +126,7 @@ export default function FeatureSection({ darkMode = false }) {
             darkMode ? 'text-white' : 'text-slate-900'
           }`}>
             What We{' '}
-            <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-neutral-500 via-neutral-400 to-neutral-600 bg-clip-text text-transparent">
               Build
             </span>
           </h2>
@@ -153,12 +153,12 @@ export default function FeatureSection({ darkMode = false }) {
                 variants={cardVariant}
                 className={`group relative rounded-2xl p-7 transition-all duration-300 cursor-pointer h-full ${
                   darkMode
-                    ? 'bg-white/[0.02] border border-white/[0.06] hover:border-blue-600/30 hover:bg-white/[0.04] hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
-                    : 'bg-white border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:border-blue-200 hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
+                    ? 'bg-white/[0.02] border border-white/[0.06] hover:border-white/20 hover:bg-white/[0.04] hover:shadow-[0_0_40px_rgba(255,255,255,0.04)]'
+                    : 'bg-white border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:border-neutral-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]'
                 } card-hover`}
               >
                 {/* Icon */}
-                <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 text-white text-lg mb-5 shadow-lg shadow-blue-600/20 group-hover:shadow-blue-600/30 transition-all duration-300 group-hover:scale-105">
+                <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-br from-neutral-800 to-black text-white text-lg mb-5 shadow-lg shadow-black/15 group-hover:shadow-black/25 transition-all duration-300 group-hover:scale-105">
                   {feature.icon}
                 </div>
 
@@ -171,13 +171,13 @@ export default function FeatureSection({ darkMode = false }) {
                 </p>
 
                 <div className={`inline-flex items-center gap-1.5 text-sm font-medium transition-all duration-300 ${
-                  darkMode ? 'text-blue-400' : 'text-blue-600'
+                  darkMode ? 'text-neutral-300' : 'text-neutral-900'
                 } opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0`}>
                   Learn more <ArrowRight size={14} />
                 </div>
 
                 {/* Hover gradient line at bottom */}
-                <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-neutral-600 via-neutral-500 to-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.article>
             </Link>
           ))}

@@ -94,7 +94,7 @@ const ServicesSlider = ({
                     <p className={`text-sm mb-4 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                       {project.description}
                     </p>
-                    <button className="opacity-0 group-hover:opacity-100 bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-300 mt-auto">
+                    <button className="opacity-0 group-hover:opacity-100 bg-neutral-800 text-white text-sm px-4 py-2 rounded-lg hover:bg-neutral-900 transition-all duration-300 mt-auto">
                       Read More
                     </button>
                   </div>
@@ -132,7 +132,7 @@ const ServicesSlider = ({
             onClick={() => setCurrentIndex(idx * slidesToShow)}
             className={`w-8 h-1 rounded transition-all duration-300 ${
               currentIndex >= idx * slidesToShow && currentIndex < (idx + 1) * slidesToShow
-                ? 'bg-blue-600 dark:bg-blue-400 scale-110'
+                ? 'bg-neutral-800 dark:bg-neutral-600 scale-110'
                 : 'bg-slate-400 dark:bg-slate-600 hover:bg-slate-500'
             }`}
           />

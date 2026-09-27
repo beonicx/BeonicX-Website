@@ -63,9 +63,9 @@ const BlogPost = ({ params }) => {
 
   if (loading) {
     return (
-      <div className={`min-h-[60vh] flex items-center justify-center ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+      <div className={`min-h-[60vh] flex items-center justify-center ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
         <div className="flex flex-col items-center gap-3">
-          <div className="w-8 h-8 rounded-full border-2 border-blue-600 border-t-transparent animate-spin" />
+          <div className="w-8 h-8 rounded-full border-2 border-neutral-600 border-t-transparent animate-spin" />
           <span className={`text-sm ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>Loading article...</span>
         </div>
       </div>
@@ -74,7 +74,7 @@ const BlogPost = ({ params }) => {
 
   if (notFound) {
     return (
-      <div className={`min-h-[60vh] flex items-center justify-center ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+      <div className={`min-h-[60vh] flex items-center justify-center ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
         <div className="text-center">
           <h1 className={`text-3xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
             Post Not Found

@@ -89,12 +89,12 @@ const CasestudySlider = ({ projects,servicestitle,projectstitle }) => {
               className="px-2 min-w-full sm:min-w-1/2 md:min-w-1/3 lg:min-w-1/6"
               style={{ flex: `0 0 ${100 / slidesToShow}%` }}
             >
-              <div className="bg-[#172554] rounded-lg border-2 overflow-hidden shadow-lg h-full flex flex-col">
-                <div className="p-4 bg-[#172554] flex flex-col flex-grow">
+              <div className="bg-[#0a0a0a] rounded-lg border-2 overflow-hidden shadow-lg h-full flex flex-col">
+                <div className="p-4 bg-[#0a0a0a] flex flex-col flex-grow">
                   <h3 className="text-xl text-white font-semibold mb-2">{project.title}</h3>
                 </div>
     
-                <div className="h-48 rounded-2xl bg-blue-600 m-1 border-8 relative overflow-hidden">
+                <div className="h-48 rounded-2xl bg-neutral-800 m-1 border-8 relative overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -137,7 +137,7 @@ const CasestudySlider = ({ projects,servicestitle,projectstitle }) => {
       onClick={() => setCurrentIndex(idx * slidesToShow)}
       className={`w-8 h-1 transition-all duration-300 cursor-pointer ${
         currentIndex >= idx * slidesToShow && currentIndex < (idx + 1) * slidesToShow
-          ? 'bg-blue-600 scale-110'
+          ? 'bg-neutral-800 scale-110'
           : 'bg-slate-400 hover:bg-slate-500'
       }`}
     />

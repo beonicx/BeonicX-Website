@@ -203,9 +203,9 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
         fixed w-full z-40 transition-all duration-500
         ${scrolled
           ? (darkMode
-            ? 'bg-[#030712]/80 backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.05)] border-b border-white/[0.05]'
+            ? 'bg-[#000000]/80 backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.05)] border-b border-white/[0.05]'
             : 'bg-white/80 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] border-b border-slate-200/60')
-          : (darkMode ? 'bg-[#030712]' : 'bg-white')}
+          : (darkMode ? 'bg-[#000000]' : 'bg-white')}
         ${darkMode ? 'text-white' : 'text-slate-900'}
         ${showHeader ? 'top-0' : 'top-0'}
       `}>
@@ -266,9 +266,9 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                       onClick={() => setActiveLink(link.id)}
                       className={`
                         relative px-4 py-6 text-sm font-medium transition-all duration-300 flex items-center
-                        ${activeLink === link.id ? 
-                          (darkMode ? 'text-blue-400 font-semibold' : 'text-blue-600 font-semibold') : 
-                          (darkMode ? 'text-slate-300 hover:text-blue-400' : 'text-slate-800 hover:text-blue-600')}
+                        ${activeLink === link.id ?
+                          (darkMode ? 'text-white font-semibold' : 'text-black font-semibold') :
+                          (darkMode ? 'text-slate-300 hover:text-white' : 'text-slate-800 hover:text-black')}
                         group
                       `}
                     >
@@ -285,8 +285,8 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                         </svg>
                       )}
                       
-                      <motion.span 
-                        className={`absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ${darkMode ? 'bg-blue-400' : 'bg-blue-600'}`}
+                      <motion.span
+                        className={`absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ${darkMode ? 'bg-white' : 'bg-black'}`}
                         whileHover={{ width: '100%' }}
                       />
                     </a>
@@ -297,7 +297,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                         <motion.div
                           className={`
                             absolute left-0 mt-0 py-4 px-4 w-64 rounded-2xl shadow-2xl z-10
-                            ${darkMode ? 'bg-[#030712]/95 backdrop-blur-xl text-white border border-white/[0.08]' : 'bg-white/95 backdrop-blur-xl text-slate-800 border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)]'}
+                            ${darkMode ? 'bg-[#000000]/95 backdrop-blur-xl text-white border border-white/[0.08]' : 'bg-white/95 backdrop-blur-xl text-slate-800 border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)]'}
                           `}
                           variants={dropdownVariants}
                           initial="hidden"
@@ -322,7 +322,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                     }}
                                     className={`
                                       flex items-center justify-between px-3 py-2 text-sm rounded-md transition-all duration-200 cursor-pointer
-                                      ${darkMode ? 'hover:bg-blue-900/50 hover:text-blue-300' : 'hover:bg-blue-50 hover:text-blue-600'}
+                                      ${darkMode ? 'hover:bg-white/10 hover:text-white' : 'hover:bg-neutral-100 hover:text-black'}
                                     `}
                                   >
                                     <span>{item.title}</span>
@@ -332,7 +332,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                     className={`
                                       flex items-center justify-between px-3 py-2 text-sm rounded-md transition-all duration-200
                                       ${item.subItems ? 'cursor-default' : 'cursor-pointer'}
-                                      ${darkMode ? 'hover:bg-blue-900/50 hover:text-blue-300' : 'hover:bg-blue-50 hover:text-blue-600'}
+                                      ${darkMode ? 'hover:bg-white/10 hover:text-white' : 'hover:bg-neutral-100 hover:text-black'}
                                     `}
                                   >
                                     <span>{item.title}</span>
@@ -356,7 +356,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                     <motion.div
                                       className={`
                                         absolute left-full top-0 ml-2 py-4 px-4 w-64 rounded-2xl shadow-2xl z-20
-                                        ${darkMode ? 'bg-[#030712]/95 backdrop-blur-xl text-white border border-white/[0.08]' : 'bg-white/95 backdrop-blur-xl text-slate-800 border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)]'}
+                                        ${darkMode ? 'bg-[#000000]/95 backdrop-blur-xl text-white border border-white/[0.08]' : 'bg-white/95 backdrop-blur-xl text-slate-800 border border-slate-200/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)]'}
                                       `}
                                       initial={{ opacity: 0, x: -10 }}
                                       animate={{ opacity: 1, x: 0 }}
@@ -374,7 +374,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                             }}
                                             className={`
                                               block px-3 py-2 text-sm rounded-md transition-all duration-200 cursor-pointer
-                                              ${darkMode ? 'hover:bg-blue-900/50 hover:text-blue-300' : 'hover:bg-blue-50 hover:text-blue-600'}
+                                              ${darkMode ? 'hover:bg-white/10 hover:text-white' : 'hover:bg-neutral-100 hover:text-black'}
                                             `}
                                             whileHover={{ x: 5 }}
                                           >
@@ -399,9 +399,9 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 href="/get-started"
                 className={`
                   ml-8 px-6 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300
-                  bg-gradient-to-r from-blue-600 to-blue-700 text-white
-                  hover:from-blue-600 hover:to-blue-700
-                  shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30
+                  bg-black text-white
+                  hover:bg-neutral-800
+                  shadow-lg shadow-black/15 hover:shadow-black/25
                   hover:-translate-y-0.5
                 `}
                 whileHover={{ scale: 1.05 }}
@@ -421,7 +421,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 whileTap={{ scale: 0.9 }}
               >
                 {darkMode ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 ) : (
@@ -445,7 +445,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                 whileTap={{ scale: 0.9 }}
               >
                 {darkMode ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 ) : (
@@ -508,7 +508,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                         className={`
                           font-medium text-base transition-all duration-300
                           ${activeLink === link.id ? 
-                            (darkMode ? 'text-blue-400' : 'text-blue-600') : 
+                            (darkMode ? 'text-white' : 'text-black') :
                             (darkMode ? 'text-slate-300' : 'text-slate-800')}
                         `}
                       >
@@ -533,7 +533,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                         <motion.div
                           className={`
                             ml-4 mt-2 space-y-1 border-l-2
-                            ${darkMode ? 'border-blue-500 pl-4' : 'border-blue-500 pl-4'}
+                            ${darkMode ? 'border-neutral-400 pl-4' : 'border-neutral-400 pl-4'}
                           `}
                           variants={dropdownVariants}
                           initial="hidden"
@@ -549,7 +549,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                 onClick={item.onClick}
                                 className={`
                                   block py-2 text-sm cursor-pointer transition-all duration-300
-                                  ${darkMode ? 'text-slate-300 hover:text-blue-400' : 'text-slate-700 hover:text-blue-600'}
+                                  ${darkMode ? 'text-slate-300 hover:text-white' : 'text-slate-700 hover:text-black'}
                                 `}
                               >
                                 {item.title}
@@ -564,7 +564,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                                       onClick={subItem.onClick}
                                       className={`
                                         block py-1.5 text-xs cursor-pointer transition-all duration-300
-                                        ${darkMode ? 'text-slate-400 hover:text-blue-300' : 'text-slate-600 hover:text-blue-600'}
+                                        ${darkMode ? 'text-slate-400 hover:text-neutral-200' : 'text-slate-600 hover:text-black'}
                                       `}
                                       whileHover={{ x: 5 }}
                                     >
@@ -594,8 +594,8 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                     href="/get-started" 
                     className={`
                       block w-full py-3 text-center font-medium rounded-full transition-all duration-300
-                      ${darkMode ? 'bg-blue-600 hover:bg-blue-600 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white'}
-                      hover:shadow-lg hover:shadow-blue-600/30
+                      ${darkMode ? 'bg-white hover:bg-neutral-200 text-black' : 'bg-black hover:bg-neutral-800 text-white'}
+                      hover:shadow-lg hover:shadow-black/20
                     `}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -608,7 +608,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                       href="tel:+91-9129842706" 
                       className={`
                         flex items-center text-sm transition-colors duration-300
-                        ${darkMode ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}
+                        ${darkMode ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-black'}
                       `}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -622,7 +622,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
                       href="mailto:contact@beonicx.com" 
                       className={`
                         flex items-center text-sm transition-colors duration-300
-                        ${darkMode ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}
+                        ${darkMode ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-black'}
                       `}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}

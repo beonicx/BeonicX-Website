@@ -114,13 +114,13 @@ export default function Nextjs({ darkMode = false }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <main className={darkMode ? 'bg-[#030712]' : 'bg-white'}>
+    <main className={darkMode ? 'bg-[#000000]' : 'bg-white'}>
 
       {/* ═══════════ HERO ═══════════ */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className={`absolute top-[-15%] left-[-5%] w-[600px] h-[600px] rounded-full blur-[150px] ${
-            darkMode ? 'bg-blue-600/[0.08]' : 'bg-blue-100/70'
+            darkMode ? 'bg-neutral-800/[0.08]' : 'bg-neutral-200/70'
           }`} />
           <div className={`absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[120px] ${
             darkMode ? 'bg-indigo-600/[0.06]' : 'bg-indigo-50/60'
@@ -130,14 +130,14 @@ export default function Nextjs({ darkMode = false }) {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.015)'} 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(${darkMode ? 'rgba(128,128,128,0.02)' : 'rgba(128,128,128,0.015)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(128,128,128,0.02)' : 'rgba(128,128,128,0.015)'} 1px, transparent 1px)`,
             backgroundSize: '80px 80px',
           }}
         />
 
         <div className={`absolute inset-0 pointer-events-none ${
           darkMode
-            ? 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#030712_80%)]'
+            ? 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#000000_80%)]'
             : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
         }`} />
 
@@ -152,8 +152,8 @@ export default function Nextjs({ darkMode = false }) {
               variants={fadeUp}
               className={`inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-8 ${
                 darkMode
-                  ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                  : 'bg-blue-50 text-blue-600 border border-blue-100'
+                  ? 'bg-neutral-700/10 text-neutral-300 border border-neutral-500/20'
+                  : 'bg-neutral-100 text-neutral-700 border border-neutral-200'
               }`}
             >
               <Sparkles size={13} />
@@ -168,7 +168,7 @@ export default function Nextjs({ darkMode = false }) {
             >
               Explore the Future of{' '}
               <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-700 via-neutral-600 to-neutral-600 bg-clip-text text-transparent">
                 Technology
               </span>
             </motion.h1>
@@ -186,8 +186,8 @@ export default function Nextjs({ darkMode = false }) {
             <motion.div variants={fadeUp} className="max-w-xl mx-auto mb-10">
               <div className={`flex items-center gap-3 rounded-xl p-2 transition-all ${
                 darkMode
-                  ? 'bg-[#0a0f1e] border border-white/[0.08] focus-within:border-blue-500/40'
-                  : 'bg-slate-50 border border-slate-200 focus-within:border-blue-300'
+                  ? 'bg-[#0a0a0a] border border-white/[0.08] focus-within:border-neutral-500/40'
+                  : 'bg-slate-50 border border-slate-200 focus-within:border-neutral-400'
               }`}>
                 <Search size={20} className={`ml-3 ${darkMode ? 'text-slate-500' : 'text-slate-400'}`} />
                 <input
@@ -201,7 +201,7 @@ export default function Nextjs({ darkMode = false }) {
                       : 'text-slate-900 placeholder-slate-400'
                   } focus:outline-none`}
                 />
-                <button className="px-5 py-2.5 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-blue-600 to-blue-700 transition-all hover:shadow-lg hover:shadow-blue-600/25">
+                <button className="px-5 py-2.5 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-neutral-700 to-neutral-800 transition-all hover:shadow-lg hover:shadow-black/25">
                   Search
                 </button>
               </div>
@@ -210,7 +210,7 @@ export default function Nextjs({ darkMode = false }) {
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 justify-center">
               <Link
                 href="/articles"
-                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-neutral-700 to-neutral-800 transition-all duration-300 shadow-lg shadow-black/25 hover:shadow-black/40 hover:-translate-y-0.5"
               >
                 <BookOpen size={18} />
                 Start Reading
@@ -257,7 +257,7 @@ export default function Nextjs({ darkMode = false }) {
       {/* ═══════════ FEATURED ARTICLES ═══════════ */}
       <section className="relative py-24 sm:py-32">
         {darkMode && (
-          <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[130px] pointer-events-none" />
+          <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -272,7 +272,7 @@ export default function Nextjs({ darkMode = false }) {
               <motion.span
                 variants={fadeUp}
                 className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
-                  darkMode ? 'text-blue-400' : 'text-blue-600'
+                  darkMode ? 'text-neutral-300' : 'text-neutral-700'
                 }`}
               >
                 Featured Content
@@ -292,7 +292,7 @@ export default function Nextjs({ darkMode = false }) {
             <Link
               href="/articles"
               className={`hidden md:flex items-center gap-1.5 text-sm font-semibold transition-all ${
-                darkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'
+                darkMode ? 'text-neutral-300 hover:text-neutral-300' : 'text-neutral-700 hover:text-neutral-500'
               }`}
             >
               View All
@@ -311,8 +311,8 @@ export default function Nextjs({ darkMode = false }) {
               <motion.div key={article.id} variants={fadeUp}>
                 <div className={`group h-full rounded-2xl overflow-hidden transition-all duration-300 ${
                   darkMode
-                    ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
-                    : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                    ? 'bg-[#0a0a0a] border border-white/[0.06] hover:border-neutral-500/30 hover:shadow-[0_0_40px_rgba(128,128,128,0.06)]'
+                    : 'bg-white border border-slate-200/80 hover:border-neutral-400 hover:shadow-[0_12px_40px_rgba(128,128,128,0.1)]'
                 } card-hover`}>
                   <div className="relative h-52 w-full overflow-hidden">
                     <Image
@@ -323,11 +323,11 @@ export default function Nextjs({ darkMode = false }) {
                       unoptimized
                     />
                     <div className={`absolute inset-0 ${
-                      darkMode ? 'bg-gradient-to-t from-[#0a0f1e] to-transparent' : 'bg-gradient-to-t from-black/30 to-transparent'
+                      darkMode ? 'bg-gradient-to-t from-[#0a0a0a] to-transparent' : 'bg-gradient-to-t from-black/30 to-transparent'
                     }`} />
 
                     <div className="absolute top-4 left-4">
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full bg-blue-600 text-white">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full bg-neutral-800 text-white">
                         {article.category}
                       </span>
                     </div>
@@ -374,11 +374,11 @@ export default function Nextjs({ darkMode = false }) {
                       </div>
                       <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
                         darkMode
-                          ? 'bg-white/[0.04] group-hover:bg-blue-500/20'
-                          : 'bg-slate-100 group-hover:bg-blue-50'
+                          ? 'bg-white/[0.04] group-hover:bg-neutral-700/20'
+                          : 'bg-slate-100 group-hover:bg-neutral-100'
                       }`}>
                         <ArrowUpRight size={15} className={`transition-colors ${
-                          darkMode ? 'text-slate-500 group-hover:text-blue-400' : 'text-slate-400 group-hover:text-blue-600'
+                          darkMode ? 'text-slate-500 group-hover:text-neutral-300' : 'text-slate-400 group-hover:text-neutral-700'
                         }`} />
                       </div>
                     </div>
@@ -395,7 +395,7 @@ export default function Nextjs({ darkMode = false }) {
         darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'
       }`}>
         {darkMode && (
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-600/[0.04] blur-[150px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-neutral-800/[0.04] blur-[150px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -409,7 +409,7 @@ export default function Nextjs({ darkMode = false }) {
             <motion.span
               variants={fadeUp}
               className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
-                darkMode ? 'text-blue-400' : 'text-blue-600'
+                darkMode ? 'text-neutral-300' : 'text-neutral-700'
               }`}
             >
               Browse Topics
@@ -421,7 +421,7 @@ export default function Nextjs({ darkMode = false }) {
               }`}
             >
               Explore By{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-700 to-neutral-600 bg-clip-text text-transparent">
                 Category
               </span>
             </motion.h2>
@@ -448,14 +448,14 @@ export default function Nextjs({ darkMode = false }) {
                   href={`/category/${cat.slug}`}
                   className={`group block h-full rounded-2xl p-6 text-center transition-all duration-300 ${
                     darkMode
-                      ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
-                      : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                      ? 'bg-[#0a0a0a] border border-white/[0.06] hover:border-neutral-500/30 hover:shadow-[0_0_40px_rgba(128,128,128,0.06)]'
+                      : 'bg-white border border-slate-200/80 hover:border-neutral-400 hover:shadow-[0_12px_40px_rgba(128,128,128,0.1)]'
                   } card-hover`}
                 >
                   <div className={`w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-2xl text-base font-bold ${
                     darkMode
-                      ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                      : 'bg-blue-50 text-blue-600 border border-blue-100'
+                      ? 'bg-neutral-700/10 text-neutral-300 border border-neutral-500/20'
+                      : 'bg-neutral-100 text-neutral-700 border border-neutral-200'
                   }`}>
                     {cat.icon}
                   </div>
@@ -470,7 +470,7 @@ export default function Nextjs({ darkMode = false }) {
                   </p>
 
                   <div className={`mt-3 flex items-center justify-center gap-1 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity ${
-                    darkMode ? 'text-blue-400' : 'text-blue-600'
+                    darkMode ? 'text-neutral-300' : 'text-neutral-700'
                   }`}>
                     Explore
                     <ArrowUpRight size={12} />
@@ -494,16 +494,16 @@ export default function Nextjs({ darkMode = false }) {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className={`absolute inset-0 ${darkMode ? 'grid-pattern' : ''} pointer-events-none`} />
-          <div className="absolute top-0 left-1/4 w-72 h-72 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute top-0 left-1/4 w-72 h-72 bg-neutral-800/10 rounded-full blur-[100px] pointer-events-none" />
           <div className="absolute bottom-0 right-1/4 w-56 h-56 bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none" />
 
           <div className="relative z-10 text-center max-w-xl mx-auto">
-            <Mail className={`w-12 h-12 mx-auto mb-6 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+            <Mail className={`w-12 h-12 mx-auto mb-6 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`} />
             <h2 className={`text-3xl sm:text-4xl font-extrabold mb-4 tracking-tight ${
               darkMode ? 'text-white' : 'text-slate-900'
             }`}>
               Stay Updated with{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-500 to-neutral-500 bg-clip-text text-transparent">
                 Tech Trends
               </span>
             </h2>
@@ -519,14 +519,14 @@ export default function Nextjs({ darkMode = false }) {
                 placeholder="Enter your email address"
                 className={`flex-1 px-5 py-3.5 rounded-xl text-sm focus:outline-none transition-all ${
                   darkMode
-                    ? 'bg-white/[0.06] border border-white/[0.1] text-white placeholder-slate-500 focus:border-blue-500/40'
-                    : 'bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-blue-300'
+                    ? 'bg-white/[0.06] border border-white/[0.1] text-white placeholder-slate-500 focus:border-neutral-500/40'
+                    : 'bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-neutral-400'
                 }`}
                 required
               />
               <button
                 type="submit"
-                className="px-7 py-3.5 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-blue-600 to-blue-700 transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
+                className="px-7 py-3.5 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-neutral-700 to-neutral-800 transition-all shadow-lg shadow-black/25 hover:shadow-black/40 hover:-translate-y-0.5"
               >
                 Subscribe
               </button>
@@ -542,7 +542,7 @@ export default function Nextjs({ darkMode = false }) {
       {/* ═══════════ LATEST NEWS ═══════════ */}
       <section className="relative py-24 sm:py-32">
         {darkMode && (
-          <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] rounded-full bg-blue-600/[0.03] blur-[130px] pointer-events-none" />
+          <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -557,7 +557,7 @@ export default function Nextjs({ darkMode = false }) {
               <motion.span
                 variants={fadeUp}
                 className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${
-                  darkMode ? 'text-blue-400' : 'text-blue-600'
+                  darkMode ? 'text-neutral-300' : 'text-neutral-700'
                 }`}
               >
                 Latest Updates
@@ -577,7 +577,7 @@ export default function Nextjs({ darkMode = false }) {
             <Link
               href="/news"
               className={`hidden md:flex items-center gap-1.5 text-sm font-semibold transition-all ${
-                darkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'
+                darkMode ? 'text-neutral-300 hover:text-neutral-300' : 'text-neutral-700 hover:text-neutral-500'
               }`}
             >
               View All News
@@ -596,8 +596,8 @@ export default function Nextjs({ darkMode = false }) {
               <motion.div key={news.id} variants={fadeUp}>
                 <div className={`group flex flex-col sm:flex-row gap-5 p-5 rounded-2xl h-full transition-all duration-300 ${
                   darkMode
-                    ? 'bg-[#0a0f1e] border border-white/[0.06] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37,99,235,0.06)]'
-                    : 'bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)]'
+                    ? 'bg-[#0a0a0a] border border-white/[0.06] hover:border-neutral-500/30 hover:shadow-[0_0_40px_rgba(128,128,128,0.06)]'
+                    : 'bg-white border border-slate-200/80 hover:border-neutral-400 hover:shadow-[0_12px_40px_rgba(128,128,128,0.1)]'
                 } card-hover`}>
                   <div className="sm:w-1/3 relative h-44 sm:h-auto w-full rounded-xl overflow-hidden min-h-[160px]">
                     <Image
@@ -610,7 +610,7 @@ export default function Nextjs({ darkMode = false }) {
                   </div>
                   <div className="sm:w-2/3 flex flex-col py-1">
                     <span className={`text-[10px] font-bold uppercase tracking-[0.15em] mb-2 ${
-                      darkMode ? 'text-blue-400' : 'text-blue-600'
+                      darkMode ? 'text-neutral-300' : 'text-neutral-700'
                     }`}>
                       {news.category}
                     </span>
@@ -646,8 +646,8 @@ export default function Nextjs({ darkMode = false }) {
                       </div>
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
                         darkMode
-                          ? 'bg-white/[0.04] group-hover:bg-blue-500/20'
-                          : 'bg-slate-100 group-hover:bg-blue-50'
+                          ? 'bg-white/[0.04] group-hover:bg-neutral-700/20'
+                          : 'bg-slate-100 group-hover:bg-neutral-100'
                       }`}>
                         <ArrowRight size={14} className={darkMode ? 'text-slate-500' : 'text-slate-400'} />
                       </div>

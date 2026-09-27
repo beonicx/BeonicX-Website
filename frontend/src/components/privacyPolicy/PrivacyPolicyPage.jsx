@@ -7,17 +7,17 @@ export default function PrivacyPolicyPage({ darkMode = false }) {
   return (
     <div className={`min-h-screen transition-colors duration-200 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
       {/* Hero Section */}
-      <section className={`relative py-20 lg:py-28 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-slate-950 via-blue-900/20 to-slate-950' : 'bg-gradient-to-br from-blue-50 via-white to-blue-50'}`}>
+      <section className={`relative py-20 lg:py-28 overflow-hidden ${darkMode ? 'bg-gradient-to-br from-slate-950 via-neutral-800/20 to-slate-950' : 'bg-gradient-to-br from-neutral-50 via-white to-neutral-50'}`}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className={`text-4xl lg:text-6xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-            Privacy <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Policy</span>
+            Privacy <span className="bg-gradient-to-r from-neutral-700 to-neutral-900 bg-clip-text text-transparent">Policy</span>
           </h1>
           <p className={`text-lg ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
             Last Updated: {lastUpdated}
           </p>
         </div>
-        <div className="absolute top-0 left-0 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-72 h-72 bg-neutral-800/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-neutral-800/10 rounded-full blur-3xl"></div>
       </section>
 
       {/* Content */}
@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage({ darkMode = false }) {
                   <div className="space-y-6 mt-4">
                     {section.subsections.map((sub, i) => (
                       <div key={i}>
-                        <h3 className={`text-lg font-semibold mb-3 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+                        <h3 className={`text-lg font-semibold mb-3 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
                           {sub.subtitle}
                         </h3>
                         {sub.items && (

@@ -7,37 +7,37 @@ const services = [
     icon: Brain,
     title: 'Custom AI Agent Development',
     desc: 'Build autonomous agents powered by LLMs that handle customer service, sales, data analysis, and complex multi-step workflows.',
-    gradient: 'from-blue-600 to-blue-500',
+    gradient: 'from-neutral-700 to-neutral-600',
   },
   {
     icon: Layers,
     title: 'RAG & Knowledge Systems',
     desc: 'Enterprise knowledge bases powered by retrieval-augmented generation. Ground AI responses in your proprietary data with high accuracy.',
-    gradient: 'from-blue-500 to-indigo-500',
+    gradient: 'from-neutral-600 to-neutral-600',
   },
   {
     icon: Code,
     title: 'LLM Fine-Tuning & Training',
     desc: 'Fine-tune foundation models on your domain data for specialized tasks — from document classification to code generation.',
-    gradient: 'from-indigo-500 to-blue-600',
+    gradient: 'from-neutral-600 to-neutral-700',
   },
   {
     icon: Server,
     title: 'Predictive Analytics & ML',
     desc: 'Machine learning models for demand forecasting, fraud detection, churn prediction, and real-time anomaly detection.',
-    gradient: 'from-blue-600 to-blue-700',
+    gradient: 'from-neutral-700 to-neutral-800',
   },
   {
     icon: Shield,
     title: 'AI Safety & Governance',
     desc: 'Responsible AI frameworks with bias detection, explainability dashboards, prompt security, and regulatory compliance.',
-    gradient: 'from-blue-500 to-blue-600',
+    gradient: 'from-neutral-600 to-neutral-700',
   },
   {
     icon: TrendingUp,
     title: 'MLOps & AI Infrastructure',
     desc: 'Production-grade ML pipelines with automated retraining, model versioning, monitoring, and seamless CI/CD for AI.',
-    gradient: 'from-indigo-600 to-blue-600',
+    gradient: 'from-neutral-700 to-neutral-700',
   },
 ];
 

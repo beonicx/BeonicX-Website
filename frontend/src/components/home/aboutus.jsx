@@ -13,7 +13,7 @@ function Aboutus({ darkMode = false }) {
   ];
 
   return (
-    <section className={`relative py-24 overflow-hidden ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+    <section className={`relative py-24 overflow-hidden ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
       <div className={`absolute inset-0 ${darkMode ? 'dot-pattern' : 'dot-pattern-light'} opacity-40`} />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -28,7 +28,7 @@ function Aboutus({ darkMode = false }) {
             <div className={`relative rounded-3xl p-8 ${
               darkMode
                 ? 'bg-white/[0.03] border border-white/[0.08]'
-                : 'bg-gradient-to-br from-blue-50 to-blue-50 border border-blue-100/60'
+                : 'bg-gradient-to-br from-neutral-50 to-neutral-50 border border-neutral-200'
             }`}>
               <div className="relative h-48 md:h-64 w-full rounded-2xl overflow-hidden">
                 <Image
@@ -38,8 +38,8 @@ function Aboutus({ darkMode = false }) {
                   className="object-contain"
                 />
               </div>
-              <div className="absolute -top-3 -right-3 w-24 h-24 bg-gradient-to-br from-blue-600/20 to-blue-600/20 rounded-full blur-2xl" />
-              <div className="absolute -bottom-3 -left-3 w-32 h-32 bg-gradient-to-br from-blue-600/15 to-blue-600/15 rounded-full blur-2xl" />
+              <div className="absolute -top-3 -right-3 w-24 h-24 bg-gradient-to-br from-neutral-500/10 to-neutral-500/10 rounded-full blur-2xl" />
+              <div className="absolute -bottom-3 -left-3 w-32 h-32 bg-gradient-to-br from-neutral-500/10 to-neutral-500/10 rounded-full blur-2xl" />
             </div>
           </motion.div>
 
@@ -50,7 +50,7 @@ function Aboutus({ darkMode = false }) {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 border bg-gradient-to-r from-blue-600/10 to-blue-600/10 border-blue-600/20 text-blue-400">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 border bg-gradient-to-r from-white/10 to-white/10 border-white/20 text-neutral-300">
               <Sparkles size={14} />
               About Us
             </div>
@@ -78,7 +78,7 @@ function Aboutus({ darkMode = false }) {
                       : 'bg-slate-50 border border-slate-200 text-slate-700'
                   }`}
                 >
-                  <item.icon size={16} className="text-blue-600" />
+                  <item.icon size={16} className={darkMode ? 'text-neutral-400' : 'text-neutral-600'} />
                   {item.label}
                 </div>
               ))}
@@ -86,7 +86,7 @@ function Aboutus({ darkMode = false }) {
 
             <Link
               href="/aboutUs/about"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-sm bg-black hover:bg-neutral-900 transition-all duration-300 shadow-lg shadow-black/15 hover:shadow-black/25 hover:-translate-y-0.5"
             >
               Learn More <ArrowRight size={16} />
             </Link>

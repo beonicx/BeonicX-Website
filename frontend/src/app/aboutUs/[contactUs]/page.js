@@ -1,11 +1,9 @@
 'use client'
-import { useState, useEffect, use } from 'react';
+import { useEffect, use } from 'react';
 import AboutUs from '@/components/aboutUs/AboutUs';
 import PrivacyPolicyPage from '@/components/privacyPolicy/PrivacyPolicyPage';
-import Footer from '@/layouts/footer/Footer'
-import Navbar from '@/layouts/navbar/Navbar'
+import { useTheme } from '@/context/ThemeContext';
 
-// About Us pages mapping for SEO
 const aboutMetadata = {
   'about': {
     title: 'About BeonicX | AI & Automation Experts',
@@ -31,16 +29,13 @@ const aboutMetadata = {
 
 const Page = ({ params }) => {
   const { contactUs } = use(params);
-  const [darkMode, setDarkMode] = useState(false);
-
+  const { darkMode } = useTheme();
   const aboutSlug = contactUs || 'about';
 
-  // Update document head for SEO
   useEffect(() => {
     const meta = aboutMetadata[aboutSlug] || aboutMetadata['about'];
     document.title = meta.title;
 
-    // Update meta description
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
       metaDesc = document.createElement('meta');
@@ -49,7 +44,6 @@ const Page = ({ params }) => {
     }
     metaDesc.content = meta.description;
 
-    // Update OG tags
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (!ogTitle) {
       ogTitle = document.createElement('meta');
@@ -67,28 +61,6 @@ const Page = ({ params }) => {
     ogDesc.content = meta.description;
   }, [aboutSlug]);
 
-  // Initialize theme based on user preference
-  useEffect(() => {
-    // Check for saved preference in localStorage first
-    const savedTheme = localStorage.getItem('darkMode');
-    if (savedTheme) {
-      setDarkMode(savedTheme === 'true');
-    } else if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      setDarkMode(true);
-    }
-  }, []);
-
-  // Toggle theme function
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    // Save preference to localStorage
-    localStorage.setItem('darkMode', newDarkMode.toString());
-  };
-
   const renderContent = () => {
     switch (aboutSlug) {
       case 'privacyPolicy':
@@ -98,15 +70,7 @@ const Page = ({ params }) => {
     }
   };
 
-  return (
-    <div className={darkMode ? "dark" : ""}>
-      <div className={`min-h-screen ${darkMode ? "bg-slate-950 text-white" : "bg-slate-50 text-slate-900"}`}>
-        <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
-        {renderContent()}
-        <Footer darkMode={darkMode} />
-      </div>
-    </div>
-  )
+  return renderContent();
 }
 
 export default Page;

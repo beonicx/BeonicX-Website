@@ -9,7 +9,7 @@ function AppShellInner({ children }) {
 
   return (
     <div className={darkMode ? 'dark' : ''}>
-      <div className={`min-h-screen ${darkMode ? 'bg-[#030712] text-white' : 'bg-white text-slate-900'}`}>
+      <div className={`min-h-screen ${darkMode ? 'bg-[#000000] text-white' : 'bg-white text-slate-900'}`}>
         <Navbar darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
         <main className="pt-16">
           {children}

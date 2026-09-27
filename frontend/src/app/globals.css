@@ -2,22 +2,20 @@
 @import "tailwindcss";
 
 /*
-  Color System — Professional Royal Blue
+  Color System — Monochrome Black & White
   ──────────────────────────────────────
-  Base:      White #ffffff  /  Black #030712
-  Primary:   Royal Blue #2563eb
-  Secondary: Deep Blue  #1d4ed8
-  Accent:    Blue       #3b82f6
-  Grays:     Slate scale (blue-tinted)
+  Base:      White #ffffff  /  Black #000000
+  Accent:    Black #000000  /  White #ffffff
+  Grays:     Neutral scale
 */
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
-  --accent: #2563eb;
-  --accent-secondary: #1d4ed8;
-  --accent-tertiary: #3b82f6;
-  --glow-color: rgba(37, 99, 235, 0.15);
+  --foreground: #0a0a0a;
+  --accent: #000000;
+  --accent-secondary: #171717;
+  --accent-tertiary: #404040;
+  --glow-color: rgba(0, 0, 0, 0.08);
 }
 
 @theme inline {
@@ -29,9 +27,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #030712;
-    --foreground: #f1f5f9;
-    --glow-color: rgba(37, 99, 235, 0.2);
+    --background: #000000;
+    --foreground: #f5f5f5;
+    --accent: #ffffff;
+    --accent-secondary: #e5e5e5;
+    --accent-tertiary: #a3a3a3;
+    --glow-color: rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -47,7 +48,7 @@ body {
 }
 
 ::selection {
-  background: rgba(37, 99, 235, 0.3);
+  background: rgba(0, 0, 0, 0.85);
   color: #fff;
 }
 
@@ -68,7 +69,7 @@ body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #3b82f6 100%);
+  background: linear-gradient(135deg, #404040 0%, #737373 50%, #a3a3a3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -80,61 +81,61 @@ body {
 }
 
 .glow-md {
-  box-shadow: 0 0 40px var(--glow-color), 0 0 80px rgba(37, 99, 235, 0.05);
+  box-shadow: 0 0 40px var(--glow-color), 0 0 80px rgba(255, 255, 255, 0.03);
 }
 
 .glow-border {
-  border: 1px solid rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .glow-border:hover {
-  border-color: rgba(37, 99, 235, 0.4);
-  box-shadow: 0 0 30px rgba(37, 99, 235, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.06);
 }
 
 /* Dot pattern background */
 .dot-pattern {
-  background-image: radial-gradient(circle, rgba(37, 99, 235, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .dot-pattern-light {
-  background-image: radial-gradient(circle, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 /* Grid pattern */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
 /* Mesh gradient backgrounds */
 .mesh-gradient-dark {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(96, 165, 250, 0.08) 0%, transparent 50%),
-    #030712;
+    radial-gradient(ellipse at 20% 50%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+    #000000;
 }
 
 .mesh-gradient-light {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(37, 99, 235, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(96, 165, 250, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 50%, rgba(0, 0, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
     #ffffff;
 }
 
 /* Aurora gradient for CTA sections */
 .aurora-dark {
-  background: linear-gradient(135deg, #0f172a 0%, #172554 25%, #1e3a8a 50%, #1e40af 75%, #172554 100%);
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #171717 50%, #1a1a1a 75%, #0a0a0a 100%);
 }
 
 .aurora-light {
-  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 25%, #bfdbfe 50%, #dbeafe 75%, #eff6ff 100%);
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 25%, #e5e5e5 50%, #f5f5f5 75%, #fafafa 100%);
 }
 
 /* Card hover lift */
@@ -161,12 +162,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(37, 99, 235, 0.3);
+  background: rgba(115, 115, 115, 0.4);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(37, 99, 235, 0.5);
+  background: rgba(115, 115, 115, 0.6);
 }
 
 /* Animation keyframes */

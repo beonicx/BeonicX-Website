@@ -104,7 +104,7 @@ const EnhancedIndustrySlider = ({
         <div className="text-center mb-12">
           <h2 className={`text-4xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
             {title}
-            <span className="block w-24 h-1 mx-auto mt-2 bg-blue-600 rounded-full"></span>
+            <span className="block w-24 h-1 mx-auto mt-2 bg-black rounded-full"></span>
           </h2>
           <p className={`text-lg max-w-3xl mx-auto ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
             {description}
@@ -125,13 +125,13 @@ const EnhancedIndustrySlider = ({
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out transform hover:scale-105"
                   style={{ backgroundImage: `url(${industries[currentIndex].image})` }}
                 ></div>
-                <div className={`absolute inset-0 ${darkMode ? 'bg-blue-900/30' : 'bg-blue-700/20'}`}></div>
+                <div className={`absolute inset-0 ${darkMode ? 'bg-black/40' : 'bg-black/25'}`}></div>
               </div>
               
               {/* Content Side */}
               <div className="p-8 flex flex-col justify-center">
                 <div className={`inline-block px-3 py-1 mb-4 text-sm font-medium rounded-full ${
-                  darkMode ? 'bg-blue-900 text-blue-100' : 'bg-blue-100 text-blue-800'
+                  darkMode ? 'bg-neutral-800 text-neutral-100' : 'bg-neutral-200 text-neutral-800'
                 }`}>
                   Industry Focus
                 </div>
@@ -149,7 +149,7 @@ const EnhancedIndustrySlider = ({
                     <ul className={`space-y-2 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                       {industries[currentIndex].features.map((feature, idx) => (
                         <li key={idx} className="flex items-start">
-                          <svg className="w-5 h-5 text-blue-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-5 h-5 text-neutral-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                           {feature}
@@ -165,8 +165,8 @@ const EnhancedIndustrySlider = ({
                   }}
                   className={`self-start px-6 py-2 rounded-lg shadow-md transition-colors cursor-pointer ${
                     darkMode
-                      ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                      : 'bg-blue-600 hover:bg-blue-700 text-white'
+                      ? 'bg-white hover:bg-neutral-200 text-black'
+                      : 'bg-black hover:bg-neutral-800 text-white'
                   }`}
                 >
                   Learn More
@@ -189,7 +189,7 @@ const EnhancedIndustrySlider = ({
                 key={idx}
                 className={`relative h-48 sm:h-52 md:h-56 lg:h-64 overflow-hidden rounded-lg cursor-pointer transition-all duration-300 transform ${
                   idx === currentIndex 
-                    ? `ring-2 ${darkMode ? 'ring-blue-600' : 'ring-blue-600'} scale-[1.02]` 
+                    ? `ring-2 ${darkMode ? 'ring-white' : 'ring-black'} scale-[1.02]` 
                     : 'hover:scale-[1.01]'
                 }`}
                 onClick={() => goToSlide(idx)}
@@ -203,7 +203,7 @@ const EnhancedIndustrySlider = ({
                 {/* Overlay */}
                 <div className={`absolute inset-0 ${
                   idx === currentIndex
-                    ? darkMode ? 'bg-blue-900/75' : 'bg-blue-700/75'
+                    ? darkMode ? 'bg-black/80' : 'bg-black/70'
                     : darkMode ? 'bg-slate-950/65' : 'bg-slate-800/65'
                 } transition-colors duration-300`}></div>
 
@@ -213,7 +213,7 @@ const EnhancedIndustrySlider = ({
                     {industry.title}
                   </h2>
                   <div className={`w-10 h-0.5 ${
-                    idx === currentIndex ? 'bg-blue-400' : 'bg-white/70'
+                    idx === currentIndex ? 'bg-white' : 'bg-white/70'
                   } mb-3`}></div>
                   <p className="text-sm text-white/90 line-clamp-2">
                     {industry.subtitle}
@@ -224,7 +224,7 @@ const EnhancedIndustrySlider = ({
                 {idx === currentIndex && (
                   <div className="absolute top-3 right-3">
                     <div className={`w-3 h-3 rounded-full ${
-                      darkMode ? 'bg-blue-400' : 'bg-blue-600'
+                      darkMode ? 'bg-white' : 'bg-black'
                     }`}></div>
                   </div>
                 )}
@@ -274,7 +274,7 @@ const EnhancedIndustrySlider = ({
               onClick={() => goToSlide(idx)}
               className={`h-2 rounded-full transition-all duration-300 ${
                 currentIndex === idx 
-                  ? `w-10 ${darkMode ? 'bg-blue-600' : 'bg-blue-600'}` 
+                  ? `w-10 ${darkMode ? 'bg-white' : 'bg-black'}` 
                   : `w-2 ${darkMode ? 'bg-slate-600' : 'bg-slate-300'} hover:bg-slate-400`
               }`}
               aria-label={`Go to slide ${idx + 1}`}

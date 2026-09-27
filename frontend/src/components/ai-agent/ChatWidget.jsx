@@ -189,13 +189,13 @@ export default function ChatWidget({ darkMode = false }) {
           onClick={() => setIsOpen(true)}
           className={`fixed cursor-pointer bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 ${
             darkMode
-              ? 'bg-gradient-to-br from-blue-700 to-blue-600'
-              : 'bg-gradient-to-br from-blue-600 to-blue-800'
+              ? 'bg-black'
+              : 'bg-black'
           } text-white group`}
           aria-label="Open chat"
         >
           <FiMessageCircle className="w-6 h-6" />
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-blue-600 rounded-full animate-pulse"></span>
+          <span className="absolute -top-1 -right-1 w-3 h-3 bg-neutral-400 rounded-full animate-pulse"></span>
         </button>
       )}
 
@@ -207,13 +207,13 @@ export default function ChatWidget({ darkMode = false }) {
           } overflow-hidden transition-all duration-300 animate-slideUp`}
         >
           {/* Header */}
-          <div className={`p-4 ${darkMode ? 'bg-gradient-to-r from-blue-950 to-blue-800' : 'bg-gradient-to-r from-blue-600 to-blue-800'} text-white flex items-center justify-between`}>
+          <div className={`p-4 ${darkMode ? 'bg-black' : 'bg-black'} text-white flex items-center justify-between`}>
             <div className="flex items-center space-x-3">
               <div className="relative">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                   <FiCpu className="w-6 h-6" />
                 </div>
-                <span className="absolute bottom-0 right-0 w-3 h-3 bg-blue-600 rounded-full border-2 border-white"></span>
+                <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></span>
               </div>
               <div>
                 <h3 className="font-bold">BeonicX AI Assistant</h3>
@@ -250,8 +250,8 @@ export default function ChatWidget({ darkMode = false }) {
                   <div
                     className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${
                       message.role === 'user'
-                        ? darkMode ? 'bg-blue-600' : 'bg-blue-600'
-                        : darkMode ? 'bg-blue-600' : 'bg-blue-600'
+                        ? darkMode ? 'bg-neutral-700' : 'bg-neutral-800'
+                        : darkMode ? 'bg-neutral-700' : 'bg-neutral-800'
                     } text-white`}
                   >
                     {message.role === 'user' ? (
@@ -266,8 +266,8 @@ export default function ChatWidget({ darkMode = false }) {
                     className={`px-4 py-2 rounded-2xl ${
                       message.role === 'user'
                         ? darkMode
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-blue-600 text-white'
+                          ? 'bg-black text-white'
+                          : 'bg-black text-white'
                         : darkMode
                         ? 'bg-slate-700 text-white'
                         : 'bg-white text-slate-900'
@@ -282,7 +282,7 @@ export default function ChatWidget({ darkMode = false }) {
             {isLoading && (
               <div className="flex justify-start">
                 <div className="flex gap-2">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${darkMode ? 'bg-blue-600' : 'bg-blue-600'} text-white`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${darkMode ? 'bg-neutral-700' : 'bg-neutral-800'} text-white`}>
                     <FiCpu className="w-4 h-4" />
                   </div>
                   <div className={`px-4 py-2 rounded-2xl ${darkMode ? 'bg-slate-700' : 'bg-white'} shadow-sm`}>
@@ -335,15 +335,15 @@ export default function ChatWidget({ darkMode = false }) {
                   darkMode
                     ? 'bg-slate-800 text-white border-slate-700'
                     : 'bg-slate-100 text-slate-900 border-slate-200'
-                } border focus:outline-none focus:ring-2 focus:ring-blue-600 disabled:opacity-50`}
+                } border focus:outline-none focus:ring-2 focus:ring-neutral-500 disabled:opacity-50`}
               />
               <button
                 onClick={sendMessage}
                 disabled={!inputMessage.trim() || isLoading}
                 className={`p-2 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
                   darkMode
-                    ? 'bg-blue-600 hover:bg-blue-700'
-                    : 'bg-blue-600 hover:bg-blue-700'
+                    ? 'bg-black hover:bg-neutral-800'
+                    : 'bg-black hover:bg-neutral-800'
                 } text-white`}
                 aria-label="Send message"
               >

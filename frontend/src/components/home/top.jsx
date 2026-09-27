@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Play, CheckCircle } from 'lucide-react';
 
-const rotatingWords = ['AI Agents', 'SaaS Products', 'Workflow Automation', 'Intelligent CRMs'];
+const rotatingWords = ['SaaS Products', 'AI Agents', 'Workflow Automation', 'Intelligent CRMs'];
 
 export default function Toppage({ darkMode = false }) {
   const [wordIndex, setWordIndex] = useState(0);
@@ -62,7 +62,7 @@ export default function Toppage({ darkMode = false }) {
   };
 
   const inputCls = `w-full px-4 py-3.5 rounded-xl text-sm outline-none transition-all duration-200
-    focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600
+    focus:ring-2 focus:ring-neutral-500/30 focus:border-neutral-500
     ${darkMode
       ? 'bg-white/[0.04] border border-white/[0.1] text-white placeholder:text-slate-500'
       : 'bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400'}`;
@@ -79,17 +79,17 @@ export default function Toppage({ darkMode = false }) {
 
   return (
     <>
-      <section className={`relative overflow-hidden ${darkMode ? 'bg-[#030712]' : 'bg-[#ffffff]'}`}>
+      <section className={`relative overflow-hidden ${darkMode ? 'bg-[#000000]' : 'bg-[#ffffff]'}`}>
         {/* Background gradient orbs */}
         <div className="absolute inset-0 pointer-events-none">
           <div className={`absolute top-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full blur-[160px] ${
-            darkMode ? 'bg-blue-600/[0.06]' : 'bg-blue-100/40'
+            darkMode ? 'bg-white/[0.06]' : 'bg-neutral-200/40'
           }`} />
           <div className={`absolute bottom-[-15%] right-[-8%] w-[600px] h-[600px] rounded-full blur-[140px] ${
-            darkMode ? 'bg-blue-700/[0.04]' : 'bg-blue-50/50'
+            darkMode ? 'bg-white/[0.04]' : 'bg-neutral-100/50'
           }`} />
           <div className={`absolute top-[30%] right-[20%] w-[300px] h-[300px] rounded-full blur-[100px] ${
-            darkMode ? 'bg-blue-500/[0.03]' : 'bg-blue-100/30'
+            darkMode ? 'bg-white/[0.03]' : 'bg-neutral-100/30'
           }`} />
         </div>
 
@@ -97,7 +97,7 @@ export default function Toppage({ darkMode = false }) {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.012)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(37,99,235,0.02)' : 'rgba(37,99,235,0.012)'} 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(${darkMode ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)'} 1px, transparent 1px), linear-gradient(90deg, ${darkMode ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)'} 1px, transparent 1px)`,
             backgroundSize: '72px 72px',
           }}
         />
@@ -105,7 +105,7 @@ export default function Toppage({ darkMode = false }) {
         {/* Radial fade */}
         <div className={`absolute inset-0 pointer-events-none ${
           darkMode
-            ? 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#030712_100%)]'
+            ? 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#000000_100%)]'
             : 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#ffffff_100%)]'
         }`} />
 
@@ -121,14 +121,14 @@ export default function Toppage({ darkMode = false }) {
               <motion.p
                 className={`inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase mb-8 px-4 py-2 rounded-full border ${
                   darkMode
-                    ? 'text-blue-400 bg-blue-600/10 border-blue-600/20'
-                    : 'text-blue-600 bg-blue-50 border-blue-200/60'
+                    ? 'text-neutral-300 bg-white/10 border-white/20'
+                    : 'text-neutral-700 bg-neutral-100 border-neutral-200'
                 }`}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+                <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${darkMode ? 'bg-white' : 'bg-black'}`} />
                 SaaS Development & AI Engineering
               </motion.p>
 
@@ -137,7 +137,7 @@ export default function Toppage({ darkMode = false }) {
                 darkMode ? 'text-white' : 'text-slate-900'
               }`}>
                 We Build{' '}
-                <span className="relative inline-block min-w-[280px] sm:min-w-[340px]">
+                <span className="relative inline-block">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={wordIndex}
@@ -145,7 +145,7 @@ export default function Toppage({ darkMode = false }) {
                       animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                       exit={{ opacity: 0, y: -24, filter: 'blur(4px)' }}
                       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                      className="inline-block bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent"
+                      className="inline-block bg-gradient-to-r from-neutral-400 via-neutral-500 to-neutral-600 bg-clip-text text-transparent"
                     >
                       {rotatingWords[wordIndex]}
                     </motion.span>
@@ -166,7 +166,7 @@ export default function Toppage({ darkMode = false }) {
               <div className="flex flex-col sm:flex-row items-center gap-4 mb-10 justify-center">
                 <Link
                   href="/get-started"
-                  className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5"
+                  className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-white text-sm bg-black transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-black/30 hover:-translate-y-0.5"
                 >
                   Get a Free Consultation
                   <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
@@ -176,10 +176,10 @@ export default function Toppage({ darkMode = false }) {
                   className={`inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 border cursor-pointer ${
                     darkMode
                       ? 'border-white/10 text-slate-300 hover:border-white/20 hover:bg-white/[0.04]'
-                      : 'border-slate-200 text-slate-700 hover:border-blue-200 hover:bg-blue-50/50'
+                      : 'border-slate-200 text-slate-700 hover:border-neutral-300 hover:bg-neutral-50'
                   }`}
                 >
-                  <Play size={16} className="text-blue-600" />
+                  <Play size={16} className="text-neutral-500" />
                   See How It Works
                 </button>
               </div>
@@ -190,7 +190,7 @@ export default function Toppage({ darkMode = false }) {
                   <div key={item} className={`flex items-center gap-2 text-xs font-medium tracking-wide ${
                     darkMode ? 'text-slate-500' : 'text-slate-400'
                   }`}>
-                    <CheckCircle size={14} className="text-blue-600" />
+                    <CheckCircle size={14} className={darkMode ? 'text-neutral-400' : 'text-neutral-500'} />
                     {item}
                   </div>
                 ))}
@@ -211,7 +211,7 @@ export default function Toppage({ darkMode = false }) {
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
-                  className={`px-6 py-8 text-center ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}
+                  className={`px-6 py-8 text-center ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.35 + i * 0.08 }}
@@ -251,7 +251,7 @@ export default function Toppage({ darkMode = false }) {
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
               className={`relative rounded-3xl p-8 w-full max-w-md shadow-2xl ${
                 darkMode
-                  ? 'bg-[#030712] border border-white/[0.08]'
+                  ? 'bg-[#000000] border border-white/[0.08]'
                   : 'bg-white border border-slate-200'
               }`}
             >
@@ -301,15 +301,15 @@ export default function Toppage({ darkMode = false }) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-200 shadow-lg shadow-blue-600/20 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 hover:shadow-blue-600/30"
+                  className="w-full py-3.5 rounded-xl font-semibold text-sm text-white bg-black transition-all duration-200 shadow-lg shadow-black/20 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 hover:shadow-black/30"
                 >
                   {isSubmitting ? 'Sending...' : 'Request Consultation'}
                 </button>
               </form>
 
               <button
-                className={`absolute top-4 right-5 text-2xl leading-none cursor-pointer transition-colors hover:text-blue-600 ${
-                  darkMode ? 'text-slate-500' : 'text-slate-400'
+                className={`absolute top-4 right-5 text-2xl leading-none cursor-pointer transition-colors ${
+                  darkMode ? 'text-slate-500 hover:text-white' : 'text-slate-400 hover:text-black'
                 }`}
                 onClick={() => setShowModal(false)}
               >

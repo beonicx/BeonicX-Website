@@ -55,10 +55,10 @@ const BlogPage = () => {
   return (
     <>
       {/* Header */}
-      <section className={`relative pt-12 pb-16 px-4 ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+      <section className={`relative pt-12 pb-16 px-4 ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
         <div className="absolute inset-0 pointer-events-none">
           <div className={`absolute top-0 right-[10%] w-[500px] h-[500px] rounded-full blur-[140px] ${
-            darkMode ? 'bg-blue-600/[0.06]' : 'bg-blue-100/40'
+            darkMode ? 'bg-neutral-800/[0.06]' : 'bg-neutral-200/40'
           }`} />
         </div>
 
@@ -70,8 +70,8 @@ const BlogPage = () => {
           >
             <span className={`inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 ${
               darkMode
-                ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
-                : 'bg-blue-50 text-blue-600 border border-blue-200/60'
+                ? 'bg-neutral-800/10 text-neutral-300 border border-neutral-600/20'
+                : 'bg-neutral-100 text-neutral-700 border border-neutral-300/60'
             }`}>
               <TrendingUp size={13} />
               Insights & Resources
@@ -81,7 +81,7 @@ const BlogPage = () => {
               darkMode ? 'text-white' : 'text-slate-900'
             }`}>
               The BeonicX{' '}
-              <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-600 bg-clip-text text-transparent">
                 Blog
               </span>
             </h1>
@@ -94,10 +94,10 @@ const BlogPage = () => {
 
             {/* Search */}
             <div className="max-w-xl">
-              <div className={`flex items-center gap-3 rounded-xl px-5 py-3.5 border transition-all duration-200 focus-within:ring-2 focus-within:ring-blue-600/20 ${
+              <div className={`flex items-center gap-3 rounded-xl px-5 py-3.5 border transition-all duration-200 focus-within:ring-2 focus-within:ring-neutral-500/20 ${
                 darkMode
-                  ? 'bg-white/[0.04] border-white/[0.08] focus-within:border-blue-600/40'
-                  : 'bg-slate-50 border-slate-200 focus-within:border-blue-300'
+                  ? 'bg-white/[0.04] border-white/[0.08] focus-within:border-neutral-600/40'
+                  : 'bg-slate-50 border-slate-200 focus-within:border-neutral-400'
               }`}>
                 <Search size={18} className={darkMode ? 'text-slate-500' : 'text-slate-400'} />
                 <input
@@ -117,7 +117,7 @@ const BlogPage = () => {
 
       {/* Category Filter */}
       <div className={`sticky top-16 z-30 ${
-        darkMode ? 'bg-[#030712]/90' : 'bg-white/90'
+        darkMode ? 'bg-[#000000]/90' : 'bg-white/90'
       } backdrop-blur-xl border-b ${darkMode ? 'border-white/[0.06]' : 'border-slate-200/60'}`}>
         <div className="max-w-6xl mx-auto px-4 py-3">
           <div className="flex gap-2 overflow-x-auto scrollbar-hide">
@@ -125,7 +125,7 @@ const BlogPage = () => {
               onClick={() => setSelectedCategory('all')}
               className={`px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
                 selectedCategory === 'all'
-                  ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20'
+                  ? 'bg-neutral-800 text-white shadow-md shadow-black/20'
                   : darkMode
                     ? 'bg-white/[0.05] text-slate-400 hover:text-white hover:bg-white/[0.08]'
                     : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200'
@@ -139,7 +139,7 @@ const BlogPage = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
                   selectedCategory === category
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20'
+                    ? 'bg-neutral-800 text-white shadow-md shadow-black/20'
                     : darkMode
                       ? 'bg-white/[0.05] text-slate-400 hover:text-white hover:bg-white/[0.08]'
                       : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200'
@@ -153,7 +153,7 @@ const BlogPage = () => {
       </div>
 
       {/* Content */}
-      <section className={`py-12 px-4 ${darkMode ? 'bg-[#030712]' : 'bg-slate-50'}`}>
+      <section className={`py-12 px-4 ${darkMode ? 'bg-[#000000]' : 'bg-slate-50'}`}>
         <div className="max-w-6xl mx-auto">
           {filteredPosts.length === 0 ? (
             <motion.div
@@ -186,8 +186,8 @@ const BlogPage = () => {
                   <Link href={`/blog/${featured.slug}`} className="group block">
                     <div className={`rounded-2xl overflow-hidden transition-all duration-300 ${
                       darkMode
-                        ? 'bg-white/[0.03] border border-white/[0.06] hover:border-blue-600/30'
-                        : 'bg-white border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
+                        ? 'bg-white/[0.03] border border-white/[0.06] hover:border-neutral-600/30'
+                        : 'bg-white border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(128,128,128,0.08)]'
                     }`}>
                       <div className="grid md:grid-cols-2 gap-0">
                         {featured.featuredImage && (
@@ -199,7 +199,7 @@ const BlogPage = () => {
                             />
                             {featured.category && (
                               <div className="absolute top-4 left-4">
-                                <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                                <span className="bg-neutral-800 text-white px-3 py-1 rounded-full text-xs font-bold">
                                   {featured.category}
                                 </span>
                               </div>
@@ -218,7 +218,7 @@ const BlogPage = () => {
                             </span>
                           </div>
 
-                          <h2 className={`text-2xl md:text-3xl font-bold mb-4 leading-tight group-hover:text-blue-600 transition-colors ${
+                          <h2 className={`text-2xl md:text-3xl font-bold mb-4 leading-tight group-hover:text-neutral-700 transition-colors ${
                             darkMode ? 'text-white' : 'text-slate-900'
                           }`}>
                             {featured.title}
@@ -230,7 +230,7 @@ const BlogPage = () => {
                             {featured.excerpt}
                           </p>
 
-                          <div className="flex items-center gap-2 text-blue-600 text-sm font-semibold group-hover:gap-3 transition-all">
+                          <div className="flex items-center gap-2 text-neutral-700 text-sm font-semibold group-hover:gap-3 transition-all">
                             Read article <ArrowRight size={15} />
                           </div>
                         </div>
@@ -253,8 +253,8 @@ const BlogPage = () => {
                       <Link href={`/blog/${post.slug}`} className="group block h-full">
                         <div className={`rounded-2xl overflow-hidden h-full transition-all duration-300 ${
                           darkMode
-                            ? 'bg-white/[0.03] border border-white/[0.06] hover:border-blue-600/30 hover:shadow-[0_0_30px_rgba(37,99,235,0.06)]'
-                            : 'bg-white border border-slate-100 shadow-[0_2px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)] hover:border-blue-200'
+                            ? 'bg-white/[0.03] border border-white/[0.06] hover:border-neutral-600/30 hover:shadow-[0_0_30px_rgba(128,128,128,0.06)]'
+                            : 'bg-white border border-slate-100 shadow-[0_2px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(128,128,128,0.08)] hover:border-neutral-300'
                         }`}>
                           {post.featuredImage && (
                             <div className="relative h-48 overflow-hidden">
@@ -265,7 +265,7 @@ const BlogPage = () => {
                               />
                               {post.category && (
                                 <div className="absolute top-3 left-3">
-                                  <span className="bg-blue-600 text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide">
+                                  <span className="bg-neutral-800 text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide">
                                     {post.category}
                                   </span>
                                 </div>
@@ -285,7 +285,7 @@ const BlogPage = () => {
                               </span>
                             </div>
 
-                            <h3 className={`text-lg font-bold mb-2.5 line-clamp-2 leading-snug group-hover:text-blue-600 transition-colors ${
+                            <h3 className={`text-lg font-bold mb-2.5 line-clamp-2 leading-snug group-hover:text-neutral-700 transition-colors ${
                               darkMode ? 'text-white' : 'text-slate-900'
                             }`}>
                               {post.title}
@@ -313,7 +313,7 @@ const BlogPage = () => {
                               </div>
                             )}
 
-                            <span className="flex items-center gap-1.5 text-blue-600 text-xs font-semibold group-hover:gap-2.5 transition-all">
+                            <span className="flex items-center gap-1.5 text-neutral-700 text-xs font-semibold group-hover:gap-2.5 transition-all">
                               Read more <ArrowRight size={13} />
                             </span>
                           </div>

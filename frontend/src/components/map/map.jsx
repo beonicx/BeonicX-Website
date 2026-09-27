@@ -25,7 +25,7 @@ export default function InteractiveMap({ darkMode = false }) {
       y: 21, 
       description: "The City on the Thames",
       coords: "51.5074,-0.1278",
-      color: "blue"
+      color: "black"
     },
     {
       id: 3,
@@ -78,13 +78,13 @@ export default function InteractiveMap({ darkMode = false }) {
     <div className={`w-full h-64 relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 ${
       darkMode 
         ? 'bg-gradient-to-b from-slate-800 to-slate-950 text-white' 
-        : 'bg-gradient-to-b from-blue-100 to-blue-200 text-slate-800'
+        : 'bg-gradient-to-b from-neutral-200 to-neutral-300 text-slate-800'
     }`}>
       {/* Toggle button */}
       <button 
         onClick={toggleView}
         className={`absolute top-3 right-3 z-10 p-2 rounded-full shadow-md transition-all hover:scale-110 ${
-          darkMode ? 'bg-slate-700 text-blue-400 hover:bg-slate-600' : 'bg-white text-blue-600 hover:bg-slate-100'
+          darkMode ? 'bg-slate-700 text-neutral-300 hover:bg-slate-600' : 'bg-white text-neutral-700 hover:bg-slate-100'
         }`}
       >
         {isGlobeView ? <Map size={20} /> : <Globe size={20} />}
@@ -95,7 +95,7 @@ export default function InteractiveMap({ darkMode = false }) {
         <div className="absolute inset-0 flex items-center justify-center">
           <div 
             className={`relative w-48 h-48 rounded-full shadow-xl transition-all hover:shadow-2xl ${
-              darkMode ? 'bg-blue-900' : 'bg-blue-400'
+              darkMode ? 'bg-neutral-950' : 'bg-neutral-600'
             }`}
             style={{ transform: `rotateY(${rotation}deg)` }}
           >
@@ -103,12 +103,12 @@ export default function InteractiveMap({ darkMode = false }) {
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-transparent to-white opacity-30"></div>
             
             {/* Continents */}
-            <div className={`absolute top-1/4 left-1/4 w-8 h-6 rounded-sm transform rotate-12 ${darkMode ? 'bg-blue-800' : 'bg-blue-600'}`}></div>
-            <div className={`absolute top-2/4 left-1/3 w-10 h-8 rounded-md ${darkMode ? 'bg-blue-800' : 'bg-blue-600'}`}></div>
-            <div className={`absolute bottom-1/4 right-1/4 w-12 h-6 rounded-sm transform -rotate-12 ${darkMode ? 'bg-blue-800' : 'bg-blue-600'}`}></div>
+            <div className={`absolute top-1/4 left-1/4 w-8 h-6 rounded-sm transform rotate-12 ${darkMode ? 'bg-neutral-900' : 'bg-neutral-800'}`}></div>
+            <div className={`absolute top-2/4 left-1/3 w-10 h-8 rounded-md ${darkMode ? 'bg-neutral-900' : 'bg-neutral-800'}`}></div>
+            <div className={`absolute bottom-1/4 right-1/4 w-12 h-6 rounded-sm transform -rotate-12 ${darkMode ? 'bg-neutral-900' : 'bg-neutral-800'}`}></div>
 
             {/* Equator line */}
-            <div className={`absolute top-1/2 left-0 w-full h-1 opacity-50 transform -translate-y-1/2 ${darkMode ? 'bg-blue-400' : 'bg-blue-600'}`}></div>
+            <div className={`absolute top-1/2 left-0 w-full h-1 opacity-50 transform -translate-y-1/2 ${darkMode ? 'bg-neutral-600' : 'bg-neutral-800'}`}></div>
             
             {/* Location indicators even on globe - now clickable */}
             {locations.map(location => (
@@ -128,21 +128,21 @@ export default function InteractiveMap({ darkMode = false }) {
         </div>
       ) : (
         /* 2D Map View */
-        <div className={`absolute inset-0 ${darkMode ? 'bg-slate-800' : 'bg-blue-200'}`}>
+        <div className={`absolute inset-0 ${darkMode ? 'bg-slate-800' : 'bg-neutral-300'}`}>
           {/* Map grid lines */}
           <div className="absolute inset-0 grid grid-cols-8 grid-rows-6">
             {Array.from({ length: 48 }).map((_, index) => (
               <div 
                 key={index} 
-                className={`border opacity-30 ${darkMode ? 'border-blue-700' : 'border-blue-300'}`}
+                className={`border opacity-30 ${darkMode ? 'border-neutral-700' : 'border-neutral-400'}`}
               ></div>
             ))}
           </div>
 
           {/* Continent shapes */}
-          <div className={`absolute top-1/4 left-1/4 w-20 h-12 rounded-lg opacity-70 ${darkMode ? 'bg-blue-800' : 'bg-blue-600'}`}></div>
-          <div className={`absolute top-1/3 right-1/4 w-24 h-16 rounded-lg opacity-70 ${darkMode ? 'bg-blue-800' : 'bg-blue-600'}`}></div>
-          <div className={`absolute bottom-1/4 left-1/3 w-32 h-16 rounded-lg opacity-70 ${darkMode ? 'bg-blue-800' : 'bg-blue-600'}`}></div>
+          <div className={`absolute top-1/4 left-1/4 w-20 h-12 rounded-lg opacity-70 ${darkMode ? 'bg-neutral-900' : 'bg-neutral-800'}`}></div>
+          <div className={`absolute top-1/3 right-1/4 w-24 h-16 rounded-lg opacity-70 ${darkMode ? 'bg-neutral-900' : 'bg-neutral-800'}`}></div>
+          <div className={`absolute bottom-1/4 left-1/3 w-32 h-16 rounded-lg opacity-70 ${darkMode ? 'bg-neutral-900' : 'bg-neutral-800'}`}></div>
 
           {/* Map markers - now directly open maps on click */}
           {locations.map(location => (

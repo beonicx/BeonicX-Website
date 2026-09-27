@@ -149,10 +149,10 @@ export default function ContactUs({ darkMode = false }) {
 
   const inputCls = (field) => {
     const hasError = errors[field] && touched[field];
-    return `w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/40 ${
+    return `w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-neutral-500/30 ${
       darkMode
-        ? `bg-white/[0.04] border ${hasError ? 'border-red-500/50' : 'border-white/[0.08]'} text-white placeholder-slate-500 focus:border-blue-500/40`
-        : `bg-white border ${hasError ? 'border-red-400' : 'border-slate-200'} text-slate-900 placeholder-slate-400 focus:border-blue-300`
+        ? `bg-white/[0.04] border ${hasError ? 'border-red-500/50' : 'border-white/[0.08]'} text-white placeholder-slate-500 focus:border-neutral-500/40`
+        : `bg-white border ${hasError ? 'border-red-400' : 'border-slate-200'} text-slate-900 placeholder-slate-400 focus:border-neutral-400`
     }`;
   };
 
@@ -160,13 +160,13 @@ export default function ContactUs({ darkMode = false }) {
   const messageText = submitMessage.replace(/^(success|error):/, '');
 
   return (
-    <main className={darkMode ? 'bg-[#030712]' : 'bg-white'}>
+    <main className={darkMode ? 'bg-[#000000]' : 'bg-white'}>
 
       {/* ═══════════ HERO ═══════════ */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className={`absolute top-[-15%] left-[-5%] w-[600px] h-[600px] rounded-full blur-[150px] ${
-            darkMode ? 'bg-blue-600/[0.08]' : 'bg-blue-100/70'
+            darkMode ? 'bg-white/[0.06]' : 'bg-neutral-200/50'
           }`} />
           <div className={`absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[120px] ${
             darkMode ? 'bg-indigo-600/[0.06]' : 'bg-indigo-50/60'
@@ -181,7 +181,7 @@ export default function ContactUs({ darkMode = false }) {
         />
         <div className={`absolute inset-0 pointer-events-none ${
           darkMode
-            ? 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#030712_80%)]'
+            ? 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#000000_80%)]'
             : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
         }`} />
 
@@ -196,8 +196,8 @@ export default function ContactUs({ darkMode = false }) {
               variants={fadeUp}
               className={`inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-8 ${
                 darkMode
-                  ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                  : 'bg-blue-50 text-blue-600 border border-blue-100'
+                  ? 'bg-white/10 text-neutral-300 border border-white/20'
+                  : 'bg-neutral-100 text-neutral-700 border border-neutral-200'
               }`}
             >
               <Sparkles size={13} />
@@ -211,7 +211,7 @@ export default function ContactUs({ darkMode = false }) {
               }`}
             >
               Let&apos;s Build Something{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neutral-400 via-neutral-500 to-neutral-600 bg-clip-text text-transparent">
                 Remarkable
               </span>
             </motion.h1>
@@ -245,14 +245,14 @@ export default function ContactUs({ darkMode = false }) {
                 <motion.div key={c.label} variants={fadeUp}>
                   <div className={`rounded-2xl p-6 transition-all duration-300 ${
                     darkMode
-                      ? 'bg-[#0a0f1e] border border-white/[0.06]'
+                      ? 'bg-[#0a0a0a] border border-white/[0.06]'
                       : 'bg-white border border-slate-200/80 shadow-[0_4px_20px_rgba(37,99,235,0.04)]'
                   }`}>
                     <div className="flex items-start gap-4">
                       <div className={`w-10 h-10 shrink-0 flex items-center justify-center rounded-xl ${
-                        darkMode ? 'bg-blue-500/10' : 'bg-blue-50'
+                        darkMode ? 'bg-white/[0.06]' : 'bg-neutral-100'
                       }`}>
-                        <c.icon size={18} className="text-blue-500" />
+                        <c.icon size={18} className="text-neutral-500" />
                       </div>
                       <div>
                         <h3 className={`text-sm font-bold mb-1 ${darkMode ? 'text-white' : 'text-slate-900'}`}>{c.label}</h3>
@@ -268,7 +268,7 @@ export default function ContactUs({ darkMode = false }) {
               <motion.div variants={fadeUp}>
                 <div className={`rounded-2xl p-6 ${
                   darkMode
-                    ? 'bg-[#0a0f1e] border border-white/[0.06]'
+                    ? 'bg-[#0a0a0a] border border-white/[0.06]'
                     : 'bg-white border border-slate-200/80 shadow-[0_4px_20px_rgba(37,99,235,0.04)]'
                 }`}>
                   <div className="flex flex-wrap gap-3">
@@ -276,7 +276,7 @@ export default function ContactUs({ darkMode = false }) {
                       <span key={item} className={`inline-flex items-center gap-1.5 text-xs font-medium ${
                         darkMode ? 'text-slate-400' : 'text-slate-500'
                       }`}>
-                        <CheckCircle2 size={12} className="text-blue-500" />
+                        <CheckCircle2 size={12} className="text-neutral-500" />
                         {item}
                       </span>
                     ))}
@@ -295,7 +295,7 @@ export default function ContactUs({ darkMode = false }) {
             >
               <div className={`rounded-2xl p-8 sm:p-10 ${
                 darkMode
-                  ? 'bg-[#0a0f1e] border border-white/[0.06]'
+                  ? 'bg-[#0a0a0a] border border-white/[0.06]'
                   : 'bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(37,99,235,0.06)]'
               }`}>
                 <h2 className={`text-xl font-bold mb-6 tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
@@ -317,7 +317,7 @@ export default function ContactUs({ darkMode = false }) {
                     {/* Name */}
                     <div>
                       <label htmlFor="name" className={`block text-xs font-semibold mb-2 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                        Name <span className="text-blue-500">*</span>
+                        Name <span className="text-neutral-500">*</span>
                       </label>
                       <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} onBlur={handleBlur} className={inputCls('name')} disabled={isSubmitting} placeholder="John Doe" />
                       {errors.name && touched.name && <p className={`mt-1.5 text-xs ${darkMode ? 'text-red-400' : 'text-red-500'}`}>{errors.name}</p>}
@@ -326,7 +326,7 @@ export default function ContactUs({ darkMode = false }) {
                     {/* Email */}
                     <div>
                       <label htmlFor="email" className={`block text-xs font-semibold mb-2 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                        Email <span className="text-blue-500">*</span>
+                        Email <span className="text-neutral-500">*</span>
                       </label>
                       <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} onBlur={handleBlur} className={inputCls('email')} disabled={isSubmitting} placeholder="john@example.com" />
                       {errors.email && touched.email && <p className={`mt-1.5 text-xs ${darkMode ? 'text-red-400' : 'text-red-500'}`}>{errors.email}</p>}
@@ -353,7 +353,7 @@ export default function ContactUs({ darkMode = false }) {
                   {/* Message */}
                   <div className="mb-6">
                     <label htmlFor="message" className={`block text-xs font-semibold mb-2 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                      Message <span className="text-blue-500">*</span>
+                      Message <span className="text-neutral-500">*</span>
                     </label>
                     <textarea id="message" name="message" rows="5" value={formData.message} onChange={handleChange} onBlur={handleBlur} className={inputCls('message')} disabled={isSubmitting} placeholder="Tell us about your project or inquiry..." />
                     <div className="flex justify-between mt-1.5">
@@ -365,7 +365,7 @@ export default function ContactUs({ darkMode = false }) {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                    className="group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl font-semibold text-white text-sm bg-black transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-black/30 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   >
                     {isSubmitting ? (
                       <>
@@ -394,7 +394,7 @@ export default function ContactUs({ darkMode = false }) {
           >
             <div className={`rounded-2xl overflow-hidden ${
               darkMode
-                ? 'bg-[#0a0f1e] border border-white/[0.06]'
+                ? 'bg-[#0a0a0a] border border-white/[0.06]'
                 : 'bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(37,99,235,0.06)]'
             }`}>
               <div className="p-6 sm:p-8">

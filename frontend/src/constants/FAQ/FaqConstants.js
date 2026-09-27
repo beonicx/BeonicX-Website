@@ -58,7 +58,7 @@ const FAQ = ({ darkMode }) => {
   };
 
   return (
-    <section className={`relative py-24 overflow-hidden ${darkMode ? 'bg-[#030712]' : 'bg-[#ffffff]'}`}>
+    <section className={`relative py-24 overflow-hidden ${darkMode ? 'bg-[#000000]' : 'bg-[#ffffff]'}`}>
       {darkMode && (
         <div className="absolute inset-0 grid-pattern pointer-events-none opacity-50" />
       )}
@@ -76,8 +76,8 @@ const FAQ = ({ darkMode }) => {
         >
           <span className={`inline-flex items-center gap-1.5 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 ${
             darkMode
-              ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
-              : 'bg-blue-50 text-blue-600 border border-blue-200/60'
+              ? 'bg-neutral-800/10 text-neutral-300 border border-neutral-600/20'
+              : 'bg-neutral-100 text-neutral-700 border border-neutral-300/60'
           }`}>
             <HelpCircle size={14} />
             FAQ
@@ -102,8 +102,8 @@ const FAQ = ({ darkMode }) => {
                 onClick={() => toggleFAQ(index)}
                 className={`rounded-2xl px-6 py-5 cursor-pointer transition-all duration-300 ${
                   darkMode
-                    ? `bg-white/[0.03] border border-white/[0.08] ${activeIndex === index ? 'border-blue-600/30 shadow-[0_0_30px_rgba(37,99,235,0.06)]' : 'hover:border-white/[0.15]'}`
-                    : `bg-white border border-slate-100 ${activeIndex === index ? 'border-blue-200 shadow-[0_4px_24px_rgba(37,99,235,0.08)]' : 'hover:border-slate-200 shadow-[0_2px_12px_rgba(0,0,0,0.03)]'}`
+                    ? `bg-white/[0.03] border border-white/[0.08] ${activeIndex === index ? 'border-neutral-600/30 shadow-[0_0_30px_rgba(128,128,128,0.06)]' : 'hover:border-white/[0.15]'}`
+                    : `bg-white border border-slate-100 ${activeIndex === index ? 'border-neutral-300 shadow-[0_4px_24px_rgba(128,128,128,0.08)]' : 'hover:border-slate-200 shadow-[0_2px_12px_rgba(0,0,0,0.03)]'}`
                 }`}
               >
                 <div className="flex justify-between items-center gap-4">

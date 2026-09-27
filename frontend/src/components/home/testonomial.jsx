@@ -45,7 +45,7 @@ function Testonomial({ darkMode }) {
   }, []);
 
   return (
-    <section className={`relative py-28 overflow-hidden ${darkMode ? 'bg-[#030712]' : 'bg-white'}`}>
+    <section className={`relative py-28 overflow-hidden ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
       {/* Background pattern */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -53,12 +53,12 @@ function Testonomial({ darkMode }) {
           darkMode
             ? {
                 backgroundImage:
-                  'linear-gradient(rgba(37,99,235,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.03) 1px, transparent 1px)',
+                  'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
                 backgroundSize: '48px 48px',
               }
             : {
                 backgroundImage:
-                  'radial-gradient(circle, rgba(37,99,235,0.05) 1px, transparent 1px)',
+                  'radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)',
                 backgroundSize: '24px 24px',
               }
         }
@@ -69,8 +69,8 @@ function Testonomial({ darkMode }) {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
         style={{
           background: darkMode
-            ? 'radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 65%)'
-            : 'radial-gradient(circle, rgba(37,99,235,0.04) 0%, transparent 65%)',
+            ? 'radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 65%)'
+            : 'radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 65%)',
         }}
       />
 
@@ -86,11 +86,11 @@ function Testonomial({ darkMode }) {
           <span
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-widest uppercase mb-6 ${
               darkMode
-                ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20'
-                : 'bg-blue-50 text-blue-600 border border-blue-100'
+                ? 'bg-white/10 text-neutral-300 border border-white/20'
+                : 'bg-neutral-100 text-neutral-700 border border-neutral-200'
             }`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+            <span className="w-1.5 h-1.5 rounded-full bg-neutral-500" />
             Testimonials
           </span>
 
@@ -98,7 +98,7 @@ function Testonomial({ darkMode }) {
             darkMode ? 'text-white' : 'text-slate-900'
           }`}>
             What Our{' '}
-            <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-neutral-500 via-neutral-400 to-neutral-600 bg-clip-text text-transparent">
               Clients
             </span>{' '}
             Say
@@ -126,15 +126,15 @@ function Testonomial({ darkMode }) {
               variants={cardUp}
               className={`group relative rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 ${
                 darkMode
-                  ? 'bg-white/[0.02] border border-white/[0.06] hover:border-blue-600/25 hover:bg-white/[0.04] hover:shadow-[0_0_30px_rgba(37,99,235,0.06)]'
-                  : 'bg-white border border-slate-100 shadow-[0_2px_16px_rgba(0,0,0,0.03)] hover:border-blue-200 hover:shadow-[0_8px_32px_rgba(37,99,235,0.08)]'
+                  ? 'bg-white/[0.02] border border-white/[0.06] hover:border-white/20 hover:bg-white/[0.04] hover:shadow-[0_0_30px_rgba(255,255,255,0.04)]'
+                  : 'bg-white border border-slate-100 shadow-[0_2px_16px_rgba(0,0,0,0.03)] hover:border-neutral-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)]'
               }`}
             >
               {/* Quote mark */}
               <span
                 className="block text-5xl font-serif leading-none mb-4 select-none bg-clip-text text-transparent"
                 style={{
-                  backgroundImage: 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)',
+                  backgroundImage: 'linear-gradient(135deg, #9ca3af 0%, #d1d5db 100%)',
                 }}
                 aria-hidden="true"
               >
@@ -152,7 +152,7 @@ function Testonomial({ darkMode }) {
               <div
                 className="w-10 h-px mb-5"
                 style={{
-                  background: 'linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)',
+                  background: 'linear-gradient(90deg, #6b7280 0%, #9ca3af 100%)',
                 }}
               />
 

@@ -3,12 +3,12 @@ import ServicePageLayout from '../ServicePageLayout';
 import { Globe, Layers, Code, Server, Shield, TrendingUp } from 'lucide-react';
 
 const services = [
-  { icon: Globe, title: 'Sales Pipeline Automation', desc: 'Automate lead scoring, deal tracking, and follow-ups. Visualize your entire sales funnel with real-time pipeline dashboards.', gradient: 'from-blue-600 to-blue-500' },
-  { icon: Layers, title: 'Contact & Lead Management', desc: 'Centralized contact database with smart segmentation, interaction history, tagging, and automated lead nurturing workflows.', gradient: 'from-blue-500 to-indigo-500' },
-  { icon: Code, title: 'Custom Dashboards & Reports', desc: 'Real-time analytics dashboards with KPI tracking, sales forecasting, team performance metrics, and exportable reports.', gradient: 'from-indigo-500 to-blue-600' },
-  { icon: Server, title: 'Communication Tracking', desc: 'Track emails, calls, meetings, and messages in one place. Automatic logging with calendar sync and follow-up reminders.', gradient: 'from-blue-600 to-blue-700' },
-  { icon: Shield, title: 'Third-Party Integrations', desc: 'Connect your CRM with email, payment gateways, marketing tools, accounting software, and any API-based service.', gradient: 'from-blue-500 to-blue-600' },
-  { icon: TrendingUp, title: 'Role-Based Access Control', desc: 'Granular permissions for teams, managers, and admins. Secure data access with audit trails and activity logging.', gradient: 'from-indigo-600 to-blue-600' },
+  { icon: Globe, title: 'Sales Pipeline Automation', desc: 'Automate lead scoring, deal tracking, and follow-ups. Visualize your entire sales funnel with real-time pipeline dashboards.', gradient: 'from-neutral-700 to-neutral-600' },
+  { icon: Layers, title: 'Contact & Lead Management', desc: 'Centralized contact database with smart segmentation, interaction history, tagging, and automated lead nurturing workflows.', gradient: 'from-neutral-600 to-neutral-600' },
+  { icon: Code, title: 'Custom Dashboards & Reports', desc: 'Real-time analytics dashboards with KPI tracking, sales forecasting, team performance metrics, and exportable reports.', gradient: 'from-neutral-600 to-neutral-700' },
+  { icon: Server, title: 'Communication Tracking', desc: 'Track emails, calls, meetings, and messages in one place. Automatic logging with calendar sync and follow-up reminders.', gradient: 'from-neutral-700 to-neutral-800' },
+  { icon: Shield, title: 'Third-Party Integrations', desc: 'Connect your CRM with email, payment gateways, marketing tools, accounting software, and any API-based service.', gradient: 'from-neutral-600 to-neutral-700' },
+  { icon: TrendingUp, title: 'Role-Based Access Control', desc: 'Granular permissions for teams, managers, and admins. Secure data access with audit trails and activity logging.', gradient: 'from-neutral-700 to-neutral-700' },
 ];
 
 const techStacks = [
