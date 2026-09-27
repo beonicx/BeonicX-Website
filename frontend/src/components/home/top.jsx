@@ -151,8 +151,7 @@ export default function Toppage({ darkMode = false }) {
                     </motion.span>
                   </AnimatePresence>
                 </span>
-                <br />
-                That Scale Your Business
+                {' '}That Scale Your Business
               </h1>
 
               {/* Subheading */}
