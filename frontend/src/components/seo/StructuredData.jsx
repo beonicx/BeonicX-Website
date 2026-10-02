@@ -23,7 +23,7 @@ export default function StructuredData() {
     },
     "knowsAbout": [
       "Artificial Intelligence", "Autonomous AI Agents", "Web Development",
-      "Mobile App Development", "CRM Development", "ERP Solutions",
+      "Mobile App Development", "CRM Development", "ERPNext Solutions",
       "Cloud Services", "Voice AI Agents", "Workflow Automation",
       "Machine Learning", "Enterprise Software"
     ],
@@ -57,7 +57,7 @@ export default function StructuredData() {
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Agents Integration", "description": "Autonomous AI agents for customer support, sales automation, data analysis, and multi-agent orchestration.", "url": "https://beonicx.com/services/ai-agents-integration" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Voice Agents Integration", "description": "AI-powered voice agents for inbound/outbound calls, IVR automation, and multilingual conversational support.", "url": "https://beonicx.com/services/voice-agents-integration" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom CRM Development", "description": "Tailored CRM systems that centralize customer data, automate sales pipelines, and drive retention.", "url": "https://beonicx.com/services/crm-development" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ERP Solutions", "description": "Enterprise resource planning systems that unify finance, HR, inventory, and operations.", "url": "https://beonicx.com/services/erp-solutions" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ERPNext Solutions", "description": "Enterprise resource planning systems that unify finance, HR, inventory, and operations.", "url": "https://beonicx.com/services/erp-solutions" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Services", "description": "Cloud migration, DevOps, container orchestration, and infrastructure optimization on AWS, Azure, and GCP.", "url": "https://beonicx.com/services/cloud-services" } }
       ]
     }

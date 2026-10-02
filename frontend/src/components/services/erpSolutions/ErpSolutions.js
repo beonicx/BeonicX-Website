@@ -24,7 +24,7 @@ export default function ErpSolutions({ darkMode }) {
       darkMode={darkMode}
       heroBadge="Enterprise Software Experts"
       heroTitle="Enterprise"
-      heroHighlight="ERP Solutions"
+      heroHighlight="ERPNext Solutions"
       heroDescription="Unify finance, HR, inventory, and operations into one intelligent platform. Custom ERP systems designed to eliminate silos and scale with your business."
       services={services}
       servicesHeading="End-to-end ERP development,"

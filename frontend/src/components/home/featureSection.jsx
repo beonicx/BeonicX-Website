@@ -34,7 +34,7 @@ const defaultFeatures = [
   },
   {
     icon: <FaChartPie />,
-    title: "ERP Solutions",
+    title: "ERPNext Solutions",
     slug: "erp-solutions",
     description: "Unified platforms for finance, HR, inventory, and operations. Streamline your entire business with custom ERP systems that scale as you grow.",
   },

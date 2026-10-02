@@ -24,9 +24,9 @@ export async function generateMetadata({ params }) {
       keywords: ['custom CRM development', 'CRM software', 'sales pipeline automation', 'customer relationship management', 'CRM development company', 'custom CRM India'],
     },
     'erp-solutions': {
-      title: 'Custom ERP Solutions | Enterprise Resource Planning | BeonicX',
+      title: 'Custom ERPNext Solutions | Enterprise Resource Planning | BeonicX',
       description: 'Custom ERP systems that unify finance, HR, inventory, and operations. Scalable enterprise resource planning solutions with real-time analytics and multi-location support.',
-      keywords: ['ERP solutions', 'enterprise resource planning', 'custom ERP development', 'ERP software', 'business management software', 'ERP company India'],
+      keywords: ['ERPNext solutions', 'enterprise resource planning', 'custom ERP development', 'ERP software', 'business management software', 'ERP company India'],
     },
     'ai-agents-integration': {
       title: 'AI Agents Integration Services | Custom LLM & Multi-Agent Solutions | BeonicX',

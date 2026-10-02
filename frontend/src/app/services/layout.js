@@ -3,7 +3,7 @@ export const metadata = {
   description: 'Full-spectrum technology services — AI agents, custom web development, mobile app development, CRM, ERP, cloud infrastructure, and voice AI solutions. From startups to enterprise.',
   keywords: [
     'software development services', 'AI solutions', 'web development company',
-    'mobile app development', 'cloud services', 'CRM development', 'ERP solutions',
+    'mobile app development', 'cloud services', 'CRM development', 'ERPNext solutions',
     'voice AI agents', 'custom software', 'enterprise development', 'BeonicX services',
     'hire developers India', 'IT consulting'
   ],

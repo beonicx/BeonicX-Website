@@ -47,9 +47,9 @@ const defaultServices = [
     gradient: 'from-neutral-600 to-neutral-700',
   },
   {
-    slug: 'erp-solutions',
+    slug: 'erpnext-solutions',
     icon: <BarChart3 size={28} />,
-    title: 'ERP Solutions',
+    title: 'ERPNext Solutions',
     description: 'Enterprise resource planning systems that unify finance, HR, inventory, and operations into one intelligent platform.',
     features: ['Financial Management', 'HR & Payroll Automation', 'Inventory & Supply Chain', 'Project Management', 'Business Intelligence', 'Multi-Location Support'],
     gradient: 'from-neutral-700 to-neutral-700',

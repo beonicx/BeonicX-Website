@@ -28,7 +28,7 @@ We empower businesses through cutting-edge software solutions and transformative
 ## Our Services & Offerings
 - AI-powered software development
 - Custom web and mobile application development
-- CRM and ERP solutions
+- CRM and ERPNext solutions
 - Enterprise automation systems
 - Data analytics and predictive intelligence
 - AI agents and voice agents
