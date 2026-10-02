@@ -73,12 +73,6 @@ const caseStudies = [
   { title: 'Corporate Training App', desc: 'Employee skill development platform with certification tracking.', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop', category: 'Corporate' },
 ];
 
-const faqs = [
-  { q: 'How long does it take to develop an education app?', a: 'Timeline varies based on complexity. Simple apps take 3-4 months, while complex platforms require 6-12 months. We provide detailed timelines after understanding your requirements.' },
-  { q: 'What is the cost of developing an education app?', a: 'Costs depend on platform choice, feature set, design complexity, and integrations. Our team provides detailed quotes after analyzing your specifications.' },
-  { q: 'Do you offer post-launch support and maintenance?', a: 'Yes, we provide comprehensive support including bug fixes, updates, feature enhancements, and technical assistance.' },
-  { q: 'Can you help with education app monetization strategies?', a: 'Absolutely! We implement subscriptions, freemium models, in-app purchases, or licensing based on your goals.' },
-];
 
 export default function Education({ darkMode = false }) {
   return (
@@ -423,33 +417,6 @@ export default function Education({ darkMode = false }) {
         </div>
       </section>
 
-      {/* ═══════════ FAQ ═══════════ */}
-      <section className={`relative py-24 sm:py-32 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-            <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>FAQ</motion.span>
-            <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-              Frequently Asked{' '}
-              <span className={darkMode ? 'text-slate-500' : 'text-slate-400'}>Questions</span>
-            </motion.h2>
-          </motion.div>
-
-          <motion.div className="space-y-4" variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            {faqs.map((faq) => (
-              <motion.div key={faq.q} variants={fadeUp}>
-                <div className={`rounded-2xl p-7 transition-all duration-300 ${
-                  darkMode
-                    ? 'bg-[#0a0a0a] border border-white/[0.06]'
-                    : 'bg-white border border-slate-200/80'
-                }`}>
-                  <h3 className={`text-base font-bold mb-2 tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>{faq.q}</h3>
-                  <p className={`text-sm leading-relaxed ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>{faq.a}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
 
       {/* ═══════════ CTA ═══════════ */}
       <section className="py-20 sm:py-28 px-4">

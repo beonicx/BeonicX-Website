@@ -72,7 +72,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
           ], href: '/services/app-development', onClick: () => { router.push('/services/app-development') }
         },
         { title: 'Custom CRM Development', href: '/services/crm-development', onClick: () => { router.push('/services/crm-development') } },
-        { title: 'ERPNext Solutions', href: '/services/erp-solutions', onClick: () => { router.push('/services/erp-solutions') } },
+        { title: 'ERPNext Solutions', href: '/services/erp-solutions', onClick: () => { router.push('/services/erpnext-solutions') } },
         { title: 'AI Agents Integration', href: '/services/ai-agents-integration', onClick: () => { router.push('/services/ai-agents-integration') } },
         { title: 'Voice Agents Integration', href: '/services/voice-agents-integration', onClick: () => { router.push('/services/voice-agents-integration') } },
       ]

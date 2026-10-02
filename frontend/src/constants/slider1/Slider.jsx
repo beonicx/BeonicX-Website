@@ -6,7 +6,7 @@ import ServicesSlider from '../slider2/servicesSlider';
 import { getProjects, getServices } from '@/lib/api';
 
 const defaultProjects = [
-  { title: "Website Development", description: "Custom website built with React and Next.js", image: "https://images.pexels.com/photos/30885764/pexels-photo-30885764.jpeg" },
+  { title: "Website Development", description: "Custom website built with React and Next.js", image: "https://media.istockphoto.com/id/1479379116/photo/businessman-using-a-computer-and-dashboard-crm-for-management-customer-relationship.jpg?s=1024x1024&w=is&k=20&c=GRXiT7wA62JERuL8A9NgL9zR_OKNufIayCYWbalmhtU=" },
   { title: "Custom CRM Development", description: "Brand identity and logo design for startups", image: "https://images.pexels.com/photos/110078/pexels-photo-110078.jpeg" },
   { title: "SEO Optimization", description: "Improve your website's search engine ranking", image: "https://images.pexels.com/photos/9822732/pexels-photo-9822732.jpeg" },
   { title: "App Development", description: "App Development", image: "https://images.pexels.com/photos/11216260/pexels-photo-11216260.jpeg" },

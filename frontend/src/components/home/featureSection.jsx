@@ -91,7 +91,7 @@ export default function FeatureSection({ darkMode = false }) {
   }, []);
 
   return (
-    <section className={`relative py-28 overflow-hidden ${darkMode ? 'bg-[#000000]' : 'bg-[#ffffff]'}`}>
+    <section className={`relative pt-12 pb-28 overflow-hidden ${darkMode ? 'bg-[#000000]' : 'bg-[#ffffff]'}`}>
       {darkMode && (
         <>
           <div className="absolute top-20 left-[10%] w-[500px] h-[500px] rounded-full bg-white/[0.04] blur-[140px] pointer-events-none" />

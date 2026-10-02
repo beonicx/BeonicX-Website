@@ -50,18 +50,7 @@ export async function getFeaturedProjects() {
   return fetchAPIClient('/projects/featured');
 }
 
-export async function getTestimonials() {
-  return fetchAPIClient('/testimonials');
-}
 
-export async function getFeaturedTestimonials() {
-  return fetchAPIClient('/testimonials/featured');
-}
-
-export async function getFaqs(category) {
-  const endpoint = category ? `/faqs?category=${category}` : '/faqs';
-  return fetchAPIClient(endpoint);
-}
 
 export async function getCaseStudies() {
   return fetchAPIClient('/case-studies');
