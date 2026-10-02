@@ -146,7 +146,7 @@ const ServicesHub = () => {
             : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
         }`} />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-24 sm:pb-32">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-14 sm:pb-18">
           <motion.div
             className="text-center max-w-4xl mx-auto"
             initial="hidden"
@@ -211,14 +211,14 @@ const ServicesHub = () => {
       </section>
 
       {/* ═══════════ SERVICES GRID ═══════════ */}
-      <section id="services" className="relative py-24 sm:py-32">
+      <section id="services" className="relative py-16 sm:py-20">
         {darkMode && (
           <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="max-w-3xl mb-16 lg:mb-20"
+            className="max-w-3xl mb-10 lg:mb-14"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -310,7 +310,7 @@ const ServicesHub = () => {
 
       {/* ═══════════ METRICS STRIP ═══════════ */}
       <section className={darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
           <motion.div
             className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
             variants={stagger}
@@ -342,14 +342,14 @@ const ServicesHub = () => {
       </section>
 
       {/* ═══════════ PROCESS ═══════════ */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
+      <section className="relative py-16 sm:py-20 overflow-hidden">
         {darkMode && (
           <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -420,7 +420,7 @@ const ServicesHub = () => {
       </section>
 
       {/* ═══════════ CTA ═══════════ */}
-      <section className="py-20 sm:py-28 px-4">
+      <section className="py-14 sm:py-20 px-4">
         <motion.div
           className={`relative max-w-5xl mx-auto rounded-3xl overflow-hidden px-8 sm:px-16 py-16 sm:py-20 ${
             darkMode ? 'aurora-dark' : 'aurora-light'

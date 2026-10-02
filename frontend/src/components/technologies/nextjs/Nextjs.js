@@ -141,7 +141,7 @@ export default function Nextjs({ darkMode = false }) {
             : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
         }`} />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-20 sm:pb-28">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-14 sm:pb-18">
           <motion.div
             className="text-center max-w-4xl mx-auto"
             initial="hidden"
@@ -255,14 +255,14 @@ export default function Nextjs({ darkMode = false }) {
       </section>
 
       {/* ═══════════ FEATURED ARTICLES ═══════════ */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-20">
         {darkMode && (
           <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="flex justify-between items-end mb-14"
+            className="flex justify-between items-end mb-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -391,7 +391,7 @@ export default function Nextjs({ darkMode = false }) {
       </section>
 
       {/* ═══════════ CATEGORIES ═══════════ */}
-      <section className={`relative py-24 sm:py-32 ${
+      <section className={`relative py-16 sm:py-20 ${
         darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'
       }`}>
         {darkMode && (
@@ -400,7 +400,7 @@ export default function Nextjs({ darkMode = false }) {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -483,7 +483,7 @@ export default function Nextjs({ darkMode = false }) {
       </section>
 
       {/* ═══════════ NEWSLETTER ═══════════ */}
-      <section className="py-20 sm:py-28 px-4">
+      <section className="py-14 sm:py-20 px-4">
         <motion.div
           className={`relative max-w-5xl mx-auto rounded-3xl overflow-hidden px-8 sm:px-16 py-16 sm:py-20 ${
             darkMode ? 'aurora-dark' : 'aurora-light'
@@ -540,14 +540,14 @@ export default function Nextjs({ darkMode = false }) {
       </section>
 
       {/* ═══════════ LATEST NEWS ═══════════ */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-20">
         {darkMode && (
           <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="flex justify-between items-end mb-14"
+            className="flex justify-between items-end mb-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}

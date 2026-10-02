@@ -43,7 +43,7 @@ const IndustryDetail = ({ industry, darkMode }) => {
             : 'bg-[radial-gradient(ellipse_at_center,transparent_40%,#ffffff_100%)]'
         }`} />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-16">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 sm:pt-18 pb-10">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
             <motion.span
               variants={fadeInUp}
@@ -109,10 +109,10 @@ const IndustryDetail = ({ industry, darkMode }) => {
 
       {/* Features */}
       {industry.features && industry.features.length > 0 && (
-        <section className={`py-24 ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
+        <section className={`py-16 ${darkMode ? 'bg-[#000000]' : 'bg-white'}`}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              className="text-center mb-16"
+              className="text-center mb-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -170,7 +170,7 @@ const IndustryDetail = ({ industry, darkMode }) => {
       )}
 
       {/* CTA */}
-      <section className={`relative py-24 px-4 overflow-hidden ${darkMode ? 'aurora-dark' : 'aurora-light'}`}>
+      <section className={`relative py-16 px-4 overflow-hidden ${darkMode ? 'aurora-dark' : 'aurora-light'}`}>
         <div className={`absolute inset-0 ${darkMode ? 'grid-pattern' : ''} pointer-events-none`} />
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-neutral-800/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-neutral-800/10 rounded-full blur-[80px] pointer-events-none" />

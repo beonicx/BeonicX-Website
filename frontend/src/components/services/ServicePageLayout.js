@@ -87,7 +87,7 @@ export default function ServicePageLayout({
             : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
         }`} />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-24 sm:pb-32">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-14 sm:pb-18">
           <motion.div
             className="text-center max-w-4xl mx-auto"
             initial="hidden"
@@ -167,14 +167,14 @@ export default function ServicePageLayout({
       </section>
 
       {/* ═══════════ SERVICES GRID ═══════════ */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-20">
         {darkMode && (
           <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-white/[0.03] blur-[130px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="max-w-3xl mb-16 lg:mb-20"
+            className="max-w-3xl mb-10 lg:mb-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -246,7 +246,7 @@ export default function ServicePageLayout({
       </section>
 
       {/* ═══════════ PROCESS ═══════════ */}
-      <section className={`relative py-24 sm:py-32 overflow-hidden ${
+      <section className={`relative py-16 sm:py-20 overflow-hidden ${
         darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'
       }`}>
         {darkMode && (
@@ -255,7 +255,7 @@ export default function ServicePageLayout({
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-16 lg:mb-20"
+            className="text-center mb-10 lg:mb-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -337,14 +337,14 @@ export default function ServicePageLayout({
       </section>
 
       {/* ═══════════ WHY CHOOSE US ═══════════ */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-20">
         {darkMode && (
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/[0.03] blur-[150px] pointer-events-none" />
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-16 lg:mb-20"
+            className="text-center mb-10 lg:mb-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -420,9 +420,9 @@ export default function ServicePageLayout({
 
       {/* ═══════════ STATS ═══════════ */}
       <section className={darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
           <motion.div
-            className="text-center mb-14"
+            className="text-center mb-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -501,14 +501,14 @@ export default function ServicePageLayout({
 
       {/* ═══════════ TECH STACK ═══════════ */}
       {techStacks && techStacks.length > 0 && (
-        <section className="relative py-24 sm:py-32">
+        <section className="relative py-16 sm:py-20">
           {darkMode && (
             <div className="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-white/[0.03] blur-[130px] pointer-events-none" />
           )}
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              className="text-center mb-16 lg:mb-20"
+              className="text-center mb-10 lg:mb-10"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -598,7 +598,7 @@ export default function ServicePageLayout({
       )}
 
       {/* ═══════════ CTA ═══════════ */}
-      <section className="py-20 sm:py-28 px-4">
+      <section className="py-14 sm:py-20 px-4">
         <motion.div
           className={`relative max-w-5xl mx-auto rounded-3xl overflow-hidden px-8 sm:px-16 py-16 sm:py-20 ${
             darkMode ? 'aurora-dark' : 'aurora-light'

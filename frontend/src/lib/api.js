@@ -32,15 +32,6 @@ export async function getServiceBySlug(slug) {
   return fetchAPIClient(`/services/slug/${slug}`);
 }
 
-export async function getBlogs(params = {}) {
-  const query = new URLSearchParams(params).toString();
-  const endpoint = query ? `/blog?${query}` : '/blog';
-  return fetchAPIClient(endpoint);
-}
-
-export async function getBlogBySlug(slug) {
-  return fetchAPIClient(`/blog/slug/${slug}`);
-}
 
 export async function getProjects() {
   return fetchAPIClient('/projects');

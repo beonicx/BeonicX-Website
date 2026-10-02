@@ -127,11 +127,6 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
       ]
     },
     {
-      name: 'BLOG',
-      href: '/blog',
-      id: 'blog',
-    },
-    {
       name: 'ABOUT US',
       href: '/aboutUs/about',
       id: 'aboutUs',

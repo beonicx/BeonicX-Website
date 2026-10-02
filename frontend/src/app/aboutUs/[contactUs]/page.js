@@ -2,6 +2,7 @@
 import { useEffect, use } from 'react';
 import AboutUs from '@/components/aboutUs/AboutUs';
 import PrivacyPolicyPage from '@/components/privacyPolicy/PrivacyPolicyPage';
+import TermsPage from '@/components/terms&Conditions/TermsPage';
 import { useTheme } from '@/context/ThemeContext';
 
 const aboutMetadata = {
@@ -23,7 +24,11 @@ const aboutMetadata = {
   },
   'terms': {
     title: 'Terms & Conditions | BeonicX',
-    description: 'Terms of Service for BeonicX. By using our services, you agree to the terms and conditions outlined in this document.',
+    description: 'Terms & Conditions for BeonicX. By using our services, you agree to the terms and conditions outlined in this document.',
+  },
+  'terms&Conditions': {
+    title: 'Terms & Conditions | BeonicX',
+    description: 'Terms & Conditions for BeonicX. By using our services, you agree to the terms and conditions outlined in this document.',
   },
 };
 
@@ -65,6 +70,9 @@ const Page = ({ params }) => {
     switch (aboutSlug) {
       case 'privacyPolicy':
         return <PrivacyPolicyPage darkMode={darkMode} />;
+      case 'terms&Conditions':
+      case 'terms':
+        return <TermsPage darkMode={darkMode} />;
       default:
         return <AboutUs darkMode={darkMode} />;
     }

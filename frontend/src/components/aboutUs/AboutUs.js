@@ -88,7 +88,7 @@ export default function AboutUs({ darkMode = false }) {
             : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
         }`} />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-24 sm:pb-32">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-14 sm:pb-18">
           <motion.div
             className="text-center max-w-4xl mx-auto"
             initial="hidden"
@@ -133,7 +133,7 @@ export default function AboutUs({ darkMode = false }) {
 
       {/* ═══════════ STATS ═══════════ */}
       <section className={darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
           <motion.div
             className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
             variants={stagger}
@@ -159,7 +159,7 @@ export default function AboutUs({ darkMode = false }) {
       </section>
 
       {/* ═══════════ OUR STORY ═══════════ */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-20">
         {darkMode && (
           <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
         )}
@@ -211,9 +211,9 @@ export default function AboutUs({ darkMode = false }) {
       </section>
 
       {/* ═══════════ VALUES ═══════════ */}
-      <section className={`relative py-24 sm:py-32 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
+      <section className={`relative py-16 sm:py-20 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div className="text-center mb-10 lg:mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Our Values</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Core{' '}
@@ -247,12 +247,12 @@ export default function AboutUs({ darkMode = false }) {
       </section>
 
       {/* ═══════════ SERVICES ═══════════ */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-20">
         {darkMode && (
           <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
         )}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="max-w-3xl mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div className="max-w-3xl mb-10 lg:mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>What We Do</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Comprehensive solutions,{' '}
@@ -282,9 +282,9 @@ export default function AboutUs({ darkMode = false }) {
       </section>
 
       {/* ═══════════ TEAM ═══════════ */}
-      <section className={`relative py-24 sm:py-32 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
+      <section className={`relative py-16 sm:py-20 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div className="text-center mb-10 lg:mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Leadership</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Meet Our{' '}
@@ -314,12 +314,12 @@ export default function AboutUs({ darkMode = false }) {
       </section>
 
       {/* ═══════════ TIMELINE ═══════════ */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-20">
         {darkMode && (
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-neutral-800/[0.04] blur-[150px] pointer-events-none" />
         )}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div className="text-center mb-10 lg:mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Milestones</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Our{' '}
@@ -355,7 +355,7 @@ export default function AboutUs({ darkMode = false }) {
       </section>
 
       {/* ═══════════ CONTACT INFO ═══════════ */}
-      <section className={`relative py-16 sm:py-20 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
+      <section className={`relative py-12 sm:py-14 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-5"
@@ -386,7 +386,7 @@ export default function AboutUs({ darkMode = false }) {
       </section>
 
       {/* ═══════════ CTA ═══════════ */}
-      <section className="py-20 sm:py-28 px-4">
+      <section className="py-14 sm:py-20 px-4">
         <motion.div
           className={`relative max-w-5xl mx-auto rounded-3xl overflow-hidden px-8 sm:px-16 py-16 sm:py-20 ${
             darkMode ? 'aurora-dark' : 'aurora-light'

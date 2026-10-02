@@ -73,7 +73,7 @@ export default function ServiceDetail({ darkMode, service }) {
             : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
         }`} />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-24 sm:pb-32">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-14 sm:pb-18">
           <motion.div
             className={service.image ? 'flex flex-col lg:flex-row items-center gap-12' : 'text-center max-w-4xl mx-auto'}
             initial="hidden"
@@ -183,7 +183,7 @@ export default function ServiceDetail({ darkMode, service }) {
       {sections.map((section, sectionIdx) => (
         <section
           key={sectionIdx}
-          className={`relative py-24 sm:py-32 ${
+          className={`relative py-16 sm:py-20 ${
             sectionIdx % 2 === 0
               ? ''
               : (darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70')
@@ -195,7 +195,7 @@ export default function ServiceDetail({ darkMode, service }) {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              className="text-center mb-16 lg:mb-20"
+              className="text-center mb-10 lg:mb-10"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -275,14 +275,14 @@ export default function ServiceDetail({ darkMode, service }) {
 
       {/* ═══════════ FEATURES (fallback when no sections) ═══════════ */}
       {sections.length === 0 && features.length > 0 && (
-        <section className="relative py-24 sm:py-32">
+        <section className="relative py-16 sm:py-20">
           {darkMode && (
             <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
           )}
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              className="text-center mb-16 lg:mb-20"
+              className="text-center mb-10 lg:mb-10"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -345,7 +345,7 @@ export default function ServiceDetail({ darkMode, service }) {
 
       {/* ═══════════ PROCESS STEPS ═══════════ */}
       {processSteps.length > 0 && (
-        <section className={`relative py-24 sm:py-32 overflow-hidden ${
+        <section className={`relative py-16 sm:py-20 overflow-hidden ${
           darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'
         }`}>
           {darkMode && (
@@ -354,7 +354,7 @@ export default function ServiceDetail({ darkMode, service }) {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              className="text-center mb-16 lg:mb-20"
+              className="text-center mb-10 lg:mb-10"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -434,9 +434,9 @@ export default function ServiceDetail({ darkMode, service }) {
       {/* ═══════════ STATS ═══════════ */}
       {stats.length > 0 && (
         <section className={darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
             <motion.div
-              className="text-center mb-14"
+              className="text-center mb-10"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -498,14 +498,14 @@ export default function ServiceDetail({ darkMode, service }) {
 
       {/* ═══════════ TECH STACK ═══════════ */}
       {techByCategory.length > 0 && (
-        <section className="relative py-24 sm:py-32">
+        <section className="relative py-16 sm:py-20">
           {darkMode && (
             <div className="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
           )}
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              className="text-center mb-16 lg:mb-20"
+              className="text-center mb-10 lg:mb-10"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -586,7 +586,7 @@ export default function ServiceDetail({ darkMode, service }) {
 
       {/* ═══════════ CTA ═══════════ */}
       {(cta.title || cta.description) && (
-        <section className="py-20 sm:py-28 px-4">
+        <section className="py-14 sm:py-20 px-4">
           <motion.div
             className={`relative max-w-5xl mx-auto rounded-3xl overflow-hidden px-8 sm:px-16 py-16 sm:py-20 ${
               darkMode ? 'aurora-dark' : 'aurora-light'

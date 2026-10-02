@@ -101,7 +101,7 @@ export default function Education({ darkMode = false }) {
             : 'bg-[radial-gradient(ellipse_at_center,transparent_30%,#ffffff_80%)]'
         }`} />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-24 sm:pb-32">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-14 sm:pb-18">
           <motion.div
             className="text-center max-w-4xl mx-auto"
             initial="hidden"
@@ -183,12 +183,12 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* ═══════════ SOLUTIONS ═══════════ */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-20">
         {darkMode && (
           <div className="absolute top-40 right-[5%] w-[500px] h-[500px] rounded-full bg-neutral-800/[0.03] blur-[130px] pointer-events-none" />
         )}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="max-w-3xl mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div className="max-w-3xl mb-10 lg:mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Our Solutions</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Innovative education solutions,{' '}
@@ -218,9 +218,9 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* ═══════════ BENEFITS ═══════════ */}
-      <section className={`relative py-24 sm:py-32 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
+      <section className={`relative py-16 sm:py-20 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div className="text-center mb-10 lg:mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Key Benefits</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Why Choose{' '}
@@ -249,9 +249,9 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* ═══════════ FEATURES ═══════════ */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-20">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div className="text-center mb-10 lg:mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Features</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Powerful App{' '}
@@ -282,9 +282,9 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* ═══════════ PROCESS ═══════════ */}
-      <section className={`relative py-24 sm:py-32 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
+      <section className={`relative py-16 sm:py-20 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div className="text-center mb-10 lg:mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Our Process</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Development{' '}
@@ -320,9 +320,9 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* ═══════════ TECHNOLOGIES ═══════════ */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-20">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div className="text-center mb-10 lg:mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Tech Stack</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Technologies{' '}
@@ -350,9 +350,9 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* ═══════════ CASE STUDIES ═══════════ */}
-      <section className={`relative py-24 sm:py-32 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
+      <section className={`relative py-16 sm:py-20 ${darkMode ? 'bg-white/[0.02]' : 'bg-slate-50/70'}`}>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div className="text-center mb-10 lg:mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Success Stories</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Case{' '}
@@ -390,9 +390,9 @@ export default function Education({ darkMode = false }) {
       </section>
 
       {/* ═══════════ INDUSTRIES ═══════════ */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-20">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center mb-16 lg:mb-20" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div className="text-center mb-10 lg:mb-14" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.span variants={fadeUp} className={`inline-flex text-[11px] font-semibold tracking-[0.2em] uppercase mb-4 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>Who We Serve</motion.span>
             <motion.h2 variants={fadeUp} className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Industries{' '}
@@ -419,7 +419,7 @@ export default function Education({ darkMode = false }) {
 
 
       {/* ═══════════ CTA ═══════════ */}
-      <section className="py-20 sm:py-28 px-4">
+      <section className="py-14 sm:py-20 px-4">
         <motion.div
           className={`relative max-w-5xl mx-auto rounded-3xl overflow-hidden px-8 sm:px-16 py-16 sm:py-20 ${
             darkMode ? 'aurora-dark' : 'aurora-light'
