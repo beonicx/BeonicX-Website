@@ -10,8 +10,6 @@ import AppDevelopment from '@/components/services/appDevelopment/AppDevelopment'
 import CrmDevelopment from '@/components/services/crmDevelopment/CrmDevelopment';
 import ErpSolutions from '@/components/services/erpSolutions/ErpSolutions';
 import VoiceAgents from '@/components/services/voiceAgents/VoiceAgents';
-import CloudServices from '@/components/services/cloudServices/CloudServices';
-
 const fallbackComponents = {
   'website-development': WebDevelopment,
   'web-development': WebDevelopment,
@@ -20,7 +18,6 @@ const fallbackComponents = {
   'crm-development': CrmDevelopment,
   'erp-solutions': ErpSolutions,
   'voice-agents-integration': VoiceAgents,
-  'cloud-services': CloudServices,
 };
 
 const Page = ({ params }) => {

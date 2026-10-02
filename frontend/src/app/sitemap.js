@@ -13,7 +13,6 @@ export default function sitemap() {
     { url: '/services/voice-agents-integration', priority: 0.9, changeFrequency: 'weekly' },
     { url: '/services/crm-development', priority: 0.9, changeFrequency: 'weekly' },
     { url: '/services/erp-solutions', priority: 0.9, changeFrequency: 'weekly' },
-    { url: '/services/cloud-services', priority: 0.85, changeFrequency: 'weekly' },
     { url: '/industry/education', priority: 0.85, changeFrequency: 'weekly' },
     { url: '/industry/healthcare', priority: 0.85, changeFrequency: 'weekly' },
     { url: '/industry/finance', priority: 0.85, changeFrequency: 'weekly' },

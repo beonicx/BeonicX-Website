@@ -38,11 +38,6 @@ export async function generateMetadata({ params }) {
       description: 'Deploy AI-powered voice agents for inbound/outbound calls, IVR automation, appointment scheduling, and real-time multilingual conversational support.',
       keywords: ['voice AI agents', 'AI voice bots', 'IVR automation', 'voice agent development', 'conversational AI', 'AI call center', 'voice AI company'],
     },
-    'cloud-services': {
-      title: 'Cloud Services & DevOps | AWS, Azure, GCP Migration | BeonicX',
-      description: 'Enterprise cloud solutions on AWS, Azure, and GCP. Cloud migration, Kubernetes orchestration, CI/CD pipelines, infrastructure as code, and cost optimization.',
-      keywords: ['cloud services', 'cloud migration', 'DevOps services', 'AWS consulting', 'Kubernetes', 'infrastructure as code', 'cloud development company'],
-    },
   };
 
   const meta = serviceMetadata[serviceSlug] || serviceMetadata['web-development'];
