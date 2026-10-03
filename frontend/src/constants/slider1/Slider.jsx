@@ -6,12 +6,12 @@ import ServicesSlider from '../slider2/servicesSlider';
 import { getProjects, getServices } from '@/lib/api';
 
 const defaultProjects = [
-  { title: "Website Development", description: "Custom website built with React and Next.js", image: "https://media.istockphoto.com/id/1479379116/photo/businessman-using-a-computer-and-dashboard-crm-for-management-customer-relationship.jpg?s=1024x1024&w=is&k=20&c=GRXiT7wA62JERuL8A9NgL9zR_OKNufIayCYWbalmhtU=" },
-  { title: "Custom CRM Development", description: "Brand identity and logo design for startups", image: "https://images.pexels.com/photos/110078/pexels-photo-110078.jpeg" },
-  { title: "SEO Optimization", description: "Improve your website's search engine ranking", image: "https://images.pexels.com/photos/9822732/pexels-photo-9822732.jpeg" },
-  { title: "App Development", description: "App Development", image: "https://images.pexels.com/photos/11216260/pexels-photo-11216260.jpeg" },
-  { title: "ERP Next Solutions", description: "Professional ERP Next Solutions for your business enterprize", image: "https://images.pexels.com/photos/8636589/pexels-photo-8636589.jpeg" },
-  { title: "AI Agents Integration", description: "Grow your brand with effective social campaigns", image: "https://media.istockphoto.com/id/1733631411/photo/maze-and-ai-concept.jpg?s=1024x1024&w=is&k=20&c=rkBmepxe0-Un3oyamHdCnRUT-bJX5F4HdsqqJ71holM=" },
+  { title: "SoundHub", description: "A fully functional e-commerce website with auth, product catalog, cart, and payment gateway integration.", image: "/images/projects/soundhub.png", tags: ["E-Commerce", "Next.js", "Payment Gateway"], link: "https://soundhub-x.vercel.app/" },
+  { title: "Ellie's Hair & Beauty", description: "A premium salon website with CRM integration for appointment booking, service management, and client tracking.", image: "/images/projects/salon-crm.png", tags: ["Salon CRM", "Web Development", "Booking System"], link: "https://www.ellieshairbeauty.com/" },
+  { title: "Tradr", description: "A cross-platform mobile trading app with real-time portfolio tracking, stock search, and wallet management.", image: "/images/projects/tradr.png", tags: ["Mobile App", "React Native", "FinTech"] },
+  { title: "WhatsApp CRM", description: "A comprehensive CRM for WhatsApp with contact management, pipelines, broadcasts, automations, and AI agents.", image: "/images/projects/wacrm.png", tags: ["CRM", "WhatsApp API", "Automation"], link: "https://wacrm.beonicx.com" },
+  { title: "ERPNext Customization", description: "On-demand ERPNext customization for enterprises — accounting, stock, CRM, data import, and reporting modules.", image: "/images/projects/erpnext.png", tags: ["ERPNext", "Enterprise", "Customization"] },
+  { title: "AI Agent for WhatsApp", description: "Intelligent AI agent integrated into WhatsApp for automated customer support, lead qualification, and conversational commerce.", image: "/images/projects/ai-agent-whatsapp.png", tags: ["AI Agent", "WhatsApp", "NLP"] },
 ];
 
 const defaultServices = [
@@ -38,6 +38,8 @@ export default function Slider({ darkMode }) {
           title: p.title,
           description: p.description,
           image: p.image,
+          tags: p.tags || p.technologies,
+          link: p.link,
         }));
         setProjects(mapped);
       }

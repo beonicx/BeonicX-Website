@@ -28,6 +28,11 @@ export async function generateMetadata({ params }) {
       description: 'Terms of Service for BeonicX. By using our AI, web development, and automation services, you agree to these terms and conditions.',
       keywords: ['terms of service', 'terms and conditions', 'BeonicX terms'],
     },
+    'terms&Conditions': {
+      title: 'Terms & Conditions | BeonicX',
+      description: 'Terms of Service for BeonicX. By using our AI, web development, and automation services, you agree to these terms and conditions.',
+      keywords: ['terms of service', 'terms and conditions', 'BeonicX terms'],
+    },
   };
 
   const meta = aboutMetadata[aboutSlug] || aboutMetadata['about'];

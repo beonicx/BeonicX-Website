@@ -186,7 +186,7 @@ const Footer = ({ darkMode }) => {
             <a href="/aboutUs/privacyPolicy" className={`transition-colors duration-200 ${darkMode ? 'hover:text-white' : 'hover:text-black'}`}>
               Privacy Policy
             </a>
-            <a href="/aboutUs/terms&Conditions" className={`transition-colors duration-200 ${darkMode ? 'hover:text-white' : 'hover:text-black'}`}>
+            <a href="/aboutUs/terms%26Conditions" className={`transition-colors duration-200 ${darkMode ? 'hover:text-white' : 'hover:text-black'}`}>
               Terms and Conditions
             </a>
           </div>

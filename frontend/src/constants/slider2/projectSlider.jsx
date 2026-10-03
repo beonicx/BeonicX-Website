@@ -11,6 +11,7 @@ const EnhancedProjectSlider = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeProject, setActiveProject] = useState(null);
+  const [lightboxImage, setLightboxImage] = useState(null);
   const sliderRef = useRef(null);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
@@ -107,6 +108,19 @@ const EnhancedProjectSlider = ({
   const handleMouseEnter = () => setAutoplay(false);
   const handleMouseLeave = () => setAutoplay(true);
 
+  // Lock body scroll and handle Escape when lightbox is open
+  useEffect(() => {
+    if (lightboxImage) {
+      document.body.style.overflow = 'hidden';
+      const handleKey = (e) => { if (e.key === 'Escape') setLightboxImage(null); };
+      window.addEventListener('keydown', handleKey);
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKey);
+      };
+    }
+  }, [lightboxImage]);
+
   return (
     <div className={`w-full relative py-12 transition-colors duration-300 ${
       darkMode 
@@ -133,7 +147,10 @@ const EnhancedProjectSlider = ({
             darkMode ? 'bg-slate-800' : 'bg-white'
           }`}>
             <div className="flex flex-col md:flex-row gap-6">
-              <div className="md:w-1/2 h-64 md:h-96 relative rounded-xl overflow-hidden">
+              <div
+                className="md:w-1/2 h-64 md:h-96 relative rounded-xl overflow-hidden cursor-zoom-in"
+                onClick={() => setLightboxImage(activeProject.image)}
+              >
                 <Image
                   src={activeProject.image}
                   alt={activeProject.title}
@@ -163,9 +180,15 @@ const EnhancedProjectSlider = ({
                     </span>
                   ))}
                 </div>
-                <button className="self-start px-6 py-2 bg-neutral-800 hover:bg-neutral-900 text-white rounded-lg transition-colors shadow-md">
-                  View Details
-                </button>
+                {activeProject.link ? (
+                  <a href={activeProject.link} target="_blank" rel="noopener noreferrer" className="self-start px-6 py-2 bg-neutral-800 hover:bg-neutral-900 text-white rounded-lg transition-colors shadow-md inline-block">
+                    View Live
+                  </a>
+                ) : (
+                  <button className="self-start px-6 py-2 bg-neutral-800 hover:bg-neutral-900 text-white rounded-lg transition-colors shadow-md">
+                    View Details
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -296,6 +319,38 @@ const EnhancedProjectSlider = ({
           </button>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setLightboxImage(null)}
+        >
+          <button
+            onClick={() => setLightboxImage(null)}
+            className="absolute top-4 right-4 z-10 text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors"
+            aria-label="Close lightbox"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+          <div
+            className="relative w-[90vw] h-[85vh] max-w-7xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={lightboxImage}
+              alt="Project preview"
+              fill
+              sizes="90vw"
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -27,6 +27,14 @@ const nextConfig = {
     dangerouslyAllowSVG: false,
     unoptimized: process.env.NODE_ENV === 'development',
   },
+  async rewrites() {
+    return [
+      {
+        source: '/aboutUs/terms%26Conditions',
+        destination: '/aboutUs/terms&Conditions',
+      },
+    ];
+  },
   async headers() {
     return [
       {

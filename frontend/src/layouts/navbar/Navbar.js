@@ -135,7 +135,7 @@ const Navbar = ({ darkMode = false, onToggleDarkMode }) => {
         { title: 'Contact', href: '/aboutUs/contact', onClick: () => router.push('/aboutUs/contact') },
         { title: 'Team', href: '/aboutUs/team', onClick: () => router.push('/aboutUs/team') },
         { title: 'Privacy Policy', href: '/aboutUs/privacyPolicy', onClick: () => router.push('/aboutUs/privacyPolicy') },
-        { title: 'Terms & Conditions', href: '/aboutUs/terms&Conditions', onClick: () => router.push('/aboutUs/terms&Conditions') }
+        { title: 'Terms & Conditions', href: '/aboutUs/terms%26Conditions', onClick: () => router.push('/aboutUs/terms%26Conditions') }
       ]
     }
   ];
